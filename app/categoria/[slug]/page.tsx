@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { getPosts } from '../../../lib/getPosts';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function CategoryPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const posts = await getPosts();
   
   // Filtra articoli per categoria
