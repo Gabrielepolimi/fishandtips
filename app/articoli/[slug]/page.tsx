@@ -92,18 +92,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Genera percorsi statici per tutti gli articoli
-export async function generateStaticParams() {
-  const posts = await sanityClient.fetch(`
-    *[_type == "post" && status == "published"] {
-      slug
-    }
-  `);
-
-  return posts.map((post: { slug: string }) => ({
-    slug: post.slug,
-  }));
-}
+// Disabilita il build statico per ora
+export const dynamic = 'force-dynamic';
 
 async function getPost(slug: string): Promise<Post | null> {
   try {
@@ -149,6 +139,11 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
+  // Controlli di sicurezza per i dati
+  if (!post.title || !post.excerpt || !post.author?.name) {
+    notFound();
+  }
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('it-IT', {
       year: 'numeric',
@@ -163,7 +158,7 @@ export default async function PostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: post.mainImage.asset.url,
+    image: post.mainImage?.asset?.url || '',
     author: {
       '@type': 'Person',
       name: post.author.name,
@@ -251,7 +246,7 @@ export default async function PostPage({ params }: Props) {
         </header>
 
         {/* Immagine principale */}
-        {post.mainImage && (
+        {post.mainImage?.asset?.url && (
           <div className="mb-8">
             <Image
               src={post.mainImage.asset.url}
