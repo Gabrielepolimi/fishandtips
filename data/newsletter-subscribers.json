@@ -1,0 +1,26 @@
+[
+  {
+    "email": "gabriele@joinrs.com",
+    "subscribedAt": "2025-08-10T13:11:04.633Z",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+  },
+  {
+    "email": "gabriedle@joinrs.com",
+    "subscribedAt": "2025-08-10T13:16:13.156Z",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+  },
+  {
+    "email": "gabriele+87789@joinrs.com",
+    "subscribedAt": "2025-08-10T21:16:05.423Z",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+  },
+  {
+    "email": "gabrieljne@joinrs.com",
+    "subscribedAt": "2025-08-10T21:22:32.230Z",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+  }
+]

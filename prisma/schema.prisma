@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id                   String   @id @default(cuid())
+  name                 String
+  email                String   @unique
+  fishingTechniques    String   // JSON array di tecniche
+  newsletterSubscribed Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relazioni
+  activities UserActivity[]
+
+  @@map("users")
+}
+
+// Modello per tracking delle attività utente
+model UserActivity {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String   // newsletter_subscription, newsletter_unsubscription, etc.
+  details   String?  // Dettagli dell'azione
+  createdAt DateTime @default(now())
+
+  // Relazione con User
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_activities")
+}
