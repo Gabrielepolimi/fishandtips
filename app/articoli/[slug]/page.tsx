@@ -163,7 +163,7 @@ export default async function PostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: post.mainImage,
+    image: post.mainImage.asset.url,
     author: {
       '@type': 'Person',
       name: post.author.name,
@@ -254,7 +254,7 @@ export default async function PostPage({ params }: Props) {
         {post.mainImage && (
           <div className="mb-8">
             <Image
-              src={post.mainImage}
+              src={post.mainImage.asset.url}
               alt={post.title}
               width={1200}
               height={630}
