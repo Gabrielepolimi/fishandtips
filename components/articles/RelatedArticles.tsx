@@ -51,7 +51,7 @@ export default function RelatedArticles({ articles, currentArticleId }: RelatedA
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {relatedArticles.map((article) => (
             <Card key={article._id} variant="elevated" className="h-full">
-              <Link href={`/posts/${article.slug.current}`}>
+              <Link href={`/articoli/${article.slug.current}`}>
                 {/* Image */}
                 <div className="aspect-video bg-gray-200 rounded-t-xl overflow-hidden">
                   {article.mainImage?.asset?.url ? (

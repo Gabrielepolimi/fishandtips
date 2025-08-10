@@ -79,7 +79,7 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {articles.slice(0, 6).map((article) => (
             <Card key={article._id} variant="elevated" className="h-full">
-              <Link href={`/posts/${article.slug.current}`}>
+              <Link href={`/articoli/${article.slug.current}`}>
                 {/* Image */}
                 <div className="aspect-video bg-gray-200 rounded-t-xl overflow-hidden">
                   {article.mainImage?.asset?.url ? (

@@ -1,10 +1,10 @@
 import client from '../sanityClient';
 
 export async function getPosts() {
-  return await client.fetch(`*[_type == "post"] | order(_createdAt desc){
+  return await client.fetch(`*[_type == "post" && status == "published"] | order(_createdAt desc){
     _id,
     title,
-    "slug": slug,
+    "slug": slug.current,
     mainImage{
       asset->{url}
     },
