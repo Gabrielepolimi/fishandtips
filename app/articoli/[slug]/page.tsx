@@ -218,7 +218,7 @@ export default async function PostPage({ params }: Props) {
           {/* Meta info */}
           <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
             <div className="flex items-center space-x-4">
-              <span>di {post.author}</span>
+              <span>di {post.author.name}</span>
               <span>•</span>
               <span>{formatDate(post.publishedAt)}</span>
               {post.readingTime && (
