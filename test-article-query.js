@@ -79,13 +79,18 @@ async function testArticleQuery() {
       _id,
       title,
       "slug": slug.current,
-      status
+      status,
+      excerpt,
+      "author": author->name
     }
   `);
   
   console.log(`Trovati ${publishedPosts.length} post pubblicati:`);
   publishedPosts.forEach((post, index) => {
     console.log(`${index + 1}. ${post.title} (slug: ${post.slug})`);
+    console.log(`   - Excerpt: ${post.excerpt || 'MISSING'}`);
+    console.log(`   - Author: ${post.author || 'MISSING'}`);
+    console.log(`   - Status: ${post.status}`);
   });
 
   console.log('\n=== FINE TEST ===');

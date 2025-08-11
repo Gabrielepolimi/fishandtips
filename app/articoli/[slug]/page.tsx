@@ -129,7 +129,7 @@ export default async function PostPage({ params }: Props) {
   }
 
   // Controlli di sicurezza per i dati
-  if (!post.title || !post.excerpt || !post.author) {
+  if (!post.title || !post.author) {
     notFound();
   }
 
@@ -195,9 +195,11 @@ export default async function PostPage({ params }: Props) {
             {post.title}
           </h1>
           
-          <p className="text-xl text-gray-600 mb-6">
-            {post.excerpt}
-          </p>
+          {post.excerpt && (
+            <p className="text-xl text-gray-600 mb-6">
+              {post.excerpt}
+            </p>
+          )}
 
           {/* Meta info */}
           <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
