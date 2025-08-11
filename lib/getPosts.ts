@@ -4,7 +4,7 @@ export async function getPosts() {
   return await client.fetch(`*[_type == "post" && status == "published"] | order(_createdAt desc){
     _id,
     title,
-    "slug": slug.current,
+    slug,
     mainImage{
       asset->{url}
     },
