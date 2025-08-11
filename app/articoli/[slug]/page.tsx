@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
-import { sanityClient } from '../../../sanityClient';
+import { sanityClient, urlFor } from '../../../sanityClient';
 
 interface Post {
   _id: string;
@@ -259,13 +259,32 @@ export default async function PostPage({ params }: Props) {
                 image: ({value}) => {
                   console.log('Debug image value:', value);
                   
-                  // Gestisce diversi formati di immagini da Sanity
-                  let imageUrl = '';
+                  // Usa la funzione urlFor di Sanity per gestire i reference
+                  if (value?.asset) {
+                    const imageUrl = urlFor(value).url();
+                    
+                    return (
+                      <div className="my-6 sm:my-8">
+                        <Image
+                          src={imageUrl}
+                          alt={value.alt || value.caption || 'Immagine articolo'}
+                          width={800}
+                          height={600}
+                          className="w-full h-auto rounded-lg shadow-lg"
+                        />
+                        {value.caption && (
+                          <p className="text-xs sm:text-sm text-gray-500 text-center mt-2 italic">
+                            {value.caption}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  }
                   
+                  // Fallback per altri formati
+                  let imageUrl = '';
                   if (typeof value === 'string') {
                     imageUrl = value;
-                  } else if (value?.asset?.url) {
-                    imageUrl = value.asset.url;
                   } else if (value?.url) {
                     imageUrl = value.url;
                   } else if (value?.src) {
