@@ -101,7 +101,7 @@ async function getPost(slug: string): Promise<Post | null> {
       *[_type == "post" && slug.current == $slug && status == "published"][0] {
         _id,
         title,
-        slug,
+        "slug": slug.current,
         excerpt,
         body,
         publishedAt,
@@ -109,11 +109,11 @@ async function getPost(slug: string): Promise<Post | null> {
         "author": author->name,
         categories[]->{
           title,
-          slug
+          "slug": slug.current
         },
         fishingTechniques[]->{
           title,
-          slug
+          "slug": slug.current
         },
         seoTitle,
         seoDescription,
@@ -177,7 +177,7 @@ export default async function PostPage({ params }: Props) {
       '@type': 'WebPage',
       '@id': `https://fishandtips.it/articoli/${post.slug}`
     },
-    articleSection: post.categories.map((cat: any) => cat.title).join(', '),
+    articleSection: post.categories && post.categories.length > 0 ? post.categories.map((cat: any) => cat.title).join(', ') : '',
     keywords: post.seoKeywords?.join(', ') || 'pesca, tecniche di pesca',
     wordCount: post.body?.length || 0,
   };
@@ -192,7 +192,7 @@ export default async function PostPage({ params }: Props) {
         {/* Header */}
         <header className="mb-8">
           <div className="mb-4">
-            {post.categories.map((category) => (
+            {post.categories && post.categories.length > 0 && post.categories.map((category) => (
               <span
                 key={category.slug}
                 className="inline-block bg-brand-blue/10 text-brand-blue text-sm px-3 py-1 rounded-full mr-2 mb-2"
