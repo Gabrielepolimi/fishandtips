@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { sanityClient } from '../../../sanityClient';
-import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
+import { sanityClient } from '../../../sanityClient';
 
 interface Post {
   _id: string;
@@ -12,9 +12,7 @@ interface Post {
   body: any;
   publishedAt: string;
   mainImage?: string;
-  author: {
-    name: string;
-  };
+  author: string;
   categories: Array<{
     title: string;
     slug: string;
@@ -35,7 +33,6 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-// Genera metadata dinamici per ogni articolo
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
@@ -56,13 +53,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords,
-    authors: [{ name: post.author.name }],
+    authors: [{ name: post.author }],
     openGraph: {
       title,
       description,
       type: 'article',
       publishedTime: post.publishedAt,
-      authors: [post.author.name],
+      authors: [post.author],
       images: [
         {
           url: image,
@@ -132,7 +129,7 @@ export default async function PostPage({ params }: Props) {
   }
 
   // Controlli di sicurezza per i dati
-  if (!post.title || !post.excerpt || !post.author?.name) {
+  if (!post.title || !post.excerpt || !post.author) {
     notFound();
   }
 
@@ -153,7 +150,7 @@ export default async function PostPage({ params }: Props) {
     image: post.mainImage || '',
     author: {
       '@type': 'Person',
-      name: post.author.name,
+      name: post.author,
     },
     publisher: {
       '@type': 'Organization',
@@ -205,7 +202,7 @@ export default async function PostPage({ params }: Props) {
           {/* Meta info */}
           <div className="flex items-center justify-between text-sm text-gray-500 mb-6">
             <div className="flex items-center space-x-4">
-              <span>di {post.author.name}</span>
+              <span>di {post.author}</span>
               <span>•</span>
               <span>{formatDate(post.publishedAt)}</span>
               {post.readingTime && (
