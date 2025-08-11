@@ -11,11 +11,7 @@ interface Post {
   excerpt: string;
   body: any;
   publishedAt: string;
-  mainImage: {
-    asset: {
-      url: string;
-    };
-  };
+  mainImage?: string;
   author: {
     name: string;
   };
@@ -30,11 +26,7 @@ interface Post {
   seoTitle?: string;
   seoDescription?: string;
   seoKeywords?: string[];
-  seoImage?: {
-    asset: {
-      url: string;
-    };
-  };
+  seoImage?: string;
   readingTime?: number;
   status: string;
 }
@@ -57,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = post.seoTitle || post.title;
   const description = post.seoDescription || post.excerpt;
-  const image = post.seoImage?.asset.url || post.mainImage.asset.url;
+  const image = post.seoImage || post.mainImage || '';
   const keywords = post.seoKeywords || ['pesca', 'tecniche di pesca', 'blog pesca'];
 
   return {
@@ -246,10 +238,10 @@ export default async function PostPage({ params }: Props) {
         </header>
 
         {/* Immagine principale */}
-        {post.mainImage?.asset?.url && (
+        {post.mainImage && (
           <div className="mb-8">
             <Image
-              src={post.mainImage.asset.url}
+              src={post.mainImage}
               alt={post.title}
               width={1200}
               height={630}
