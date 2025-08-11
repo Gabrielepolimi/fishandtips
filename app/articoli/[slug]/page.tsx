@@ -150,7 +150,7 @@ export default async function PostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: post.mainImage?.asset?.url || '',
+    image: post.mainImage || '',
     author: {
       '@type': 'Person',
       name: post.author.name,
