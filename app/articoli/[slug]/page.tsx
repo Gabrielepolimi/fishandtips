@@ -256,22 +256,44 @@ export default async function PostPage({ params }: Props) {
             value={post.body} 
             components={{
               types: {
-                image: ({value}) => (
-                  <div className="my-6 sm:my-8">
-                    <Image
-                      src={value.asset.url}
-                      alt={value.alt || 'Immagine articolo'}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto rounded-lg shadow-lg"
-                    />
-                    {value.caption && (
-                      <p className="text-xs sm:text-sm text-gray-500 text-center mt-2 italic">
-                        {value.caption}
-                      </p>
-                    )}
-                  </div>
-                ),
+                image: ({value}) => {
+                  console.log('Debug image value:', value);
+                  
+                  // Gestisce diversi formati di immagini da Sanity
+                  let imageUrl = '';
+                  
+                  if (typeof value === 'string') {
+                    imageUrl = value;
+                  } else if (value?.asset?.url) {
+                    imageUrl = value.asset.url;
+                  } else if (value?.url) {
+                    imageUrl = value.url;
+                  } else if (value?.src) {
+                    imageUrl = value.src;
+                  }
+                  
+                  if (!imageUrl) {
+                    console.warn('Immagine senza URL valido:', value);
+                    return null;
+                  }
+                  
+                  return (
+                    <div className="my-6 sm:my-8">
+                      <Image
+                        src={imageUrl}
+                        alt={value.alt || value.caption || 'Immagine articolo'}
+                        width={800}
+                        height={600}
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                      {value.caption && (
+                        <p className="text-xs sm:text-sm text-gray-500 text-center mt-2 italic">
+                          {value.caption}
+                        </p>
+                      )}
+                    </div>
+                  );
+                },
               },
               block: {
                 h1: ({children}) => <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-8 sm:mt-12 mb-4 sm:mb-6">{children}</h1>,
