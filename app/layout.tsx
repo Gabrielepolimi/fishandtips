@@ -1,152 +1,131 @@
-import { Nunito } from 'next/font/google';
-import '../styles/globals.css';
-import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
-import CookieBanner from '../components/layout/CookieBanner';
-import GoogleAnalytics from '../components/analytics/GoogleAnalytics';
-import { Metadata } from 'next';
+import type { Metadata } from 'next'
+import { Nunito } from 'next/font/google'
+import './globals.css'
+import CookieBanner from '../components/layout/CookieBanner'
 
-const nunito = Nunito({
+const nunito = Nunito({ 
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-nunito'
-});
+  variable: '--font-nunito',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: {
-    default: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
-    template: '%s | FishandTips'
-  },
+  title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
   description: 'Scopri le migliori tecniche di pesca, consigli esperti e contenuti personalizzati. Blog di pesca con newsletter personalizzata per spinning, bolognese, feeder e molto altro.',
-  keywords: [
-    'pesca',
-    'tecniche di pesca',
-    'blog pesca',
-    'consigli pesca',
-    'spinning',
-    'bolognese',
-    'feeder',
-    'carp fishing',
-    'fly fishing',
-    'pesca sportiva',
-    'pesca in mare',
-    'pesca in lago',
-    'pesca in fiume',
-    'attrezzatura pesca',
-    'esche pesca',
-    'spot pesca',
-    'pesca italiana'
-  ],
   authors: [{ name: 'FishandTips Team' }],
+  manifest: '/manifest.webmanifest',
+  keywords: 'pesca,tecniche di pesca,blog pesca,consigli pesca,spinning,bolognese,feeder,carp fishing,fly fishing,pesca sportiva,pesca in mare,pesca in lago,pesca in fiume,attrezzatura pesca,esche pesca,spot pesca,pesca italiana',
   creator: 'FishandTips',
   publisher: 'FishandTips',
+  robots: 'index, follow',
   category: 'Sports',
   classification: 'Fishing Blog',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://fishandtips.it'),
+  'geo.region': 'IT',
+  'geo.placename': 'Italy',
+  'geo.position': '41.9028;12.4964',
+  'ICBM': '41.9028, 12.4964',
   alternates: {
-    canonical: '/',
+    canonical: 'https://fishandtips.it',
+  },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+    yandex: 'your-yandex-verification-code',
   },
   openGraph: {
-    type: 'website',
-    locale: 'it_IT',
-    url: 'https://fishandtips.it',
     title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
     description: 'Scopri le migliori tecniche di pesca, consigli esperti e contenuti personalizzati per la tua passione. Blog di pesca con newsletter personalizzata.',
+    url: 'https://fishandtips.it',
     siteName: 'FishandTips',
+    locale: 'it_IT',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://fishandtips.it/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'FishandTips - Blog di pesca con consigli esperti',
       },
     ],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
+    creator: '@fishandtips',
     title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
     description: 'Scopri le migliori tecniche di pesca, consigli esperti e contenuti personalizzati per la tua passione.',
-    images: ['/og-image.jpg'],
-    creator: '@fishandtips',
+    images: ['https://fishandtips.it/og-image.jpg'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-  },
-  other: {
-    'geo.region': 'IT',
-    'geo.placename': 'Italy',
-    'geo.position': '41.9028;12.4964',
-    'ICBM': '41.9028, 12.4964',
-  },
-};
+}
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'FishandTips',
-  url: 'https://fishandtips.it',
-  description: 'Blog di pesca con consigli esperti e contenuti personalizzati',
-  publisher: {
-    '@type': 'Organization',
-    name: 'FishandTips',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://fishandtips.it/images/icononly.png'
-    }
-  },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://fishandtips.it/articoli?search={search_term_string}',
-    'query-input': 'required name=search_term_string'
-  }
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="it" className={nunito.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="alternate" type="application/rss+xml" title="FishandTips RSS Feed" href="/feed.xml" />
         
         {/* Google Analytics */}
-        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX'} />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HDF7MPV8ZB"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HDF7MPV8ZB', {
+                page_title: document.title,
+                page_location: window.location.href,
+              });
+              console.log('Google Analytics caricato con ID: G-HDF7MPV8ZB');
+            `,
+          }}
+        />
         
+        {/* JSON-LD Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "FishandTips",
+              "url": "https://fishandtips.it",
+              "description": "Blog di pesca con consigli esperti e contenuti personalizzati",
+              "publisher": {
+                "@type": "Organization",
+                "name": "FishandTips",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://fishandtips.it/images/icononly.png"
+                }
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://fishandtips.it/articoli?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
         />
       </head>
       <body className="font-nunito bg-white text-gray-800">
-        <Navbar />
-        <main>
-          {children}
-        </main>
-        <Footer />
         <CookieBanner />
+        {children}
       </body>
     </html>
-  );
+  )
 }
