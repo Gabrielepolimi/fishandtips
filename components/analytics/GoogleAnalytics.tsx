@@ -35,20 +35,51 @@ export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps)
     window.gtag = gtag;
 
     gtag('js', new Date());
-    gtag('config', measurementId, {
-      page_title: document.title,
-      page_location: window.location.href,
-    });
-
+    
     // Imposta il consenso di default a "denied"
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
       'ad_storage': 'denied'
     });
 
+    // Configura Google Analytics
+    gtag('config', measurementId, {
+      page_title: document.title,
+      page_location: window.location.href,
+    });
+
+    // Funzione per aggiornare il consenso
+    const updateConsent = () => {
+      const cookieConsent = localStorage.getItem('cookieConsent');
+      if (cookieConsent === 'all') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+        // Invia pageview dopo aver aggiornato il consenso
+        gtag('config', measurementId, {
+          page_title: document.title,
+          page_location: window.location.href,
+        });
+      }
+    };
+
+    // Controlla il consenso iniziale
+    updateConsent();
+
+    // Ascolta i cambiamenti di localStorage
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'cookieConsent') {
+        updateConsent();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
     // Cleanup
     return () => {
       document.head.removeChild(script);
+      window.removeEventListener('storage', handleStorageChange);
     };
   }, [measurementId]);
 
