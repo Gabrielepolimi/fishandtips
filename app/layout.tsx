@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import './globals.css'
+import '../styles/globals.css'
 import CookieBanner from '../components/layout/CookieBanner'
 
 const nunito = Nunito({ 
@@ -20,10 +20,6 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   category: 'Sports',
   classification: 'Fishing Blog',
-  'geo.region': 'IT',
-  'geo.placename': 'Italy',
-  'geo.position': '41.9028;12.4964',
-  'ICBM': '41.9028, 12.4964',
   alternates: {
     canonical: 'https://fishandtips.it',
   },
