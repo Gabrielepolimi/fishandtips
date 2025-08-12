@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import '../styles/globals.css'
 import CookieBanner from '../components/layout/CookieBanner'
+import Navbar from '../components/layout/Navbar'
 
 const nunito = Nunito({ 
   subsets: ['latin'],
@@ -120,6 +121,7 @@ export default function RootLayout({
       </head>
       <body className="font-nunito bg-white text-gray-800">
         <CookieBanner />
+        <Navbar />
         {children}
       </body>
     </html>
