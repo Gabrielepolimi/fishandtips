@@ -33,6 +33,11 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// Disabilita il build statico per ora
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+// Forza il refresh dei dati
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
@@ -81,9 +86,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Disabilita il build statico per ora
-export const dynamic = 'force-dynamic';
-
 async function getPost(slug: string): Promise<Post | null> {
   try {
     const post = await sanityClient.fetch(`
@@ -111,7 +113,11 @@ async function getPost(slug: string): Promise<Post | null> {
         readingTime,
         status
       }
-    `, { slug });
+    `, { slug }, {
+      // Disabilita il caching per Vercel
+      cache: 'no-store',
+      next: { revalidate: 0 }
+    });
 
     return post;
   } catch (error) {

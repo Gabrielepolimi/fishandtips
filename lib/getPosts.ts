@@ -1,7 +1,7 @@
 import client from '../sanityClient';
 
 export async function getPosts() {
-  return await client.fetch(`*[_type == "post" && status == "published"] | order(_createdAt desc){
+  return await client.fetch(`*[_type == "post" && status == "published"] | order(publishedAt desc){
     _id,
     title,
     slug,
@@ -13,5 +13,9 @@ export async function getPosts() {
     "categories": categories[]->title,
     excerpt,
     body
-  }`);
+  }`, {}, {
+    // Disabilita il caching per Vercel
+    cache: 'no-store',
+    next: { revalidate: 0 }
+  });
 }
