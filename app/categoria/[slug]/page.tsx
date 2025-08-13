@@ -11,10 +11,10 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const categories = [
-    { slug: 'tecniche' },
+    { slug: 'tecniche-di-pesca' },
     { slug: 'attrezzature' },
     { slug: 'consigli' },
-    { slug: 'spot' }
+    { slug: 'spot-di-pesca' }
   ];
   
   return categories;
@@ -38,7 +38,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
   const getCategoryInfo = (slug: string) => {
     switch (slug) {
-      case 'tecniche':
+      case 'tecniche-di-pesca':
         return {
           name: 'Tecniche di Pesca',
           description: 'Scopri le tecniche più efficaci per migliorare la tua pesca',
@@ -56,7 +56,7 @@ export default async function CategoryPage({ params }: PageProps) {
           description: 'Trucchi e segreti per diventare un pescatore esperto',
           color: 'orange'
         };
-      case 'spot':
+      case 'spot-di-pesca':
         return {
           name: 'Spot di Pesca',
           description: 'I migliori luoghi per pescare in Italia',

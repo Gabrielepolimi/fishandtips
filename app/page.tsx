@@ -9,10 +9,10 @@ export default async function HomePage() {
   
   // Definisco le categorie
   const categories = [
-    { name: 'Tecniche', slug: 'tecniche', color: 'blue' },
+    { name: 'Tecniche di Pesca', slug: 'tecniche-di-pesca', color: 'blue' },
     { name: 'Attrezzature', slug: 'attrezzature', color: 'green' },
     { name: 'Consigli', slug: 'consigli', color: 'orange' },
-    { name: 'Spot', slug: 'spot', color: 'purple' }
+    { name: 'Spot di Pesca', slug: 'spot-di-pesca', color: 'purple' }
   ];
   
   return (

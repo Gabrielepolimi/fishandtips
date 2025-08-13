@@ -10,7 +10,7 @@ import Image from 'next/image';
 const categories = [
   { 
     title: 'Tecniche di Pesca', 
-    slug: 'tecniche', 
+    slug: 'tecniche-di-pesca', 
     image: '/images/tecniche.jpg',
     bgColor: 'bg-blue-50',
     textColor: 'text-blue-600',
@@ -26,7 +26,7 @@ const categories = [
   },
   { 
     title: 'Spot di Pesca', 
-    slug: 'spot', 
+    slug: 'spot-di-pesca', 
     image: '/images/spot.jpg',
     bgColor: 'bg-purple-50',
     textColor: 'text-purple-600',
