@@ -13,11 +13,16 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Controlla se l'utente ha già messo like
+  // Controlla se l'utente ha già messo like e calcola il contatore corretto
   useEffect(() => {
     const likedArticles = JSON.parse(localStorage.getItem('fishandtips_liked_articles') || '[]');
-    setIsLiked(likedArticles.includes(articleId));
-  }, [articleId]);
+    const userHasLiked = likedArticles.includes(articleId);
+    setIsLiked(userHasLiked);
+    
+    // Calcola il contatore corretto: like iniziali + like dell'utente
+    const userLikes = userHasLiked ? 1 : 0;
+    setLikes(initialLikes + userLikes);
+  }, [articleId, initialLikes]);
 
   const handleLike = async () => {
     if (isLoading) return;
@@ -31,13 +36,13 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
         // Rimuovi like
         const newLikedArticles = likedArticles.filter((id: string) => id !== articleId);
         localStorage.setItem('fishandtips_liked_articles', JSON.stringify(newLikedArticles));
-        setLikes(prev => prev - 1);
+        setLikes(initialLikes); // Torna ai like iniziali
         setIsLiked(false);
       } else {
         // Aggiungi like
         const newLikedArticles = [...likedArticles, articleId];
         localStorage.setItem('fishandtips_liked_articles', JSON.stringify(newLikedArticles));
-        setLikes(prev => prev + 1);
+        setLikes(initialLikes + 1); // Like iniziali + 1
         setIsLiked(true);
       }
     } catch (error) {
@@ -65,7 +70,7 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
           }`} 
         />
         <span className="font-medium">
-          {likes.toLocaleString('it-IT')}
+          {Math.max(0, likes).toLocaleString('it-IT')}
         </span>
       </button>
     </div>
