@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { sanityClient, urlFor } from '../../../sanityClient';
+import RelatedArticlesCarousel from '../../../components/articles/RelatedArticlesCarousel';
 
 interface Post {
   _id: string;
@@ -373,6 +374,9 @@ export default async function PostPage({ params }: Props) {
             </div>
           </div>
         </footer>
+
+        {/* Carosello articoli correlati */}
+        <RelatedArticlesCarousel currentArticleId={post._id} />
       </article>
     </>
   );
