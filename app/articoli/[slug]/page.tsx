@@ -343,7 +343,7 @@ export default async function PostPage({ params }: Props) {
                       href={value?.href} 
                       target={target}
                       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-                      className="text-brand-blue hover:text-brand-blue-dark underline decoration-2 underline-offset-2 hover:decoration-brand-blue-dark transition-all duration-200 font-medium"
+                      className="text-brand-yellow hover:text-yellow-600 underline decoration-2 underline-offset-2 hover:decoration-yellow-600 transition-all duration-200 font-medium"
                     >
                       {children}
                     </a>

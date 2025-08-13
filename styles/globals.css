@@ -44,7 +44,7 @@ body {
 
 /* Link styles for better visibility */
 .prose a {
-  color: #134D85 !important;
+  color: #FBD874 !important;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
@@ -53,13 +53,6 @@ body {
 }
 
 .prose a:hover {
-  color: #0f3d6b !important;
-  text-decoration-color: #0f3d6b;
-}
-
-/* External link indicator */
-.prose a[target="_blank"]::after {
-  content: " ↗";
-  font-size: 0.8em;
-  opacity: 0.7;
+  color: #f59e0b !important;
+  text-decoration-color: #f59e0b;
 }
