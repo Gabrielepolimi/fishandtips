@@ -335,6 +335,24 @@ export default async function PostPage({ params }: Props) {
                 bullet: ({children}) => <li className="text-base sm:text-lg text-gray-700 ml-3 sm:ml-4">{children}</li>,
                 number: ({children}) => <li className="text-base sm:text-lg text-gray-700 ml-3 sm:ml-4">{children}</li>,
               },
+              marks: {
+                link: ({children, value}) => {
+                  const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+                  return (
+                    <a 
+                      href={value?.href} 
+                      target={target}
+                      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+                      className="text-brand-blue hover:text-brand-blue-dark underline decoration-2 underline-offset-2 hover:decoration-brand-blue-dark transition-all duration-200 font-medium"
+                    >
+                      {children}
+                    </a>
+                  );
+                },
+                strong: ({children}) => <strong className="font-bold text-gray-900">{children}</strong>,
+                em: ({children}) => <em className="italic text-gray-800">{children}</em>,
+                code: ({children}) => <code className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono">{children}</code>,
+              },
             }}
           />
         </div>
