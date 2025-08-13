@@ -29,6 +29,8 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
     const fetchArticles = async () => {
       try {
         console.log('Fetching articles for:', currentArticleId);
+        
+        // Query semplificata per evitare problemi CORS
         const query = `
           *[_type == "post" && status == "published" && _id != $currentId] | order(publishedAt desc) [0...6] {
             _id,
@@ -42,11 +44,18 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
           }
         `;
         
-        const result = await sanityClient.fetch(query, { currentId: currentArticleId });
+        // Aggiungiamo opzioni per evitare cache e problemi CORS
+        const result = await sanityClient.fetch(query, { currentId: currentArticleId }, {
+          cache: 'no-store',
+          next: { revalidate: 0 }
+        });
+        
         console.log('Fetched articles:', result);
-        setArticles(result);
+        setArticles(result || []);
       } catch (error) {
         console.error('Error fetching related articles:', error);
+        // In caso di errore, non mostriamo nulla invece di crashare
+        setArticles([]);
       } finally {
         setLoading(false);
       }
@@ -89,7 +98,15 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
   }
 
   if (articles.length === 0) {
-    return null;
+    return (
+      <div className="mt-16 pt-10 border-t border-gray-200">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Altri Articoli</h2>
+        <div className="text-center py-8">
+          <p className="text-gray-500 text-lg">Non ci sono altri articoli disponibili al momento.</p>
+          <p className="text-gray-400 text-sm mt-2">Torna presto per nuovi contenuti!</p>
+        </div>
+      </div>
+    );
   }
 
   return (
