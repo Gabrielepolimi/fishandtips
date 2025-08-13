@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { sanityClient, urlFor } from '../../../sanityClient';
 import RelatedArticlesCarousel from '../../../components/articles/RelatedArticlesCarousel';
+import LikeButton from '../../../components/articles/LikeButton';
 
 interface Post {
   _id: string;
@@ -28,6 +29,7 @@ interface Post {
   seoImage?: string;
   readingTime?: number;
   status: string;
+  initialLikes?: number;
 }
 
 interface Props {
@@ -112,7 +114,8 @@ async function getPost(slug: string): Promise<Post | null> {
         seoKeywords,
         "seoImage": seoImage.asset->url,
         readingTime,
-        status
+        status,
+        initialLikes
       }
     `, { slug }, {
       // Disabilita il caching per Vercel
@@ -360,18 +363,14 @@ export default async function PostPage({ params }: Props) {
 
         {/* Footer articolo */}
         <footer className="mt-16 pt-10 border-t border-gray-200">
-          <div className="flex items-center justify-between text-base text-gray-500">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-base text-gray-500 space-y-4 sm:space-y-0">
             <div>
               <p className="font-medium">Pubblicato il {formatDate(post.publishedAt)}</p>
             </div>
-            <div className="flex space-x-6">
-              <button className="text-brand-blue hover:text-brand-blue-dark font-medium transition-colors">
-                Condividi
-              </button>
-              <button className="text-brand-blue hover:text-brand-blue-dark font-medium transition-colors">
-                Salva
-              </button>
-            </div>
+            <LikeButton 
+              articleId={post._id} 
+              initialLikes={post.initialLikes || 0} 
+            />
           </div>
         </footer>
 

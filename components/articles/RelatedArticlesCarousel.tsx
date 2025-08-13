@@ -28,6 +28,7 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
   useEffect(() => {
     const fetchArticles = async () => {
       try {
+        console.log('Fetching articles for:', currentArticleId);
         const query = `
           *[_type == "post" && status == "published" && _id != $currentId] | order(publishedAt desc) [0...6] {
             _id,
@@ -42,6 +43,7 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
         `;
         
         const result = await sanityClient.fetch(query, { currentId: currentArticleId });
+        console.log('Fetched articles:', result);
         setArticles(result);
       } catch (error) {
         console.error('Error fetching related articles:', error);
