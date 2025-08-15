@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 interface FishingRod {
   _id: string;
@@ -213,7 +213,7 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
           </thead>
           <tbody>
             {filteredAndSortedRods.map((rod) => (
-              <React.Fragment key={rod._id}>
+              <div key={rod._id}>
                 <tr className="border-b hover:bg-gray-50 transition-colors">
                   <td className="p-4">
                     <div>
@@ -260,7 +260,7 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
                     )}
                   </td>
                                  </tr>
-               </React.Fragment>
+               </div>
             ))}
           </tbody>
         </table>
