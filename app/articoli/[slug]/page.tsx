@@ -5,6 +5,7 @@ import { PortableText } from '@portabletext/react';
 import { sanityClient, urlFor } from '../../../sanityClient';
 import RelatedArticlesCarousel from '../../../components/articles/RelatedArticlesCarousel';
 import LikeButton from '../../../components/articles/LikeButton';
+import FishingRodComparison from '../../../components/articles/FishingRodComparison';
 
 interface Post {
   _id: string;
@@ -30,6 +31,33 @@ interface Post {
   readingTime?: number;
   status: string;
   initialLikes?: number;
+  showFishingRodComparison?: boolean;
+  fishingRodComparisonTitle?: string;
+  selectedProducts?: Array<{
+    productId: string;
+    name: string;
+    brand: string;
+    price: number;
+    length?: number;
+    castingPower?: string;
+    action?: string;
+    experienceLevel: string;
+    badge?: string;
+    quickReview?: string;
+    affiliateLink?: string;
+    image?: string;
+  }>;
+}
+
+interface Article {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  mainImage?: string;
+  publishedAt: string;
+  author: string;
+  readingTime?: number;
 }
 
 interface Props {
@@ -115,7 +143,10 @@ async function getPost(slug: string): Promise<Post | null> {
         "seoImage": seoImage.asset->url,
         readingTime,
         status,
-        initialLikes
+        initialLikes,
+        showFishingRodComparison,
+        fishingRodComparisonTitle,
+        selectedProducts
       }
     `, { slug }, {
       // Disabilita il caching per Vercel
@@ -130,6 +161,31 @@ async function getPost(slug: string): Promise<Post | null> {
   }
 }
 
+async function getRelatedArticles(currentArticleId: string): Promise<Article[]> {
+  try {
+    const articles = await sanityClient.fetch(`
+      *[_type == "post" && status == "published" && _id != $currentId] | order(publishedAt desc) [0...12] {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        "mainImage": mainImage.asset->url,
+        publishedAt,
+        "author": author->name,
+        readingTime
+      }
+    `, { currentId: currentArticleId }, {
+      cache: 'no-store',
+      next: { revalidate: 0 }
+    });
+
+    return articles || [];
+  } catch (error) {
+    console.error('Errore nel recupero articoli correlati:', error);
+    return [];
+  }
+}
+
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getPost(slug);
@@ -137,6 +193,9 @@ export default async function PostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
+
+  // Recupera gli articoli correlati
+  const relatedArticles = await getRelatedArticles(post._id);
 
   // Controlli di sicurezza per i dati
   if (!post.title || !post.author) {
@@ -191,9 +250,9 @@ export default async function PostPage({ params }: Props) {
         {/* Header */}
         <header className="mb-8 sm:mb-12">
           <div className="mb-4 sm:mb-6">
-            {post.categories && post.categories.length > 0 && post.categories.map((category) => (
+            {post.categories && post.categories.length > 0 && post.categories.map((category, index) => (
               <span
-                key={category.slug}
+                key={category.slug || `category-${index}`}
                 className="inline-block bg-brand-blue/10 text-brand-blue text-sm sm:text-base px-3 sm:px-4 py-1 sm:py-2 rounded-full mr-2 sm:mr-3 mb-2 sm:mb-3 font-medium"
               >
                 {category.title}
@@ -224,6 +283,12 @@ export default async function PostPage({ params }: Props) {
                 </>
               )}
             </div>
+            <div className="flex items-center space-x-4">
+              <LikeButton 
+                articleId={post._id} 
+                initialLikes={post.initialLikes || 0} 
+              />
+            </div>
           </div>
 
           {/* Tecniche di pesca */}
@@ -233,9 +298,9 @@ export default async function PostPage({ params }: Props) {
                 🎣 Tecniche trattate:
               </h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
-                {post.fishingTechniques.map((technique) => (
+                {post.fishingTechniques.map((technique, index) => (
                   <span
-                    key={technique.slug}
+                    key={technique.slug || `technique-${index}`}
                     className="inline-block bg-brand-yellow/20 text-gray-800 text-sm sm:text-base px-3 sm:px-4 py-1 sm:py-2 rounded-full font-medium"
                   >
                     {technique.title}
@@ -367,15 +432,19 @@ export default async function PostPage({ params }: Props) {
             <div>
               <p className="font-medium">Pubblicato il {formatDate(post.publishedAt)}</p>
             </div>
-            <LikeButton 
-              articleId={post._id} 
-              initialLikes={post.initialLikes || 0} 
-            />
           </div>
         </footer>
 
-        {/* Carosello articoli correlati */}
-        <RelatedArticlesCarousel currentArticleId={post._id} />
+                  {/* Confronto canne da pesca */}
+          {post.showFishingRodComparison && (
+            <FishingRodComparison 
+              customTitle={post.fishingRodComparisonTitle}
+              selectedProducts={post.selectedProducts}
+            />
+          )}
+
+          {/* Carosello articoli correlati */}
+          <RelatedArticlesCarousel articles={relatedArticles} />
       </article>
     </>
   );

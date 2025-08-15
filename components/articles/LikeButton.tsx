@@ -53,7 +53,10 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-3">
+      <span className="text-sm text-gray-600 font-medium">
+        Utenti che apprezzano questo contenuto:
+      </span>
       <button
         onClick={handleLike}
         disabled={isLoading}
@@ -70,7 +73,7 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
           }`} 
         />
         <span className="font-medium">
-          {Math.max(0, likes).toLocaleString('it-IT')}
+          {Math.max(0, likes)}
         </span>
       </button>
     </div>

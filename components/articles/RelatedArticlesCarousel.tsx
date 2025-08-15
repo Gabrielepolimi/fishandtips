@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { sanityClient } from '../../sanityClient';
 
 interface Article {
   _id: string;
@@ -17,59 +16,26 @@ interface Article {
 }
 
 interface RelatedArticlesCarouselProps {
-  currentArticleId: string;
+  articles: Article[];
 }
 
-export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArticlesCarouselProps) {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function RelatedArticlesCarousel({ articles }: RelatedArticlesCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        console.log('Fetching articles for:', currentArticleId);
-        
-        // Query semplificata per evitare problemi CORS
-        const query = `
-          *[_type == "post" && status == "published" && _id != $currentId] | order(publishedAt desc) [0...6] {
-            _id,
-            title,
-            "slug": slug.current,
-            excerpt,
-            "mainImage": mainImage.asset->url,
-            publishedAt,
-            "author": author->name,
-            readingTime
-          }
-        `;
-        
-        // Aggiungiamo opzioni per evitare cache e problemi CORS
-        const result = await sanityClient.fetch(query, { currentId: currentArticleId }, {
-          cache: 'no-store',
-          next: { revalidate: 0 }
-        });
-        
-        console.log('Fetched articles:', result);
-        setArticles(result || []);
-      } catch (error) {
-        console.error('Error fetching related articles:', error);
-        // In caso di errore, non mostriamo nulla invece di crashare
-        setArticles([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticles();
-  }, [currentArticleId]);
+  // Numero di articoli da mostrare per volta
+  const itemsPerView = 3;
+  const maxIndex = Math.max(0, articles.length - itemsPerView);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % Math.max(1, articles.length - 2));
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + Math.max(1, articles.length - 2)) % Math.max(1, articles.length - 2));
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(Math.max(0, Math.min(index, maxIndex)));
   };
 
   const formatDate = (dateString: string) => {
@@ -79,23 +45,6 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
       day: 'numeric'
     });
   };
-
-  if (loading) {
-    return (
-      <div className="mt-16 pt-10 border-t border-gray-200">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Altri Articoli</h2>
-        <div className="flex space-x-4 overflow-hidden">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex-shrink-0 w-80 sm:w-96 animate-pulse">
-              <div className="bg-gray-200 h-48 rounded-lg mb-4"></div>
-              <div className="bg-gray-200 h-4 rounded mb-2"></div>
-              <div className="bg-gray-200 h-3 rounded w-3/4"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   if (articles.length === 0) {
     return (
@@ -109,6 +58,19 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
     );
   }
 
+  // Se abbiamo meno articoli del numero per vista, mostriamo tutti
+  const articlesToShow = articles.length <= itemsPerView 
+    ? articles 
+    : articles.slice(currentIndex, currentIndex + itemsPerView);
+
+  console.log('🎠 Carousel state:', {
+    articlesCount: articles.length,
+    currentIndex,
+    maxIndex,
+    itemsPerView,
+    articlesToShowCount: articlesToShow.length
+  });
+
   return (
     <div className="mt-16 pt-10 border-t border-gray-200">
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Altri Articoli</h2>
@@ -116,7 +78,7 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
       <div className="relative">
         {/* Carousel container */}
         <div className="flex space-x-6 overflow-hidden">
-          {articles.slice(currentIndex, currentIndex + 3).map((article) => (
+          {articlesToShow.map((article) => (
             <div key={article._id} className="flex-shrink-0 w-80 sm:w-96">
               <Link href={`/articoli/${article.slug}`} className="group">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -164,12 +126,15 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
           ))}
         </div>
 
-        {/* Navigation buttons */}
-        {articles.length > 3 && (
+        {/* Navigation buttons - solo se abbiamo più articoli del numero per vista */}
+        {articles.length > itemsPerView && (
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white border border-gray-200 rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10"
+              disabled={currentIndex === 0}
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white border border-gray-200 rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10 ${
+                currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+              }`}
               aria-label="Articolo precedente"
             >
               <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +144,10 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
             
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white border border-gray-200 rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10"
+              disabled={currentIndex >= maxIndex}
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white border border-gray-200 rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow z-10 ${
+                currentIndex >= maxIndex ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
+              }`}
               aria-label="Articolo successivo"
             >
               <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,13 +157,13 @@ export default function RelatedArticlesCarousel({ currentArticleId }: RelatedArt
           </>
         )}
 
-        {/* Dots indicator */}
-        {articles.length > 3 && (
+        {/* Dots indicator - solo se abbiamo più articoli del numero per vista */}
+        {articles.length > itemsPerView && maxIndex > 0 && (
           <div className="flex justify-center mt-6 space-x-2">
-            {Array.from({ length: Math.max(1, articles.length - 2) }).map((_, index) => (
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
                   index === currentIndex ? 'bg-brand-blue' : 'bg-gray-300'
                 }`}

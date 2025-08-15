@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     email: false,
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'i4LMv2IA4qtDXwenLVOI0BHEDsz0pVRjD_2wd',
     yahoo: 'your-yahoo-verification-code',
     yandex: 'your-yandex-verification-code',
   },
@@ -71,6 +71,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="alternate" type="application/rss+xml" title="FishandTips RSS Feed" href="/feed.xml" />
+        
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="i4LMv2IA4qtDXwenLVOI0BHEDsz0pVRjD_2wd" />
         
         {/* Google Analytics */}
         <script
