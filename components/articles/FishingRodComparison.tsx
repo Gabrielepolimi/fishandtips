@@ -200,12 +200,7 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
               >
                 Range Prezzo {sortBy === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
-              {allRods.some(rod => rod.length > 0) && (
-                <th className="p-4 text-left font-semibold text-base w-1/8">Azione</th>
-              )}
-              {allRods.every(rod => rod.length === 0) && (
-                <th className="p-4 text-left font-semibold text-base w-1/8">Tipo</th>
-              )}
+              <th className="p-4 text-left font-semibold text-base w-1/8">Azione</th>
               <th className="p-4 text-left font-semibold text-base w-1/8">Livello</th>
               <th className="p-4 text-left font-semibold text-base w-2/5">La mia opinione</th>
               <th className="p-4 text-left font-semibold text-base w-1/8">Azioni</th>
@@ -213,54 +208,47 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
           </thead>
           <tbody>
             {filteredAndSortedRods.map((rod) => (
-              <div key={rod._id}>
-                <tr className="border-b hover:bg-gray-50 transition-colors">
-                  <td className="p-4">
-                    <div>
-                      <div className="font-bold text-gray-900 text-base">{rod.name}</div>
-                      <div className="text-sm text-gray-600 font-medium">{rod.brand}</div>
-                    </div>
-                  </td>
-                  <td className="p-4 font-bold text-brand-blue text-base">{formatPriceRange(rod.price)}</td>
-                  {rod.length > 0 && (
-                    <td className="p-4 font-semibold text-gray-800 text-sm">{rod.action}</td>
+              <tr key={rod._id} className="border-b hover:bg-gray-50 transition-colors">
+                <td className="p-4">
+                  <div>
+                    <div className="font-bold text-gray-900 text-base">{rod.name}</div>
+                    <div className="text-sm text-gray-600 font-medium">{rod.brand}</div>
+                  </div>
+                </td>
+                <td className="p-4 font-bold text-brand-blue text-base">{formatPriceRange(rod.price)}</td>
+                <td className="p-4 font-semibold text-gray-800 text-sm">{rod.action || 'N/A'}</td>
+                <td className="p-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    rod.experienceLevel === 'beginner' ? 'bg-green-100 text-green-800' :
+                    rod.experienceLevel === 'intermediate' ? 'bg-brand-yellow text-brand-blue' :
+                    'bg-red-100 text-red-800'
+                  }`}>
+                    {rod.experienceLevel === 'beginner' ? 'Principiante' :
+                     rod.experienceLevel === 'intermediate' ? 'Intermedio' : 'Esperto'}
+                  </span>
+                </td>
+                <td className="p-4">
+                  {rod.quickReview ? (
+                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-3">
+                      {rod.quickReview}
+                    </p>
+                  ) : (
+                    <span className="text-sm text-gray-400">Nessuna recensione</span>
                   )}
-                  {rod.length === 0 && (
-                    <td className="p-4 font-semibold text-gray-800 text-sm">Mulinello</td>
+                </td>
+                <td className="p-4">
+                  {rod.affiliateLink && (
+                    <a 
+                      href={rod.affiliateLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-brand-yellow text-brand-blue px-4 py-2 rounded-lg text-sm font-bold hover:bg-yellow-400 transition-colors shadow-sm block text-center"
+                    >
+                      Visualizza
+                    </a>
                   )}
-                  <td className="p-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                      rod.experienceLevel === 'beginner' ? 'bg-green-100 text-green-800' :
-                      rod.experienceLevel === 'intermediate' ? 'bg-brand-yellow text-brand-blue' :
-                      'bg-red-100 text-red-800'
-                    }`}>
-                      {rod.experienceLevel === 'beginner' ? 'Principiante' :
-                       rod.experienceLevel === 'intermediate' ? 'Intermedio' : 'Esperto'}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    {rod.quickReview ? (
-                      <p className="text-sm text-gray-700 leading-relaxed line-clamp-3">
-                        {rod.quickReview}
-                      </p>
-                    ) : (
-                      <span className="text-sm text-gray-400">Nessuna recensione</span>
-                    )}
-                  </td>
-                  <td className="p-4">
-                    {rod.affiliateLink && (
-                      <a 
-                        href={rod.affiliateLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-brand-yellow text-brand-blue px-4 py-2 rounded-lg text-sm font-bold hover:bg-yellow-400 transition-colors shadow-sm block text-center"
-                      >
-                        Visualizza
-                      </a>
-                    )}
-                  </td>
-                                 </tr>
-               </div>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>
