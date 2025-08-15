@@ -126,33 +126,33 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
 
 
   return (
-    <div className="mt-12 bg-white rounded-xl shadow-xl border border-gray-100 p-8 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold text-brand-blue mb-10 text-center">
+    <div className="mt-8 sm:mt-12 bg-white rounded-xl shadow-xl border border-gray-100 p-4 sm:p-8 max-w-7xl mx-auto">
+      <h2 className="text-2xl sm:text-3xl font-bold text-brand-blue mb-6 sm:mb-10 text-center">
         {customTitle || "Confronta le migliori canne da surfcasting 2025"}
       </h2>
       
       {/* Filtri */}
-      <div className="mb-10 space-y-8">
-        <div className="flex flex-wrap gap-6">
+      <div className="mb-6 sm:mb-10 space-y-4 sm:space-y-8">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           {/* Ricerca */}
-          <div className="flex-1 min-w-[250px]">
+          <div className="flex-1 min-w-[200px] sm:min-w-[250px]">
             <label className="block text-sm font-semibold text-gray-700 mb-2">Cerca prodotti</label>
             <input
               type="text"
               placeholder="Cerca per nome o marca..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all duration-200 text-base"
+              className="w-full px-3 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all duration-200 text-sm sm:text-base"
             />
           </div>
           
           {/* Filtro esperienza */}
-          <div className="min-w-[200px]">
+          <div className="min-w-[150px] sm:min-w-[200px]">
             <label className="block text-sm font-semibold text-gray-700 mb-2">Livello esperienza</label>
             <select
               value={experienceFilter}
               onChange={(e) => setExperienceFilter(e.target.value)}
-              className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all duration-200 bg-white text-base"
+              className="w-full px-3 sm:px-5 py-3 sm:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all duration-200 bg-white text-sm sm:text-base"
             >
               <option value="all">Tutti i livelli</option>
               <option value="beginner">Principiante</option>
@@ -163,11 +163,11 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
         </div>
         
         {/* Range prezzo */}
-        <div className="bg-gray-50 rounded-xl p-6">
-          <label className="block text-lg font-semibold text-brand-blue mb-4">
+        <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
+          <label className="block text-base sm:text-lg font-semibold text-brand-blue mb-3 sm:mb-4">
             Range prezzo: €{priceRange[0]} - €{priceRange[1]}
           </label>
-          <div className="flex gap-6 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
             <input
               type="range"
               min="0"
@@ -189,36 +189,38 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
       </div>
 
       {/* Tabella */}
-      <div className="rounded-xl border border-gray-200">
-        <table className="w-full border-collapse">
+      <div className="rounded-xl border border-gray-200 overflow-x-auto">
+        <table className="w-full border-collapse min-w-[800px]">
           <thead>
             <tr className="bg-brand-blue text-white">
-              <th className="p-4 text-left font-semibold text-base w-1/5">Modello</th>
+              <th className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base w-1/4 sm:w-1/5">Modello</th>
               <th 
-                className="p-4 text-left font-semibold text-base cursor-pointer hover:bg-brand-blue-light transition-colors w-1/8"
+                className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base cursor-pointer hover:bg-brand-blue-light transition-colors w-1/6 sm:w-1/8"
                 onClick={() => handleSort('price')}
               >
-                Range Prezzo {sortBy === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
+                <span className="hidden sm:inline">Range Prezzo</span>
+                <span className="sm:hidden">Prezzo</span>
+                {sortBy === 'price' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
-              <th className="p-4 text-left font-semibold text-base w-1/8">Azione</th>
-              <th className="p-4 text-left font-semibold text-base w-1/8">Livello</th>
-              <th className="p-4 text-left font-semibold text-base w-2/5">La mia opinione</th>
-              <th className="p-4 text-left font-semibold text-base w-1/8">Azioni</th>
+              <th className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base w-1/6 sm:w-1/8">Azione</th>
+              <th className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base w-1/6 sm:w-1/8">Livello</th>
+              <th className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base w-1/3 sm:w-2/5">La mia opinione</th>
+              <th className="p-2 sm:p-4 text-left font-semibold text-sm sm:text-base w-1/6 sm:w-1/8">Azioni</th>
             </tr>
           </thead>
           <tbody>
             {filteredAndSortedRods.map((rod) => (
               <tr key={rod._id} className="border-b hover:bg-gray-50 transition-colors">
-                <td className="p-4">
+                <td className="p-2 sm:p-4">
                   <div>
-                    <div className="font-bold text-gray-900 text-base">{rod.name}</div>
-                    <div className="text-sm text-gray-600 font-medium">{rod.brand}</div>
+                    <div className="font-bold text-gray-900 text-sm sm:text-base">{rod.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-600 font-medium">{rod.brand}</div>
                   </div>
                 </td>
-                <td className="p-4 font-bold text-brand-blue text-base">{formatPriceRange(rod.price)}</td>
-                <td className="p-4 font-semibold text-gray-800 text-sm">{rod.action || 'N/A'}</td>
-                <td className="p-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                <td className="p-2 sm:p-4 font-bold text-brand-blue text-sm sm:text-base">{formatPriceRange(rod.price)}</td>
+                <td className="p-2 sm:p-4 font-semibold text-gray-800 text-xs sm:text-sm">{rod.action || 'N/A'}</td>
+                <td className="p-2 sm:p-4">
+                  <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-bold ${
                     rod.experienceLevel === 'beginner' ? 'bg-green-100 text-green-800' :
                     rod.experienceLevel === 'intermediate' ? 'bg-brand-yellow text-brand-blue' :
                     'bg-red-100 text-red-800'
@@ -227,22 +229,22 @@ export default function FishingRodComparison({ rods = [], customTitle, selectedP
                      rod.experienceLevel === 'intermediate' ? 'Intermedio' : 'Esperto'}
                   </span>
                 </td>
-                <td className="p-4">
+                <td className="p-2 sm:p-4">
                   {rod.quickReview ? (
-                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-3">
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed line-clamp-2 sm:line-clamp-3">
                       {rod.quickReview}
                     </p>
                   ) : (
-                    <span className="text-sm text-gray-400">Nessuna recensione</span>
+                    <span className="text-xs sm:text-sm text-gray-400">Nessuna recensione</span>
                   )}
                 </td>
-                <td className="p-4">
+                <td className="p-2 sm:p-4">
                   {rod.affiliateLink && (
                     <a 
                       href={rod.affiliateLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-brand-yellow text-brand-blue px-4 py-2 rounded-lg text-sm font-bold hover:bg-yellow-400 transition-colors shadow-sm block text-center"
+                      className="bg-brand-yellow text-brand-blue px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-bold hover:bg-yellow-400 transition-colors shadow-sm block text-center"
                     >
                       Visualizza
                     </a>
