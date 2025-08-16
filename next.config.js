@@ -60,15 +60,7 @@ const nextConfig = {
     ];
   },
 
-  // Ottimizzazioni per i motori di ricerca
-  async rewrites() {
-    return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
-    ];
-  },
+
 }
 
 module.exports = nextConfig
