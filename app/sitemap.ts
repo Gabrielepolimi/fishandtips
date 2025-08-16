@@ -85,6 +85,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Articoli dinamici
+  let postPages: any[] = [];
+  
   try {
     const posts = await sanityClient.fetch(`
       *[_type == "post" && status == "published"] {
@@ -97,16 +99,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     `);
 
-    const postPages = posts.map((post: any) => ({
+    postPages = posts.map((post: any) => ({
       url: `${baseUrl}/articoli/${post.slug}`,
       lastModified: new Date(post._updatedAt || post.publishedAt),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     }));
-
-    return [...staticPages, ...categoryPages, ...postPages];
   } catch (error) {
     console.error('Errore nel generare sitemap:', error);
-    return [...staticPages, ...categoryPages];
+    // In caso di errore, continuiamo senza gli articoli dinamici
   }
+
+  return [...staticPages, ...categoryPages, ...postPages];
 }
