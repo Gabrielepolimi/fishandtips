@@ -92,11 +92,6 @@ export default function Footer() {
                   Cookie Policy
                 </Link>
               </li>
-              <li>
-                <Link href="/newsletter/unsubscribe" className="text-gray-300 hover:text-white transition-colors">
-                  Disiscriviti dalla Newsletter
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
