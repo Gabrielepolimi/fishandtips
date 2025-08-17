@@ -3,6 +3,7 @@ import { Nunito } from 'next/font/google'
 import '../styles/globals.css'
 import CookieBanner from '../components/layout/CookieBanner'
 import Navbar from '../components/layout/Navbar'
+import Footer from '../components/layout/Footer'
 
 const nunito = Nunito({ 
   subsets: ['latin'],
@@ -126,6 +127,7 @@ export default function RootLayout({
         <CookieBanner />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
