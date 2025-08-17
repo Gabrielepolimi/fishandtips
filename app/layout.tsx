@@ -73,6 +73,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
         <link rel="alternate" type="application/rss+xml" title="FishandTips RSS Feed" href="/feed.xml" />
         
+        {/* Favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="i4LMv2IA4qtDXwenLVOI0BHEDsz0pVRjD_2wd" />
         
