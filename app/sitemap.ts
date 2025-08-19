@@ -99,12 +99,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     `);
 
-    postPages = posts.map((post: any) => ({
-      url: `${baseUrl}/articoli/${post.slug}`,
-      lastModified: new Date(post._updatedAt || post.publishedAt),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }));
+    postPages = posts.map((post: any) => {
+      // Assicuriamoci che slug sia una stringa
+      const slug = typeof post.slug === 'string' ? post.slug : 
+                   (post.slug && typeof post.slug === 'object' && post.slug.current) ? post.slug.current : 
+                   'articolo';
+      
+      return {
+        url: `${baseUrl}/articoli/${slug}`,
+        lastModified: new Date(post._updatedAt || post.publishedAt),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+      };
+    });
   } catch (error) {
     console.error('Errore nel generare sitemap:', error);
     // In caso di errore, continuiamo senza gli articoli dinamici
