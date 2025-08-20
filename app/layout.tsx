@@ -65,6 +65,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
     <html lang="it" className={nunito.variable}>
       <head>
