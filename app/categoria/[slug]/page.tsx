@@ -20,6 +20,10 @@ export async function generateStaticParams() {
   return categories;
 }
 
+// Disabilita il build statico per ora
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
   const posts = await getPosts();
