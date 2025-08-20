@@ -28,19 +28,27 @@ export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
   const posts = await getPosts();
   
-  // Filtra articoli per categoria
-  const categoryPosts = posts.filter(post => 
-    post.categories?.some(cat => {
-      // Se cat è un oggetto con slug, usa lo slug
-      if (cat && typeof cat === 'object' && cat.slug) {
+  // Filtra articoli per categoria - logica semplificata
+  const categoryPosts = posts.filter(post => {
+    if (!post.categories || post.categories.length === 0) return false;
+    
+    return post.categories.some(cat => {
+      // Debug: log per vedere la struttura
+      console.log('Category:', cat, 'Type:', typeof cat);
+      
+      if (typeof cat === 'object' && cat.slug) {
         return cat.slug === slug;
       }
-      // Se cat è una stringa (title), fallback al metodo precedente
-      const categorySlug = cat.toLowerCase().replace(/\s+/g, '-');
-      const targetSlug = slug.toLowerCase();
-      return categorySlug.includes(targetSlug) || targetSlug.includes(categorySlug);
-    })
-  );
+      
+      if (typeof cat === 'string') {
+        const categorySlug = cat.toLowerCase().replace(/\s+/g, '-');
+        const targetSlug = slug.toLowerCase();
+        return categorySlug.includes(targetSlug) || targetSlug.includes(categorySlug);
+      }
+      
+      return false;
+    });
+  });
 
   // Se non ci sono articoli per questa categoria, mostra 404
   if (categoryPosts.length === 0) {
