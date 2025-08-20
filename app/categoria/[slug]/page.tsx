@@ -26,9 +26,16 @@ export default async function CategoryPage({ params }: PageProps) {
   
   // Filtra articoli per categoria
   const categoryPosts = posts.filter(post => 
-    post.categories?.some(cat => 
-      cat.toLowerCase().includes(slug.toLowerCase())
-    )
+    post.categories?.some(cat => {
+      // Se cat è un oggetto con slug, usa lo slug
+      if (cat && typeof cat === 'object' && cat.slug) {
+        return cat.slug === slug;
+      }
+      // Se cat è una stringa (title), fallback al metodo precedente
+      const categorySlug = cat.toLowerCase().replace(/\s+/g, '-');
+      const targetSlug = slug.toLowerCase();
+      return categorySlug.includes(targetSlug) || targetSlug.includes(categorySlug);
+    })
   );
 
   // Se non ci sono articoli per questa categoria, mostra 404
@@ -180,7 +187,7 @@ export default async function CategoryPage({ params }: PageProps) {
                                 index === 0 ? colors.text + ' ' + colors.bg : 'bg-gray-100 text-gray-600'
                               }`}
                             >
-                              {category}
+                              {typeof category === 'object' ? category.title : category}
                             </span>
                           ))
                         ) : (
