@@ -99,8 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     `);
 
-    console.log('Articoli trovati nella sitemap:', posts.length);
-    console.log('Articoli:', posts.map(p => p.title));
+
 
     postPages = posts.map((post: any) => {
       // Assicuriamoci che slug sia una stringa
