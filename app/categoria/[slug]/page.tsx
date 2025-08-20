@@ -28,27 +28,14 @@ export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
   const posts = await getPosts();
   
-  // Filtra articoli per categoria - logica semplificata
-  const categoryPosts = posts.filter(post => {
-    if (!post.categories || post.categories.length === 0) return false;
-    
-    return post.categories.some(cat => {
-      // Debug: log per vedere la struttura
-      console.log('Category:', cat, 'Type:', typeof cat);
-      
-      if (typeof cat === 'object' && cat.slug) {
-        return cat.slug === slug;
-      }
-      
-      if (typeof cat === 'string') {
-        const categorySlug = cat.toLowerCase().replace(/\s+/g, '-');
-        const targetSlug = slug.toLowerCase();
-        return categorySlug.includes(targetSlug) || targetSlug.includes(categorySlug);
-      }
-      
-      return false;
-    });
-  });
+  // Filtra articoli per categoria - versione semplice
+  const categoryPosts = posts.filter(post => 
+    post.categories?.some(cat => {
+      const categoryName = typeof cat === 'object' ? cat.title : cat;
+      return categoryName.toLowerCase().includes('tecniche') || 
+             categoryName.toLowerCase().includes('pesca');
+    })
+  );
 
   // Se non ci sono articoli per questa categoria, mostra 404
   if (categoryPosts.length === 0) {

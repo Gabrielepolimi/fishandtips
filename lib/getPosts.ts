@@ -10,10 +10,7 @@ export async function getPosts() {
     },
     publishedAt,
     "author": author->name,
-    "categories": categories[]->{
-      title,
-      "slug": slug.current
-    },
+    "categories": categories[]->title,
     excerpt,
     body
   }`, {}, {
