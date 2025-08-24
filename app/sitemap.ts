@@ -3,12 +3,15 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://fishandtips.it';
+  
+  // Forza aggiornamento cache
+  const now = new Date();
 
   // Pagine statiche principali
   const staticPages = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: 'daily' as const,
       priority: 1,
     },
