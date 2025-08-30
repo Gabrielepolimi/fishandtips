@@ -5,11 +5,12 @@ export async function GET() {
   try {
     // Test della connessione a Sanity
     const posts = await sanityClient.fetch(`
-      *[_type == "post" && status == "published"] {
+      *[_type == "post"] {
         slug,
         publishedAt,
         _updatedAt,
-        title
+        title,
+        status
       } | order(publishedAt desc)
     `);
 
@@ -80,7 +81,8 @@ export async function GET() {
         dynamicPages: postPages.length,
         samplePages: allPages.slice(0, 3),
         sanityConnection: 'OK',
-        postsFound: posts.length
+        postsFound: posts.length,
+        allPosts: posts
       }
     });
 
