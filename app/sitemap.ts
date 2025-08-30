@@ -93,7 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   try {
     const posts = await sanityClient.fetch(`
-      *[_type == "article" && status == "published"] {
+      *[_type == "post" && status == "published"] {
         slug,
         publishedAt,
         _updatedAt,

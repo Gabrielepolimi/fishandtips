@@ -5,7 +5,7 @@ export async function GET() {
   try {
     // Test della connessione a Sanity
     const posts = await sanityClient.fetch(`
-      *[_type == "article" && status == "published"] {
+      *[_type == "post" && status == "published"] {
         slug,
         publishedAt,
         _updatedAt,
