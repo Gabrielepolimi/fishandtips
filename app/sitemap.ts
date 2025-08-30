@@ -4,8 +4,9 @@ import { MetadataRoute } from 'next';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://fishandtips.it';
   
-  // Forza aggiornamento cache
+  // Forza aggiornamento cache con timestamp unico
   const now = new Date();
+  const timestamp = now.getTime(); // Timestamp unico per forzare refresh
 
   // Pagine statiche principali
   const staticPages = [
@@ -17,43 +18,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/articoli`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'daily' as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/chi-siamo`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contatti`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/registrazione`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
     {
       url: `${baseUrl}/mappa-del-sito`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'weekly' as const,
       priority: 0.5,
     },
     {
       url: `${baseUrl}/supporto`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
     {
       url: `${baseUrl}/cookie-policy`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'monthly' as const,
       priority: 0.4,
     },
@@ -63,25 +64,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const categoryPages = [
     {
       url: `${baseUrl}/categoria/tecniche`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/categoria/attrezzature`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/categoria/spot`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/categoria/consigli`,
-      lastModified: new Date(),
+      lastModified: new Date(timestamp),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
@@ -131,7 +132,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       return {
         url: `${baseUrl}/articoli/${slug}`,
-        lastModified: new Date(post._updatedAt || post.publishedAt),
+        lastModified: new Date(post._updatedAt || post.publishedAt || timestamp),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       };
