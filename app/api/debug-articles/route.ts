@@ -40,8 +40,8 @@ export async function GET() {
       success: true,
       data: {
         totalArticles: allArticles.length,
-        publishedArticles: allPublished.length,
-        pastArticles: pastArticles.length,
+        publishedArticlesCount: allPublished.length,
+        pastArticlesCount: pastArticles.length,
         allArticles: allArticles,
         publishedArticles: allPublished,
         pastArticles: pastArticles
