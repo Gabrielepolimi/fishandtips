@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   try {
     const posts = await sanityClient.fetch(`
-      *[_type == "post" && status == "published"] {
+      *[_type == "article" && status == "published"] {
         slug,
         publishedAt,
         _updatedAt,
@@ -102,20 +102,46 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }
     `);
 
-
-
     postPages = posts.map((post: any) => {
-      // Assicuriamoci che slug sia una stringa
-      const slug = typeof post.slug === 'string' ? post.slug : 
-                   (post.slug && typeof post.slug === 'object' && post.slug.current) ? post.slug.current : 
-                   'articolo';
+      // Assicuriamoci che slug sia una stringa valida e non contenga caratteri problematici
+      let slug = '';
       
+      if (typeof post.slug === 'string') {
+        slug = post.slug;
+      } else if (post.slug && typeof post.slug === 'object' && post.slug.current) {
+        slug = post.slug.current;
+      } else {
+        // Se non c'è slug valido, usa il titolo per generarne uno
+        slug = post.title ? post.title.toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '') // Rimuovi caratteri speciali
+          .replace(/\s+/g, '-') // Sostituisci spazi con trattini
+          .replace(/-+/g, '-') // Rimuovi trattini multipli
+          .trim() : 'articolo';
+      }
+      
+      // Assicurati che lo slug non sia vuoto
+      if (!slug || slug.trim() === '') {
+        slug = 'articolo';
+      }
+      
+      // Limita la lunghezza dello slug per evitare URL troppo lunghi
+      if (slug.length > 100) {
+        slug = slug.substring(0, 100).replace(/-$/, '');
+      }
+
       return {
         url: `${baseUrl}/articoli/${slug}`,
         lastModified: new Date(post._updatedAt || post.publishedAt),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       };
+    }).filter((page: any) => {
+      // Filtra URL che potrebbero essere problematici
+      return page.url && 
+             page.url.length < 2048 && // Limite URL
+             !page.url.includes('\n') && 
+             !page.url.includes('\r') &&
+             page.url.startsWith('https://');
     });
   } catch (error) {
     console.error('Errore nel generare sitemap:', error);
