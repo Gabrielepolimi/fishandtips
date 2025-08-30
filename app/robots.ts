@@ -33,7 +33,7 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://fishandtips.it/sitemap-static.xml',
+    sitemap: 'https://fishandtips.it/sitemap.xml',
     host: 'https://fishandtips.it',
   };
 }
