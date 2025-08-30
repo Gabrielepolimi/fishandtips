@@ -5,13 +5,13 @@ export async function GET() {
   try {
     // Test della connessione a Sanity
     const posts = await sanityClient.fetch(`
-      *[_type == "post" && status == "published"] {
+      *[_type == "post" && status == "published" && publishedAt <= $now] {
         slug,
         publishedAt,
         _updatedAt,
         title
       } | order(publishedAt desc)[0...5]
-    `);
+    `, { now: new Date().toISOString() });
 
     // Test della generazione sitemap
     const baseUrl = 'https://fishandtips.it';

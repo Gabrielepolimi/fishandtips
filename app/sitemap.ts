@@ -93,7 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   
   try {
     const posts = await sanityClient.fetch(`
-      *[_type == "post" && status == "published"] {
+      *[_type == "post" && status == "published" && publishedAt <= $now] {
         slug,
         publishedAt,
         _updatedAt,
@@ -101,7 +101,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         excerpt,
         "categories": categories[]->title
       }
-    `);
+    `, { now: new Date().toISOString() });
 
     postPages = posts.map((post: any) => {
       // Assicuriamoci che slug sia una stringa valida e non contenga caratteri problematici
