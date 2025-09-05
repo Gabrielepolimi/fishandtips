@@ -164,7 +164,7 @@ async function getPost(slug: string): Promise<Post | null> {
 async function getRelatedArticles(currentArticleId: string): Promise<Article[]> {
   try {
     const articles = await sanityClient.fetch(`
-      *[_type == "post" && status == "published" && _id != $currentId] | order(publishedAt desc) [0...12] {
+      *[_type == "post" && status == "published" && _id != $currentId && publishedAt <= $now] | order(publishedAt desc) [0...12] {
         _id,
         title,
         "slug": slug.current,
@@ -174,7 +174,10 @@ async function getRelatedArticles(currentArticleId: string): Promise<Article[]> 
         "author": author->name,
         readingTime
       }
-    `, { currentId: currentArticleId }, {
+    `, { 
+      currentId: currentArticleId,
+      now: new Date().toISOString()
+    }, {
       cache: 'no-store',
       next: { revalidate: 0 }
     });
