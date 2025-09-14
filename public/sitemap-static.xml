@@ -133,4 +133,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pesca-al-polpo-tecniche-periodi-migliori-e-consigli-pratici</loc>
+    <lastmod>2025-09-08T22:13:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pesca-alla-seppia-tecniche-periodi-migliori-e-consigli-pratici</loc>
+    <lastmod>2025-09-02T21:59:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/bigattino-guida-completa-all-esca-regina-della-pesca</loc>
+    <lastmod>2025-09-22T22:30:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/licenza-di-pesca-in-italia-tipi-costi-regole-e-come-ottenerla</loc>
+    <lastmod>2025-09-15T22:21:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
