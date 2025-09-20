@@ -1,11 +1,39 @@
-'use client';
-
+import { Metadata } from 'next';
 import { 
   Calendar, 
   ArrowRight
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
+  description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli. Guide complete per spinning, bolognese, feeder e molto altro.',
+  keywords: 'articoli pesca, tecniche di pesca, guide pesca, spinning, bolognese, feeder, attrezzature pesca, spot pesca, consigli pesca',
+  openGraph: {
+    title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
+    description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli. Guide complete per spinning, bolognese, feeder e molto altro.',
+    type: 'website',
+    url: 'https://fishandtips.it/articoli',
+    images: [
+      {
+        url: 'https://fishandtips.it/images/articoli.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Articoli di pesca FishandTips',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
+    description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli.',
+    images: ['https://fishandtips.it/images/articoli.jpg'],
+  },
+  alternates: {
+    canonical: 'https://fishandtips.it/articoli',
+  },
+};
 
 const categories = [
   { 

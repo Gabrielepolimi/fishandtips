@@ -2,6 +2,36 @@ import React from 'react';
 import Link from 'next/link';
 import Breadcrumb from '../../components/articles/Breadcrumb';
 import Button from '../../components/ui/Button';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Chi Siamo - FishandTips | Team di Esperti di Pesca',
+  description: 'Scopri il team di FishandTips: esperti di pesca con anni di esperienza che condividono consigli, tecniche e passione per la pesca sportiva.',
+  keywords: 'chi siamo FishandTips, team pesca, esperti pesca, consigli pesca, passione pesca, pesca sportiva',
+  openGraph: {
+    title: 'Chi Siamo - FishandTips | Team di Esperti di Pesca',
+    description: 'Scopri il team di FishandTips: esperti di pesca con anni di esperienza che condividono consigli, tecniche e passione per la pesca sportiva.',
+    type: 'website',
+    url: 'https://fishandtips.it/chi-siamo',
+    images: [
+      {
+        url: 'https://fishandtips.it/images/background.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Team FishandTips',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chi Siamo - FishandTips | Team di Esperti di Pesca',
+    description: 'Scopri il team di FishandTips: esperti di pesca con anni di esperienza che condividono consigli, tecniche e passione per la pesca sportiva.',
+    images: ['https://fishandtips.it/images/background.jpg'],
+  },
+  alternates: {
+    canonical: 'https://fishandtips.it/chi-siamo',
+  },
+};
 
 export default function ChiSiamoPage() {
   return (
