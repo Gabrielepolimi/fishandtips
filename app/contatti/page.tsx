@@ -56,9 +56,33 @@ export default function ContattiPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Contattaci
           </h1>
-          <p className="text-xl text-white max-w-2xl mx-auto">
+          <p className="text-xl text-white max-w-2xl mx-auto mb-8">
             Hai domande, suggerimenti o vuoi collaborare? Siamo qui per te!
           </p>
+          
+          {/* Aggiunta di contenuto ricco per SEO */}
+          <div className="max-w-3xl mx-auto text-left">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+              <h2 className="text-2xl font-bold text-white mb-4">
+                Il Nostro Team di Esperti
+              </h2>
+              <p className="text-lg text-white/90 mb-4">
+                Il team di FishandTips è composto da pescatori esperti con decenni di esperienza sul campo. 
+                Siamo appassionati di pesca sportiva e condividiamo la nostra conoscenza attraverso articoli 
+                dettagliati, guide pratiche e consigli personalizzati.
+              </p>
+              <p className="text-lg text-white/90 mb-4">
+                Ogni membro del nostro team ha una specializzazione specifica: dalla pesca a spinning alla 
+                bolognese, dal surfcasting alla pesca a mosca. Questa diversità ci permette di offrire 
+                contenuti completi e approfonditi per ogni tecnica di pesca.
+              </p>
+              <p className="text-lg text-white/90">
+                Non esitare a contattarci per qualsiasi domanda, dubbio o suggerimento. Siamo sempre felici 
+                di aiutare altri appassionati a migliorare le proprie tecniche e a vivere al meglio la 
+                passione per la pesca sportiva.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

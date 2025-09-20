@@ -112,9 +112,55 @@ export default function RegistrazionePage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Iscriviti alla Newsletter
           </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
             Ricevi contenuti personalizzati basati sulle tue tecniche di pesca preferite
           </p>
+          
+          {/* Aggiunta di contenuto ricco per SEO */}
+          <div className="max-w-3xl mx-auto text-left">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+              <h2 className="text-2xl font-bold text-white mb-4">
+                Perché Iscriverti alla Nostra Newsletter?
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6 text-left">
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    🎯 Contenuti Personalizzati
+                  </h3>
+                  <p className="text-white/90 mb-4">
+                    Ricevi articoli e consigli specifici per le tue tecniche di pesca preferite. 
+                    Niente spam, solo contenuti di valore per la tua passione.
+                  </p>
+                  
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    📚 Guide Esclusive
+                  </h3>
+                  <p className="text-white/90 mb-4">
+                    Accesso anticipato a guide dettagliate, schemi di montature e consigli 
+                    pratici che non trovi altrove.
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    🗓️ Aggiornamenti Regolari
+                  </h3>
+                  <p className="text-white/90 mb-4">
+                    Ricevi i nostri migliori contenuti direttamente nella tua casella email, 
+                    senza dover cercare informazioni sparse sul web.
+                  </p>
+                  
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    🎣 Community di Pescatori
+                  </h3>
+                  <p className="text-white/90">
+                    Entra a far parte di una community di appassionati che condividono la 
+                    tua stessa passione per la pesca sportiva.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

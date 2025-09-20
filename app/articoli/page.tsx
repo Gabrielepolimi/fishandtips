@@ -103,9 +103,30 @@ export default function ArticoliPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Esplora per Categoria
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Scegli la categoria che ti interessa e scopri tutti gli articoli correlati
             </p>
+            
+            {/* Aggiunta di contenuto ricco per SEO */}
+            <div className="max-w-4xl mx-auto text-left mb-12">
+              <div className="bg-gray-50 p-8 rounded-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  La Tua Guida Completa alla Pesca Sportiva
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  Benvenuto nella sezione articoli di FishandTips, il tuo punto di riferimento per tutto ciò che riguarda la pesca sportiva. 
+                  Qui troverai guide dettagliate, consigli pratici e tecniche avanzate per migliorare le tue sessioni di pesca.
+                </p>
+                <p className="text-lg text-gray-700 mb-4">
+                  I nostri articoli sono scritti da pescatori esperti con anni di esperienza sul campo. Ogni guida è pensata per 
+                  fornirti informazioni pratiche e immediate, che potrai applicare fin dalla prossima uscita.
+                </p>
+                <p className="text-lg text-gray-700">
+                  Che tu sia un principiante che si avvicina per la prima volta a questo meraviglioso sport, o un pescatore esperto 
+                  in cerca di nuove tecniche e consigli, troverai sempre contenuti di valore per la tua passione.
+                </p>
+              </div>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
