@@ -132,7 +132,7 @@ Vercel fornisce automaticamente:
 - ✅ **Code Splitting**: Automatico
 
 ### 2. SEO
-- ✅ **Sitemap**: https://fishandtips.it/sitemap.xml
+- ✅ **Sitemap**: https://fishandtips.it/sitemap-static.xml
 - ✅ **RSS Feed**: https://fishandtips.it/feed.xml
 - ✅ **Robots.txt**: https://fishandtips.it/robots.txt
 
