@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'Scopri le migliori tecniche di pesca, consigli esperti e contenuti personalizzati. Blog di pesca con newsletter personalizzata per spinning, bolognese, feeder e molto altro.',
   authors: [{ name: 'FishandTips Team' }],
   manifest: '/manifest.webmanifest',
-  keywords: 'pesca,tecniche di pesca,blog pesca,consigli pesca,spinning,bolognese,feeder,carp fishing,fly fishing,pesca sportiva,pesca in mare,pesca in lago,pesca in fiume,attrezzatura pesca,esche pesca,spot pesca,pesca italiana',
+  keywords: 'pesca,tecniche di pesca,blog pesca,consigli pesca,spinning,bolognese,feeder,pesca sportiva,attrezzatura pesca,esche pesca,spot pesca',
   creator: 'FishandTips',
   publisher: 'FishandTips',
   robots: 'index, follow',
@@ -32,8 +32,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'i4LMv2IA4qtDXwenLVOI0BHEDsz0pVRjD_2wd',
-    yahoo: 'your-yahoo-verification-code',
-    yandex: 'your-yandex-verification-code',
   },
   openGraph: {
     title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
@@ -94,11 +92,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-HDF7MPV8ZB', {
-                page_title: document.title,
-                page_location: window.location.href,
-              });
-              console.log('Google Analytics caricato con ID: G-HDF7MPV8ZB');
+              gtag('config', 'G-HDF7MPV8ZB');
             `,
           }}
         />
