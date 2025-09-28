@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPosts } from '../../../lib/getPosts';
+import { Metadata } from 'next';
 
 interface PageProps {
   params: Promise<{
@@ -22,7 +23,74 @@ export async function generateStaticParams() {
 
 // Disabilita il build statico per ora
 export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const revalidate = 3600; // 1 ora
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  
+  const getCategoryInfo = (slug: string) => {
+    switch (slug) {
+      case 'tecniche-di-pesca':
+        return {
+          name: 'Tecniche di Pesca',
+          description: 'Scopri le tecniche più efficaci per migliorare la tua pesca',
+          keywords: 'tecniche di pesca, spinning, surfcasting, bolentino, pesca sportiva'
+        };
+      case 'attrezzature':
+        return {
+          name: 'Attrezzature di Pesca',
+          description: 'Guide complete su canne, mulinelli, esche e accessori per la pesca',
+          keywords: 'attrezzatura pesca, canne da pesca, mulinelli, esche, accessori pesca'
+        };
+      case 'consigli':
+        return {
+          name: 'Consigli Generali',
+          description: 'Trucchi e segreti per diventare un pescatore esperto',
+          keywords: 'consigli pesca, trucchi pesca, segreti pesca, guida pesca'
+        };
+      case 'spot-di-pesca':
+        return {
+          name: 'Spot di Pesca',
+          description: 'I migliori luoghi per pescare in Italia',
+          keywords: 'spot pesca, luoghi pesca, posti pesca, Italia'
+        };
+      default:
+        return {
+          name: 'Categoria',
+          description: 'Articoli della categoria',
+          keywords: 'pesca, articoli pesca'
+        };
+    }
+  };
+
+  const categoryInfo = getCategoryInfo(slug);
+  const title = `${categoryInfo.name} - FishandTips`;
+  const canonicalUrl = `https://fishandtips.it/categoria/${slug}`;
+
+  return {
+    title,
+    description: categoryInfo.description,
+    keywords: categoryInfo.keywords,
+    authors: [{ name: 'FishandTips Team' }],
+    robots: 'index, follow',
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description: categoryInfo.description,
+      url: canonicalUrl,
+      siteName: 'FishandTips',
+      locale: 'it_IT',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: categoryInfo.description,
+    },
+  };
+}
 
 export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
