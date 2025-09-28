@@ -21,6 +21,10 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           '/newsletter/unsubscribe',
           '/articoli?search=*',
+          '/favicon.ico',
+          '/manifest.webmanifest',
+          '/feed.xml',
+          '/sitemap.xml',
         ],
       },
       {
