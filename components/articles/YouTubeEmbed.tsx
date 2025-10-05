@@ -66,12 +66,6 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
           sandbox="allow-scripts allow-same-origin allow-presentation"
         />
       </div>
-      
-      {title && (
-        <h3 className="mt-3 text-lg font-semibold text-gray-800">
-          {title}
-        </h3>
-      )}
     </div>
   );
 }
