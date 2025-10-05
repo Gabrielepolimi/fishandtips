@@ -51,6 +51,7 @@ interface Post {
   showYouTubeVideo?: boolean;
   youtubeUrl?: string;
   youtubeTitle?: string;
+  youtubeDescription?: string;
 }
 
 interface Article {
@@ -153,7 +154,8 @@ async function getPost(slug: string): Promise<Post | null> {
         selectedProducts,
         showYouTubeVideo,
         youtubeUrl,
-        youtubeTitle
+        youtubeTitle,
+        youtubeDescription
       }
     `, { slug }, {
       // Disabilita il caching per Vercel
@@ -349,6 +351,16 @@ export default async function PostPage({ params }: Props) {
                   📺 Video Tutorial
                 </h3>
               </div>
+              
+              {/* Testo di Spiegazione */}
+              {post.youtubeDescription && (
+                <div className="mb-6">
+                  <div className="prose prose-sm sm:prose max-w-none text-gray-700">
+                    <p className="whitespace-pre-line">{post.youtubeDescription}</p>
+                  </div>
+                </div>
+              )}
+              
               <YouTubeEmbed 
                 videoId={post.youtubeUrl}
                 title={post.youtubeTitle}
