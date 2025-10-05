@@ -31,11 +31,14 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
     );
   }
 
-  const embedUrl = `https://www.youtube.com/embed/${videoIdFromUrl}`;
+  const embedUrl = `https://www.youtube.com/embed/${videoIdFromUrl}?rel=0&modestbranding=1&showinfo=0&controls=1&iv_load_policy=3&fs=1&cc_load_policy=0&start=0&end=0&autoplay=0&mute=0&loop=0`;
   const thumbnailUrl = `https://img.youtube.com/vi/${videoIdFromUrl}/maxresdefault.jpg`;
 
   return (
     <div className={`youtube-embed-container ${className}`}>
+      {/* Preload ottimizzato per SEO */}
+      <link rel="preload" as="image" href={thumbnailUrl} />
+      
       <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
         {!isLoaded && (
           <div className="absolute inset-0 bg-gray-200 rounded-lg flex items-center justify-center">
@@ -59,6 +62,8 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
           allowFullScreen
           onLoad={() => setIsLoaded(true)}
           loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
         />
       </div>
       
