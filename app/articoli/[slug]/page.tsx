@@ -48,6 +48,7 @@ interface Post {
     affiliateLink?: string;
     image?: string;
   }>;
+  showYouTubeVideo?: boolean;
   youtubeUrl?: string;
   youtubeTitle?: string;
 }
@@ -150,6 +151,7 @@ async function getPost(slug: string): Promise<Post | null> {
         showFishingRodComparison,
         fishingRodComparisonTitle,
         selectedProducts,
+        showYouTubeVideo,
         youtubeUrl,
         youtubeTitle
       }
@@ -334,7 +336,7 @@ export default async function PostPage({ params }: Props) {
         )}
 
         {/* Video YouTube */}
-        {post.youtubeUrl && (
+        {post.showYouTubeVideo && post.youtubeUrl && (
           <div className="mb-8 sm:mb-12">
             <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-red-200">
               <div className="flex items-center mb-4">

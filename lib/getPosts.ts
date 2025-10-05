@@ -13,6 +13,7 @@ export async function getPosts() {
     "categories": categories[]->title,
     excerpt,
     body,
+    showYouTubeVideo,
     youtubeUrl,
     youtubeTitle
   }`, { now: new Date().toISOString() }, {
