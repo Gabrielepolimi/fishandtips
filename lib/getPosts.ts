@@ -12,7 +12,9 @@ export async function getPosts() {
     "author": author->name,
     "categories": categories[]->title,
     excerpt,
-    body
+    body,
+    youtubeUrl,
+    youtubeTitle
   }`, { now: new Date().toISOString() }, {
     // Disabilita il caching per Vercel
     cache: 'no-store',
