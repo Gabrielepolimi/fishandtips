@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fishandtips.it</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/articoli</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/chi-siamo</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/contatti</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/registrazione</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/mappa-del-sito</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/supporto</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/cookie-policy</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/categoria/tecniche-di-pesca</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/categoria/attrezzature</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/categoria/spot-di-pesca</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://fishandtips.it/categoria/consigli</loc>
-    <lastmod>2025-01-30T19:00:00.000Z</lastmod>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -173,6 +173,42 @@
     <loc>https://fishandtips.it/articoli/licenza-di-pesca-in-italia-costi-regole-e-come-ottenerla</loc>
     <lastmod>2025-01-30T12:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pesca-genova-consigli-locali</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/10-errori-da-evitare-in-pesca-guida-completa</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pesca-invernale-mare-tecniche-spot-migliori</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pescare-carpa-tecniche-esche</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/migliori-spot-pesca-liguria</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fishandtips.it/articoli/pescare-orata-tecniche-esche-periodi-migliori</loc>
+    <lastmod>2025-01-30T20:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
