@@ -340,7 +340,7 @@ export default async function PostPage({ params }: Props) {
         {/* Video YouTube */}
         {post.showYouTubeVideo && post.youtubeUrl && (
           <div className="mb-8 sm:mb-12">
-            <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-red-200">
+            <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-red-200" itemScope itemType="https://schema.org/VideoObject">
               <div className="flex items-center mb-4">
                 <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-3">
                   <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -356,7 +356,9 @@ export default async function PostPage({ params }: Props) {
               {post.youtubeDescription && (
                 <div className="mb-6">
                   <div className="prose prose-sm sm:prose max-w-none text-gray-700">
-                    <p className="whitespace-pre-line">{post.youtubeDescription}</p>
+                    <div className="whitespace-pre-line" itemProp="description" role="complementary" aria-label="Spiegazione del video tutorial">
+                      {post.youtubeDescription}
+                    </div>
                   </div>
                 </div>
               )}
@@ -365,6 +367,26 @@ export default async function PostPage({ params }: Props) {
                 videoId={post.youtubeUrl}
                 title={post.youtubeTitle}
                 className="w-full"
+              />
+              
+              {/* Schema Markup per SEO */}
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "VideoObject",
+                    "name": post.youtubeTitle || "Video Tutorial",
+                    "description": post.youtubeDescription || "Video tutorial di pesca",
+                    "thumbnailUrl": `https://img.youtube.com/vi/${post.youtubeUrl.split('v=')[1]?.split('&')[0] || post.youtubeUrl}/maxresdefault.jpg`,
+                    "embedUrl": `https://www.youtube.com/embed/${post.youtubeUrl.split('v=')[1]?.split('&')[0] || post.youtubeUrl}`,
+                    "uploadDate": post.publishedAt,
+                    "author": {
+                      "@type": "Person",
+                      "name": post.author
+                    }
+                  })
+                }}
               />
             </div>
           </div>
