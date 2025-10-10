@@ -76,3 +76,4 @@ Se Sanity Studio online non funziona, posso aggiungere i campi direttamente via 
 **Hai solo bisogno di aggiungere i campi in Sanity Studio online.**
 
 **Il boost per i tuoi articoli è garantito!** 🎯📈
+

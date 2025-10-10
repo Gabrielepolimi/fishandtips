@@ -4,3 +4,4 @@ export default function RedirectPage() {
   redirect('/categoria/tecniche-di-pesca');
 }
 
+
