@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 export default function RedirectPage() {
-  redirect('/articoli/canne-surfcasting');
+  redirect('/articoli/migliori-canne-da-surfcasting', 301);
 }
 
 
