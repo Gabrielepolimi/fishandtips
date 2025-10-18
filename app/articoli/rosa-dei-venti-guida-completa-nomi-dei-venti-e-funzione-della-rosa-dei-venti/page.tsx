@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 export default function RedirectPage() {
-  redirect('/articoli/rosa-dei-venti-guida-completa-pesca', 301);
+  redirect('/articoli/rosa-dei-venti-guida-completa-pesca');
 }
 
 
