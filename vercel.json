@@ -5,6 +5,19 @@
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "regions": ["iad1"],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.fishandtips.it"
+        }
+      ],
+      "destination": "https://fishandtips.it/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/feed.xml",
