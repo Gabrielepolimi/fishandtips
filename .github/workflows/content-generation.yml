@@ -1,0 +1,55 @@
+name: AI Content Generation
+
+on:
+  schedule:
+    - cron: '0 8 * * 2,4,6'
+  workflow_dispatch:
+    inputs:
+      article_count:
+        description: 'Numero di articoli da generare'
+        required: false
+        default: '2'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+          - '5'
+      dry_run:
+        description: 'Dry run (solo test, non crea articoli)'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  generate-content:
+    name: Generate AI Content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - name: Generate Articles
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
+          AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            COUNT="${{ github.event.inputs.article_count }}"
+            DRY_RUN="${{ github.event.inputs.dry_run }}"
+          else
+            COUNT="2"
+            DRY_RUN="false"
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/generate-weekly-batch.js --count $COUNT --dry-run
+          else
+            node scripts/generate-weekly-batch.js --count $COUNT
+          fi
