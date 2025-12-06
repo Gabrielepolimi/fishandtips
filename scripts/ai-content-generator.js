@@ -214,7 +214,7 @@ export async function generateArticle(keyword, categorySlug = null) {
     author: { _type: 'reference', _ref: authorId },
     categories: categoryId ? [{ _type: 'reference', _ref: categoryId }] : [],
     publishedAt: new Date().toISOString(),
-    status: 'draft', // IMPORTANTE: parte come bozza per review
+    status: 'published', // Pubblicazione automatica
     showFishingRodComparison: products.length > 0,
     fishingRodComparisonTitle: products.length > 0 ? `Prodotti consigliati per ${keyword}` : null,
     selectedProducts: products,
@@ -230,7 +230,7 @@ export async function generateArticle(keyword, categorySlug = null) {
   }
 
   // 10. Crea in Sanity
-  console.log('\n📤 Caricamento su Sanity come BOZZA...');
+  console.log('\n📤 Pubblicazione automatica su Sanity...');
   const result = await createDocument(doc);
 
   // 11. Report finale
@@ -241,7 +241,7 @@ export async function generateArticle(keyword, categorySlug = null) {
   console.log(`🔗 Slug: ${doc.slug.current}`);
   console.log(`📁 Categoria: ${finalCategorySlug}`);
   console.log(`🛒 Prodotti: ${products.length}`);
-  console.log(`📝 Status: BOZZA (da pubblicare dopo review)`);
+  console.log(`📝 Status: PUBBLICATO ✅`);
   console.log(`\n🔗 Modifica su Sanity Studio:`);
   console.log(`   https://fishandtips.sanity.studio/structure/post;${result._id}`);
   console.log('='.repeat(60) + '\n');
