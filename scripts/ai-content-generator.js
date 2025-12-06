@@ -209,7 +209,7 @@ export async function generateArticle(keyword, categorySlug = null) {
     seoTitle: (articleData.seoTitle || articleData.title).substring(0, 60),
     seoDescription: (articleData.seoDescription || articleData.excerpt || '').substring(0, 160),
     seoKeywords: articleData.seoKeywords || [],
-    readingTime: articleData.readingTime || 8,
+    readingTime: Math.floor(Math.random() * 3) + 3, // Random 3-5 minuti
     body: bodyBlocks,
     author: { _type: 'reference', _ref: authorId },
     categories: categoryId ? [{ _type: 'reference', _ref: categoryId }] : [],
@@ -219,7 +219,7 @@ export async function generateArticle(keyword, categorySlug = null) {
     fishingRodComparisonTitle: products.length > 0 ? `Prodotti consigliati per ${keyword}` : null,
     selectedProducts: products,
     featured: false,
-    initialLikes: Math.floor(Math.random() * 50) + 10 // 10-60 like iniziali
+    initialLikes: Math.floor(Math.random() * 800) + 1300 // 1300-2100 like iniziali
   };
 
   // 9. Valida documento
