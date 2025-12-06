@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@portabletext/react": "^5.0.0",
     "@prisma/client": "^6.13.0",
     "@sanity/client": "^6.22.0",
     "@sanity/image-url": "^1.0.2",
+    "autoprefixer": "^10.4.22",
+    "lucide-react": "^0.556.0",
     "next": "15.4.6",
     "react": "^18",
     "react-dom": "^18"
