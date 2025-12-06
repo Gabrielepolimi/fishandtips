@@ -35,8 +35,8 @@ export default function Navbar() {
               <Link href="/articoli" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Articoli
               </Link>
-              <Link href="/trova-attrezzatura" className="text-brand-yellow hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1">
-                🎣 Quiz Attrezzatura
+              <Link href="/trova-attrezzatura" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Quiz Attrezzatura
               </Link>
               <Link href="/chi-siamo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Chi Siamo
@@ -82,8 +82,8 @@ export default function Navbar() {
           <Link href="/articoli" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Articoli
           </Link>
-          <Link href="/trova-attrezzatura" className="text-brand-yellow hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-            🎣 Quiz Attrezzatura
+          <Link href="/trova-attrezzatura" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Quiz Attrezzatura
           </Link>
           <Link href="/chi-siamo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Chi Siamo
