@@ -14,6 +14,7 @@
     "@google/generative-ai": "^0.24.1",
     "@portabletext/react": "^5.0.0",
     "@prisma/client": "^6.13.0",
+    "@react-email/components": "^0.5.7",
     "@sanity/client": "^6.22.0",
     "@sanity/image-url": "^1.0.2",
     "autoprefixer": "^10.4.22",
