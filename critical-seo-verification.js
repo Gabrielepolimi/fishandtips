@@ -254,3 +254,5 @@ async function criticalSEOVerification() {
 
 criticalSEOVerification();
 
+
+

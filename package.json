@@ -11,6 +11,7 @@
     "postbuild": "node update-sitemap-auto.js"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.13.0",
     "@sanity/client": "^6.22.0",
     "@sanity/image-url": "^1.0.2",
