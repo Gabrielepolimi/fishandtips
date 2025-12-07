@@ -41,6 +41,9 @@ export default function Navbar() {
               <Link href="/calendario-pesca" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Calendario
               </Link>
+              <Link href="/enciclopedia-pesci" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Pesci
+              </Link>
               <Link href="/chi-siamo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Chi Siamo
               </Link>
@@ -90,6 +93,9 @@ export default function Navbar() {
           </Link>
           <Link href="/calendario-pesca" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Calendario
+          </Link>
+          <Link href="/enciclopedia-pesci" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Pesci
           </Link>
           <Link href="/chi-siamo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Chi Siamo
