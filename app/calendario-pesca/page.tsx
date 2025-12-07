@@ -52,10 +52,10 @@ const monthNames = [
 ];
 
 const seasonColors: Record<string, string> = {
-  inverno: 'from-blue-600 to-cyan-600',
-  primavera: 'from-green-500 to-emerald-500',
-  estate: 'from-orange-500 to-yellow-500',
-  autunno: 'from-amber-600 to-orange-600',
+  inverno: 'bg-blue-50 text-blue-700 border-blue-200',
+  primavera: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  estate: 'bg-amber-50 text-amber-700 border-amber-200',
+  autunno: 'bg-orange-50 text-orange-700 border-orange-200',
 };
 
 const seasonIcons: Record<string, string> = {
@@ -69,12 +69,14 @@ function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: max }).map((_, i) => (
-        <span
+        <svg
           key={i}
-          className={`text-lg ${i < rating ? 'text-yellow-400' : 'text-slate-600'}`}
+          className={`w-4 h-4 ${i < rating ? 'text-amber-400' : 'text-gray-200'}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
         >
-          ★
-        </span>
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
       ))}
     </div>
   );
@@ -82,17 +84,11 @@ function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
 
 export default function CalendarioPescaPage() {
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   const monthData = (calendarData.months as Record<string, MonthData>)[selectedMonth.toString()];
 
   const handleMonthChange = (month: number) => {
-    if (month === selectedMonth) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setSelectedMonth(month);
-      setIsAnimating(false);
-    }, 150);
+    setSelectedMonth(month);
   };
 
   const goToPrevMonth = () => {
@@ -103,7 +99,6 @@ export default function CalendarioPescaPage() {
     handleMonthChange(selectedMonth === 12 ? 1 : selectedMonth + 1);
   };
 
-  // Auto-detect current month on mount
   useEffect(() => {
     setSelectedMonth(new Date().getMonth() + 1);
   }, []);
@@ -111,31 +106,29 @@ export default function CalendarioPescaPage() {
   const isCurrentMonth = selectedMonth === new Date().getMonth() + 1;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <main className="min-h-screen bg-white">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${seasonColors[monthData.season]} py-8 px-4 transition-all duration-300`}>
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-3xl">{seasonIcons[monthData.season]}</span>
-            <h1 className="text-3xl md:text-4xl font-bold text-white text-center">
+      <div className="border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
               Calendario Pesca
             </h1>
-            <span className="text-3xl">{seasonIcons[monthData.season]}</span>
+            <p className="mt-4 text-lg text-gray-600">
+              Scopri cosa pescare mese per mese nel Mediterraneo. Specie attive, tecniche consigliate e condizioni ideali.
+            </p>
           </div>
-          <p className="text-white/80 text-center">
-            Scopri cosa pescare mese per mese nel Mediterraneo
-          </p>
         </div>
       </div>
 
       {/* Month Selector */}
-      <div className="sticky top-16 z-40 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 py-4 px-4">
-        <div className="max-w-5xl mx-auto">
+      <div className="sticky top-16 z-40 bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           {/* Navigation Arrows + Current Month */}
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="flex items-center justify-center gap-6 mb-4">
             <button
               onClick={goToPrevMonth}
-              className="p-2 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all hover:scale-110"
+              className="p-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -143,19 +136,24 @@ export default function CalendarioPescaPage() {
             </button>
             
             <div className="text-center min-w-[200px]">
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
+              <h2 className="text-2xl font-bold text-gray-900">
                 {monthData.name}
               </h2>
-              {isCurrentMonth && (
-                <span className="inline-block px-3 py-1 bg-green-500/20 border border-green-500 rounded-full text-green-400 text-xs mt-1">
-                  📍 Mese corrente
+              <div className="flex items-center justify-center gap-2 mt-1">
+                <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium border ${seasonColors[monthData.season]}`}>
+                  {seasonIcons[monthData.season]} {monthData.season.charAt(0).toUpperCase() + monthData.season.slice(1)}
                 </span>
-              )}
+                {isCurrentMonth && (
+                  <span className="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-700 text-sm font-medium">
+                    Mese corrente
+                  </span>
+                )}
+              </div>
             </div>
 
             <button
               onClick={goToNextMonth}
-              className="p-2 rounded-full bg-slate-700 hover:bg-slate-600 text-white transition-all hover:scale-110"
+              className="p-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -174,12 +172,12 @@ export default function CalendarioPescaPage() {
                 <button
                   key={month}
                   onClick={() => handleMonthChange(month)}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                     isSelected
-                      ? 'bg-white text-slate-900 scale-110'
+                      ? 'bg-gray-900 text-white'
                       : isCurrent
-                      ? 'bg-green-500/30 text-green-400 hover:bg-green-500/40'
-                      : 'bg-slate-700/50 text-slate-300 hover:bg-slate-700'
+                      ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
                   {name.slice(0, 3)}
@@ -191,74 +189,75 @@ export default function CalendarioPescaPage() {
       </div>
 
       {/* Content */}
-      <div className={`max-w-5xl mx-auto px-4 py-8 transition-opacity duration-150 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         
         {/* Overview Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 text-center">
-            <p className="text-slate-400 text-sm mb-1">Valutazione</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="p-5 rounded-xl bg-gray-50 border border-gray-100 text-center">
+            <p className="text-gray-500 text-sm mb-2">Valutazione mese</p>
             <StarRating rating={monthData.overallRating} />
           </div>
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 text-center">
-            <p className="text-slate-400 text-sm mb-1">🌡️ Acqua</p>
-            <p className="text-xl font-bold text-cyan-400">{monthData.waterTemp}</p>
+          <div className="p-5 rounded-xl bg-blue-50 border border-blue-100 text-center">
+            <p className="text-gray-500 text-sm mb-1">Temperatura acqua</p>
+            <p className="text-xl font-bold text-blue-700">{monthData.waterTemp}</p>
           </div>
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 text-center">
-            <p className="text-slate-400 text-sm mb-1">☀️ Luce</p>
-            <p className="text-xl font-bold text-yellow-400">{monthData.daylight}</p>
+          <div className="p-5 rounded-xl bg-amber-50 border border-amber-100 text-center">
+            <p className="text-gray-500 text-sm mb-1">Ore di luce</p>
+            <p className="text-xl font-bold text-amber-700">{monthData.daylight}</p>
           </div>
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 text-center">
-            <p className="text-slate-400 text-sm mb-1">📅 Stagione</p>
-            <p className="text-xl font-bold text-white capitalize">{monthData.season}</p>
+          <div className="p-5 rounded-xl bg-gray-50 border border-gray-100 text-center">
+            <p className="text-gray-500 text-sm mb-1">Specie attive</p>
+            <p className="text-xl font-bold text-gray-900">{monthData.species.length}</p>
           </div>
         </div>
 
         {/* Description */}
-        <div className={`bg-gradient-to-r ${seasonColors[monthData.season]} rounded-xl p-6 mb-8`}>
-          <p className="text-white text-lg font-medium text-center">
+        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100 mb-10">
+          <p className="text-gray-700 text-lg leading-relaxed text-center">
             {monthData.description}
           </p>
         </div>
 
         {/* Species Section */}
-        <section className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            🐟 Specie Attive
+        <section className="mb-10">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Specie attive a {monthData.name}
           </h3>
           <div className="grid gap-4">
-            {monthData.species.map((species, index) => (
+            {monthData.species.map((species) => (
               <div
                 key={species.name}
-                className={`bg-slate-800/50 rounded-xl p-5 border transition-all hover:border-cyan-500/50 ${
-                  species.peak ? 'border-yellow-500/50 ring-1 ring-yellow-500/20' : 'border-slate-700'
+                className={`p-5 rounded-xl border transition-colors ${
+                  species.peak 
+                    ? 'bg-amber-50 border-amber-200' 
+                    : 'bg-white border-gray-200 hover:border-gray-300'
                 }`}
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-3">
                       <span className="text-3xl">{species.icon}</span>
                       <div>
-                        <h4 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h4 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                           {species.name}
                           {species.peak && (
-                            <span className="px-2 py-0.5 bg-yellow-500/20 border border-yellow-500 rounded-full text-yellow-400 text-xs">
-                              🔥 PERIODO TOP
+                            <span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-xs font-medium">
+                              Periodo top
                             </span>
                           )}
                         </h4>
                         <StarRating rating={species.rating} />
                       </div>
                     </div>
-                    <p className="text-slate-300 mb-3">{species.notes}</p>
+                    <p className="text-gray-600 mb-3">{species.notes}</p>
                     <div className="flex flex-wrap gap-4 text-sm">
                       <div>
-                        <span className="text-slate-500">Tecniche: </span>
-                        <span className="text-cyan-400">{species.techniques.join(', ')}</span>
+                        <span className="text-gray-500">Tecniche: </span>
+                        <span className="text-gray-900 font-medium">{species.techniques.join(', ')}</span>
                       </div>
                       <div>
-                        <span className="text-slate-500">Orario: </span>
-                        <span className="text-amber-400">{species.bestTime}</span>
+                        <span className="text-gray-500">Orario: </span>
+                        <span className="text-gray-900 font-medium">{species.bestTime}</span>
                       </div>
                     </div>
                   </div>
@@ -269,84 +268,88 @@ export default function CalendarioPescaPage() {
         </section>
 
         {/* Techniques Section */}
-        <section className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            🎣 Tecniche Consigliate
+        <section className="mb-10">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Tecniche consigliate
           </h3>
           <div className="grid md:grid-cols-3 gap-4">
             {monthData.techniques.map((technique) => (
               <div
                 key={technique.name}
-                className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-cyan-500/50 transition-all"
+                className="p-5 rounded-xl bg-white border border-gray-200 hover:border-gray-300 transition-colors"
               >
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-lg font-bold text-white">{technique.name}</h4>
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-semibold text-gray-900">{technique.name}</h4>
                   <StarRating rating={technique.rating} />
                 </div>
-                <p className="text-cyan-400 text-sm mb-2">Target: {technique.target}</p>
-                <p className="text-slate-400 text-sm">💡 {technique.tip}</p>
+                <p className="text-blue-600 text-sm mb-2">Target: {technique.target}</p>
+                <p className="text-gray-500 text-sm">{technique.tip}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Baits Section */}
-        <section className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            🪱 Esche del Mese
+        <section className="mb-10">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Esche del mese
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {monthData.baits.map((bait) => (
               <div
                 key={bait.name}
-                className="bg-slate-800/50 rounded-xl p-4 border border-slate-700 hover:border-cyan-500/50 transition-all"
+                className="p-4 rounded-xl bg-white border border-gray-200 hover:border-gray-300 transition-colors"
               >
                 <div className="flex items-center justify-between mb-1">
-                  <h4 className="font-bold text-white text-sm">{bait.name}</h4>
+                  <h4 className="font-medium text-gray-900 text-sm">{bait.name}</h4>
                   <div className="flex">
                     {Array.from({ length: bait.rating }).map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-xs">★</span>
+                      <svg key={i} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
                     ))}
                   </div>
                 </div>
-                <p className="text-slate-400 text-xs">{bait.target}</p>
+                <p className="text-gray-500 text-xs">{bait.target}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Conditions Section */}
-        <section className="mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            🌊 Condizioni Ideali
+        {/* Conditions & Tips */}
+        <section className="mb-10">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            Condizioni ideali
           </h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
-              <div className="grid grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-xl bg-white border border-gray-200">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <p className="text-slate-500 text-sm mb-1">💨 Vento</p>
-                  <p className="text-white font-medium">{monthData.conditions.idealWind}</p>
+                  <p className="text-gray-500 text-sm mb-1">Vento</p>
+                  <p className="text-gray-900 font-medium">{monthData.conditions.idealWind}</p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-sm mb-1">🌊 Mare</p>
-                  <p className="text-white font-medium">{monthData.conditions.idealSea}</p>
+                  <p className="text-gray-500 text-sm mb-1">Mare</p>
+                  <p className="text-gray-900 font-medium">{monthData.conditions.idealSea}</p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-sm mb-1">📊 Pressione</p>
-                  <p className="text-white font-medium">{monthData.conditions.idealPressure}</p>
+                  <p className="text-gray-500 text-sm mb-1">Pressione</p>
+                  <p className="text-gray-900 font-medium">{monthData.conditions.idealPressure}</p>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-sm mb-1">🌙 Luna</p>
-                  <p className="text-white font-medium">{monthData.conditions.moonPhase}</p>
+                  <p className="text-gray-500 text-sm mb-1">Luna</p>
+                  <p className="text-gray-900 font-medium">{monthData.conditions.moonPhase}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-cyan-600/20 to-blue-600/20 rounded-xl p-5 border border-cyan-500/30">
-              <h4 className="font-bold text-cyan-400 mb-3">💡 Tips del Mese</h4>
-              <ul className="space-y-2">
+            <div className="p-6 rounded-xl bg-blue-50 border border-blue-100">
+              <h4 className="font-semibold text-gray-900 mb-4">Consigli del mese</h4>
+              <ul className="space-y-3">
                 {monthData.tips.map((tip, index) => (
-                  <li key={index} className="text-slate-300 text-sm flex items-start gap-2">
-                    <span className="text-cyan-400">•</span>
+                  <li key={index} className="text-gray-700 text-sm flex items-start gap-2">
+                    <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
                     {tip}
                   </li>
                 ))}
@@ -356,48 +359,63 @@ export default function CalendarioPescaPage() {
         </section>
 
         {/* CTA */}
-        <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">
+        <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100 text-center">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">
             Non sai che attrezzatura usare?
           </h3>
-          <p className="text-slate-400 mb-4">
+          <p className="text-gray-600 mb-6">
             Fai il nostro quiz e scopri l&apos;attrezzatura perfetta per te
           </p>
           <Link
             href="/trova-attrezzatura"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-bold rounded-lg transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors"
           >
-            🎣 Trova la Tua Attrezzatura
+            Trova la tua attrezzatura
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </div>
 
-      {/* SEO Content */}
-      <section className="bg-slate-800/50 py-12 px-4 mt-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Perché usare il Calendario Pesca?
+      {/* Info Section */}
+      <section className="bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-8 text-center">
+            Perché usare il calendario?
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 text-slate-300">
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">📅 Sempre Aggiornato</h3>
-              <p className="text-sm">
-                Il calendario si apre automaticamente sul mese corrente, 
-                mostrandoti subito cosa pescare oggi.
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Sempre aggiornato</h3>
+              <p className="text-gray-600 text-sm">
+                Il calendario si apre sul mese corrente, mostrandoti subito cosa pescare oggi.
               </p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">🎯 Informazioni Precise</h3>
-              <p className="text-sm">
-                Ogni specie ha la sua valutazione, le tecniche migliori 
-                e i momenti della giornata più produttivi.
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Informazioni precise</h3>
+              <p className="text-gray-600 text-sm">
+                Ogni specie ha la sua valutazione, le tecniche migliori e i momenti più produttivi.
               </p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">🌊 Condizioni Ideali</h3>
-              <p className="text-sm">
-                Scopri il vento, il mare e la luna perfetti per ogni 
-                mese e massimizza le tue catture.
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Condizioni ideali</h3>
+              <p className="text-gray-600 text-sm">
+                Scopri vento, mare e luna perfetti per ogni mese e massimizza le catture.
               </p>
             </div>
           </div>
@@ -406,4 +424,3 @@ export default function CalendarioPescaPage() {
     </main>
   );
 }
-

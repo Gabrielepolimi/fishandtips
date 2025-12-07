@@ -32,35 +32,30 @@ const techniques = [
     name: 'Spinning',
     icon: '🎣',
     description: 'Pesca con artificiali per spigola, serra e altri predatori',
-    color: 'from-blue-500 to-cyan-500',
   },
   {
     id: 'surfcasting' as Technique,
     name: 'Surfcasting',
     icon: '🌊',
     description: 'Pesca dalla spiaggia con esche naturali a lunga distanza',
-    color: 'from-amber-500 to-orange-500',
   },
   {
     id: 'bolognese' as Technique,
     name: 'Bolognese',
-    icon: '🪨',
+    icon: '🎏',
     description: 'Pesca con galleggiante dalla scogliera o dal porto',
-    color: 'from-emerald-500 to-green-500',
   },
   {
     id: 'eging' as Technique,
     name: 'Eging',
     icon: '🦑',
     description: 'Pesca a seppie e calamari con totanare',
-    color: 'from-purple-500 to-pink-500',
   },
   {
     id: 'feeder' as Technique,
     name: 'Feeder',
     icon: '🐟',
     description: 'Pesca con pasturatore per carpe, carassi e pesci di fondo',
-    color: 'from-rose-500 to-red-500',
   },
 ];
 
@@ -68,13 +63,11 @@ const experiences = [
   {
     id: 'beginner' as Experience,
     name: 'Principiante',
-    icon: '🌱',
     description: 'Ho iniziato da poco o voglio provare questa tecnica',
   },
   {
     id: 'intermediate' as Experience,
     name: 'Intermedio',
-    icon: '💪',
     description: 'Ho già esperienza e cerco un upgrade',
   },
 ];
@@ -84,21 +77,18 @@ const budgets = [
     id: 'budget_low' as Budget,
     name: 'Economico',
     range: 'Sotto €150',
-    icon: '💰',
     description: 'Attrezzatura base ma funzionale',
   },
   {
     id: 'budget_medium' as Budget,
     name: 'Medio',
     range: '€150 - €300',
-    icon: '💰💰',
     description: 'Ottimo rapporto qualità/prezzo',
   },
   {
     id: 'budget_high' as Budget,
     name: 'Premium',
     range: 'Oltre €300',
-    icon: '💰💰💰',
     description: 'Il meglio sul mercato',
   },
 ];
@@ -112,12 +102,12 @@ export default function TrovaAttrezzaturaPage() {
 
   const handleTechniqueSelect = (tech: Technique) => {
     setTechnique(tech);
-    setTimeout(() => setStep(2), 300);
+    setTimeout(() => setStep(2), 200);
   };
 
   const handleExperienceSelect = (exp: Experience) => {
     setExperience(exp);
-    setTimeout(() => setStep(3), 300);
+    setTimeout(() => setStep(3), 200);
   };
 
   const handleBudgetSelect = (bud: Budget) => {
@@ -125,7 +115,7 @@ export default function TrovaAttrezzaturaPage() {
     setTimeout(() => {
       setShowResults(true);
       setStep(4);
-    }, 300);
+    }, 200);
   };
 
   const resetQuiz = () => {
@@ -144,7 +134,6 @@ export default function TrovaAttrezzaturaPage() {
       const techniqueProducts = products[technique];
       if (!techniqueProducts) return null;
 
-      // Per bolognese/eging/feeder, se selezioni intermediate ma non esiste, usa beginner
       let experienceProducts = techniqueProducts[experience];
       if (!experienceProducts && experience === 'intermediate') {
         experienceProducts = techniqueProducts['beginner'];
@@ -153,7 +142,6 @@ export default function TrovaAttrezzaturaPage() {
 
       const budgetProducts = experienceProducts[budget];
       if (!budgetProducts) {
-        // Fallback al budget più vicino
         return experienceProducts['budget_medium'] || experienceProducts['budget_low'];
       }
 
@@ -175,70 +163,76 @@ export default function TrovaAttrezzaturaPage() {
   const products = showResults ? getRecommendedProducts() : null;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <main className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-r from-cyan-600 to-blue-600 py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            🎣 Trova la Tua Attrezzatura Ideale
+      <div className="border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+            Trova la tua attrezzatura ideale
           </h1>
-          <p className="text-cyan-100 text-lg">
-            Rispondi a 3 semplici domande e ti consigliamo l&apos;attrezzatura perfetta per te
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Rispondi a 3 semplici domande e ti consigliamo l&apos;attrezzatura perfetta per iniziare
           </p>
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="max-w-2xl mx-auto px-4 py-6">
-        <div className="flex items-center justify-between mb-2">
-          {[1, 2, 3, 4].map((s) => (
-            <div
-              key={s}
-              className={`flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all duration-300 ${
-                step >= s
-                  ? 'bg-cyan-500 text-white scale-110'
-                  : 'bg-slate-700 text-slate-400'
-              }`}
-            >
-              {s === 4 ? '✓' : s}
-            </div>
-          ))}
-        </div>
-        <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-500"
-            style={{ width: `${((step - 1) / 3) * 100}%` }}
-          />
-        </div>
-        <div className="flex justify-between mt-2 text-xs text-slate-400">
-          <span>Tecnica</span>
-          <span>Esperienza</span>
-          <span>Budget</span>
-          <span>Risultati</span>
+      <div className="border-b border-gray-100 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 py-6">
+          <div className="flex items-center justify-between mb-3">
+            {[1, 2, 3, 4].map((s) => (
+              <div key={s} className="flex items-center">
+                <div
+                  className={`flex items-center justify-center w-10 h-10 rounded-full font-semibold text-sm ${
+                    step >= s
+                      ? 'bg-gray-900 text-white'
+                      : 'bg-gray-200 text-gray-500'
+                  }`}
+                >
+                  {step > s ? (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    s
+                  )}
+                </div>
+                {s < 4 && (
+                  <div className={`w-16 sm:w-24 h-1 mx-2 rounded ${step > s ? 'bg-gray-900' : 'bg-gray-200'}`} />
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-between text-xs text-gray-500">
+            <span className="w-10 text-center">Tecnica</span>
+            <span className="w-10 text-center">Livello</span>
+            <span className="w-10 text-center">Budget</span>
+            <span className="w-10 text-center">Risultati</span>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 pb-16">
+      <div className="max-w-4xl mx-auto px-4 py-10">
         {/* Step 1: Technique Selection */}
         {step === 1 && (
-          <div className="animate-fadeIn">
-            <h2 className="text-2xl font-bold text-white text-center mb-8">
+          <div>
+            <h2 className="text-xl font-semibold text-gray-900 text-center mb-8">
               Che tecnica di pesca vuoi praticare?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {techniques.map((tech) => (
                 <button
                   key={tech.id}
                   onClick={() => handleTechniqueSelect(tech.id)}
-                  className={`group p-6 rounded-2xl bg-slate-800/50 border-2 border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 text-left ${
-                    technique === tech.id ? 'border-cyan-500 bg-cyan-500/10' : ''
+                  className={`p-6 rounded-xl border-2 text-left transition-all ${
+                    technique === tech.id
+                      ? 'border-gray-900 bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
                   }`}
                 >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform`}>
-                    {tech.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{tech.name}</h3>
-                  <p className="text-slate-400 text-sm">{tech.description}</p>
+                  <span className="text-4xl mb-4 block">{tech.icon}</span>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{tech.name}</h3>
+                  <p className="text-gray-500 text-sm">{tech.description}</p>
                 </button>
               ))}
             </div>
@@ -247,28 +241,32 @@ export default function TrovaAttrezzaturaPage() {
 
         {/* Step 2: Experience Selection */}
         {step === 2 && (
-          <div className="animate-fadeIn">
+          <div>
             <button
               onClick={() => setStep(1)}
-              className="text-cyan-400 hover:text-cyan-300 mb-6 flex items-center gap-2"
+              className="text-gray-500 hover:text-gray-900 mb-6 flex items-center gap-2 text-sm"
             >
-              ← Torna indietro
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Indietro
             </button>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 text-center mb-8">
               Qual è il tuo livello di esperienza?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
               {experiences.map((exp) => (
                 <button
                   key={exp.id}
                   onClick={() => handleExperienceSelect(exp.id)}
-                  className={`group p-8 rounded-2xl bg-slate-800/50 border-2 border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 text-left ${
-                    experience === exp.id ? 'border-cyan-500 bg-cyan-500/10' : ''
+                  className={`p-8 rounded-xl border-2 text-left transition-all ${
+                    experience === exp.id
+                      ? 'border-gray-900 bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
                   }`}
                 >
-                  <div className="text-5xl mb-4">{exp.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{exp.name}</h3>
-                  <p className="text-slate-400">{exp.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{exp.name}</h3>
+                  <p className="text-gray-500">{exp.description}</p>
                 </button>
               ))}
             </div>
@@ -277,29 +275,33 @@ export default function TrovaAttrezzaturaPage() {
 
         {/* Step 3: Budget Selection */}
         {step === 3 && (
-          <div className="animate-fadeIn">
+          <div>
             <button
               onClick={() => setStep(2)}
-              className="text-cyan-400 hover:text-cyan-300 mb-6 flex items-center gap-2"
+              className="text-gray-500 hover:text-gray-900 mb-6 flex items-center gap-2 text-sm"
             >
-              ← Torna indietro
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Indietro
             </button>
-            <h2 className="text-2xl font-bold text-white text-center mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 text-center mb-8">
               Qual è il tuo budget?
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {budgets.map((bud) => (
                 <button
                   key={bud.id}
                   onClick={() => handleBudgetSelect(bud.id)}
-                  className={`group p-6 rounded-2xl bg-slate-800/50 border-2 border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 text-left ${
-                    budget === bud.id ? 'border-cyan-500 bg-cyan-500/10' : ''
+                  className={`p-6 rounded-xl border-2 text-left transition-all ${
+                    budget === bud.id
+                      ? 'border-gray-900 bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:shadow-md'
                   }`}
                 >
-                  <div className="text-3xl mb-3">{bud.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-1">{bud.name}</h3>
-                  <p className="text-cyan-400 font-semibold mb-2">{bud.range}</p>
-                  <p className="text-slate-400 text-sm">{bud.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{bud.name}</h3>
+                  <p className="text-blue-600 font-medium mb-2">{bud.range}</p>
+                  <p className="text-gray-500 text-sm">{bud.description}</p>
                 </button>
               ))}
             </div>
@@ -308,15 +310,18 @@ export default function TrovaAttrezzaturaPage() {
 
         {/* Step 4: Results */}
         {step === 4 && showResults && products && (
-          <div className="animate-fadeIn">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500 rounded-full text-green-400 mb-4">
-                ✓ Ecco la tua attrezzatura consigliata!
+          <div>
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-700 text-sm font-medium mb-4">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Ecco la tua attrezzatura consigliata
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Kit {techniques.find(t => t.id === technique)?.name} - {experiences.find(e => e.id === experience)?.name}
               </h2>
-              <p className="text-slate-400">
+              <p className="text-gray-500">
                 Budget: {budgets.find(b => b.id === budget)?.range}
               </p>
             </div>
@@ -327,38 +332,38 @@ export default function TrovaAttrezzaturaPage() {
                 if (!product || typeof product !== 'object' || !('name' in product)) return null;
                 const p = product as Product;
                 const categoryLabels: Record<string, string> = {
-                  canna: '🎣 Canna',
-                  mulinello: '⚙️ Mulinello',
-                  filo: '🧵 Filo',
-                  artificiali: '🎯 Artificiali',
-                  accessori: '🎒 Accessori',
-                  totanare: '🦑 Totanare',
+                  canna: 'Canna',
+                  mulinello: 'Mulinello',
+                  filo: 'Filo',
+                  artificiali: 'Artificiali',
+                  accessori: 'Accessori',
+                  totanare: 'Totanare',
                 };
 
                 return (
                   <div
                     key={key}
-                    className="bg-slate-800/80 rounded-xl p-5 border border-slate-700 hover:border-cyan-500/50 transition-all"
+                    className="p-5 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
                   >
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div className="flex-1">
-                        <span className="text-sm text-cyan-400 font-medium">
+                        <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">
                           {categoryLabels[key] || key}
                         </span>
-                        <h3 className="text-lg font-bold text-white mt-1">{p.name}</h3>
-                        <p className="text-slate-400 text-sm mt-1">{p.description}</p>
-                        <p className="text-slate-500 text-xs mt-2 font-mono">{p.specs}</p>
+                        <h3 className="text-lg font-semibold text-gray-900 mt-1">{p.name}</h3>
+                        <p className="text-gray-600 text-sm mt-1">{p.description}</p>
+                        <p className="text-gray-400 text-xs mt-2 font-mono">{p.specs}</p>
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-green-400">€{p.price.toFixed(2)}</p>
-                          <p className="text-xs text-slate-500">{p.brand}</p>
+                          <p className="text-2xl font-bold text-gray-900">€{p.price.toFixed(0)}</p>
+                          <p className="text-xs text-gray-500">{p.brand}</p>
                         </div>
                         <a
                           href={p.amazonUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold rounded-lg transition-all hover:scale-105 shadow-lg shadow-orange-500/30 whitespace-nowrap"
+                          className="px-5 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-lg transition-colors whitespace-nowrap"
                         >
                           Vedi su Amazon
                         </a>
@@ -370,17 +375,17 @@ export default function TrovaAttrezzaturaPage() {
             </div>
 
             {/* Total */}
-            <div className="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 border border-cyan-500/50 rounded-xl p-6 mb-8">
+            <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 mb-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-slate-400">Totale stimato kit completo</p>
-                  <p className="text-3xl font-bold text-white">
-                    €{calculateTotalPrice(products).toFixed(2)}
+                  <p className="text-gray-500 text-sm">Totale kit completo</p>
+                  <p className="text-3xl font-bold text-gray-900">
+                    €{calculateTotalPrice(products).toFixed(0)}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-slate-400">I prezzi possono variare</p>
-                  <p className="text-sm text-cyan-400">Aggiornato a {quizProducts.metadata.lastUpdated}</p>
+                  <p className="text-xs text-gray-400">I prezzi possono variare</p>
+                  <p className="text-xs text-gray-500">Aggiornato: {quizProducts.metadata.lastUpdated}</p>
                 </div>
               </div>
             </div>
@@ -389,94 +394,93 @@ export default function TrovaAttrezzaturaPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={resetQuiz}
-                className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-all"
+                className="px-6 py-3 border border-gray-300 hover:border-gray-400 text-gray-700 font-medium rounded-lg transition-colors"
               >
-                🔄 Ricomincia il Quiz
+                Ricomincia il quiz
               </button>
               <Link
                 href="/articoli"
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-medium rounded-lg transition-all text-center"
+                className="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors text-center"
               >
-                📚 Leggi le nostre Guide
+                Leggi le nostre guide
               </Link>
             </div>
 
             {/* Disclaimer */}
-            <p className="text-center text-slate-500 text-sm mt-8">
-              * I link Amazon sono affiliati. Acquistando attraverso questi link ci aiuti a mantenere il sito gratuito!
+            <p className="text-center text-gray-400 text-xs mt-8">
+              I link Amazon sono affiliati. Acquistando attraverso questi link ci aiuti a mantenere il sito gratuito.
             </p>
           </div>
         )}
 
         {/* No Results Fallback */}
         {step === 4 && showResults && !products && (
-          <div className="text-center py-12">
-            <p className="text-2xl mb-4">😅</p>
-            <h3 className="text-xl font-bold text-white mb-2">
-              Ops! Non abbiamo trovato prodotti per questa combinazione
+          <div className="text-center py-16">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 flex items-center justify-center">
+              <span className="text-2xl">😅</span>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              Non abbiamo trovato prodotti per questa combinazione
             </h3>
-            <p className="text-slate-400 mb-6">
+            <p className="text-gray-500 mb-6">
               Prova con un&apos;altra tecnica o budget
             </p>
             <button
               onClick={resetQuiz}
-              className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-white font-medium rounded-lg transition-all"
+              className="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors"
             >
-              Ricomincia il Quiz
+              Ricomincia il quiz
             </button>
           </div>
         )}
       </div>
 
-      {/* SEO Content */}
-      <section className="bg-slate-800/50 py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            Come scegliere l&apos;attrezzatura da pesca giusta?
+      {/* Info Section */}
+      <section className="bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-xl font-bold text-gray-900 mb-8 text-center">
+            Come scegliere l&apos;attrezzatura giusta?
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 text-slate-300">
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">🎯 Scegli la tecnica</h3>
-              <p className="text-sm">
-                Ogni tecnica di pesca richiede attrezzature specifiche. Lo spinning usa canne corte e artificiali, 
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Scegli la tecnica</h3>
+              <p className="text-gray-600 text-sm">
+                Ogni tecnica richiede attrezzature specifiche. Lo spinning usa canne corte e artificiali, 
                 il surfcasting canne lunghe per lanci dalla spiaggia.
               </p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">💪 Valuta il tuo livello</h3>
-              <p className="text-sm">
-                Un principiante ha bisogno di attrezzatura robusta e versatile. Un pescatore esperto 
-                può apprezzare equipaggiamento più tecnico e specializzato.
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Valuta il tuo livello</h3>
+              <p className="text-gray-600 text-sm">
+                Un principiante ha bisogno di attrezzatura robusta e versatile. Un esperto 
+                può apprezzare equipaggiamento più tecnico.
               </p>
             </div>
-            <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">💰 Rispetta il budget</h3>
-              <p className="text-sm">
-                Non serve spendere una fortuna per iniziare. Attrezzatura di fascia media offre 
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+                <svg className="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Rispetta il budget</h3>
+              <p className="text-gray-600 text-sm">
+                Non serve spendere una fortuna. L&apos;attrezzatura di fascia media offre 
                 spesso il miglior rapporto qualità/prezzo.
               </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CSS for animations */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.4s ease-out;
-        }
-      `}</style>
     </main>
   );
 }
-
