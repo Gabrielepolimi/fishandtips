@@ -92,10 +92,10 @@ export default function SpotPescaItaliaPage() {
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            🗺️ Spot Pesca Italia
+            Spot Pesca Italia
           </h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto">
-            La guida definitiva ai migliori luoghi di pesca in Italia.
+            La guida completa ai migliori luoghi di pesca in Italia.
             Coordinate GPS, tecniche, specie e consigli dei pescatori locali.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
@@ -104,9 +104,6 @@ export default function SpotPescaItaliaPage() {
             </div>
             <div className="px-4 py-2 bg-white/10 rounded-full text-white">
               <span className="font-bold">{regions.length}</span> regioni
-            </div>
-            <div className="px-4 py-2 bg-white/10 rounded-full text-white">
-              🤖 <span className="font-bold">AI Assistant</span> per ogni spot
             </div>
           </div>
         </div>
@@ -143,7 +140,7 @@ export default function SpotPescaItaliaPage() {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedRegion(null)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium ${
                 selectedRegion === null
                   ? 'bg-cyan-500 text-white'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
@@ -155,7 +152,7 @@ export default function SpotPescaItaliaPage() {
               <button
                 key={region.id}
                 onClick={() => setSelectedRegion(region.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-full text-sm font-medium ${
                   selectedRegion === region.id
                     ? 'bg-cyan-500 text-white'
                     : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
@@ -182,7 +179,7 @@ export default function SpotPescaItaliaPage() {
               <Link
                 key={`${spot.region}-${spot.id}`}
                 href={`/spot-pesca-italia/${spot.region}/${spot.id}`}
-                className="group bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10"
+                className="bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50"
               >
                 {/* Header */}
                 <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 px-4 py-3 border-b border-slate-700/50">
@@ -196,7 +193,7 @@ export default function SpotPescaItaliaPage() {
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-1">
+                  <h3 className="text-lg font-bold text-white mb-1">
                     📍 {spot.name}
                   </h3>
                   <p className="text-slate-500 text-sm mb-2">
@@ -226,12 +223,7 @@ export default function SpotPescaItaliaPage() {
                   {/* Footer */}
                   <div className="flex items-center justify-between pt-3 border-t border-slate-700/50">
                     <StarRating rating={spot.rating} />
-                    <div className="flex items-center gap-1 text-cyan-400 text-sm">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        🤖 Chat AI
-                      </span>
-                      <span className="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
+                    <span className="text-cyan-400 text-sm">Scopri →</span>
                   </div>
                 </div>
               </Link>
@@ -251,12 +243,12 @@ export default function SpotPescaItaliaPage() {
               <Link
                 key={region.id}
                 href={`/spot-pesca-italia/${region.id}`}
-                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-500/50 transition-all group"
+                className="p-6 bg-slate-800 rounded-xl border border-slate-700 hover:border-cyan-500/50"
               >
                 <div className="flex items-start gap-4">
                   <span className="text-4xl">{region.icon}</span>
                   <div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    <h3 className="text-lg font-bold text-white">
                       {region.name}
                     </h3>
                     <p className="text-sm text-slate-400 mb-2">
@@ -284,32 +276,31 @@ export default function SpotPescaItaliaPage() {
       <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-6">
-            La guida definitiva agli spot di pesca in Italia
+            La guida completa agli spot di pesca in Italia
           </h2>
           <p className="text-slate-400 mb-8">
             FishandTips ha mappato i migliori luoghi di pesca italiani, dalle coste della Sardegna
             alle scogliere siciliane, dalla Riviera ligure all&apos;Adriatico. Ogni spot include
             coordinate GPS precise, tecniche consigliate, specie presenti, stagionalità e consigli
-            dei pescatori locali. Inoltre, per ogni spot hai a disposizione un assistente AI
-            specializzato che risponde alle tue domande!
+            dei pescatori locali.
           </p>
           <div className="grid md:grid-cols-3 gap-6 text-left">
             <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">📍 GPS Precisi</h3>
+              <h3 className="font-bold text-white mb-2">📍 Coordinate GPS</h3>
               <p className="text-sm text-slate-400">
-                Coordinate esatte per raggiungere ogni spot senza problemi.
+                Coordinate precise per raggiungere ogni spot senza problemi. Apri direttamente in Google Maps.
               </p>
             </div>
             <div className="bg-slate-800 p-6 rounded-xl">
-              <h3 className="font-bold text-white mb-2">🤖 AI Assistant</h3>
+              <h3 className="font-bold text-white mb-2">🎣 Tecniche e Esche</h3>
               <p className="text-sm text-slate-400">
-                Un esperto virtuale per ogni spot che risponde alle tue domande.
+                Per ogni spot trovi le tecniche più efficaci e le esche consigliate dai pescatori locali.
               </p>
             </div>
             <div className="bg-slate-800 p-6 rounded-xl">
               <h3 className="font-bold text-white mb-2">📅 Stagionalità</h3>
               <p className="text-sm text-slate-400">
-                Scopri quando pescare ogni specie in ogni spot.
+                Scopri quali specie sono attive mese per mese in ogni spot per massimizzare le catture.
               </p>
             </div>
           </div>
@@ -318,4 +309,3 @@ export default function SpotPescaItaliaPage() {
     </main>
   );
 }
-
