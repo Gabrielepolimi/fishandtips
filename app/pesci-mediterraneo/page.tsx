@@ -83,11 +83,11 @@ export default function EnciclopediaPesciPage() {
       <div className="bg-gradient-to-r from-teal-600 to-cyan-600 py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            📖 Enciclopedia Pesci Italia
+            🐟 Pesci del Mediterraneo
           </h1>
           <p className="text-teal-100 text-lg max-w-2xl mx-auto">
-            Scopri tutte le specie del Mediterraneo: caratteristiche, tecniche di pesca, 
-            stagioni migliori e consigli per catturarle.
+            La guida completa a tutte le specie ittiche del mare italiano: 
+            come riconoscerle, quando pescarle e le tecniche migliori per catturarle.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white">
             <span className="text-2xl">🐟</span>
@@ -182,7 +182,7 @@ export default function EnciclopediaPesciPage() {
               return (
                 <Link
                   key={fish.id}
-                  href={`/enciclopedia-pesci/${fish.slug}`}
+                  href={`/pesci-mediterraneo/${fish.slug}`}
                   className="group bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-cyan-500/50 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10"
                 >
                   <div className="flex items-start gap-4">

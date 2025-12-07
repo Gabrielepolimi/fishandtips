@@ -153,7 +153,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
     },
     alternates: {
-      canonical: `https://fishandtips.it/enciclopedia-pesci/${fish.slug}`,
+      canonical: `https://fishandtips.it/pesci-mediterraneo/${fish.slug}`,
     },
   };
 }
@@ -175,10 +175,10 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
       <div className="bg-gradient-to-r from-teal-600 to-cyan-600 py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <Link
-            href="/enciclopedia-pesci"
+            href="/pesci-mediterraneo"
             className="inline-flex items-center gap-2 text-teal-100 hover:text-white mb-4 transition-colors"
           >
-            ← Torna all&apos;Enciclopedia
+            ← Pesci del Mediterraneo
           </Link>
           
           <div className="flex items-start gap-4">
@@ -517,7 +517,7 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
         {/* Navigation */}
         <div className="flex justify-between items-center pt-6 border-t border-slate-700">
           <Link
-            href="/enciclopedia-pesci"
+            href="/pesci-mediterraneo"
             className="text-cyan-400 hover:text-cyan-300 transition-colors"
           >
             ← Tutti i Pesci
