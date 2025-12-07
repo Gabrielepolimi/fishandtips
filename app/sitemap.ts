@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { client } from '@/sanity/lib/client';
+import { sanityClient } from '../sanityClient';
 import fishData from '../data/fish-encyclopedia.json';
 import spotsData from '../data/fishing-spots.json';
 
@@ -31,14 +31,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let categories: Category[] = [];
   
   try {
-    articles = await client.fetch<Article[]>(`
+    articles = await sanityClient.fetch<Article[]>(`
       *[_type == "post" && defined(slug.current)] | order(_updatedAt desc) {
         slug,
         _updatedAt
       }
     `);
     
-    categories = await client.fetch<Category[]>(`
+    categories = await sanityClient.fetch<Category[]>(`
       *[_type == "category" && defined(slug.current)] {
         slug,
         _updatedAt
