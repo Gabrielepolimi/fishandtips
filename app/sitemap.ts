@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { sanityClient } from '../sanityClient';
 import fishData from '../data/fish-encyclopedia.json';
 import spotsData from '../data/fishing-spots.json';
+import techniquesData from '../data/fishing-techniques.json';
 
 interface Article {
   slug: { current: string };
@@ -20,6 +21,10 @@ interface FishSpecies {
 interface Region {
   id: string;
   spots: { id: string }[];
+}
+
+interface Technique {
+  slug: string;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -82,6 +87,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/spot-pesca-italia`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/tecniche`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -160,6 +171,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
+  // Fishing techniques pages
+  const techniquePages: MetadataRoute.Sitemap = (techniquesData.techniques as Technique[]).map((technique) => ({
+    url: `${baseUrl}/tecniche/${technique.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
   return [
     ...staticPages,
     ...articlePages,
@@ -167,6 +186,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...fishPages,
     ...regionPages,
     ...spotPages,
+    ...techniquePages,
   ];
 }
 

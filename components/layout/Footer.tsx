@@ -7,9 +7,9 @@ import Image from 'next/image';
 const footerLinks = {
   esplora: [
     { href: '/articoli', label: 'Articoli' },
+    { href: '/tecniche', label: 'Tecniche di Pesca' },
     { href: '/pesci-mediterraneo', label: 'Pesci del Mediterraneo' },
     { href: '/spot-pesca-italia', label: 'Spot di Pesca' },
-    { href: '/trova-attrezzatura', label: 'Quiz Attrezzatura' },
     { href: '/calendario-pesca', label: 'Calendario Pesca' },
   ],
   info: [

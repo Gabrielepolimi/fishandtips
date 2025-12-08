@@ -7,9 +7,9 @@ import Image from 'next/image';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/articoli', label: 'Articoli' },
+  { href: '/tecniche', label: 'Tecniche' },
   { href: '/pesci-mediterraneo', label: 'Pesci' },
   { href: '/spot-pesca-italia', label: 'Spot' },
-  { href: '/trova-attrezzatura', label: 'Quiz' },
   { href: '/calendario-pesca', label: 'Calendario' },
 ];
 
