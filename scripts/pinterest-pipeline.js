@@ -5,7 +5,7 @@ import fs from 'fs';
 
 import { generatePinContent, generateSpotPinContent, generateFishPinContent, PINTEREST_BOARDS } from './pinterest-content-generator.js';
 import { generatePinImage } from './pinterest-image-generator.js';
-import { searchUnsplashPhotos } from './unsplash-service.js';
+import { searchPhotos } from './unsplash-service.js';
 import { uploadImage } from './cloudinary-service.js';
 import { publishPinToBoard, verifyToken } from './pinterest-api.js';
 import { getLatestArticles, getArticleBySlug } from './sanity-helpers.js';
@@ -65,7 +65,8 @@ export async function runPinterestPipeline(articleSlug, options = {}) {
   const keywords = Array.isArray(pinContent.imageKeywords) 
     ? pinContent.imageKeywords 
     : ['fishing', 'sea'];
-  const photos = await searchUnsplashPhotos(keywords.slice(0, 3).join(' '), 1);
+  const photosResult = await searchPhotos(keywords.slice(0, 3).join(' '), { perPage: 1 });
+  const photos = photosResult.map(p => p.url);
   
   if (!photos || photos.length === 0) {
     throw new Error('❌ Nessuna immagine trovata su Unsplash');
@@ -178,10 +179,11 @@ export async function generatePinFromSpot(spot, options = {}) {
   const pinContent = await generateSpotPinContent(spot);
   
   // Cerca immagine
-  const photos = await searchUnsplashPhotos(
+  const photosResult2 = await searchPhotos(
     pinContent.imageKeywords?.slice(0, 3).join(' ') || 'fishing italy coast',
-    1
+    { perPage: 1 }
   );
+  const photos = photosResult2.map(p => p.url);
   
   const outputDir = path.join(__dirname, '../data/pinterest-images');
   const imagePath = path.join(outputDir, `pin-spot-${Date.now()}.png`);
@@ -215,10 +217,11 @@ export async function generatePinFromFish(fish, options = {}) {
   
   const pinContent = await generateFishPinContent(fish);
   
-  const photos = await searchUnsplashPhotos(
+  const photosResult3 = await searchPhotos(
     pinContent.imageKeywords?.slice(0, 3).join(' ') || `${fish.name} fish mediterranean`,
-    1
+    { perPage: 1 }
   );
+  const photos = photosResult3.map(p => p.url);
   
   const outputDir = path.join(__dirname, '../data/pinterest-images');
   const imagePath = path.join(outputDir, `pin-fish-${Date.now()}.png`);
