@@ -273,6 +273,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     seoDescription: parsed.excerpt,
     seoKeywords: parsed.keywords || [],
     affiliateProducts,
+    status: 'published', // IMPORTANTE: necessario per la visualizzazione
     publishedAt: CONFIG.publishImmediately ? new Date().toISOString() : null
   };
 
