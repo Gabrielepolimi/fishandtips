@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'i4LMv2IA4qtDXwenLVOI0BHEDsz0pVRjD_2wd',
+    other: {
+      'p:domain_verify': 'b524ab392ca2d153ebf420288f8988cf',
+    },
   },
   openGraph: {
     title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
