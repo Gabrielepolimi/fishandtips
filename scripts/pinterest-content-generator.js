@@ -22,11 +22,11 @@ function initGemini() {
   return genAI.getGenerativeModel({ model: CONFIG.geminiModel });
 }
 
-// Categorie di bacheche Pinterest
+// Categorie di bacheche Pinterest (nomi ESATTI come su Pinterest)
 export const PINTEREST_BOARDS = {
   'tecniche-di-pesca': 'Tecniche di Pesca',
   'attrezzature': 'Attrezzatura Pesca',
-  'consigli': 'Consigli Pescatori',
+  'consigli': 'Pesca Sportiva Italia',  // Uso bacheca generale per consigli
   'spot-di-pesca': 'Spot Pesca Italia',
   'pesci': 'Pesci del Mediterraneo',
   'default': 'Pesca Sportiva Italia'

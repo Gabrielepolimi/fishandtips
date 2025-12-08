@@ -63,23 +63,39 @@ export async function createBoard(accessToken, name, description = '') {
 }
 
 /**
- * Trova o crea una bacheca per nome
+ * Trova una bacheca esistente per nome (NO creazione - serve permesso boards:write)
  */
 export async function findOrCreateBoard(accessToken, boardName, description = '') {
   const boards = await getBoards(accessToken);
   
-  // Cerca bacheca esistente
+  // Cerca bacheca esistente (case-insensitive)
   const existingBoard = boards.find(b => 
     b.name.toLowerCase() === boardName.toLowerCase()
   );
   
   if (existingBoard) {
-    console.log(`   📋 Bacheca esistente: ${existingBoard.id}`);
+    console.log(`   📋 Bacheca trovata: ${existingBoard.name} (${existingBoard.id})`);
     return existingBoard;
   }
   
-  // Crea nuova bacheca
-  return createBoard(accessToken, boardName, description);
+  // Se non trovata, cerca bacheca simile
+  const similarBoard = boards.find(b => 
+    b.name.toLowerCase().includes('pesca') || 
+    boardName.toLowerCase().includes(b.name.toLowerCase().split(' ')[0])
+  );
+  
+  if (similarBoard) {
+    console.log(`   📋 Usando bacheca simile: ${similarBoard.name} (${similarBoard.id})`);
+    return similarBoard;
+  }
+  
+  // Fallback: usa la prima bacheca disponibile
+  if (boards.length > 0) {
+    console.log(`   ⚠️ Bacheca "${boardName}" non trovata, uso: ${boards[0].name}`);
+    return boards[0];
+  }
+  
+  throw new Error(`Nessuna bacheca trovata! Crea almeno una bacheca su Pinterest.`);
 }
 
 /**
