@@ -363,7 +363,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     log(`   ⏱️ Lettura: ${readingTime} min`);
     log(`   ❤️ Likes: ${initialLikes}`);
     log(`   🛒 Prodotti: ${affiliateProducts.length}`);
-    if (mainImage) {
+    if (mainImageAsset) {
       log(`   📸 Immagine: ✅ (${unsplashCredit?.name || 'Unsplash'})`);
     }
     log(`   📅 Stato: ${CONFIG.publishImmediately ? 'Pubblicato' : 'Bozza'}`);
@@ -372,7 +372,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     return {
       ...created,
       wordCount,
-      hasImage: !!mainImage
+      hasImage: !!mainImageAsset
     };
   } catch (error) {
     console.error('❌ Errore Sanity:', error.message);
