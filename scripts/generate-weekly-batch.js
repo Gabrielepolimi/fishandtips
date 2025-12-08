@@ -24,8 +24,8 @@ const __dirname = path.dirname(__filename);
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   defaultArticleCount: 3,
-  pauseBetweenArticles: 5000, // 5 secondi (rate limit Gemini: 15 req/min)
-  pauseBetweenDuplicateChecks: 2000, // 2 secondi tra check duplicati
+  pauseBetweenArticles: 20000, // 20 secondi (evita rate limit 429)
+  pauseBetweenDuplicateChecks: 8000, // 8 secondi tra check duplicati
   logFile: path.join(__dirname, '..', 'data', 'generation-log.json'),
   skipDuplicateCheck: false, // Se true, salta il pre-check dei duplicati
   maxRetryAttempts: 3 // Quante volte provare a trovare keyword non duplicate

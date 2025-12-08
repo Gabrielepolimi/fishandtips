@@ -132,21 +132,37 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
   const articlesToCompare = existingArticles.slice(0, CONFIG.maxArticlesToCompare);
   if (verbose) console.log(`📊 Confronto con ${articlesToCompare.length} articoli esistenti...`);
 
-  // 3. Inizializza Gemini e analizza
+  // 3. Inizializza Gemini e analizza con retry
   initGemini();
 
-  try {
-    const startTime = Date.now();
-    const result = await model.generateContent(
-      DUPLICATE_CHECK_PROMPT(newKeyword, articlesToCompare)
-    );
-    const response = await result.response;
-    const content = response.text();
+  const maxRetries = 2;
+  let content;
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const startTime = Date.now();
+      const result = await model.generateContent(
+        DUPLICATE_CHECK_PROMPT(newKeyword, articlesToCompare)
+      );
+      const response = await result.response;
+      content = response.text();
+      
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+      if (verbose) console.log(`⏱️ Analisi completata in ${elapsed}s`);
+      break; // Successo
+      
+    } catch (retryError) {
+      const isRateLimit = retryError.message.includes('429');
+      if (isRateLimit && attempt < maxRetries) {
+        console.log(`   ⏳ Rate limit - attendo 20s e riprovo...`);
+        await new Promise(r => setTimeout(r, 20000));
+      } else {
+        throw retryError;
+      }
+    }
+  }
 
-    const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-    if (verbose) console.log(`⏱️ Analisi completata in ${elapsed}s`);
-
-    // 4. Parsa la risposta JSON
+  // 4. Parsa la risposta JSON
     const cleanContent = content
       .replace(/```json\n?/g, '')
       .replace(/```\n?/g, '')

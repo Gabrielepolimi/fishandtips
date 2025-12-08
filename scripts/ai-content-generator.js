@@ -190,23 +190,42 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     .replace('{season}', season);
 
   let articleContent;
-  try {
-    const ai = getGeminiAI();
-    const model = ai.getGenerativeModel({ model: CONFIG.geminiModel });
-    
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: CONFIG.temperature,
-        maxOutputTokens: CONFIG.maxTokens
-      }
-    });
+  const maxRetries = 3;
+  let lastError;
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const ai = getGeminiAI();
+      const model = ai.getGenerativeModel({ model: CONFIG.geminiModel });
+      
+      const result = await model.generateContent({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: CONFIG.temperature,
+          maxOutputTokens: CONFIG.maxTokens
+        }
+      });
 
-    articleContent = result.response.text();
-    log('✅ Contenuto generato con successo');
-  } catch (error) {
-    console.error('❌ Errore Gemini:', error.message);
-    throw new Error(`Errore generazione Gemini: ${error.message}`);
+      articleContent = result.response.text();
+      log('✅ Contenuto generato con successo');
+      break; // Successo, esci dal loop
+      
+    } catch (error) {
+      lastError = error;
+      const isRateLimit = error.message.includes('429') || error.message.includes('Too Many Requests');
+      
+      if (isRateLimit && attempt < maxRetries) {
+        const waitTime = attempt * 30; // 30s, 60s, 90s
+        log(`⏳ Rate limit (429) - Attendo ${waitTime}s prima del retry ${attempt + 1}/${maxRetries}...`);
+        await new Promise(r => setTimeout(r, waitTime * 1000));
+      } else if (attempt === maxRetries) {
+        console.error('❌ Errore Gemini dopo tutti i tentativi:', error.message);
+        throw new Error(`Errore generazione Gemini: ${error.message}`);
+      } else {
+        console.error('❌ Errore Gemini:', error.message);
+        throw new Error(`Errore generazione Gemini: ${error.message}`);
+      }
+    }
   }
 
   // 4. Parsa il contenuto generato
