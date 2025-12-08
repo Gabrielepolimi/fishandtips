@@ -171,7 +171,8 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
     }
   }
 
-  // 4. Parsa la risposta JSON
+  try {
+    // 4. Parsa la risposta JSON
     const cleanContent = content
       .replace(/```json\n?/g, '')
       .replace(/```\n?/g, '')
