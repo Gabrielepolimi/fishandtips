@@ -70,6 +70,7 @@ const benefits = [
 ];
 
 function Countdown({ targetDate }: { targetDate: Date }) {
+  const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -78,26 +79,51 @@ function Countdown({ targetDate }: { targetDate: Date }) {
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    setMounted(true);
+    
+    const calculateTime = () => {
       const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+      const target = targetDate.getTime();
+      const distance = target - now;
 
-      if (distance < 0) {
-        clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
+      if (distance <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       }
 
-      setTimeLeft({
+      return {
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      });
+      };
+    };
+
+    // Calcola subito
+    setTimeLeft(calculateTime());
+    
+    // Aggiorna ogni secondo
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTime());
     }, 1000);
 
     return () => clearInterval(timer);
   }, [targetDate]);
+
+  // Mostra placeholder durante SSR
+  if (!mounted) {
+    return (
+      <div className="flex gap-3 md:gap-6 justify-center">
+        {['Giorni', 'Ore', 'Min', 'Sec'].map((label, i) => (
+          <div key={i} className="text-center">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-5 min-w-[70px] md:min-w-[90px] border border-white/20">
+              <span className="text-3xl md:text-5xl font-bold text-white tabular-nums">--</span>
+            </div>
+            <span className="text-xs md:text-sm text-white/70 mt-2 block">{label}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="flex gap-3 md:gap-6 justify-center">
@@ -196,15 +222,12 @@ export default function MiglioriPesca2025Page() {
 
           {/* Countdown */}
           <div className="mb-8">
-            <p className="text-center text-white/60 mb-2 text-sm">
+            <p className="text-center text-white/60 mb-4 text-sm">
               ⏰ Candidature entro il <strong className="text-yellow-400">27 Dicembre 2024</strong>
             </p>
-            <p className="text-center text-white/80 mb-4 text-sm font-medium">
-              📅 La classifica sarà pubblicata il <strong className="text-yellow-400">4 Gennaio 2025</strong>
-            </p>
             <Countdown targetDate={PUBLICATION_DATE} />
-            <p className="text-center text-white/50 mt-2 text-xs">
-              Giorni alla pubblicazione
+            <p className="text-center text-white/50 mt-3 text-xs">
+              alla pubblicazione della classifica
             </p>
           </div>
 
@@ -523,8 +546,7 @@ export default function MiglioriPesca2025Page() {
             Non perdere questa opportunità
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2024</strong>.<br/>
-            Classifica pubblicata il <strong>4 Gennaio 2025</strong>!
+            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2024</strong>.
           </p>
           <a
             href="#candidati"
