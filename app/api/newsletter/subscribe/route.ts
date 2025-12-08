@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { nome, email, tipiAcqua, regioni, tecniche } = await request.json();
+    const { nome, cognome, email, tipiAcqua, regioni, tecniche } = await request.json();
 
     // Validazione base
-    if (!nome || !email || !tipiAcqua || tipiAcqua.length === 0) {
+    if (!nome || !cognome || !email || !tipiAcqua || tipiAcqua.length === 0) {
       return NextResponse.json(
-        { error: 'Nome, email e tipo di acqua sono obbligatori' },
+        { error: 'Nome, cognome, email e tipo di acqua sono obbligatori' },
         { status: 400 }
       );
     }
@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         nome,
+        cognome,
         email,
         tipiAcqua: tipiAcqua.join(', '),
         regioni: regioni?.join(', ') || '',

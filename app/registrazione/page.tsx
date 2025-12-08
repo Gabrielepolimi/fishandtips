@@ -25,6 +25,7 @@ const TECHNIQUES = [
 export default function RegistrazionePage() {
   const [formData, setFormData] = useState({
     nome: '',
+    cognome: '',
     email: '',
     tipiAcqua: [] as string[],
     regioni: [] as string[],
@@ -103,7 +104,7 @@ export default function RegistrazionePage() {
               Benvenuto nella community! 🎣
             </h1>
             <p className="text-lg text-gray-600 mb-2">
-              Grazie <span className="font-medium">{formData.nome}</span>, sei dei nostri!
+              Grazie <span className="font-medium">{formData.nome} {formData.cognome}</span>, sei dei nostri!
             </p>
             <p className="text-gray-500 mb-8">
               Ti invieremo contenuti personalizzati su: <br/>
@@ -205,19 +206,34 @@ export default function RegistrazionePage() {
             <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Nome */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Come ti chiami?
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
-                    required
-                    placeholder="Il tuo nome"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
-                  />
+                {/* Nome e Cognome */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nome
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.nome}
+                      onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                      required
+                      placeholder="Mario"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Cognome
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.cognome}
+                      onChange={(e) => setFormData({...formData, cognome: e.target.value})}
+                      required
+                      placeholder="Rossi"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
+                    />
+                  </div>
                 </div>
 
                 {/* Email */}

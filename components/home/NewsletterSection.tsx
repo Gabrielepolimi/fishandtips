@@ -23,6 +23,7 @@ const TECHNIQUES = [
 export default function NewsletterSection() {
   const [formData, setFormData] = useState({
     nome: '',
+    cognome: '',
     email: '',
     tipiAcqua: [] as string[],
     regioni: [] as string[],
@@ -126,34 +127,49 @@ export default function NewsletterSection() {
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-8">
             
-            {/* Basic Info */}
+            {/* Nome e Cognome */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Come ti chiami?
+                  Nome
                 </label>
                 <input
                   type="text"
                   value={formData.nome}
                   onChange={(e) => setFormData({...formData, nome: e.target.value})}
                   required
-                  placeholder="Il tuo nome"
+                  placeholder="Mario"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  La tua email
+                  Cognome
                 </label>
                 <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  type="text"
+                  value={formData.cognome}
+                  onChange={(e) => setFormData({...formData, cognome: e.target.value})}
                   required
-                  placeholder="email@esempio.com"
+                  placeholder="Rossi"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
                 />
               </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                La tua email
+              </label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                required
+                placeholder="email@esempio.com"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
+              />
             </div>
 
             {/* Water Type Selection */}
