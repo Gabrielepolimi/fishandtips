@@ -15,7 +15,9 @@ import { getAllArticlesForDuplicateCheck } from './sanity-helpers.js';
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   // Soglia di similarità per considerare un articolo duplicato (0-100)
-  similarityThreshold: 70,
+  // NOTA: Impostato alto (90) per evitare falsi positivi
+  // Solo articoli QUASI IDENTICI vengono bloccati
+  similarityThreshold: 90,
   // Numero massimo di articoli da confrontare (per ottimizzare costi/tempo)
   maxArticlesToCompare: 50,
   // Abilita logging dettagliato
@@ -60,11 +62,16 @@ Per ogni articolo esistente, valuta:
 2. SEARCH INTENT: L'utente che cerca la nuova keyword troverebbe soddisfacente l'articolo esistente?
 3. KEYWORD CANNIBALIZATION: I due contenuti competerebbero per le stesse query su Google?
 
-=== REGOLE IMPORTANTI ===
-- Similarità 80-100%: DUPLICATO CERTO - stesso argomento, stesse keyword target
-- Similarità 60-79%: PARZIALE SOVRAPPOSIZIONE - considera un angolo diverso
-- Similarità 40-59%: CORRELATO MA DISTINTO - può procedere con attenzione
-- Similarità 0-39%: NESSUN PROBLEMA - argomenti diversi
+=== REGOLE IMPORTANTI - SII MOLTO PERMISSIVO ===
+- Similarità 90-100%: DUPLICATO CERTO - STESSO identico argomento, titolo quasi uguale
+- Similarità 70-89%: OK - argomenti correlati ma DIVERSI, PROCEDI
+- Similarità 50-69%: OK - temi nella stessa area ma angoli diversi, PROCEDI  
+- Similarità 0-49%: NESSUN PROBLEMA - argomenti completamente diversi
+
+IMPORTANTE: Articoli sulla stessa tecnica di pesca ma per pesci diversi NON sono duplicati!
+Articoli sullo stesso pesce ma tecniche diverse NON sono duplicati!
+Articoli stagionali (es: "pesca invernale" vs "pesca estiva") NON sono duplicati!
+Solo se il titolo e l'argomento sono QUASI IDENTICI, considera duplicato.
 
 Rispondi SOLO con questo JSON (senza markdown code blocks):
 {
