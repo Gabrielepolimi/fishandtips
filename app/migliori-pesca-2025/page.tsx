@@ -6,8 +6,11 @@ import { Nunito } from 'next/font/google';
 
 const nunito = Nunito({ subsets: ['latin'] });
 
-// Data di scadenza candidature
-const DEADLINE = new Date('2025-01-31T23:59:59');
+// Data di scadenza candidature (27 Dicembre 2024)
+const DEADLINE = new Date('2024-12-27T23:59:59');
+
+// Data pubblicazione classifica (4 Gennaio 2025)
+const PUBLICATION_DATE = new Date('2025-01-04T10:00:00');
 
 // Categorie
 const categories = [
@@ -50,19 +53,14 @@ const benefits = [
     description: 'Pagina completa con descrizione, servizi, foto e link al vostro sito',
   },
   {
-    icon: '📱',
-    title: 'Promozione Social',
-    description: 'Post dedicato sui nostri canali social con migliaia di follower',
-  },
-  {
     icon: '🔗',
     title: 'Backlink Permanente',
     description: 'Link dofollow al vostro sito per migliorare il posizionamento SEO',
   },
   {
     icon: '🎤',
-    title: 'Intervista (Opzionale)',
-    description: 'Articolo intervista al titolare per raccontare la vostra storia',
+    title: 'Intervista Esclusiva',
+    description: 'Articolo intervista al titolare per raccontare la vostra storia e filosofia',
   },
   {
     icon: '♾️',
@@ -198,10 +196,16 @@ export default function MiglioriPesca2025Page() {
 
           {/* Countdown */}
           <div className="mb-8">
-            <p className="text-center text-white/60 mb-4 text-sm">
-              ⏰ Candidature aperte fino al 31 Gennaio 2025
+            <p className="text-center text-white/60 mb-2 text-sm">
+              ⏰ Candidature entro il <strong className="text-yellow-400">27 Dicembre 2024</strong>
             </p>
-            <Countdown targetDate={DEADLINE} />
+            <p className="text-center text-white/80 mb-4 text-sm font-medium">
+              📅 La classifica sarà pubblicata il <strong className="text-yellow-400">4 Gennaio 2025</strong>
+            </p>
+            <Countdown targetDate={PUBLICATION_DATE} />
+            <p className="text-center text-white/50 mt-2 text-xs">
+              Giorni alla pubblicazione
+            </p>
           </div>
 
           {/* CTA Buttons */}
@@ -519,7 +523,8 @@ export default function MiglioriPesca2025Page() {
             Non perdere questa opportunità
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Solo 30 posti disponibili. Le candidature chiudono il 31 Gennaio 2025.
+            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2024</strong>.<br/>
+            Classifica pubblicata il <strong>4 Gennaio 2025</strong>!
           </p>
           <a
             href="#candidati"
