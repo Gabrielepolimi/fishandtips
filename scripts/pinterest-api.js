@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import fetch from 'node-fetch';
+// Node 18+ ha fetch nativo, non serve node-fetch
 
 // ============================================
 // PINTEREST API SERVICE
