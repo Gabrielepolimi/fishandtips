@@ -30,11 +30,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - run: npm ci
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Mask secrets in logs
+        run: |
+          echo "::add-mask::${{ secrets.GEMINI_API_KEY }}"
+          echo "::add-mask::${{ secrets.SANITY_API_TOKEN }}"
+          echo "::add-mask::${{ secrets.UNSPLASH_ACCESS_KEY }}"
+      
+      - name: Verify secrets are configured
+        run: |
+          if [ -z "${{ secrets.GEMINI_API_KEY }}" ]; then
+            echo "❌ GEMINI_API_KEY not configured in GitHub Secrets!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.SANITY_API_TOKEN }}" ]; then
+            echo "❌ SANITY_API_TOKEN not configured in GitHub Secrets!"
+            exit 1
+          fi
+          echo "✅ All required secrets are configured"
+      
       - name: Generate Articles
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
