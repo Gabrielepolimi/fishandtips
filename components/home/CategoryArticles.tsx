@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 
 interface Article {
   _id: string;
@@ -26,14 +25,12 @@ interface CategoryArticlesProps {
 }
 
 export default function CategoryArticles({ category, articles }: CategoryArticlesProps) {
-  // Filtra articoli per categoria
   const categoryArticles = articles.filter(article => 
     article.categories?.some(cat => 
       cat.toLowerCase().includes(category.slug.toLowerCase())
     )
   );
 
-  // Se non ci sono articoli per questa categoria, non mostrare la sezione
   if (categoryArticles.length === 0) {
     return null;
   }
@@ -41,123 +38,75 @@ export default function CategoryArticles({ category, articles }: CategoryArticle
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
     return new Date(dateString).toLocaleDateString('it-IT', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      month: 'short'
     });
   };
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'blue':
-        return {
-          bg: 'bg-blue-50',
-          text: 'text-blue-600',
-          border: 'border-blue-200',
-          hover: 'hover:text-blue-700'
-        };
-      case 'green':
-        return {
-          bg: 'bg-green-50',
-          text: 'text-green-600',
-          border: 'border-green-200',
-          hover: 'hover:text-green-700'
-        };
-      case 'orange':
-        return {
-          bg: 'bg-orange-50',
-          text: 'text-orange-600',
-          border: 'border-orange-200',
-          hover: 'hover:text-orange-700'
-        };
-      case 'purple':
-        return {
-          bg: 'bg-purple-50',
-          text: 'text-purple-600',
-          border: 'border-purple-200',
-          hover: 'hover:text-purple-700'
-        };
-      default:
-        return {
-          bg: 'bg-gray-50',
-          text: 'text-gray-600',
-          border: 'border-gray-200',
-          hover: 'hover:text-gray-700'
-        };
-    }
-  };
-
-  const colors = getColorClasses(category.color);
-
   return (
-    <section className={`py-16 ${colors.bg}`}>
+    <section className="py-16 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Categoria */}
-        <div className="flex items-center justify-between mb-12">
+        {/* Header */}
+        <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 mb-1">
               {category.name}
             </h2>
-            <p className="text-gray-600">
-              Scopri i migliori articoli su {category.name.toLowerCase()}
+            <p className="text-gray-500 text-sm">
+              {categoryArticles.length} {categoryArticles.length === 1 ? 'articolo' : 'articoli'}
             </p>
           </div>
-          <Link href={`/categoria/${category.slug}`}>
-            <button className={`${colors.text} ${colors.hover} font-semibold flex items-center gap-2 transition-colors`}>
-              Vedi tutti
-              <ChevronRight size={20} />
-            </button>
+          <Link 
+            href={`/categoria/${category.slug}`}
+            className="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-1"
+          >
+            Vedi tutti
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
 
-        {/* Articoli in Riga Orizzontale */}
-        <div className="flex gap-6 overflow-x-auto pb-4">
-          {categoryArticles.map((article) => (
-            <article
+        {/* Horizontal Scroll */}
+        <div className="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+          {categoryArticles.slice(0, 8).map((article) => (
+            <Link
               key={article._id}
-              className="flex-shrink-0 w-80 group"
+              href={`/articoli/${article.slug.current}`}
+              className="flex-shrink-0 w-72 snap-start group"
             >
-              <Link href={`/articoli/${article.slug.current}`}>
-                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  {/* Immagine */}
-                  <div className="relative h-48 overflow-hidden">
-                    {article.mainImage?.asset?.url ? (
-                      <Image
-                        src={article.mainImage.asset.url}
-                        alt={article.title}
-                        width={320}
-                        height={192}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                        <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Contenuto */}
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-                      {article.excerpt || 'Scopri i segreti e le tecniche per migliorare la tua pesca sportiva...'}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">
-                        {formatDate(article.publishedAt)}
-                      </span>
-                      <span className={`text-xs font-medium ${colors.text}`}>
-                        Leggi di più →
-                      </span>
+              <article>
+                {/* Image */}
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-gray-100">
+                  {article.mainImage?.asset?.url ? (
+                    <Image
+                      src={article.mainImage.asset.url}
+                      alt={article.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                      <svg className="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
                     </div>
-                  </div>
+                  )}
                 </div>
-              </Link>
-            </article>
+
+                {/* Content */}
+                <div>
+                  {article.publishedAt && (
+                    <span className="text-xs text-gray-400 mb-1 block">
+                      {formatDate(article.publishedAt)}
+                    </span>
+                  )}
+                  <h3 className="font-medium text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
+                    {article.title}
+                  </h3>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

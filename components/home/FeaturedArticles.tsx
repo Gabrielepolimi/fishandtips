@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Card from '../ui/Card';
-import Badge from '../ui/Badge';
-import Button from '../ui/Button';
+import Image from 'next/image';
 
 interface Article {
   _id: string;
@@ -23,39 +21,28 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
   const formatDate = (dateString?: string) => {
     if (!dateString) return '';
     return new Date(dateString).toLocaleDateString('it-IT', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+      day: 'numeric',
+      month: 'short'
     });
   };
 
-  // Se non ci sono articoli, mostra un messaggio
   if (!articles || articles.length === 0) {
     return (
-      <section id="articoli" className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Articoli in Evidenza
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Articoli in arrivo
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Scopri le tecniche più efficaci e i consigli degli esperti per migliorare la tua pesca
+            <p className="text-gray-600 mb-8">
+              Stiamo preparando contenuti di qualità. Torna presto!
             </p>
-          </div>
-          
-          <div className="text-center py-12">
-            <div className="max-w-md mx-auto">
-              <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Nessun articolo disponibile</h3>
-              <p className="text-gray-600 mb-6">
-                Gli articoli saranno presto disponibili. Torna presto per scoprire i nostri consigli sulla pesca!
-              </p>
-              <Button variant="primary" size="lg">
-                Iscriviti alla Newsletter
-              </Button>
-            </div>
+            <Link 
+              href="/registrazione"
+              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-colors"
+            >
+              Avvisami quando escono
+            </Link>
           </div>
         </div>
       </section>
@@ -63,89 +50,100 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
   }
 
   return (
-    <section id="articoli" className="py-16 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Articoli in Evidenza
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Scopri le tecniche più efficaci e i consigli degli esperti per migliorare la tua pesca
-          </p>
+        {/* Header */}
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Ultimi articoli
+            </h2>
+            <p className="text-gray-600">
+              Le guide più recenti per migliorare la tua pesca
+            </p>
+          </div>
+          <Link 
+            href="/articoli"
+            className="hidden sm:flex items-center gap-2 text-gray-900 font-medium hover:text-gray-600 transition-colors"
+          >
+            Vedi tutti
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.slice(0, 6).map((article) => (
-            <Card key={article._id} variant="elevated" className="h-full">
-              <Link href={`/articoli/${article.slug.current}`}>
+            <Link 
+              key={article._id}
+              href={`/articoli/${article.slug.current}`}
+              className="group"
+            >
+              <article className="h-full">
                 {/* Image */}
-                <div className="aspect-video bg-gray-200 rounded-t-xl overflow-hidden">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-gray-100">
                   {article.mainImage?.asset?.url ? (
-                    <img
+                    <Image
                       src={article.mainImage.asset.url}
                       alt={article.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center">
-                      <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    {article.categories && article.categories.length > 0 ? (
-                      article.categories.slice(0, 2).map((category, index) => (
-                        <Badge 
-                          key={index} 
-                          variant={index === 0 ? "primary" : "secondary"} 
-                          size="sm"
-                        >
-                          {category}
-                        </Badge>
-                      ))
-                    ) : (
+                <div>
+                  {/* Category & Date */}
+                  <div className="flex items-center gap-3 mb-2">
+                    {article.categories && article.categories[0] && (
+                      <span className="text-sm font-medium text-blue-600">
+                        {article.categories[0]}
+                      </span>
+                    )}
+                    {article.publishedAt && (
                       <>
-                        <Badge variant="primary" size="sm">Tecnica</Badge>
-                        <Badge variant="secondary" size="sm">Consigli</Badge>
+                        <span className="text-gray-300">·</span>
+                        <span className="text-sm text-gray-500">
+                          {formatDate(article.publishedAt)}
+                        </span>
                       </>
                     )}
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 hover:text-primary-600 transition-colors">
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2 mb-2">
                     {article.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {article.excerpt || 'Scopri i segreti e le tecniche per migliorare la tua pesca sportiva...'}
+
+                  {/* Excerpt */}
+                  <p className="text-gray-500 text-sm line-clamp-2">
+                    {article.excerpt || 'Scopri tecniche e consigli per migliorare le tue catture...'}
                   </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">
-                      {formatDate(article.publishedAt)}
-                    </span>
-                    <span className="text-primary-600 font-medium text-sm">
-                      Leggi di più →
-                    </span>
-                  </div>
                 </div>
-              </Link>
-            </Card>
+              </article>
+            </Link>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Link href="/articoli">
-            <Button variant="primary" size="lg" className="text-lg px-8 py-4">
-              Vedi Tutti gli Articoli
-            </Button>
+        {/* Mobile CTA */}
+        <div className="mt-10 text-center sm:hidden">
+          <Link 
+            href="/articoli"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-900 font-medium rounded-full hover:bg-gray-200 transition-colors"
+          >
+            Vedi tutti gli articoli
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </Link>
         </div>
       </div>
