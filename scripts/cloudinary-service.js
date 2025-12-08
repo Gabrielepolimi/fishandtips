@@ -9,24 +9,33 @@ import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
 
 // ===== CONFIGURAZIONE =====
-const CONFIG = {
-  cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-  apiKey: process.env.CLOUDINARY_API_KEY,
-  apiSecret: process.env.CLOUDINARY_API_SECRET
-};
+// Le variabili vengono lette a runtime per supportare GitHub Actions
+function getConfig() {
+  return {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.CLOUDINARY_API_KEY,
+    apiSecret: process.env.CLOUDINARY_API_SECRET
+  };
+}
 
 /**
  * Inizializza Cloudinary
  */
 function initCloudinary() {
-  if (!CONFIG.cloudName || !CONFIG.apiKey || !CONFIG.apiSecret) {
+  const config = getConfig();
+  
+  if (!config.cloudName || !config.apiKey || !config.apiSecret) {
+    console.log('⚠️ Cloudinary config missing:');
+    console.log('   Cloud Name:', config.cloudName ? '✅' : '❌ missing');
+    console.log('   API Key:', config.apiKey ? '✅' : '❌ missing');
+    console.log('   API Secret:', config.apiSecret ? '✅' : '❌ missing');
     return false;
   }
   
   cloudinary.config({
-    cloud_name: CONFIG.cloudName,
-    api_key: CONFIG.apiKey,
-    api_secret: CONFIG.apiSecret
+    cloud_name: config.cloudName,
+    api_key: config.apiKey,
+    api_secret: config.apiSecret
   });
   
   return true;
@@ -36,11 +45,12 @@ function initCloudinary() {
  * Verifica configurazione
  */
 export function checkConfig() {
+  const config = getConfig();
   const missing = [];
   
-  if (!CONFIG.cloudName) missing.push('CLOUDINARY_CLOUD_NAME');
-  if (!CONFIG.apiKey) missing.push('CLOUDINARY_API_KEY');
-  if (!CONFIG.apiSecret) missing.push('CLOUDINARY_API_SECRET');
+  if (!config.cloudName) missing.push('CLOUDINARY_CLOUD_NAME');
+  if (!config.apiKey) missing.push('CLOUDINARY_API_KEY');
+  if (!config.apiSecret) missing.push('CLOUDINARY_API_SECRET');
   
   if (missing.length > 0) {
     console.warn('⚠️ Configurazione Cloudinary incompleta:');
@@ -173,7 +183,7 @@ export async function testConnection() {
     const result = await cloudinary.api.ping();
     
     console.log('✅ Connessione OK');
-    console.log(`   Cloud Name: ${CONFIG.cloudName}`);
+    console.log(`   Cloud Name: ${getConfig().cloudName}`);
     console.log(`   Status: ${result.status}`);
     
     // Mostra utilizzo
