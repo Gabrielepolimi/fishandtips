@@ -20,7 +20,7 @@ const categories = [
     icon: '🏪',
     description: 'I migliori negozi online e fisici per attrezzatura da pesca',
     slots: 10,
-    filled: 0,
+    filled: 3,
   },
   {
     id: 'charter',
@@ -28,15 +28,15 @@ const categories = [
     icon: '🚤',
     description: 'Le migliori imbarcazioni per uscite di pesca in Italia',
     slots: 10,
-    filled: 0,
+    filled: 4,
   },
   {
     id: 'scuole',
-    title: 'Scuole di Pesca',
+    title: 'Scuole/Gare di Pesca',
     icon: '🎓',
-    description: 'I migliori corsi e istruttori per imparare a pescare',
+    description: 'I migliori corsi, istruttori e organizzatori di gare',
     slots: 10,
-    filled: 0,
+    filled: 2,
   },
 ];
 
@@ -391,7 +391,7 @@ export default function MiglioriPesca2025Page() {
                     <option value="">Seleziona categoria</option>
                     <option value="Negozi di Pesca">🏪 Negozi di Pesca</option>
                     <option value="Charter di Pesca">🚤 Charter di Pesca</option>
-                    <option value="Scuole di Pesca">🎓 Scuole di Pesca</option>
+                    <option value="Scuole/Gare di Pesca">🎓 Scuole/Gare di Pesca</option>
                   </select>
                 </div>
                 <div>
