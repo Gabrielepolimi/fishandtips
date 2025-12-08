@@ -86,7 +86,8 @@ export async function runPinterestPipeline(articleSlug, options = {}) {
 
   // 6. Upload su Cloudinary
   console.log('\n☁️ Upload su Cloudinary...');
-  const cloudinaryUrl = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryResult = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryUrl = cloudinaryResult.url;
   console.log(`   ✅ URL: ${cloudinaryUrl.substring(0, 50)}...`);
 
   // 7. Pubblica su Pinterest (se non dry-run)
@@ -194,7 +195,8 @@ export async function generatePinFromSpot(spot, options = {}) {
     location: spot.region
   }, imagePath, 'spot');
 
-  const cloudinaryUrl = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryResult2 = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryUrl = cloudinaryResult2.url;
 
   if (options.dryRun) {
     return { success: true, dryRun: true, pinContent, imageUrl: cloudinaryUrl };
@@ -231,7 +233,8 @@ export async function generatePinFromFish(fish, options = {}) {
     imageUrl: photos[0]
   }, imagePath, 'default');
 
-  const cloudinaryUrl = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryResult3 = await uploadToCloudinary(imagePath, 'pinterest-pins');
+  const cloudinaryUrl = cloudinaryResult3.url;
 
   if (options.dryRun) {
     return { success: true, dryRun: true, pinContent, imageUrl: cloudinaryUrl };
