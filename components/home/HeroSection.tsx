@@ -91,7 +91,7 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { label: 'Tecniche', href: '/articoli?categoria=tecniche-di-pesca', icon: '🎣' },
+              { label: 'Tecniche', href: '/tecniche', icon: '🎣' },
               { label: 'Attrezzatura', href: '/trova-attrezzatura', icon: '🎒' },
               { label: 'Spot', href: '/spot-pesca-italia', icon: '📍' },
               { label: 'Pesci', href: '/pesci-mediterraneo', icon: '🐟' },
