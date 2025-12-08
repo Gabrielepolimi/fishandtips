@@ -1,45 +1,55 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Button from '../ui/Button';
 
-const fishingTechniques = [
-  'Spinning',
-  'Bolognese',
-  'Feeder',
-  'Carp Fishing',
-  'Fly Fishing',
-  'Surf Casting',
-  'Jigging',
-  'Trolling',
-  'Pesca a Mosca',
-  'Pesca con il Galleggiante',
-  'Pesca a Fondo',
-  'Pesca con Esche Naturali',
-  'Pesca con Esche Artificiali',
-  'Pesca in Mare',
-  'Pesca in Lago',
-  'Pesca in Fiume'
+const WATER_TYPES = [
+  { id: 'mare', label: 'Mare', icon: '🌊' },
+  { id: 'lago', label: 'Lago', icon: '🏞️' },
+  { id: 'fiume', label: 'Fiume', icon: '🏞️' },
+];
+
+const REGIONS = [
+  'Lombardia', 'Piemonte', 'Veneto', 'Emilia-Romagna', 'Toscana',
+  'Lazio', 'Campania', 'Puglia', 'Sicilia', 'Sardegna',
+  'Liguria', 'Friuli-Venezia Giulia', 'Trentino-Alto Adige', 'Calabria',
+  'Marche', 'Abruzzo', 'Umbria', 'Basilicata', 'Molise', "Valle d'Aosta"
+];
+
+const TECHNIQUES = [
+  'Spinning', 'Surfcasting', 'Bolognese', 'Feeder', 'Carp Fishing',
+  'Eging', 'Jigging', 'Traina', 'Pesca a Mosca', 'Pesca a Fondo'
 ];
 
 export default function NewsletterSection() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     nome: '',
-    cognome: '',
     email: '',
+    tipiAcqua: [] as string[],
+    regioni: [] as string[],
     tecniche: [] as string[]
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showRegions, setShowRegions] = useState(false);
+  const [showTechniques, setShowTechniques] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleWaterTypeToggle = (type: string) => {
+    setFormData(prev => ({
+      ...prev,
+      tipiAcqua: prev.tipiAcqua.includes(type)
+        ? prev.tipiAcqua.filter(t => t !== type)
+        : [...prev.tipiAcqua, type]
+    }));
+  };
+
+  const handleRegionToggle = (region: string) => {
+    setFormData(prev => ({
+      ...prev,
+      regioni: prev.regioni.includes(region)
+        ? prev.regioni.filter(r => r !== region)
+        : [...prev.regioni, region]
+    }));
   };
 
   const handleTechniqueToggle = (technique: string) => {
@@ -59,9 +69,7 @@ export default function NewsletterSection() {
     try {
       const response = await fetch('/api/newsletter/subscribe', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       
@@ -72,7 +80,6 @@ export default function NewsletterSection() {
       }
       
       setIsSubmitted(true);
-      setFormData({ nome: '', cognome: '', email: '', tecniche: [] });
     } catch (error: any) {
       setError(error.message || 'Errore durante l\'iscrizione');
     } finally {
@@ -80,121 +87,259 @@ export default function NewsletterSection() {
     }
   };
 
-  return (
-    <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-blue-dark">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Non Perdere i Consigli degli Esperti
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Iscriviti alla newsletter e ricevi settimanalmente tecniche, consigli e segreti 
-            per diventare un pescatore sempre più esperto.
-          </p>
+  if (isSubmitted) {
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-12">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">Sei dei nostri! 🎣</h3>
+            <p className="text-gray-600">
+              Ti invieremo solo contenuti su misura per te: {formData.tipiAcqua.join(', ')} 
+              {formData.regioni.length > 0 && ` nelle zone ${formData.regioni.slice(0, 3).join(', ')}`}.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
-          {isSubmitted ? (
-            <div className="max-w-md mx-auto">
-              <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-6">
-                <div className="text-4xl mb-4">✅</div>
-                <h3 className="text-xl font-bold text-white mb-2">Iscrizione Completata!</h3>
-                <p className="text-green-100">
-                  Grazie per esserti iscritto! Riceverai presto la tua prima newsletter personalizzata.
-                </p>
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+            Ricevi solo quello che ti interessa
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Dicci dove peschi e cosa ti appassiona. Ti manderemo solo consigli, spot e tecniche 
+            su misura per te. Zero spam, solo valore.
+          </p>
+        </div>
+
+        {/* Form Card */}
+        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-10">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            
+            {/* Basic Info */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Come ti chiami?
+                </label>
+                <input
+                  type="text"
+                  value={formData.nome}
+                  onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                  required
+                  placeholder="Il tuo nome"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  La tua email
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
+                  placeholder="email@esempio.com"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-0 transition-colors text-gray-900 placeholder-gray-400"
+                />
               </div>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
-              {/* Nome e Cognome */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
-                  placeholder="Nome"
-                  className="px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent"
-                />
-                <input
-                  type="text"
-                  name="cognome"
-                  value={formData.cognome}
-                  onChange={handleChange}
-                  required
-                  placeholder="Cognome"
-                  className="px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent"
-                />
+
+            {/* Water Type Selection */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-3">
+                Dove peschi di solito?
+              </label>
+              <div className="grid grid-cols-3 gap-3">
+                {WATER_TYPES.map((type) => (
+                  <button
+                    key={type.id}
+                    type="button"
+                    onClick={() => handleWaterTypeToggle(type.id)}
+                    className={`p-4 rounded-2xl border-2 transition-all ${
+                      formData.tipiAcqua.includes(type.id)
+                        ? 'border-gray-900 bg-gray-900 text-white'
+                        : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                    }`}
+                  >
+                    <div className="text-2xl mb-1">{type.icon}</div>
+                    <div className="font-medium">{type.label}</div>
+                  </button>
+                ))}
               </div>
+            </div>
 
-              {/* Email */}
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="Email"
-                className="w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:border-transparent"
-              />
-
-              {/* Tecniche di Pesca */}
-              <div>
-                <label className="block text-sm font-medium text-white mb-3">
-                  Tecniche di Pesca Preferite *
-                </label>
-                <div className="max-h-32 overflow-y-auto border border-white/20 rounded-lg p-4 bg-white/10">
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {fishingTechniques.map((technique) => (
-                      <label key={technique} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={formData.tecniche.includes(technique)}
-                          onChange={() => handleTechniqueToggle(technique)}
-                          className="w-4 h-4 text-brand-yellow border-white/30 rounded focus:ring-brand-yellow bg-white/10"
-                        />
-                        <span className="text-sm text-white">{technique}</span>
-                      </label>
+            {/* Regions Selection */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setShowRegions(!showRegions)}
+                className="flex items-center justify-between w-full p-4 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
+              >
+                <div className="text-left">
+                  <div className="font-medium text-gray-900">
+                    {formData.regioni.length > 0 
+                      ? `${formData.regioni.length} ${formData.regioni.length === 1 ? 'regione selezionata' : 'regioni selezionate'}`
+                      : 'In quali regioni peschi?'
+                    }
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {formData.regioni.length > 0 
+                      ? formData.regioni.slice(0, 3).join(', ') + (formData.regioni.length > 3 ? '...' : '')
+                      : 'Così ti segnaliamo gli spot migliori vicino a te'
+                    }
+                  </div>
+                </div>
+                <svg 
+                  className={`w-5 h-5 text-gray-400 transition-transform ${showRegions ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {showRegions && (
+                <div className="mt-3 p-4 bg-gray-50 rounded-xl">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    {REGIONS.map((region) => (
+                      <button
+                        key={region}
+                        type="button"
+                        onClick={() => handleRegionToggle(region)}
+                        className={`px-3 py-2 text-sm rounded-lg transition-all ${
+                          formData.regioni.includes(region)
+                            ? 'bg-gray-900 text-white'
+                            : 'bg-white border border-gray-200 text-gray-700 hover:border-gray-300'
+                        }`}
+                      >
+                        {region}
+                      </button>
                     ))}
                   </div>
                 </div>
-              </div>
+              )}
+            </div>
 
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                variant="secondary"
-                size="lg"
-                disabled={isSubmitting || formData.tecniche.length === 0}
-                className="px-8 py-3 w-full md:w-auto"
+            {/* Techniques Selection */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setShowTechniques(!showTechniques)}
+                className="flex items-center justify-between w-full p-4 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
               >
-                {isSubmitting ? 'Iscrizione in corso...' : 'Iscriviti alla Newsletter'}
-              </Button>
+                <div className="text-left">
+                  <div className="font-medium text-gray-900">
+                    {formData.tecniche.length > 0 
+                      ? `${formData.tecniche.length} ${formData.tecniche.length === 1 ? 'tecnica selezionata' : 'tecniche selezionate'}`
+                      : 'Quali tecniche ti interessano?'
+                    }
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    {formData.tecniche.length > 0 
+                      ? formData.tecniche.slice(0, 3).join(', ') + (formData.tecniche.length > 3 ? '...' : '')
+                      : 'Opzionale - Per contenuti ancora più mirati'
+                    }
+                  </div>
+                </div>
+                <svg 
+                  className={`w-5 h-5 text-gray-400 transition-transform ${showTechniques ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
               
-              {/* Error Message */}
-              {error && (
-                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg">
-                  <p className="text-red-200 text-sm">{error}</p>
+              {showTechniques && (
+                <div className="mt-3 p-4 bg-gray-50 rounded-xl">
+                  <div className="flex flex-wrap gap-2">
+                    {TECHNIQUES.map((technique) => (
+                      <button
+                        key={technique}
+                        type="button"
+                        onClick={() => handleTechniqueToggle(technique)}
+                        className={`px-4 py-2 text-sm rounded-full transition-all ${
+                          formData.tecniche.includes(technique)
+                            ? 'bg-gray-900 text-white'
+                            : 'bg-white border border-gray-200 text-gray-700 hover:border-gray-300'
+                        }`}
+                      >
+                        {technique}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
-            </form>
-          )}
+            </div>
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="text-white/90">
-              <div className="text-2xl font-bold text-brand-yellow mb-2">🎣</div>
-              <h3 className="font-semibold mb-1">Tecniche Esclusive</h3>
-              <p className="text-sm">Consigli che non trovi da nessun'altra parte</p>
-            </div>
-            <div className="text-white/90">
-              <div className="text-2xl font-bold text-brand-yellow mb-2">📅</div>
-              <h3 className="font-semibold mb-1">Settimanale</h3>
-              <p className="text-sm">Contenuti freschi ogni settimana</p>
-            </div>
-            <div className="text-white/90">
-              <div className="text-2xl font-bold text-brand-yellow mb-2">🎁</div>
-              <h3 className="font-semibold mb-1">Gratuito</h3>
-              <p className="text-sm">Sempre gratis, senza spam</p>
-            </div>
+            {/* Error Message */}
+            {error && (
+              <div className="p-4 bg-red-50 border border-red-100 rounded-xl">
+                <p className="text-red-600 text-sm">{error}</p>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting || formData.tipiAcqua.length === 0}
+              className="w-full py-4 px-6 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-colors"
+            >
+              {isSubmitting ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Iscrizione in corso...
+                </span>
+              ) : (
+                'Iscriviti gratis'
+              )}
+            </button>
+
+            {/* Privacy Note */}
+            <p className="text-center text-xs text-gray-500">
+              Iscrivendoti accetti la nostra{' '}
+              <a href="/privacy" className="underline hover:text-gray-700">Privacy Policy</a>.
+              Niente spam, solo contenuti utili. Puoi disiscriverti quando vuoi.
+            </p>
+          </form>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="mt-10 flex flex-wrap justify-center gap-8 text-sm text-gray-500">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>Dati protetti</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+            <span>Zero spam</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span>1 email a settimana</span>
           </div>
         </div>
       </div>

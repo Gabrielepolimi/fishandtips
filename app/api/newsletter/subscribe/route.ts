@@ -1,60 +1,66 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   try {
-    const { nome, cognome, email, tecniche } = await request.json();
+    const { nome, email, tipiAcqua, regioni, tecniche } = await request.json();
 
-    // Validazione
-    if (!nome || !cognome || !email || !tecniche || tecniche.length === 0) {
+    // Validazione base
+    if (!nome || !email || !tipiAcqua || tipiAcqua.length === 0) {
       return NextResponse.json(
-        { error: 'Tutti i campi sono obbligatori' },
+        { error: 'Nome, email e tipo di acqua sono obbligatori' },
         { status: 400 }
       );
     }
 
-    // Verifica se l'email è già registrata
-    const existingUser = await prisma.user.findUnique({
-      where: { email }
-    });
-
-    if (existingUser) {
+    // Validazione email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: 'Email già registrata' },
+        { error: 'Email non valida' },
         { status: 400 }
       );
     }
 
-    // Crea nuovo utente
-    const user = await prisma.user.create({
-      data: {
-        name: `${nome} ${cognome}`,
+    // Google Sheets Web App URL
+    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+    if (!GOOGLE_SCRIPT_URL) {
+      console.error('GOOGLE_SHEETS_WEBHOOK_URL non configurato');
+      return NextResponse.json(
+        { error: 'Servizio temporaneamente non disponibile' },
+        { status: 503 }
+      );
+    }
+
+    // Invia dati a Google Sheets
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nome,
         email,
-        fishingTechniques: JSON.stringify(tecniche),
-        newsletterSubscribed: true
-      }
+        tipiAcqua: tipiAcqua.join(', '),
+        regioni: regioni?.join(', ') || '',
+        tecniche: tecniche?.join(', ') || '',
+        dataIscrizione: new Date().toISOString()
+      }),
     });
 
-    // Log dell'attività
-    await prisma.userActivity.create({
-      data: {
-        userId: user.id,
-        action: 'newsletter_subscription',
-        details: `Iscritto alla newsletter con ${tecniche.length} tecniche selezionate`
-      }
-    });
+    if (!response.ok) {
+      throw new Error('Errore nel salvataggio dei dati');
+    }
 
     return NextResponse.json(
-      { message: 'Iscrizione completata con successo' },
+      { message: 'Iscrizione completata con successo!' },
       { status: 201 }
     );
 
   } catch (error) {
     console.error('Errore durante l\'iscrizione alla newsletter:', error);
     return NextResponse.json(
-      { error: 'Errore interno del server' },
+      { error: 'Errore durante la registrazione. Riprova.' },
       { status: 500 }
     );
   }
