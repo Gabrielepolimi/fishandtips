@@ -1,6 +1,10 @@
-const { createClient } = require('@sanity/client');
-const fs = require('fs');
-const path = require('path');
+import { createClient } from '@sanity/client';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configurazione Sanity Client
 const sanityClient = createClient({
@@ -11,7 +15,7 @@ const sanityClient = createClient({
   token: process.env.SANITY_API_TOKEN,
 });
 
-async function updateSitemap() {
+export async function updateSitemap() {
   const baseUrl = 'https://fishandtips.it';
   
   try {
@@ -140,7 +144,8 @@ async function updateSitemap() {
 }
 
 // Esegui se chiamato direttamente
-if (require.main === module) {
+const isMainModule = import.meta.url === `file://${process.argv[1]}`;
+if (isMainModule) {
   updateSitemap()
     .then(count => {
       console.log(`🎯 Sitemap aggiornata con successo: ${count} pagine`);
@@ -151,7 +156,3 @@ if (require.main === module) {
       process.exit(1);
     });
 }
-
-module.exports = { updateSitemap };
-
-
