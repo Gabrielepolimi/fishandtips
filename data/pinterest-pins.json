@@ -1,0 +1,17 @@
+{
+  "pins": [
+    {
+      "id": "pin-example-1",
+      "title": "🎣 Pesca Notturna dalla Scogliera: Catture da Urlo! 🌃",
+      "description": "Scopri i segreti dei professionisti per pescare di notte dalla scogliera. Tecniche, attrezzatura e consigli per catture memorabili!\n\n#pesca #pescasportiva #pescaitalia #pescamare #pescascogliera #pescanotturna #fishingitaly #fishing #mediterraneo #pescatore",
+      "imageUrl": "https://res.cloudinary.com/du6dbwkep/image/upload/v1/pinterest-pins/example.png",
+      "link": "https://fishandtips.it/articoli/pesca-notturna-dalla-scogliera-consigli",
+      "board": "Tecniche di Pesca",
+      "category": "tecniche-di-pesca",
+      "createdAt": "2024-12-08T12:00:00Z",
+      "articleSlug": "pesca-notturna-dalla-scogliera-consigli"
+    }
+  ],
+  "lastUpdated": "2024-12-08T12:00:00Z"
+}
+

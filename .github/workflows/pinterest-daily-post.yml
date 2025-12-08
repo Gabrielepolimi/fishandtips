@@ -1,12 +1,10 @@
-name: 📌 Pinterest Daily Pin
+name: 📌 Pinterest Pin Generator
 
 on:
-  # Esecuzione programmata - 2 pin al giorno
+  # Esecuzione programmata - genera pin ogni giorno
   schedule:
-    # 10:00 UTC (11:00 ora italiana) - mattina
-    - cron: '0 10 * * *'
-    # 18:00 UTC (19:00 ora italiana) - sera
-    - cron: '0 18 * * *'
+    # 08:00 UTC (09:00 ora italiana)
+    - cron: '0 8 * * *'
   
   # Esecuzione manuale
   workflow_dispatch:
@@ -16,19 +14,13 @@ on:
         required: false
         type: string
       count:
-        description: 'Numero di pin da generare'
+        description: 'Numero di pin da generare dagli ultimi articoli'
         required: false
-        default: '1'
+        default: '3'
         type: string
-      dry_run:
-        description: 'Dry run (non pubblica)'
-        required: false
-        default: false
-        type: boolean
 
 env:
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-  PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
   UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
   CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
   CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -38,12 +30,14 @@ env:
   NEXT_PUBLIC_SANITY_DATASET: 'production'
 
 jobs:
-  generate-and-post-pin:
+  generate-pinterest-pins:
     runs-on: ubuntu-latest
     
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
@@ -72,35 +66,41 @@ jobs:
             libpango-1.0-0 \
             libcairo2
 
-      - name: 📌 Generate and Post Pinterest Pin
+      - name: 📌 Generate Pinterest Pins
         run: |
-          echo "📌 Pinterest Automation"
+          echo "📌 Pinterest Pin Generator"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           
           if [ -n "${{ github.event.inputs.article_slug }}" ]; then
             echo "📝 Articolo specifico: ${{ github.event.inputs.article_slug }}"
-            if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
-              node scripts/pinterest-pipeline.js --article "${{ github.event.inputs.article_slug }}" --dry-run
-            else
-              node scripts/pinterest-pipeline.js --article "${{ github.event.inputs.article_slug }}"
-            fi
+            node scripts/pinterest-rss-generator.js --article "${{ github.event.inputs.article_slug }}"
           else
-            COUNT="${{ github.event.inputs.count || '1' }}"
+            COUNT="${{ github.event.inputs.count || '3' }}"
             echo "📊 Generazione $COUNT pin dagli ultimi articoli"
-            if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
-              node scripts/pinterest-pipeline.js --latest $COUNT --dry-run
-            else
-              node scripts/pinterest-pipeline.js --latest $COUNT
-            fi
+            node scripts/pinterest-rss-generator.js --latest $COUNT
           fi
+
+      - name: 📤 Commit and Push updated pins
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/pinterest-pins.json
+          git diff --staged --quiet || git commit -m "📌 Auto-generate Pinterest pins [skip ci]"
+          git push
 
       - name: 📊 Summary
         if: always()
         run: |
-          echo "## 📌 Pinterest Pin Result" >> $GITHUB_STEP_SUMMARY
+          echo "## 📌 Pinterest Pin Generator Result" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Time**: $(date)" >> $GITHUB_STEP_SUMMARY
           echo "- **Triggered by**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           if [ -n "${{ github.event.inputs.article_slug }}" ]; then
             echo "- **Article**: ${{ github.event.inputs.article_slug }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **Count**: ${{ github.event.inputs.count || '3' }}" >> $GITHUB_STEP_SUMMARY
           fi
-
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "I pin generati sono disponibili su:" >> $GITHUB_STEP_SUMMARY
+          echo "- 🌐 https://fishandtips.it/pinterest" >> $GITHUB_STEP_SUMMARY
+          echo "- 📡 https://fishandtips.it/pinterest/feed.xml" >> $GITHUB_STEP_SUMMARY
