@@ -52,28 +52,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Shimano Speedmaster BX 240MH",
+          "name": "Canna Spinning Mare 2.40m",
           "description": "Canna da spinning versatile 2.40m, 10-35g, perfetta per iniziare",
           "price": 89,
-          "amazonUrl": "https://www.amazon.it/dp/B07XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+spinning+mare+2.40+spigola&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Daiwa Ninja LT 3000",
+          "name": "Mulinello Spinning 3000",
           "description": "Mulinello leggero e affidabile con ottimo rapporto qualità/prezzo",
           "price": 69,
-          "amazonUrl": "https://www.amazon.it/dp/B08XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+spinning+3000+mare&tag=fishandtips-21"
         },
         "filo": {
-          "name": "Spiderwire Stealth Smooth 8 0.11mm",
+          "name": "Trecciato PE 0.8-1.0",
           "description": "Trecciato 8 capi ultra resistente, 150m",
           "price": 24,
-          "amazonUrl": "https://www.amazon.it/dp/B09XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=trecciato+pesca+spinning+8+capi&tag=fishandtips-21"
         },
         "artificiali": {
-          "name": "Kit Artificiali Spinning 10 pezzi",
+          "name": "Kit Artificiali Spinning",
           "description": "Set misto con minnow, jig e soft bait per iniziare",
           "price": 19,
-          "amazonUrl": "https://www.amazon.it/dp/B10XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=artificiali+spinning+mare+kit&tag=fishandtips-21"
         }
       },
       "relatedFish": ["spigola", "serra", "barracuda", "leccia-amia"],
@@ -128,28 +128,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Trabucco Kronos Surf Master 450",
+          "name": "Canna Surfcasting 4.50m",
           "description": "Canna da surfcasting 4.50m, 100-200g, ottima potenza di lancio",
           "price": 129,
-          "amazonUrl": "https://www.amazon.it/dp/B11XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+surfcasting+4.50+metri&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Penn Spinfisher VI 6500",
+          "name": "Mulinello Surfcasting 6500",
           "description": "Mulinello robusto e impermeabile, ideale per spiaggia",
           "price": 149,
-          "amazonUrl": "https://www.amazon.it/dp/B12XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+surfcasting+6500+mare&tag=fishandtips-21"
         },
         "filo": {
-          "name": "Trabucco T-Force XPS Surf 0.28mm",
+          "name": "Filo Surfcasting Conico",
           "description": "Nylon conico per surfcasting, 220m + shock leader",
           "price": 18,
-          "amazonUrl": "https://www.amazon.it/dp/B13XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=filo+surfcasting+conico+shock+leader&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Kit Completo Surfcasting",
           "description": "Picchetti, portacanne, piombi assortiti, ami e terminali",
           "price": 45,
-          "amazonUrl": "https://www.amazon.it/dp/B14XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=kit+surfcasting+completo+accessori&tag=fishandtips-21"
         }
       },
       "relatedFish": ["orata", "spigola", "mormora", "sarago-maggiore"],
@@ -204,28 +204,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Colmic Fiume 180 6m",
+          "name": "Canna Bolognese 6 metri",
           "description": "Canna bolognese 6 metri, leggera e reattiva",
           "price": 79,
-          "amazonUrl": "https://www.amazon.it/dp/B15XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+bolognese+6+metri+mare&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Shimano Sienna 2500 FG",
+          "name": "Mulinello Bolognese 2500",
           "description": "Mulinello affidabile per bolognese, frizione morbida",
           "price": 39,
-          "amazonUrl": "https://www.amazon.it/dp/B16XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+bolognese+2500&tag=fishandtips-21"
         },
         "galleggianti": {
           "name": "Set Galleggianti Bolognese",
           "description": "10 galleggianti assortiti da 2 a 6 grammi",
           "price": 15,
-          "amazonUrl": "https://www.amazon.it/dp/B17XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=galleggianti+bolognese+mare+set&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Kit Terminali Bolognese",
           "description": "Ami, pallini, girelle e fluorocarbon assortiti",
           "price": 22,
-          "amazonUrl": "https://www.amazon.it/dp/B18XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=kit+bolognese+terminali+ami&tag=fishandtips-21"
         }
       },
       "relatedFish": ["sarago-maggiore", "orata", "occhiata", "cefalo"],
@@ -280,28 +280,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Shimano Sephia BB 83ML",
+          "name": "Canna Eging 2.50m",
           "description": "Canna da eging 2.51m, azione 2.5-3.5, sensibilità top",
           "price": 109,
-          "amazonUrl": "https://www.amazon.it/dp/B19XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+eging+calamari+seppie&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Daiwa Revros LT 2500",
+          "name": "Mulinello Eging 2500",
           "description": "Mulinello leggero e fluido, perfetto per eging",
           "price": 59,
-          "amazonUrl": "https://www.amazon.it/dp/B20XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+eging+2500+leggero&tag=fishandtips-21"
         },
         "totanare": {
-          "name": "Kit 10 Totanare Assortite",
+          "name": "Kit Totanare Assortite",
           "description": "Mix di colori e misure 2.5-3.5 per tutte le condizioni",
           "price": 25,
-          "amazonUrl": "https://www.amazon.it/dp/B21XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=totanare+eging+kit+calamari&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Porta Totanare + Guadino",
           "description": "Organizer per egi e guadino specifico per cefalopodi",
           "price": 35,
-          "amazonUrl": "https://www.amazon.it/dp/B22XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=guadino+calamari+porta+totanare&tag=fishandtips-21"
         }
       },
       "relatedFish": ["calamaro", "seppia", "totano"],
@@ -356,28 +356,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Preston Innovations Monster Feeder 3.60m",
+          "name": "Canna Feeder 3.60m",
           "description": "Canna feeder versatile con 3 vette intercambiabili",
           "price": 89,
-          "amazonUrl": "https://www.amazon.it/dp/B23XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+feeder+3.60+quiver+tip&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Shimano Catana 4000 FD",
+          "name": "Mulinello Feeder 4000",
           "description": "Mulinello robusto con frizione posteriore, perfetto per feeder",
           "price": 49,
-          "amazonUrl": "https://www.amazon.it/dp/B24XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+feeder+4000+carpe&tag=fishandtips-21"
         },
         "pasturatori": {
-          "name": "Set Pasturatori Assortiti",
+          "name": "Set Pasturatori Feeder",
           "description": "10 feeder cage e method da 30 a 80 grammi",
           "price": 18,
-          "amazonUrl": "https://www.amazon.it/dp/B25XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=pasturatori+feeder+method+cage&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Kit Completo Feeder",
           "description": "Fionda, secchio pastura, contenitori esche, terminali",
           "price": 42,
-          "amazonUrl": "https://www.amazon.it/dp/B26XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=kit+feeder+pesca+accessori&tag=fishandtips-21"
         }
       },
       "relatedFish": ["carpa", "carassio", "tinca", "orata"],
@@ -432,28 +432,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Penn Rampage II Boat 1.83m 20-50lb",
+          "name": "Canna Traina 1.80m",
           "description": "Canna da traina robusta e versatile per costiera",
           "price": 79,
-          "amazonUrl": "https://www.amazon.it/dp/B27XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+traina+costiera+barca&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Penn Squall II 30LW",
+          "name": "Mulinello Traina Rotante",
           "description": "Mulinello rotante potente con leva frizione",
           "price": 159,
-          "amazonUrl": "https://www.amazon.it/dp/B28XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+traina+rotante+mare&tag=fishandtips-21"
         },
         "artificiali": {
-          "name": "Set Rapala Traina 5 pezzi",
+          "name": "Set Rapala Traina",
           "description": "Minnow classici da traina in colori assortiti",
           "price": 45,
-          "amazonUrl": "https://www.amazon.it/dp/B29XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=rapala+traina+mare+artificiali&tag=fishandtips-21"
         },
         "accessori": {
-          "name": "Portacanne da Traina + Downrigger",
+          "name": "Portacanne da Traina",
           "description": "2 portacanne regolabili e affondatore manuale",
           "price": 89,
-          "amazonUrl": "https://www.amazon.it/dp/B30XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=portacanne+traina+barca+regolabile&tag=fishandtips-21"
         }
       },
       "relatedFish": ["ricciola", "dentice", "lampuga", "leccia-amia"],
@@ -508,28 +508,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Major Craft Firstcast Ajing 2.00m",
+          "name": "Canna Ultralight 2.00m",
           "description": "Canna ultralight giapponese, sensibilissima",
           "price": 49,
-          "amazonUrl": "https://www.amazon.it/dp/B31XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+ultralight+rock+fishing&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Daiwa Ninja LT 1000",
+          "name": "Mulinello 1000 Ultralight",
           "description": "Mulinello compatto e leggero per rock fishing",
           "price": 49,
-          "amazonUrl": "https://www.amazon.it/dp/B32XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+1000+ultralight+leggero&tag=fishandtips-21"
         },
         "artificiali": {
           "name": "Kit Micro Jig e Soft Bait",
           "description": "20 pezzi assortiti per rock fishing",
           "price": 15,
-          "amazonUrl": "https://www.amazon.it/dp/B33XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=micro+jig+rock+fishing+kit&tag=fishandtips-21"
         },
         "accessori": {
-          "name": "Borsa Rock Fishing Completa",
+          "name": "Borsa Rock Fishing",
           "description": "Borsa con scatole, pinze, forbici e accessori",
           "price": 25,
-          "amazonUrl": "https://www.amazon.it/dp/B34XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=borsa+pesca+rock+fishing+accessori&tag=fishandtips-21"
         }
       },
       "relatedFish": ["sciarrano", "tordo", "perchia"],
@@ -584,28 +584,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Shimano Beast Master BX Boat 2.10m",
+          "name": "Canna Bolentino 2.10m",
           "description": "Canna da bolentino robusta 50-150g",
           "price": 89,
-          "amazonUrl": "https://www.amazon.it/dp/B35XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+bolentino+barca+mare&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Penn Warfare 30LW Level Wind",
+          "name": "Mulinello Bolentino Rotante",
           "description": "Mulinello rotante con leva frizione",
           "price": 79,
-          "amazonUrl": "https://www.amazon.it/dp/B36XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+bolentino+rotante+barca&tag=fishandtips-21"
         },
         "terminali": {
           "name": "Set Terminali Bolentino",
           "description": "10 terminali pronti per diverse profondità",
           "price": 22,
-          "amazonUrl": "https://www.amazon.it/dp/B37XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=terminali+bolentino+pronti+pesca&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Kit Piombi e Ami Bolentino",
           "description": "Piombi 50-200g, ami assortiti, girelle",
           "price": 28,
-          "amazonUrl": "https://www.amazon.it/dp/B38XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=piombi+bolentino+ami+kit&tag=fishandtips-21"
         }
       },
       "relatedFish": ["pagello", "dentice", "cernia-bruna", "sarago-maggiore"],
@@ -660,28 +660,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Nash Scope Shrink 3.60m 3lb",
+          "name": "Canna Carpfishing 3.60m 3lb",
           "description": "Canna da carpfishing professionale, azione perfetta",
           "price": 189,
-          "amazonUrl": "https://www.amazon.it/dp/B39XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+carpfishing+3+lb+carpe&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Shimano Ultegra XTC 5500",
+          "name": "Mulinello Big Pit Baitrunner",
           "description": "Big pit con baitrunner, ideale per carpe",
           "price": 149,
-          "amazonUrl": "https://www.amazon.it/dp/B40XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+carpfishing+baitrunner+big+pit&tag=fishandtips-21"
         },
         "boilie": {
-          "name": "Mainline Cell Boilies 1kg",
+          "name": "Boilie Carpfishing 1kg",
           "description": "Boilie premium molto attrattive",
           "price": 18,
-          "amazonUrl": "https://www.amazon.it/dp/B41XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=boilie+carpfishing+carpe+1kg&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Kit Completo Carpfishing",
           "description": "Rod pod, avvisatori, guadino, materassino",
           "price": 159,
-          "amazonUrl": "https://www.amazon.it/dp/B42XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=kit+carpfishing+rod+pod+avvisatori&tag=fishandtips-21"
         }
       },
       "relatedFish": ["carpa"],
@@ -736,28 +736,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Orvis Clearwater 9' 5wt",
+          "name": "Canna Mosca 9 piedi #5",
           "description": "Canna da mosca versatile, ottima per iniziare",
           "price": 179,
-          "amazonUrl": "https://www.amazon.it/dp/B43XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+pesca+mosca+9+piedi&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Lamson Liquid 1.5",
+          "name": "Mulinello Mosca",
           "description": "Mulinello leggero con frizione progressiva",
           "price": 99,
-          "amazonUrl": "https://www.amazon.it/dp/B44XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+pesca+mosca+trota&tag=fishandtips-21"
         },
         "code": {
-          "name": "Scientific Anglers Frequency 5wt",
+          "name": "Coda di Topo Galleggiante",
           "description": "Coda di topo galleggiante, facile da lanciare",
           "price": 59,
-          "amazonUrl": "https://www.amazon.it/dp/B45XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=coda+di+topo+pesca+mosca&tag=fishandtips-21"
         },
         "mosche": {
           "name": "Kit 30 Mosche Assortite",
           "description": "Secche, ninfe e streamer per tutte le situazioni",
           "price": 29,
-          "amazonUrl": "https://www.amazon.it/dp/B46XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mosche+artificiali+pesca+kit&tag=fishandtips-21"
         }
       },
       "relatedFish": ["trota-fario", "temolo"],
@@ -812,28 +812,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Shimano Ocea Jigger 1.75m 150g",
+          "name": "Canna Jigging 1.75m",
           "description": "Canna da jigging top di gamma, potenza e sensibilità",
           "price": 249,
-          "amazonUrl": "https://www.amazon.it/dp/B47XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+jigging+slow+pitch&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Daiwa Saltiga 15H-SJ",
+          "name": "Mulinello Jigging Rotante",
           "description": "Mulinello overhead per jigging, indistruttibile",
           "price": 449,
-          "amazonUrl": "https://www.amazon.it/dp/B48XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+jigging+rotante+mare&tag=fishandtips-21"
         },
         "jig": {
-          "name": "Set 5 Jig Assortiti 150-250g",
+          "name": "Set Jig Assortiti 150-250g",
           "description": "Mix speed e slow jig in colori efficaci",
           "price": 49,
-          "amazonUrl": "https://www.amazon.it/dp/B49XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=jig+pesca+slow+jigging+set&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Guanti Jigging + Assist Hook",
           "description": "Guanti protettivi e ami di ricambio",
           "price": 35,
-          "amazonUrl": "https://www.amazon.it/dp/B50XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=guanti+jigging+assist+hook&tag=fishandtips-21"
         }
       },
       "relatedFish": ["dentice", "ricciola", "cernia-bruna", "leccia-amia"],
@@ -888,28 +888,28 @@
       ],
       "equipment": {
         "canna": {
-          "name": "Mitchell Adventure II Surf 3.60m",
+          "name": "Canna Fondo Mare 3.60m",
           "description": "Canna da fondo versatile, ottimo rapporto qualità/prezzo",
           "price": 39,
-          "amazonUrl": "https://www.amazon.it/dp/B51XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=canna+pesca+fondo+mare+3.60&tag=fishandtips-21"
         },
         "mulinello": {
-          "name": "Shakespeare Agility 4000",
+          "name": "Mulinello Fondo 4000",
           "description": "Mulinello affidabile per pesca da riva",
           "price": 29,
-          "amazonUrl": "https://www.amazon.it/dp/B52XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=mulinello+pesca+fondo+4000&tag=fishandtips-21"
         },
         "terminali": {
-          "name": "Kit 20 Terminali Pronti",
+          "name": "Kit Terminali Pronti",
           "description": "Montature assortite per ogni fondale",
           "price": 12,
-          "amazonUrl": "https://www.amazon.it/dp/B53XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=terminali+pesca+fondo+pronti&tag=fishandtips-21"
         },
         "accessori": {
           "name": "Set Completo Pesca Fondo",
           "description": "Piombi, ami, girelle, starlight, campanelli",
           "price": 25,
-          "amazonUrl": "https://www.amazon.it/dp/B54XYZEXAMPLE?tag=fishandtips-21"
+          "amazonUrl": "https://www.amazon.it/s?k=kit+pesca+fondo+accessori+piombi&tag=fishandtips-21"
         }
       },
       "relatedFish": ["orata", "sarago-maggiore", "mormora", "carpa"],
@@ -918,4 +918,3 @@
     }
   ]
 }
-
