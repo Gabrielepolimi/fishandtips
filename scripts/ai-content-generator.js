@@ -23,6 +23,41 @@ import {
 } from './sanity-helpers.js';
 import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
 
+/**
+ * Scarica immagine da URL e la carica su Sanity come asset
+ */
+async function uploadImageToSanity(imageUrl, filename, alt) {
+  try {
+    // Scarica l'immagine
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image: ${response.status}`);
+    }
+    
+    const buffer = Buffer.from(await response.arrayBuffer());
+    
+    // Carica su Sanity
+    const asset = await sanityClient.assets.upload('image', buffer, {
+      filename: `${filename}.jpg`,
+      contentType: 'image/jpeg'
+    });
+    
+    console.log(`   ☁️ Immagine caricata su Sanity: ${asset._id}`);
+    
+    return {
+      _type: 'image',
+      asset: {
+        _type: 'reference',
+        _ref: asset._id
+      },
+      alt: alt
+    };
+  } catch (error) {
+    console.error(`   ❌ Errore upload immagine: ${error.message}`);
+    return null;
+  }
+}
+
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   geminiModel: 'gemini-2.0-flash',
@@ -187,9 +222,9 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log(`   Keywords: ${parsed.keywords?.length || 0}`);
   log(`   Prodotti: ${parsed.products?.length || 0}`);
 
-  // 5. Cerca immagine su Unsplash
+  // 5. Cerca immagine su Unsplash e caricala su Sanity
   log('📸 Ricerca immagine su Unsplash...');
-  let mainImage = null;
+  let mainImageAsset = null;
   let unsplashCredit = null;
   
   try {
@@ -204,11 +239,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     
     if (photos && photos.length > 0) {
       const photo = photos[0];
-      mainImage = {
-        url: photo.url,
-        alt: parsed.title,
-        credit: `Foto di ${photo.author.name} su Unsplash`
-      };
       unsplashCredit = photo.author;
       
       // Traccia download (richiesto da Unsplash ToS)
@@ -216,11 +246,23 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
       
       log(`✅ Immagine trovata: ${photo.description || 'No description'}`);
       log(`   📷 by ${photo.author.name}`);
+      
+      // Carica l'immagine su Sanity
+      log('   ☁️ Upload immagine su Sanity...');
+      mainImageAsset = await uploadImageToSanity(
+        photo.url,
+        finalSlug,
+        `${parsed.title} - Foto di ${photo.author.name} su Unsplash`
+      );
+      
+      if (mainImageAsset) {
+        log('   ✅ Immagine caricata con successo!');
+      }
     } else {
       log('⚠️ Nessuna immagine trovata, articolo senza immagine principale');
     }
   } catch (error) {
-    log(`⚠️ Errore Unsplash: ${error.message}`);
+    log(`⚠️ Errore Unsplash/Upload: ${error.message}`);
   }
 
   // 6. Prepara documento Sanity
@@ -277,27 +319,26 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     publishedAt: CONFIG.publishImmediately ? new Date().toISOString() : null
   };
 
-  // Aggiungi immagine se disponibile (come URL esterno)
-  if (mainImage) {
-    // Aggiungi credito Unsplash alla fine del body
-    const creditBlock = {
-      _type: 'block',
-      _key: 'unsplash-credit',
-      style: 'normal',
-      markDefs: [],
-      children: [{
-        _type: 'span',
-        _key: 'credit-span',
-        text: `📷 Immagine: ${mainImage.credit}`,
-        marks: []
-      }]
-    };
-    sanityDocument.body.push(creditBlock);
+  // Aggiungi immagine se disponibile (caricata su Sanity)
+  if (mainImageAsset) {
+    sanityDocument.mainImage = mainImageAsset;
     
-    // Salva URL immagine in un campo custom (se il tuo schema lo supporta)
-    sanityDocument.mainImageUrl = mainImage.url;
-    sanityDocument.mainImageAlt = mainImage.alt;
-    sanityDocument.mainImageCredit = mainImage.credit;
+    // Aggiungi credito Unsplash alla fine del body
+    if (unsplashCredit) {
+      const creditBlock = {
+        _type: 'block',
+        _key: 'unsplash-credit',
+        style: 'normal',
+        markDefs: [],
+        children: [{
+          _type: 'span',
+          _key: 'credit-span',
+          text: `📷 Foto di ${unsplashCredit.name} su Unsplash`,
+          marks: []
+        }]
+      };
+      sanityDocument.body.push(creditBlock);
+    }
   }
 
   // 7. Valida documento
