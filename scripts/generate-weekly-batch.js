@@ -270,18 +270,15 @@ async function generateWeeklyBatch(options = {}) {
       try {
         const analysis = await checkSemanticDuplicate(kw.keyword, { verbose: false });
         
-        // SOLO skip se similarità >= 90% (duplicato quasi identico)
-        // Altrimenti procedi anche con sovrapposizioni parziali
-        const isRealDuplicate = analysis.isDuplicate && analysis.maxSimilarity >= 90;
+        // ULTRA PERMISSIVO: skip SOLO se similarità >= 98% (praticamente identico)
+        const isRealDuplicate = analysis.isDuplicate && analysis.maxSimilarity >= 98;
         
         if (isRealDuplicate) {
-          console.log(`   🔴 SKIP - Duplicato (${analysis.maxSimilarity}%): "${analysis.mostSimilarArticle?.title?.substring(0, 40)}..."`);
+          console.log(`   🔴 SKIP - Duplicato identico (${analysis.maxSimilarity}%): "${analysis.mostSimilarArticle?.title?.substring(0, 40)}..."`);
           skippedKeywords.push({ ...kw, similarTo: analysis.mostSimilarArticle?.title });
-        } else if (analysis.maxSimilarity >= 70) {
-          console.log(`   🟡 OK (${analysis.maxSimilarity}% correlato ma diverso)`);
-          safeKeywords.push(kw);
         } else {
-          console.log(`   ✅ OK - Unica! (${analysis.maxSimilarity}% max)`);
+          // Procedi SEMPRE se < 98%
+          console.log(`   ✅ OK (${analysis.maxSimilarity}% - procedo)`);
           safeKeywords.push(kw);
         }
         

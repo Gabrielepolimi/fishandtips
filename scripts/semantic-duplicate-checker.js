@@ -15,11 +15,12 @@ import { getAllArticlesForDuplicateCheck } from './sanity-helpers.js';
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   // Soglia di similarità per considerare un articolo duplicato (0-100)
-  // NOTA: Impostato alto (90) per evitare falsi positivi
-  // Solo articoli QUASI IDENTICI vengono bloccati
-  similarityThreshold: 90,
+  // NOTA: Impostato MOLTO alto (98) - blocca SOLO duplicati praticamente identici
+  // Es: "come pescare la spigola" vs "come pescare la spigola" = duplicato
+  // Es: "pesca spigola inverno" vs "pesca spigola estate" = OK, sono diversi!
+  similarityThreshold: 98,
   // Numero massimo di articoli da confrontare (per ottimizzare costi/tempo)
-  maxArticlesToCompare: 50,
+  maxArticlesToCompare: 30,
   // Abilita logging dettagliato
   verbose: true
 };
@@ -62,16 +63,24 @@ Per ogni articolo esistente, valuta:
 2. SEARCH INTENT: L'utente che cerca la nuova keyword troverebbe soddisfacente l'articolo esistente?
 3. KEYWORD CANNIBALIZATION: I due contenuti competerebbero per le stesse query su Google?
 
-=== REGOLE IMPORTANTI - SII MOLTO PERMISSIVO ===
-- Similarità 90-100%: DUPLICATO CERTO - STESSO identico argomento, titolo quasi uguale
-- Similarità 70-89%: OK - argomenti correlati ma DIVERSI, PROCEDI
-- Similarità 50-69%: OK - temi nella stessa area ma angoli diversi, PROCEDI  
-- Similarità 0-49%: NESSUN PROBLEMA - argomenti completamente diversi
+=== REGOLE - SII ESTREMAMENTE PERMISSIVO ===
+- Similarità 98-100%: DUPLICATO - SOLO se titolo e argomento sono IDENTICI
+- Similarità 0-97%: PROCEDI SEMPRE - anche se correlati, sono articoli diversi
 
-IMPORTANTE: Articoli sulla stessa tecnica di pesca ma per pesci diversi NON sono duplicati!
-Articoli sullo stesso pesce ma tecniche diverse NON sono duplicati!
-Articoli stagionali (es: "pesca invernale" vs "pesca estiva") NON sono duplicati!
-Solo se il titolo e l'argomento sono QUASI IDENTICI, considera duplicato.
+REGOLA D'ORO: Blocca SOLO se qualcuno cercando su Google troverebbe ESATTAMENTE lo stesso contenuto.
+
+ESEMPI DI NON-DUPLICATI (PROCEDI SEMPRE):
+- "pesca spigola inverno" vs "pesca spigola estate" = DIVERSI (stagione diversa)
+- "spinning spigola" vs "surfcasting spigola" = DIVERSI (tecnica diversa)
+- "pesca orata" vs "pesca spigola" = DIVERSI (pesce diverso)
+- "migliori esche mare" vs "migliori esche lago" = DIVERSI (ambiente diverso)
+- "attrezzatura principianti" vs "attrezzatura esperti" = DIVERSI (livello diverso)
+- "pesca Sicilia" vs "pesca Sardegna" = DIVERSI (luogo diverso)
+
+ESEMPI DI DUPLICATI (BLOCCA SOLO QUESTI):
+- "come pescare la spigola guida" vs "guida pesca alla spigola" = STESSO IDENTICO ARTICOLO
+
+Nel dubbio, rispondi SEMPRE con isDuplicate: false e recommendation: "proceed".
 
 Rispondi SOLO con questo JSON (senza markdown code blocks):
 {
