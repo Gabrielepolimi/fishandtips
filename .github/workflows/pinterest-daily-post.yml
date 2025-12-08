@@ -1,0 +1,106 @@
+name: 📌 Pinterest Daily Pin
+
+on:
+  # Esecuzione programmata - 2 pin al giorno
+  schedule:
+    # 10:00 UTC (11:00 ora italiana) - mattina
+    - cron: '0 10 * * *'
+    # 18:00 UTC (19:00 ora italiana) - sera
+    - cron: '0 18 * * *'
+  
+  # Esecuzione manuale
+  workflow_dispatch:
+    inputs:
+      article_slug:
+        description: 'Slug articolo specifico (opzionale)'
+        required: false
+        type: string
+      count:
+        description: 'Numero di pin da generare'
+        required: false
+        default: '1'
+        type: string
+      dry_run:
+        description: 'Dry run (non pubblica)'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+  UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+  CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+  CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+  CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+  SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
+  NEXT_PUBLIC_SANITY_PROJECT_ID: '3nnnl6gi'
+  NEXT_PUBLIC_SANITY_DATASET: 'production'
+
+jobs:
+  generate-and-post-pin:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🎭 Install Puppeteer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libgbm-dev \
+            libnss3 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libcups2 \
+            libdrm2 \
+            libxkbcommon0 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxfixes3 \
+            libxrandr2 \
+            libasound2t64 \
+            libpango-1.0-0 \
+            libcairo2
+
+      - name: 📌 Generate and Post Pinterest Pin
+        run: |
+          echo "📌 Pinterest Automation"
+          
+          if [ -n "${{ github.event.inputs.article_slug }}" ]; then
+            echo "📝 Articolo specifico: ${{ github.event.inputs.article_slug }}"
+            if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+              node scripts/pinterest-pipeline.js --article "${{ github.event.inputs.article_slug }}" --dry-run
+            else
+              node scripts/pinterest-pipeline.js --article "${{ github.event.inputs.article_slug }}"
+            fi
+          else
+            COUNT="${{ github.event.inputs.count || '1' }}"
+            echo "📊 Generazione $COUNT pin dagli ultimi articoli"
+            if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+              node scripts/pinterest-pipeline.js --latest $COUNT --dry-run
+            else
+              node scripts/pinterest-pipeline.js --latest $COUNT
+            fi
+          fi
+
+      - name: 📊 Summary
+        if: always()
+        run: |
+          echo "## 📌 Pinterest Pin Result" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Time**: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Triggered by**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ -n "${{ github.event.inputs.article_slug }}" ]; then
+            echo "- **Article**: ${{ github.event.inputs.article_slug }}" >> $GITHUB_STEP_SUMMARY
+          fi
+

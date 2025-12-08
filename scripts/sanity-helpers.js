@@ -133,6 +133,56 @@ export async function articleExistsBySlug(slug) {
 }
 
 /**
+ * Recupera un articolo per slug
+ * @param {string} slug - Lo slug dell'articolo
+ * @returns {Promise<Object|null>} L'articolo o null se non trovato
+ */
+export async function getArticleBySlug(slug) {
+  try {
+    const article = await sanityClient.fetch(
+      `*[_type == "post" && slug.current == $slug][0]{
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        publishedAt,
+        "categories": categories[]->{ _id, title, "slug": slug.current }
+      }`,
+      { slug }
+    );
+    return article || null;
+  } catch (error) {
+    console.error('❌ Errore nel recupero articolo:', error.message);
+    return null;
+  }
+}
+
+/**
+ * Recupera gli ultimi N articoli pubblicati
+ * @param {number} count - Numero di articoli da recuperare
+ * @returns {Promise<Array>} Lista degli articoli
+ */
+export async function getLatestArticles(count = 5) {
+  try {
+    const articles = await sanityClient.fetch(
+      `*[_type == "post" && defined(publishedAt)] | order(publishedAt desc) [0...$count]{
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        publishedAt,
+        "categories": categories[]->{ _id, title, "slug": slug.current }
+      }`,
+      { count }
+    );
+    return articles || [];
+  } catch (error) {
+    console.error('❌ Errore nel recupero articoli:', error.message);
+    return [];
+  }
+}
+
+/**
  * Recupera tutti gli articoli esistenti per il controllo duplicati semantici
  * @returns {Promise<Array>} Lista degli articoli con titolo, slug, excerpt, keywords
  */
@@ -394,6 +444,8 @@ export default {
   getAllCategories,
   getAllFishingTechniques,
   articleExistsBySlug,
+  getArticleBySlug,
+  getLatestArticles,
   getAllArticlesForDuplicateCheck,
   createDocument,
   validatePostDocument,
