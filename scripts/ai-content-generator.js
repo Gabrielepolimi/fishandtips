@@ -25,7 +25,7 @@ import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
 
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
-  geminiModel: 'gemini-1.5-flash',
+  geminiModel: 'gemini-2.0-flash',
   maxTokens: 8000,
   temperature: 0.7,
   amazonAffiliateTag: process.env.AMAZON_AFFILIATE_TAG || 'fishandtips-21',
