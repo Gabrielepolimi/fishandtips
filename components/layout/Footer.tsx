@@ -12,6 +12,9 @@ const footerLinks = {
     { href: '/spot-pesca-italia', label: 'Spot di Pesca' },
     { href: '/calendario-pesca', label: 'Calendario Pesca' },
   ],
+  partner: [
+    { href: '/migliori-pesca-2025', label: '🏆 I Migliori 2025' },
+  ],
   info: [
     { href: '/chi-siamo', label: 'Chi Siamo' },
     { href: '/contatti', label: 'Contatti' },
@@ -119,6 +122,17 @@ export default function Footer() {
                   <Link 
                     href={link.href}
                     className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              {/* Partner link */}
+              {footerLinks.partner.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href}
+                    className="text-sm text-primary-600 hover:text-primary-800 font-medium transition-colors"
                   >
                     {link.label}
                   </Link>
