@@ -15,15 +15,17 @@ Per far funzionare l'automazione, devi aggiungere i secrets al tuo repository Gi
 
 Aggiungi TUTTI i seguenti secrets (uno alla volta):
 
-| Nome Secret | Valore |
-|-------------|--------|
-| `GEMINI_API_KEY` | `AIzaSyC3uj-8_Q1aoy4RiCuiQ-CdY5SzgGVz2-E` |
-| `INSTAGRAM_ACCESS_TOKEN` | Il token che inizia con `EAA...` |
-| `INSTAGRAM_ACCOUNT_ID` | `17841478179041732` |
-| `UNSPLASH_ACCESS_KEY` | `1C1K5dl5iU-voZFFL3Z6J0TH4BQCLMvD_YRiAlahD8E` |
-| `CLOUDINARY_CLOUD_NAME` | `dcsh7mqnm` |
-| `CLOUDINARY_API_KEY` | `845282621381952` |
-| `CLOUDINARY_API_SECRET` | `Ko3GRDuIQH9NwcRwDgJcXr4tmGg` |
+| Nome Secret | Dove Trovare il Valore |
+|-------------|------------------------|
+| `GEMINI_API_KEY` | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| `INSTAGRAM_ACCESS_TOKEN` | Facebook Graph API Explorer (inizia con `EAA...`) |
+| `INSTAGRAM_ACCOUNT_ID` | Dal test API Instagram (es: `17841478...`) |
+| `UNSPLASH_ACCESS_KEY` | [unsplash.com/developers](https://unsplash.com/developers) |
+| `CLOUDINARY_CLOUD_NAME` | Dashboard Cloudinary → Cloud Name |
+| `CLOUDINARY_API_KEY` | Dashboard Cloudinary → API Key |
+| `CLOUDINARY_API_SECRET` | Dashboard Cloudinary → API Secret |
+
+⚠️ **IMPORTANTE**: Non condividere MAI queste chiavi pubblicamente!
 
 ### Step 3: Verifica il Workflow
 

@@ -30,11 +30,11 @@ Crea il file `.env.local` nella cartella `fishandtips/`:
 ```bash
 # Google Gemini API Key (GRATUITO)
 # Ottieni da: https://aistudio.google.com/apikey
-GEMINI_API_KEY=AIzaSy...
+GEMINI_API_KEY=your-gemini-api-key
 
 # Sanity API Token (con permessi EDITOR)
 # Ottieni da: https://sanity.io/manage -> Progetto -> API -> Tokens
-SANITY_API_TOKEN=sk...
+SANITY_API_TOKEN=your-sanity-token
 
 # Amazon Affiliates Tag
 # Ottieni dopo registrazione su: https://programma-affiliazione.amazon.it/
@@ -284,7 +284,7 @@ node scripts/generate-weekly-batch.js --count 2
 echo $GEMINI_API_KEY
 
 # Su Mac/Linux, aggiungi a ~/.zshrc o ~/.bashrc:
-export GEMINI_API_KEY="AIzaSy..."
+export GEMINI_API_KEY="your-api-key-here"
 
 # Oppure crea .env.local nella cartella fishandtips
 ```
