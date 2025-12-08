@@ -19,6 +19,7 @@ import {
   markdownToBlockContent,
   slugify
 } from './sanity-helpers.js';
+import { checkSemanticDuplicate, formatDuplicateResult } from './semantic-duplicate-checker.js';
 
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
@@ -112,10 +113,51 @@ FORMATO OUTPUT - Rispondi ESCLUSIVAMENTE con questo JSON valido (senza markdown 
 `;
 
 // ===== FUNZIONE PRINCIPALE =====
-export async function generateArticle(keyword, categorySlug = null) {
+export async function generateArticle(keyword, categorySlug = null, options = {}) {
+  const { skipDuplicateCheck = false, forceGenerate = false } = options;
+
   console.log('\n' + '='.repeat(60));
   console.log(`🎣 GENERAZIONE ARTICOLO: "${keyword}"`);
   console.log('='.repeat(60) + '\n');
+
+  // 0. CHECK SEMANTICO DUPLICATI (NUOVO!)
+  if (!skipDuplicateCheck) {
+    console.log('🔍 Step 0: Verifica duplicati semantici...\n');
+    
+    const duplicateAnalysis = await checkSemanticDuplicate(keyword, { verbose: true });
+    
+    if (duplicateAnalysis.isDuplicate || duplicateAnalysis.recommendation === 'skip') {
+      console.log('\n' + '⚠️'.repeat(20));
+      console.log('GENERAZIONE BLOCCATA - DUPLICATO RILEVATO');
+      console.log('⚠️'.repeat(20));
+      console.log(`\n${formatDuplicateResult(duplicateAnalysis)}`);
+      console.log(`\nArticolo simile esistente: "${duplicateAnalysis.mostSimilarArticle?.title}"`);
+      console.log(`Slug: ${duplicateAnalysis.mostSimilarArticle?.slug}`);
+      
+      if (!forceGenerate) {
+        console.log('\n💡 Usa --force per generare comunque (non consigliato)');
+        console.log('💡 Oppure scegli una keyword diversa\n');
+        return { 
+          skipped: true, 
+          reason: 'duplicate',
+          analysis: duplicateAnalysis 
+        };
+      } else {
+        console.log('\n⚠️ --force attivo: procedo comunque (attenzione SEO!)\n');
+      }
+    } else if (duplicateAnalysis.recommendation === 'modify_angle') {
+      console.log('\n' + '🟡'.repeat(20));
+      console.log('ATTENZIONE: SOVRAPPOSIZIONE PARZIALE');
+      console.log('🟡'.repeat(20));
+      console.log(`\n${formatDuplicateResult(duplicateAnalysis)}`);
+      console.log(`\n💡 Suggerimento: ${duplicateAnalysis.suggestedAngle}`);
+      console.log('   Procedo con la generazione, ma considera l\'angolo suggerito.\n');
+    } else {
+      console.log(`✅ Nessun duplicato rilevato (similarità max: ${duplicateAnalysis.maxSimilarity}%)\n`);
+    }
+  } else {
+    console.log('⏭️ Check duplicati saltato (skipDuplicateCheck=true)\n');
+  }
 
   // Inizializza Gemini
   initGemini();
@@ -313,24 +355,40 @@ export async function generateBatch(keywords) {
 async function main() {
   const args = process.argv.slice(2);
 
-  if (args.length === 0) {
+  if (args.length === 0 || args.includes('--help')) {
     console.log(`
 🎣 FishandTips AI Content Generator
 =====================================
 
 Uso:
-  node scripts/ai-content-generator.js "keyword" [categoria]
+  node scripts/ai-content-generator.js "keyword" [categoria] [opzioni]
 
 Esempi:
   node scripts/ai-content-generator.js "migliori esche per spigola" "attrezzature"
   node scripts/ai-content-generator.js "come pescare il sarago" "tecniche-di-pesca"
   node scripts/ai-content-generator.js "pesca notturna consigli" "consigli"
+  node scripts/ai-content-generator.js "pesca alla spigola" --skip-check
+  node scripts/ai-content-generator.js "pesca alla spigola" --force
+
+Opzioni:
+  --skip-check    Salta il controllo duplicati semantici
+  --force         Genera anche se viene rilevato un duplicato (⚠️ non consigliato)
+  --help          Mostra questo messaggio
 
 Categorie disponibili:
   - tecniche-di-pesca
   - attrezzature
   - consigli
   - spot-di-pesca
+
+Sistema Anti-Duplicati:
+  Prima di generare, il sistema analizza gli articoli esistenti per evitare
+  la "keyword cannibalization" (articoli che competono per le stesse keyword).
+  
+  Raccomandazioni:
+  - proceed: ✅ Keyword sicura
+  - modify_angle: 🟡 Considera un angolo diverso
+  - skip: 🔴 Duplicato, scegli altra keyword
 
 Variabili ambiente richieste:
   - GEMINI_API_KEY: La tua API key di Google Gemini
@@ -340,11 +398,30 @@ Variabili ambiente richieste:
     process.exit(0);
   }
 
-  const keyword = args[0];
-  const category = args[1] || null;
+  // Parse arguments
+  const skipCheck = args.includes('--skip-check');
+  const forceGenerate = args.includes('--force');
+  
+  // Filtra gli argomenti non-flag
+  const nonFlagArgs = args.filter(a => !a.startsWith('--'));
+  const keyword = nonFlagArgs[0];
+  const category = nonFlagArgs[1] || null;
+
+  if (!keyword) {
+    console.error('❌ Devi specificare una keyword!');
+    process.exit(1);
+  }
 
   try {
-    await generateArticle(keyword, category);
+    const result = await generateArticle(keyword, category, { 
+      skipDuplicateCheck: skipCheck, 
+      forceGenerate 
+    });
+    
+    if (result?.skipped) {
+      console.log('📌 Generazione saltata per evitare duplicati.');
+      process.exit(0);
+    }
   } catch (error) {
     console.error('\n❌ ERRORE FATALE:', error.message);
     process.exit(1);

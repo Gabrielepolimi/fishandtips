@@ -133,6 +133,31 @@ export async function articleExistsBySlug(slug) {
 }
 
 /**
+ * Recupera tutti gli articoli esistenti per il controllo duplicati semantici
+ * @returns {Promise<Array>} Lista degli articoli con titolo, slug, excerpt, keywords
+ */
+export async function getAllArticlesForDuplicateCheck() {
+  try {
+    const articles = await sanityClient.fetch(`
+      *[_type == "post"] | order(publishedAt desc) {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        seoKeywords,
+        seoTitle,
+        publishedAt
+      }
+    `);
+    console.log(`📚 ${articles.length} articoli esistenti recuperati per analisi duplicati`);
+    return articles || [];
+  } catch (error) {
+    console.error('❌ Errore nel recupero articoli:', error.message);
+    return [];
+  }
+}
+
+/**
  * Crea un documento in Sanity
  * @param {Object} document - Il documento da creare
  * @returns {Promise<Object>} Il documento creato
@@ -369,6 +394,7 @@ export default {
   getAllCategories,
   getAllFishingTechniques,
   articleExistsBySlug,
+  getAllArticlesForDuplicateCheck,
   createDocument,
   validatePostDocument,
   markdownToBlockContent,

@@ -44,3 +44,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Instagram carousel images (generated)
+data/carousel-images/
+data/instagram-output/
+data/weekly-plans/

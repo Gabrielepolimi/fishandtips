@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { generateArticle } from './ai-content-generator.js';
+import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,7 +25,9 @@ const __dirname = path.dirname(__filename);
 const CONFIG = {
   defaultArticleCount: 3,
   pauseBetweenArticles: 5000, // 5 secondi (rate limit Gemini: 15 req/min)
-  logFile: path.join(__dirname, '..', 'data', 'generation-log.json')
+  pauseBetweenDuplicateChecks: 2000, // 2 secondi tra check duplicati
+  logFile: path.join(__dirname, '..', 'data', 'generation-log.json'),
+  skipDuplicateCheck: false // Se true, salta il pre-check dei duplicati
 };
 
 // ===== KEYWORD AUTOMATICHE PER STAGIONE =====
@@ -106,7 +109,8 @@ async function generateWeeklyBatch(options = {}) {
   const {
     count = CONFIG.defaultArticleCount,
     keywordsFile = null,
-    dryRun = false
+    dryRun = false,
+    skipDuplicateCheck = CONFIG.skipDuplicateCheck
   } = options;
   
   console.log('\n' + '🗓️'.repeat(30));
@@ -117,6 +121,7 @@ async function generateWeeklyBatch(options = {}) {
   const log = {
     startedAt: new Date().toISOString(),
     options,
+    duplicateCheck: null,
     results: []
   };
   
@@ -144,37 +149,133 @@ async function generateWeeklyBatch(options = {}) {
     console.log('🎲 Keyword generate automaticamente (stagionali + evergreen)');
   }
   
-  console.log(`\n📝 Articoli da generare: ${keywords.length}`);
+  console.log(`\n📝 Keyword candidate: ${keywords.length}`);
   keywords.forEach((k, i) => {
     console.log(`   ${i + 1}. "${k.keyword}" [${k.category}]`);
   });
+
+  // 1.5 PRE-FILTRA KEYWORD PER DUPLICATI (NUOVO!)
+  let safeKeywords = keywords;
+  
+  if (!skipDuplicateCheck && !dryRun) {
+    console.log('\n' + '🔍'.repeat(20));
+    console.log('FASE 1: PRE-CHECK DUPLICATI SEMANTICI');
+    console.log('🔍'.repeat(20) + '\n');
+    
+    const duplicateResults = {
+      safe: [],
+      skipped: [],
+      modified: []
+    };
+    
+    for (let i = 0; i < keywords.length; i++) {
+      const kw = keywords[i];
+      console.log(`[${i + 1}/${keywords.length}] Verifico: "${kw.keyword}"`);
+      
+      try {
+        const analysis = await checkSemanticDuplicate(kw.keyword, { verbose: false });
+        
+        if (analysis.recommendation === 'skip' || analysis.isDuplicate) {
+          console.log(`   🔴 SKIP - Duplicato di: "${analysis.mostSimilarArticle?.title}"`);
+          duplicateResults.skipped.push({ ...kw, analysis });
+        } else if (analysis.recommendation === 'modify_angle') {
+          console.log(`   🟡 ATTENZIONE - Sovrapposizione parziale (${analysis.maxSimilarity}%)`);
+          console.log(`      Suggerimento: ${analysis.suggestedAngle}`);
+          duplicateResults.modified.push({ ...kw, analysis });
+          duplicateResults.safe.push(kw); // Procedi comunque ma con attenzione
+        } else {
+          console.log(`   ✅ OK - Nessun duplicato (${analysis.maxSimilarity}% max)`);
+          duplicateResults.safe.push(kw);
+        }
+        
+        // Pausa tra check
+        if (i < keywords.length - 1) {
+          await new Promise(r => setTimeout(r, CONFIG.pauseBetweenDuplicateChecks));
+        }
+      } catch (error) {
+        console.log(`   ⚠️ Errore check: ${error.message} - Procedo comunque`);
+        duplicateResults.safe.push(kw);
+      }
+    }
+    
+    safeKeywords = duplicateResults.safe;
+    log.duplicateCheck = {
+      total: keywords.length,
+      safe: duplicateResults.safe.length,
+      skipped: duplicateResults.skipped.length,
+      modified: duplicateResults.modified.length,
+      skippedKeywords: duplicateResults.skipped.map(k => ({
+        keyword: k.keyword,
+        similarTo: k.analysis?.mostSimilarArticle?.title
+      }))
+    };
+    
+    console.log('\n' + '='.repeat(50));
+    console.log('📊 RISULTATO PRE-CHECK');
+    console.log('='.repeat(50));
+    console.log(`✅ Keyword sicure: ${duplicateResults.safe.length}`);
+    console.log(`🔴 Keyword saltate (duplicati): ${duplicateResults.skipped.length}`);
+    if (duplicateResults.skipped.length > 0) {
+      duplicateResults.skipped.forEach(k => {
+        console.log(`   - "${k.keyword}" (simile a: "${k.analysis?.mostSimilarArticle?.title}")`);
+      });
+    }
+    console.log('='.repeat(50) + '\n');
+    
+    if (safeKeywords.length === 0) {
+      console.log('⚠️ Nessuna keyword sicura trovata! Tutte sono duplicati.');
+      console.log('💡 Suggerimento: genera keyword più specifiche o diverse.\n');
+      return log;
+    }
+  } else if (skipDuplicateCheck) {
+    console.log('\n⏭️ Pre-check duplicati saltato (--skip-check)\n');
+  }
   
   if (dryRun) {
     console.log('\n⚠️ DRY RUN - Nessun articolo verrà creato\n');
-    return keywords;
+    console.log('Keyword che verrebbero generate:');
+    safeKeywords.forEach((k, i) => {
+      console.log(`   ${i + 1}. "${k.keyword}" [${k.category}]`);
+    });
+    return { keywords: safeKeywords, log };
   }
   
-  console.log('\n' + '='.repeat(60) + '\n');
+  console.log('\n' + '📝'.repeat(20));
+  console.log('FASE 2: GENERAZIONE ARTICOLI');
+  console.log('📝'.repeat(20) + '\n');
+  console.log(`Articoli da generare: ${safeKeywords.length}`);
   
-  // 2. Genera articoli
-  for (let i = 0; i < keywords.length; i++) {
-    const { keyword, category } = keywords[i];
+  // 2. Genera articoli (solo keyword sicure)
+  for (let i = 0; i < safeKeywords.length; i++) {
+    const { keyword, category } = safeKeywords[i];
     const articleNum = i + 1;
     
-    console.log(`\n[${articleNum}/${keywords.length}] Generazione: "${keyword}"`);
+    console.log(`\n[${articleNum}/${safeKeywords.length}] Generazione: "${keyword}"`);
     console.log('-'.repeat(50));
     
     try {
-      const result = await generateArticle(keyword, category);
+      // Salta il check duplicati nella generazione (già fatto sopra)
+      const result = await generateArticle(keyword, category, { skipDuplicateCheck: true });
       
-      log.results.push({
-        keyword,
-        category,
-        success: true,
-        articleId: result._id,
-        slug: result.slug?.current,
-        generatedAt: new Date().toISOString()
-      });
+      if (result?.skipped) {
+        log.results.push({
+          keyword,
+          category,
+          success: false,
+          skipped: true,
+          reason: result.reason,
+          generatedAt: new Date().toISOString()
+        });
+      } else {
+        log.results.push({
+          keyword,
+          category,
+          success: true,
+          articleId: result._id,
+          slug: result.slug?.current,
+          generatedAt: new Date().toISOString()
+        });
+      }
       
     } catch (error) {
       console.error(`❌ Errore: ${error.message}`);
@@ -188,7 +289,7 @@ async function generateWeeklyBatch(options = {}) {
     }
     
     // Pausa tra articoli (tranne l'ultimo)
-    if (i < keywords.length - 1) {
+    if (i < safeKeywords.length - 1) {
       console.log(`\n⏳ Pausa ${CONFIG.pauseBetweenArticles / 1000}s per rate limiting...`);
       await new Promise(r => setTimeout(r, CONFIG.pauseBetweenArticles));
     }
@@ -292,7 +393,8 @@ async function main() {
   const options = {
     count: CONFIG.defaultArticleCount,
     keywordsFile: null,
-    dryRun: false
+    dryRun: false,
+    skipDuplicateCheck: false
   };
   
   // Parse argomenti
@@ -305,12 +407,15 @@ async function main() {
       i++;
     } else if (args[i] === '--dry-run') {
       options.dryRun = true;
+    } else if (args[i] === '--skip-check') {
+      options.skipDuplicateCheck = true;
     } else if (args[i] === '--help') {
       console.log(`
 🗓️ FishandTips Weekly Batch Generator
 ======================================
 
 Genera automaticamente un batch di articoli per la settimana.
+Include sistema ANTI-DUPLICATI per evitare keyword cannibalization.
 
 Uso:
   node scripts/generate-weekly-batch.js [opzioni]
@@ -319,6 +424,7 @@ Opzioni:
   --count <n>        Numero di articoli da generare (default: 3)
   --file <nome.json> Usa file keyword personalizzato dalla cartella data/
   --dry-run          Mostra keyword senza generare articoli
+  --skip-check       Salta il pre-check dei duplicati semantici
   --help             Mostra questo messaggio
 
 Esempi:
@@ -326,6 +432,16 @@ Esempi:
   node scripts/generate-weekly-batch.js --count 5
   node scripts/generate-weekly-batch.js --file keywords-2024-12-06.json
   node scripts/generate-weekly-batch.js --count 10 --dry-run
+  node scripts/generate-weekly-batch.js --count 5 --skip-check
+
+Sistema Anti-Duplicati:
+  Prima di generare, verifica ogni keyword per evitare duplicati semantici.
+  Le keyword troppo simili ad articoli esistenti vengono automaticamente
+  saltate per proteggere la SEO del sito.
+  
+  Fasi:
+  1. PRE-CHECK: Analizza tutte le keyword per duplicati
+  2. GENERAZIONE: Crea articoli solo per keyword sicure
 
 Prerequisiti:
   - GEMINI_API_KEY configurata
