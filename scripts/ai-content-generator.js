@@ -113,10 +113,13 @@ REQUISITI OBBLIGATORI:
    - Inserisci la keyword principale naturalmente nel testo
    - Usa sinonimi e variazioni della keyword
 
-5. PRODOTTI AMAZON (IMPORTANTE):
-   - Suggerisci 2-3 prodotti correlati (attrezzatura, esche, accessori)
-   - Per ogni prodotto: nome, breve descrizione (max 80 car), prezzo indicativo
-   - I prodotti devono essere realistici e acquistabili su Amazon.it
+5. PRODOTTI AMAZON AFFILIATI (MOLTO IMPORTANTE):
+   - Suggerisci 3-4 prodotti REALI correlati all'argomento
+   - Devono essere prodotti SPECIFICI acquistabili su Amazon.it (es: "Shimano Sedona FI 2500" non "un buon mulinello")
+   - Per ogni prodotto: nome ESATTO del prodotto, breve descrizione (max 80 car), prezzo indicativo realistico
+   - INCLUDI I PRODOTTI ANCHE NEL TESTO: crea una sezione "## Attrezzatura Consigliata" o "## Cosa Ti Serve" 
+   - Nel testo, menziona i prodotti in modo naturale come raccomandazioni personali
+   - Esempio: "Per questa tecnica vi consigliamo la canna Shimano Vengeance 2.70m, perfetta per..."
 
 6. FORMATO OUTPUT (RISPETTA ESATTAMENTE QUESTA STRUTTURA):
 ---TITOLO---
@@ -126,18 +129,21 @@ REQUISITI OBBLIGATORI:
 ---KEYWORDS---
 [keyword1, keyword2, keyword3, ...]
 ---PRODOTTI---
-PRODOTTO1: Nome prodotto | Descrizione breve | €XX
-PRODOTTO2: Nome prodotto | Descrizione breve | €XX
-PRODOTTO3: Nome prodotto | Descrizione breve | €XX
+PRODOTTO1: Nome ESATTO prodotto | Descrizione breve | €XX
+PRODOTTO2: Nome ESATTO prodotto | Descrizione breve | €XX
+PRODOTTO3: Nome ESATTO prodotto | Descrizione breve | €XX
+PRODOTTO4: Nome ESATTO prodotto | Descrizione breve | €XX
 ---CONTENUTO---
 [Il contenuto markdown qui con ## per H2 e ### per H3]
+[INCLUDI una sezione dedicata all'attrezzatura con i prodotti consigliati]
 ---FINE---
 
 CATEGORIA ARTICOLO: {category}
 STAGIONE CORRENTE: {season}
 
 Scrivi contenuto originale, utile e basato su vera esperienza di pesca. 
-Non inventare statistiche o dati. Usa il "noi" per creare connessione con il lettore.`;
+Non inventare statistiche o dati. Usa il "noi" per creare connessione con il lettore.
+RICORDA: I prodotti devono essere REALI e SPECIFICI (marca + modello) per essere credibili!`;
 
 // ===== FUNZIONE PRINCIPALE =====
 export async function generateArticle(keyword, categorySlug = 'consigli', options = {}) {
@@ -308,16 +314,23 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     Math.random() * (CONFIG.initialLikesMax - CONFIG.initialLikesMin + 1)
   ) + CONFIG.initialLikesMin;
 
-  // Costruisci prodotti affiliati
-  const affiliateProducts = (parsed.products || []).map((p, i) => ({
-    _key: `product-${i}`,
-    _type: 'affiliateProduct',
-    name: p.name,
-    description: p.description,
-    price: p.price,
-    amazonUrl: `https://www.amazon.it/s?k=${encodeURIComponent(p.name)}&tag=${CONFIG.amazonAffiliateTag}`,
-    badge: i === 0 ? 'Consigliato' : null
-  }));
+  // Costruisci prodotti affiliati con link Amazon ottimizzati
+  const affiliateProducts = (parsed.products || []).slice(0, 4).map((p, i) => {
+    // Crea query di ricerca ottimizzata per Amazon
+    const searchQuery = p.name
+      .replace(/[^\w\s]/g, '') // Rimuovi caratteri speciali
+      .trim();
+    
+    return {
+      _key: `product-${i}`,
+      _type: 'affiliateProduct',
+      name: p.name,
+      description: p.description,
+      price: p.price,
+      amazonUrl: `https://www.amazon.it/s?k=${encodeURIComponent(searchQuery)}&tag=${CONFIG.amazonAffiliateTag}`,
+      badge: i === 0 ? '⭐ Consigliato' : (i === 1 ? 'Ottimo Rapporto Q/P' : null)
+    };
+  });
 
   // Documento completo
   const sanityDocument = {
