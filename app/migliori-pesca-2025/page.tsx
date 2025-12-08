@@ -20,7 +20,7 @@ const categories = [
     icon: '🏪',
     description: 'I migliori negozi online e fisici per attrezzatura da pesca',
     slots: 10,
-    filled: 3,
+    filled: 7, // Solo 3 posti rimasti!
   },
   {
     id: 'charter',
@@ -28,7 +28,7 @@ const categories = [
     icon: '🚤',
     description: 'Le migliori imbarcazioni per uscite di pesca in Italia',
     slots: 10,
-    filled: 4,
+    filled: 6, // Solo 4 posti rimasti!
   },
   {
     id: 'scuole',
@@ -36,7 +36,7 @@ const categories = [
     icon: '🎓',
     description: 'I migliori corsi, istruttori e organizzatori di gare',
     slots: 10,
-    filled: 2,
+    filled: 8, // Solo 2 posti rimasti!
   },
 ];
 
