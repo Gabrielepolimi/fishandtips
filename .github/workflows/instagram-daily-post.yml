@@ -63,7 +63,6 @@ jobs:
           node-version: '20'
       
       - name: 📚 Install dependencies
-        working-directory: ./fishandtips
         run: npm ci
       
       - name: 🎭 Install Puppeteer dependencies
@@ -73,7 +72,6 @@ jobs:
       
       - name: 📅 Determine content type
         id: content
-        working-directory: ./fishandtips
         run: |
           # Se esecuzione manuale con tipo specificato
           if [ "${{ github.event.inputs.content_type }}" != "" ] && [ "${{ github.event.inputs.content_type }}" != "auto" ]; then
@@ -100,7 +98,6 @@ jobs:
           echo "   Topic: $TOPIC"
       
       - name: 🎨 Generate and publish carousel
-        working-directory: ./fishandtips
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
