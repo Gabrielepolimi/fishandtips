@@ -135,15 +135,34 @@ export default function MiglioriPesca2025Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const [error, setError] = useState<string | null>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simula invio (in produzione collegare a un backend o email service)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/candidatura', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Errore durante l\'invio');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Errore durante l\'invio. Riprova.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -411,6 +430,12 @@ export default function MiglioriPesca2025Page() {
                   placeholder="Da quanti anni siete attivi? Quali sono i vostri punti di forza? Servite clienti in tutta Italia?"
                 />
               </div>
+
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
+                  ⚠️ {error}
+                </div>
+              )}
 
               <button
                 type="submit"
