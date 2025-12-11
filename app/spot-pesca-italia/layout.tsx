@@ -23,3 +23,4 @@ export default function SpotPescaLayout({
   return <>{children}</>;
 }
 
+

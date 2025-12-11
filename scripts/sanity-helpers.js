@@ -338,6 +338,7 @@ export function markdownToBlockContent(markdown) {
 
 /**
  * Parsa marks inline (grassetto, corsivo, link) nel testo
+ * Supporta: **grassetto**, *corsivo*, _corsivo_, [testo](url)
  * @param {string} text - Il testo da parsare
  * @param {number} blockIndex - Indice del blocco per generare chiavi uniche
  * @returns {Object} { children: Array, markDefs: Array }
@@ -346,40 +347,100 @@ function parseInlineMarks(text, blockIndex) {
   const children = [];
   const markDefs = [];
   let spanIndex = 0;
+  let linkIndex = 0;
 
-  // Pattern per grassetto (**text**) e corsivo (*text* o _text_)
-  // Per semplicità, gestiamo solo il caso base senza nesting complesso
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|_[^_]+_)/g);
-
-  for (const part of parts) {
-    if (!part) continue;
-
-    let marks = [];
-    let cleanText = part;
-
-    // Grassetto
-    if (part.startsWith('**') && part.endsWith('**')) {
-      marks.push('strong');
-      cleanText = part.slice(2, -2);
+  // Prima estrai i link markdown [testo](url)
+  // Pattern: [testo](url)
+  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+  
+  // Trova tutti i link e processa il testo
+  const segments = [];
+  while ((match = linkPattern.exec(text)) !== null) {
+    // Aggiungi testo prima del link
+    if (match.index > lastIndex) {
+      segments.push({
+        type: 'text',
+        content: text.slice(lastIndex, match.index)
+      });
     }
-    // Corsivo con asterisco
-    else if (part.startsWith('*') && part.endsWith('*') && !part.startsWith('**')) {
-      marks.push('em');
-      cleanText = part.slice(1, -1);
-    }
-    // Corsivo con underscore
-    else if (part.startsWith('_') && part.endsWith('_')) {
-      marks.push('em');
-      cleanText = part.slice(1, -1);
-    }
-
-    children.push({
-      _type: 'span',
-      _key: `span-${blockIndex}-${spanIndex}`,
-      text: cleanText,
-      marks
+    // Aggiungi il link
+    segments.push({
+      type: 'link',
+      text: match[1],
+      url: match[2]
     });
-    spanIndex++;
+    lastIndex = match.index + match[0].length;
+  }
+  // Aggiungi testo rimanente dopo l'ultimo link
+  if (lastIndex < text.length) {
+    segments.push({
+      type: 'text',
+      content: text.slice(lastIndex)
+    });
+  }
+
+  // Se non ci sono link, processa tutto il testo normalmente
+  if (segments.length === 0) {
+    segments.push({ type: 'text', content: text });
+  }
+
+  // Processa ogni segmento
+  for (const segment of segments) {
+    if (segment.type === 'link') {
+      // Crea markDef per il link
+      const linkKey = `link-${blockIndex}-${linkIndex}`;
+      markDefs.push({
+        _type: 'link',
+        _key: linkKey,
+        href: segment.url
+      });
+      
+      // Crea span con il link mark
+      children.push({
+        _type: 'span',
+        _key: `span-${blockIndex}-${spanIndex}`,
+        text: segment.text,
+        marks: [linkKey]
+      });
+      spanIndex++;
+      linkIndex++;
+    } else {
+      // Processa testo normale con grassetto/corsivo
+      const parts = segment.content.split(/(\*\*[^*]+\*\*|\*[^*]+\*|_[^_]+_)/g);
+      
+      for (const part of parts) {
+        if (!part) continue;
+
+        let marks = [];
+        let cleanText = part;
+
+        // Grassetto
+        if (part.startsWith('**') && part.endsWith('**')) {
+          marks.push('strong');
+          cleanText = part.slice(2, -2);
+        }
+        // Corsivo con asterisco
+        else if (part.startsWith('*') && part.endsWith('*') && !part.startsWith('**')) {
+          marks.push('em');
+          cleanText = part.slice(1, -1);
+        }
+        // Corsivo con underscore
+        else if (part.startsWith('_') && part.endsWith('_')) {
+          marks.push('em');
+          cleanText = part.slice(1, -1);
+        }
+
+        children.push({
+          _type: 'span',
+          _key: `span-${blockIndex}-${spanIndex}`,
+          text: cleanText,
+          marks
+        });
+        spanIndex++;
+      }
+    }
   }
 
   // Se non ci sono children, crea uno span vuoto

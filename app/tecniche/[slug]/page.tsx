@@ -434,3 +434,4 @@ export default async function TechniqueDetailPage({ params }: { params: Promise<
   );
 }
 
+

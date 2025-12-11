@@ -1,11 +1,13 @@
 /**
- * 🤖 FishandTips - AI Content Generator con Unsplash
+ * 🤖 FishandTips - AI Content Generator con Unsplash + Fallback
  * 
  * Genera articoli completi usando Gemini AI con immagini da Unsplash
+ * e fallback su cartella locale se Unsplash non disponibile
  * 
  * Funzionalità:
  * - Generazione testo con Google Gemini
- * - Immagine principale da Unsplash
+ * - Immagine principale da Unsplash (con fallback locale)
+ * - Auto-linking prodotti Amazon nel testo
  * - SEO ottimizzato automaticamente
  * - Pubblicazione diretta su Sanity CMS
  */
@@ -22,41 +24,13 @@ import {
   validatePostDocument
 } from './sanity-helpers.js';
 import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-/**
- * Scarica immagine da URL e la carica su Sanity come asset
- */
-async function uploadImageToSanity(imageUrl, filename, alt) {
-  try {
-    // Scarica l'immagine
-    const response = await fetch(imageUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch image: ${response.status}`);
-    }
-    
-    const buffer = Buffer.from(await response.arrayBuffer());
-    
-    // Carica su Sanity
-    const asset = await sanityClient.assets.upload('image', buffer, {
-      filename: `${filename}.jpg`,
-      contentType: 'image/jpeg'
-    });
-    
-    console.log(`   ☁️ Immagine caricata su Sanity: ${asset._id}`);
-    
-    return {
-      _type: 'image',
-      asset: {
-        _type: 'reference',
-        _ref: asset._id
-      },
-      alt: alt
-    };
-  } catch (error) {
-    console.error(`   ❌ Errore upload immagine: ${error.message}`);
-    return null;
-  }
-}
+// Per ottenere __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
@@ -64,11 +38,16 @@ const CONFIG = {
   maxTokens: 8000,
   temperature: 0.7,
   amazonAffiliateTag: process.env.AMAZON_AFFILIATE_TAG || 'fishandtips-21',
-  publishImmediately: true, // Se true pubblica subito, altrimenti crea bozza
+  publishImmediately: true,
   readingTimeMin: 5,
   readingTimeMax: 12,
   initialLikesMin: 15,
-  initialLikesMax: 45
+  initialLikesMax: 45,
+  // Cartella immagini fallback
+  fallbackImagesDir: path.join(__dirname, '..', 'public', 'images', 'fallback-fishing'),
+  // Retry config per Unsplash
+  unsplashMaxRetries: 2,
+  unsplashRetryDelay: 2000 // 2 secondi
 };
 
 // Sanity Client
@@ -91,6 +70,253 @@ function getGeminiAI() {
     genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   }
   return genAI;
+}
+
+// ===== GESTIONE IMMAGINI =====
+
+/**
+ * Scarica immagine da URL e la carica su Sanity come asset
+ */
+async function uploadImageToSanity(imageUrl, filename, alt) {
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch image: ${response.status}`);
+    }
+    
+    const buffer = Buffer.from(await response.arrayBuffer());
+    
+    const asset = await sanityClient.assets.upload('image', buffer, {
+      filename: `${filename}.jpg`,
+      contentType: 'image/jpeg'
+    });
+    
+    console.log(`   ☁️ Immagine caricata su Sanity: ${asset._id}`);
+    
+    return {
+      _type: 'image',
+      asset: {
+        _type: 'reference',
+        _ref: asset._id
+      },
+      alt: alt
+    };
+  } catch (error) {
+    console.error(`   ❌ Errore upload immagine da URL: ${error.message}`);
+    return null;
+  }
+}
+
+/**
+ * Carica immagine da file locale su Sanity
+ */
+async function uploadLocalImageToSanity(localPath, filename, alt) {
+  try {
+    if (!fs.existsSync(localPath)) {
+      throw new Error(`File non trovato: ${localPath}`);
+    }
+    
+    const buffer = fs.readFileSync(localPath);
+    
+    const asset = await sanityClient.assets.upload('image', buffer, {
+      filename: `${filename}.jpg`,
+      contentType: 'image/jpeg'
+    });
+    
+    console.log(`   ☁️ Immagine locale caricata su Sanity: ${asset._id}`);
+    
+    return {
+      _type: 'image',
+      asset: {
+        _type: 'reference',
+        _ref: asset._id
+      },
+      alt: alt
+    };
+  } catch (error) {
+    console.error(`   ❌ Errore upload immagine locale: ${error.message}`);
+    return null;
+  }
+}
+
+/**
+ * Ottiene lista immagini fallback dalla cartella locale
+ */
+function getFallbackImages() {
+  try {
+    if (!fs.existsSync(CONFIG.fallbackImagesDir)) {
+      console.log(`   ⚠️ Cartella fallback non trovata: ${CONFIG.fallbackImagesDir}`);
+      return [];
+    }
+    
+    const files = fs.readdirSync(CONFIG.fallbackImagesDir);
+    const imageFiles = files.filter(f => 
+      /\.(jpg|jpeg|png|webp)$/i.test(f) && !f.startsWith('.')
+    );
+    
+    return imageFiles.map(f => path.join(CONFIG.fallbackImagesDir, f));
+  } catch (error) {
+    console.error(`   ❌ Errore lettura cartella fallback: ${error.message}`);
+    return [];
+  }
+}
+
+/**
+ * Seleziona immagine fallback random
+ */
+function getRandomFallbackImage() {
+  const images = getFallbackImages();
+  if (images.length === 0) {
+    return null;
+  }
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+}
+
+/**
+ * Ottiene immagine con fallback: prima Unsplash, poi locale
+ */
+async function getImageWithFallback(keyword, categorySlug, finalSlug, articleTitle, log) {
+  let mainImageAsset = null;
+  let imageCredit = null;
+  let imageSource = null;
+  
+  // 1. Prova Unsplash con retry
+  for (let attempt = 1; attempt <= CONFIG.unsplashMaxRetries; attempt++) {
+    try {
+      const imageKeywords = extractImageKeywords(keyword, categorySlug);
+      log(`   🔍 Tentativo ${attempt}/${CONFIG.unsplashMaxRetries} - Query: "${imageKeywords}"`);
+      
+      const photos = await searchPhotos(imageKeywords, {
+        perPage: 5,
+        orientation: 'landscape'
+      });
+      
+      if (photos && photos.length > 0 && photos[0].url) {
+        const photo = photos[0];
+        
+        // Verifica che non sia un placeholder
+        if (photo.id && !photo.id.startsWith('placeholder')) {
+          imageCredit = photo.author;
+          
+          // Traccia download (ToS Unsplash)
+          if (photo.downloadLink) {
+            await trackDownload(photo.downloadLink);
+          }
+          
+          log(`   ✅ Unsplash: ${photo.description || 'Immagine trovata'}`);
+          log(`   📷 by ${photo.author?.name || 'Unknown'}`);
+          
+          // Upload su Sanity
+          mainImageAsset = await uploadImageToSanity(
+            photo.url,
+            finalSlug,
+            `${articleTitle} - Foto di ${photo.author?.name || 'Unsplash'} su Unsplash`
+          );
+          
+          if (mainImageAsset) {
+            imageSource = 'unsplash';
+            break;
+          }
+        }
+      }
+      
+      // Se arriviamo qui, non abbiamo trovato nulla di valido
+      if (attempt < CONFIG.unsplashMaxRetries) {
+        log(`   ⏳ Nessuna immagine valida, retry tra ${CONFIG.unsplashRetryDelay/1000}s...`);
+        await new Promise(r => setTimeout(r, CONFIG.unsplashRetryDelay));
+      }
+      
+    } catch (error) {
+      log(`   ⚠️ Errore Unsplash (tentativo ${attempt}): ${error.message}`);
+      if (attempt < CONFIG.unsplashMaxRetries) {
+        await new Promise(r => setTimeout(r, CONFIG.unsplashRetryDelay));
+      }
+    }
+  }
+  
+  // 2. Fallback su immagini locali
+  if (!mainImageAsset) {
+    log('   📁 Fallback su immagini locali...');
+    const fallbackImage = getRandomFallbackImage();
+    
+    if (fallbackImage) {
+      log(`   📸 Usando: ${path.basename(fallbackImage)}`);
+      
+      mainImageAsset = await uploadLocalImageToSanity(
+        fallbackImage,
+        finalSlug,
+        `${articleTitle} - FishandTips`
+      );
+      
+      if (mainImageAsset) {
+        imageSource = 'fallback';
+        imageCredit = { name: 'FishandTips', username: 'fishandtips' };
+      }
+    } else {
+      log('   ⚠️ Nessuna immagine fallback disponibile');
+      log('   💡 Aggiungi immagini in: public/images/fallback-fishing/');
+    }
+  }
+  
+  return { mainImageAsset, imageCredit, imageSource };
+}
+
+// ===== AUTO-LINKING PRODOTTI AMAZON =====
+
+/**
+ * Genera URL Amazon affiliato per un prodotto
+ */
+function generateAmazonUrl(productName) {
+  const searchQuery = productName
+    .replace(/[^\w\s]/g, '') // Rimuovi caratteri speciali
+    .trim();
+  return `https://www.amazon.it/s?k=${encodeURIComponent(searchQuery)}&tag=${CONFIG.amazonAffiliateTag}`;
+}
+
+/**
+ * Inserisce link Amazon nel testo markdown per ogni prodotto menzionato
+ * Trasforma "Shimano Sedona FI 2500" in "[Shimano Sedona FI 2500](amazon-url)"
+ */
+function insertAmazonLinksInContent(content, products) {
+  if (!products || products.length === 0) {
+    return content;
+  }
+  
+  let linkedContent = content;
+  const linkedProducts = [];
+  
+  for (const product of products) {
+    const productName = product.name;
+    if (!productName || productName.length < 5) continue;
+    
+    // Crea pattern per trovare il nome del prodotto (case insensitive)
+    // Evita di linkare se già dentro un link markdown
+    const escapedName = productName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = new RegExp(
+      `(?<!\\[)(?<!\\]\\()\\b(${escapedName})\\b(?!\\])(?!\\))`,
+      'i'
+    );
+    
+    // Verifica se il prodotto è menzionato nel testo
+    if (pattern.test(linkedContent)) {
+      const amazonUrl = generateAmazonUrl(productName);
+      
+      // Sostituisci solo la PRIMA occorrenza con il link
+      linkedContent = linkedContent.replace(
+        pattern,
+        `[$1](${amazonUrl})`
+      );
+      
+      linkedProducts.push(productName);
+    }
+  }
+  
+  if (linkedProducts.length > 0) {
+    console.log(`   🔗 Auto-linked ${linkedProducts.length} prodotti: ${linkedProducts.join(', ')}`);
+  }
+  
+  return linkedContent;
 }
 
 // ===== PROMPT TEMPLATE =====
@@ -117,9 +343,9 @@ REQUISITI OBBLIGATORI:
    - Suggerisci 3-4 prodotti REALI correlati all'argomento
    - Devono essere prodotti SPECIFICI acquistabili su Amazon.it (es: "Shimano Sedona FI 2500" non "un buon mulinello")
    - Per ogni prodotto: nome ESATTO del prodotto, breve descrizione (max 80 car), prezzo indicativo realistico
-   - INCLUDI I PRODOTTI ANCHE NEL TESTO: crea una sezione "## Attrezzatura Consigliata" o "## Cosa Ti Serve" 
-   - Nel testo, menziona i prodotti in modo naturale come raccomandazioni personali
-   - Esempio: "Per questa tecnica vi consigliamo la canna Shimano Vengeance 2.70m, perfetta per..."
+   - MENZIONA I PRODOTTI NEL TESTO usando il nome ESATTO che specifichi nella sezione PRODOTTI
+   - Esempio nel testo: "Per questa tecnica vi consigliamo il mulinello Shimano Sedona FI 2500, perfetto per..."
+   - I nomi dei prodotti verranno automaticamente convertiti in link Amazon
 
 6. FORMATO OUTPUT (RISPETTA ESATTAMENTE QUESTA STRUTTURA):
 ---TITOLO---
@@ -135,7 +361,7 @@ PRODOTTO3: Nome ESATTO prodotto | Descrizione breve | €XX
 PRODOTTO4: Nome ESATTO prodotto | Descrizione breve | €XX
 ---CONTENUTO---
 [Il contenuto markdown qui con ## per H2 e ### per H3]
-[INCLUDI una sezione dedicata all'attrezzatura con i prodotti consigliati]
+[IMPORTANTE: Menziona i prodotti usando ESATTAMENTE i nomi specificati sopra]
 ---FINE---
 
 CATEGORIA ARTICOLO: {category}
@@ -143,7 +369,7 @@ STAGIONE CORRENTE: {season}
 
 Scrivi contenuto originale, utile e basato su vera esperienza di pesca. 
 Non inventare statistiche o dati. Usa il "noi" per creare connessione con il lettore.
-RICORDA: I prodotti devono essere REALI e SPECIFICI (marca + modello) per essere credibili!`;
+RICORDA: I prodotti devono essere REALI e SPECIFICI (marca + modello) e MENZIONATI nel testo!`;
 
 // ===== FUNZIONE PRINCIPALE =====
 export async function generateArticle(keyword, categorySlug = 'consigli', options = {}) {
@@ -197,7 +423,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
 
   let articleContent;
   const maxRetries = 3;
-  let lastError;
   
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
@@ -214,14 +439,13 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
 
       articleContent = result.response.text();
       log('✅ Contenuto generato con successo');
-      break; // Successo, esci dal loop
+      break;
       
     } catch (error) {
-      lastError = error;
       const isRateLimit = error.message.includes('429') || error.message.includes('Too Many Requests');
       
       if (isRateLimit && attempt < maxRetries) {
-        const waitTime = attempt * 30; // 30s, 60s, 90s
+        const waitTime = attempt * 30;
         log(`⏳ Rate limit (429) - Attendo ${waitTime}s prima del retry ${attempt + 1}/${maxRetries}...`);
         await new Promise(r => setTimeout(r, waitTime * 1000));
       } else if (attempt === maxRetries) {
@@ -247,53 +471,23 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log(`   Keywords: ${parsed.keywords?.length || 0}`);
   log(`   Prodotti: ${parsed.products?.length || 0}`);
 
-  // 5. Cerca immagine su Unsplash e caricala su Sanity
-  log('📸 Ricerca immagine su Unsplash...');
-  let mainImageAsset = null;
-  let unsplashCredit = null;
-  
-  try {
-    // Estrai keyword per ricerca immagine
-    const imageKeywords = extractImageKeywords(keyword, categorySlug);
-    log(`   Query: "${imageKeywords}"`);
-    
-    const photos = await searchPhotos(imageKeywords, {
-      perPage: 5,
-      orientation: 'landscape'
-    });
-    
-    if (photos && photos.length > 0) {
-      const photo = photos[0];
-      unsplashCredit = photo.author;
-      
-      // Traccia download (richiesto da Unsplash ToS)
-      await trackDownload(photo.downloadLink);
-      
-      log(`✅ Immagine trovata: ${photo.description || 'No description'}`);
-      log(`   📷 by ${photo.author.name}`);
-      
-      // Carica l'immagine su Sanity
-      log('   ☁️ Upload immagine su Sanity...');
-      mainImageAsset = await uploadImageToSanity(
-        photo.url,
-        finalSlug,
-        `${parsed.title} - Foto di ${photo.author.name} su Unsplash`
-      );
-      
-      if (mainImageAsset) {
-        log('   ✅ Immagine caricata con successo!');
-      }
-    } else {
-      log('⚠️ Nessuna immagine trovata, articolo senza immagine principale');
-    }
-  } catch (error) {
-    log(`⚠️ Errore Unsplash/Upload: ${error.message}`);
-  }
+  // 5. AUTO-LINK: Inserisci link Amazon nel contenuto
+  log('🔗 Inserimento link Amazon nel testo...');
+  const contentWithLinks = insertAmazonLinksInContent(parsed.content, parsed.products);
 
-  // 6. Prepara documento Sanity
+  // 6. Cerca immagine (Unsplash + fallback locale)
+  log('📸 Ricerca immagine...');
+  const { mainImageAsset, imageCredit, imageSource } = await getImageWithFallback(
+    keyword, 
+    categorySlug, 
+    finalSlug, 
+    parsed.title,
+    log
+  );
+
+  // 7. Prepara documento Sanity
   log('📄 Preparazione documento Sanity...');
   
-  // Recupera IDs necessari
   const authorId = await getDefaultAuthorId();
   const categoryId = await getCategoryIdBySlug(categorySlug);
   
@@ -301,8 +495,8 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     throw new Error('Nessun autore trovato in Sanity. Crea prima un autore.');
   }
 
-  // Converti markdown in block content
-  const bodyBlocks = markdownToBlockContent(parsed.content);
+  // Converti markdown (con link Amazon) in block content
+  const bodyBlocks = markdownToBlockContent(contentWithLinks);
 
   // Calcola reading time e likes random
   const wordCount = parsed.content.split(/\s+/).length;
@@ -314,24 +508,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     Math.random() * (CONFIG.initialLikesMax - CONFIG.initialLikesMin + 1)
   ) + CONFIG.initialLikesMin;
 
-  // Costruisci prodotti affiliati con link Amazon ottimizzati
-  const affiliateProducts = (parsed.products || []).slice(0, 4).map((p, i) => {
-    // Crea query di ricerca ottimizzata per Amazon
-    const searchQuery = p.name
-      .replace(/[^\w\s]/g, '') // Rimuovi caratteri speciali
-      .trim();
-    
-    return {
-      _key: `product-${i}`,
-      _type: 'affiliateProduct',
-      name: p.name,
-      description: p.description,
-      price: p.price,
-      amazonUrl: `https://www.amazon.it/s?k=${encodeURIComponent(searchQuery)}&tag=${CONFIG.amazonAffiliateTag}`,
-      badge: i === 0 ? '⭐ Consigliato' : (i === 1 ? 'Ottimo Rapporto Q/P' : null)
-    };
-  });
-
   // Documento completo
   const sanityDocument = {
     _type: 'post',
@@ -342,30 +518,29 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     categories: categoryId ? [{ _type: 'reference', _ref: categoryId }] : [],
     body: bodyBlocks,
     readingTime,
-    likes: initialLikes,
+    initialLikes,
     seoTitle: parsed.title,
     seoDescription: parsed.excerpt,
     seoKeywords: parsed.keywords || [],
-    affiliateProducts,
-    status: 'published', // IMPORTANTE: necessario per la visualizzazione
+    status: 'published',
     publishedAt: CONFIG.publishImmediately ? new Date().toISOString() : null
   };
 
-  // Aggiungi immagine se disponibile (caricata su Sanity)
+  // Aggiungi immagine se disponibile
   if (mainImageAsset) {
     sanityDocument.mainImage = mainImageAsset;
     
-    // Aggiungi credito Unsplash alla fine del body
-    if (unsplashCredit) {
+    // Aggiungi credito immagine alla fine del body
+    if (imageCredit && imageSource === 'unsplash') {
       const creditBlock = {
         _type: 'block',
-        _key: 'unsplash-credit',
+        _key: 'image-credit',
         style: 'normal',
         markDefs: [],
         children: [{
           _type: 'span',
           _key: 'credit-span',
-          text: `📷 Foto di ${unsplashCredit.name} su Unsplash`,
+          text: `📷 Foto di ${imageCredit.name} su Unsplash`,
           marks: []
         }]
       };
@@ -373,14 +548,14 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     }
   }
 
-  // 7. Valida documento
+  // 8. Valida documento
   const validation = validatePostDocument(sanityDocument);
   if (!validation.valid) {
     console.error('❌ Validazione fallita:', validation.errors);
     throw new Error(`Documento non valido: ${validation.errors.join(', ')}`);
   }
 
-  // 8. Crea in Sanity
+  // 9. Crea in Sanity
   log('💾 Creazione articolo in Sanity...');
   
   try {
@@ -394,9 +569,11 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     log(`   📊 Parole: ~${wordCount}`);
     log(`   ⏱️ Lettura: ${readingTime} min`);
     log(`   ❤️ Likes: ${initialLikes}`);
-    log(`   🛒 Prodotti: ${affiliateProducts.length}`);
+    log(`   🛒 Prodotti linkati: ${parsed.products?.length || 0}`);
     if (mainImageAsset) {
-      log(`   📸 Immagine: ✅ (${unsplashCredit?.name || 'Unsplash'})`);
+      log(`   📸 Immagine: ✅ (${imageSource === 'unsplash' ? 'Unsplash' : 'Fallback locale'})`);
+    } else {
+      log(`   📸 Immagine: ❌ (nessuna disponibile)`);
     }
     log(`   📅 Stato: ${CONFIG.publishImmediately ? 'Pubblicato' : 'Bozza'}`);
     log(`   🆔 ID: ${created._id}`);
@@ -404,7 +581,9 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     return {
       ...created,
       wordCount,
-      hasImage: !!mainImageAsset
+      hasImage: !!mainImageAsset,
+      imageSource,
+      linkedProducts: parsed.products?.length || 0
     };
   } catch (error) {
     console.error('❌ Errore Sanity:', error.message);
@@ -469,7 +648,6 @@ function parseGeneratedContent(content) {
     if (contentMatch) {
       result.content = contentMatch[1].trim();
     } else {
-      // Fallback: prendi tutto dopo ---CONTENUTO---
       const fallbackMatch = content.match(/---CONTENUTO---\s*([\s\S]*)/);
       if (fallbackMatch) {
         result.content = fallbackMatch[1].trim().replace(/---FINE---[\s\S]*$/, '');
@@ -494,7 +672,6 @@ function parseGeneratedContent(content) {
  * Estrai keyword per ricerca immagine
  */
 function extractImageKeywords(keyword, category) {
-  // Parole chiave per ricerca immagine ottimizzata
   const categoryImages = {
     'tecniche-di-pesca': 'fishing technique',
     'attrezzature': 'fishing gear equipment',
@@ -502,7 +679,6 @@ function extractImageKeywords(keyword, category) {
     'spot-di-pesca': 'fishing spot sea'
   };
   
-  // Estrai parole principali dalla keyword
   const mainWords = keyword
     .toLowerCase()
     .replace(/come|guida|completa|migliori|consigli|tecniche|per|la|il|di|da|in|con|a/gi, '')
@@ -514,7 +690,6 @@ function extractImageKeywords(keyword, category) {
   
   const categoryKeyword = categoryImages[category] || 'fishing';
   
-  // Combina per query ottimale
   return `${mainWords} ${categoryKeyword} mediterranean`.trim();
 }
 

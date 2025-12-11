@@ -36,3 +36,4 @@ export default function TrovaAttrezzaturaLayout({
   return <>{children}</>;
 }
 
+
