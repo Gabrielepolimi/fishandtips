@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "version": "1.0",
-    "lastUpdated": "2024-12-07",
-    "totalSpots": 100,
+    "version": "2.0",
+    "lastUpdated": "2025-12-11",
+    "totalSpots": 62,
     "affiliateTag": "fishandtips-21"
   },
   "regions": [
@@ -473,6 +473,119 @@
           "rating": 4.2,
           "difficulty": 1,
           "crowded": "Media"
+        },
+        {
+          "id": "isole-egadi-favignana",
+          "name": "Favignana (Egadi)",
+          "region": "sicilia",
+          "province": "Trapani",
+          "locality": "Favignana",
+          "coordinates": { "lat": 37.9312, "lng": 12.3289 },
+          "description": "L'isola delle Egadi è un paradiso per la pesca. Acque cristalline, fondali ricchi e pesce di taglia. Raggiungibile in traghetto da Trapani.",
+          "environment": "Scogliera e calette",
+          "seabed": "Roccioso con posidonia",
+          "depth": "3-30m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Al porto di Trapani",
+            "walking": "Vari spot sull'isola",
+            "notes": "Traghetto da Trapani (30 min)"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10] },
+            { "name": "Ricciola", "rating": 5, "months": [6, 7, 8, 9] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Cernia", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Per dentici e ricciole" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole in inverno" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Calamaro", "Sarda", "Gamberetto vivo"],
+          "bestArtificials": ["Jig 60-100g", "Minnow 12cm", "Popper"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna piena"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP Egadi - zone regolamentate",
+            "minSizes": "Dentice 30cm, Ricciola 30cm"
+          },
+          "tips": [
+            "Informati sulle zone AMP prima di pescare",
+            "Cala Rossa è spettacolare per shore jigging",
+            "Le ricciole passano all'alba sui drop-off",
+            "Porta attrezzatura robusta, pesci di taglia"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Negozio pesca a Favignana"
+          },
+          "rating": 4.8,
+          "difficulty": 3,
+          "crowded": "Media in estate"
+        },
+        {
+          "id": "taormina-giardini-naxos",
+          "name": "Giardini Naxos",
+          "region": "sicilia",
+          "province": "Messina",
+          "locality": "Giardini Naxos",
+          "coordinates": { "lat": 37.8256, "lng": 15.2678 },
+          "description": "Baia storica ai piedi di Taormina. Spiagge sabbiose e scogliere offrono spot per surfcasting e spinning con vista sull'Etna.",
+          "environment": "Spiaggia e scogliera",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-15m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Lungomare",
+            "walking": "Diretto",
+            "notes": "Spot turistico ma pescoso"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Calamaro", "rating": 4, "months": [10, 11, 12, 1, 2] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 4, "notes": "Sulla spiaggia" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Eging", "rating": 5, "notes": "Calamari eccellenti" },
+            { "name": "Bolognese", "rating": 3, "notes": "Dal molo" }
+          ],
+          "bestBaits": ["Americano", "Bibi", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-11cm", "Totanara 2.5-3.0", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Qualsiasi",
+            "weather": "Mare calmo o poco mosso",
+            "moon": "Luna nuova per calamari"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione in estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Vista spettacolare sull'Etna all'alba",
+            "I calamari abbondano in autunno",
+            "Le spigole cacciano vicino alle scogliere",
+            "In inverno spot tranquillo e pescoso"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul lungomare",
+            "shop": "Giardini Naxos centro"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Alta estate, bassa inverno"
         }
       ]
     },
@@ -594,6 +707,174 @@
           },
           "rating": 4.3,
           "difficulty": 2,
+          "crowded": "Media"
+        },
+        {
+          "id": "camogli",
+          "name": "Camogli",
+          "region": "liguria",
+          "province": "Genova",
+          "locality": "Camogli",
+          "coordinates": { "lat": 44.3489, "lng": 9.1523 },
+          "description": "Pittoresco borgo marinaro con fondali profondi vicino costa. Spot eccellente per bolognese e rockfishing con saraghi di taglia.",
+          "environment": "Scogliera e molo",
+          "seabed": "Roccioso",
+          "depth": "5-20m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "A pagamento",
+            "walking": "5-10 minuti",
+            "notes": "Pesca dal molo e scogliere"
+          },
+          "species": [
+            { "name": "Sarago", "rating": 5, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Occhiata", "rating": 4, "months": [5, 6, 7, 8, 9] },
+            { "name": "Spigola", "rating": 3, "months": [11, 12, 1, 2] },
+            { "name": "Calamaro", "rating": 4, "months": [10, 11, 12, 1] }
+          ],
+          "techniques": [
+            { "name": "Bolognese", "rating": 5, "notes": "Per saraghi dal molo" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Divertente e produttivo" },
+            { "name": "Eging", "rating": 4, "notes": "Di notte dal porto" }
+          ],
+          "bestBaits": ["Bigattino", "Gamberetto", "Verme coreano"],
+          "bestArtificials": ["Micro jig", "Totanara 2.5", "Grub"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Marea alta",
+            "weather": "Mare calmo",
+            "moon": "Qualsiasi"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Nessuna particolare",
+            "minSizes": "Sarago 18cm"
+          },
+          "tips": [
+            "Il molo grande è perfetto per saraghi",
+            "Pastura con sfarinato e bigattini",
+            "Le occhiate in estate sono divertenti",
+            "Posti limitati: arriva presto all'alba"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Genova"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Media"
+        },
+        {
+          "id": "san-remo",
+          "name": "San Remo",
+          "region": "liguria",
+          "province": "Imperia",
+          "locality": "San Remo",
+          "coordinates": { "lat": 43.8167, "lng": 7.7667 },
+          "description": "La città dei fiori offre spot per tutte le tecniche. Moli, spiagge e scogliere per spinning e surfcasting.",
+          "environment": "Molo e spiaggia",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-15m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Diversi",
+            "walking": "Diretto",
+            "notes": "Molti spot accessibili"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Orata", "rating": 3, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Serra", "rating": 3, "months": [7, 8, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole tutto l'anno" },
+            { "name": "Surfcasting", "rating": 4, "notes": "Sulle spiagge" },
+            { "name": "Bolognese", "rating": 4, "notes": "Dai moli" }
+          ],
+          "bestBaits": ["Gamberetto", "Americano", "Bigattino"],
+          "bestArtificials": ["Minnow 9-12cm", "Soft bait", "Metal jig"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Marea in movimento",
+            "weather": "Scaduta di libeccio",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone portuali regolamentate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Il porto vecchio è ottimo per saraghi",
+            "Le spiagge a est per surfcasting",
+            "Serra in estate lungo i moli",
+            "Spinning notturno molto produttivo"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque",
+            "shop": "Diversi negozi in città"
+          },
+          "rating": 4.2,
+          "difficulty": 2,
+          "crowded": "Media-alta"
+        },
+        {
+          "id": "lerici",
+          "name": "Lerici",
+          "region": "liguria",
+          "province": "La Spezia",
+          "locality": "Lerici",
+          "coordinates": { "lat": 44.0756, "lng": 9.9123 },
+          "description": "Golfo dei Poeti con fondali vari. Spot per spinning alle spigole e bolognese per saraghi nelle calette.",
+          "environment": "Scogliera e calette",
+          "seabed": "Roccioso e sabbioso",
+          "depth": "3-20m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "A pagamento",
+            "walking": "10-15 minuti",
+            "notes": "Sentieri per le calette"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Orata", "rating": 3, "months": [5, 6, 9, 10] },
+            { "name": "Dentice", "rating": 3, "months": [5, 6, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" },
+            { "name": "Bolognese", "rating": 3, "notes": "Nelle calette" }
+          ],
+          "bestBaits": ["Gamberetto", "Verme coreano"],
+          "bestArtificials": ["Minnow 9-12cm", "Soft bait", "Metal jig"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Marea alta",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP Cinque Terre vicina",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Le spigole di Lerici sono famose",
+            "Esplora le calette meno frequentate",
+            "In inverno spot semi-deserto",
+            "Baia Blu ottima per spinning"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "La Spezia (10km)"
+          },
+          "rating": 4.5,
+          "difficulty": 3,
           "crowded": "Media"
         }
       ]
@@ -717,6 +998,175 @@
           "rating": 4.8,
           "difficulty": 3,
           "crowded": "Media"
+        },
+        {
+          "id": "polignano-a-mare",
+          "name": "Polignano a Mare",
+          "region": "puglia",
+          "province": "Bari",
+          "locality": "Polignano a Mare",
+          "coordinates": { "lat": 40.9945, "lng": 17.2234 },
+          "description": "Scogliere spettacolari a picco sul mare. Spot iconico per spinning e rockfishing con acque cristalline.",
+          "environment": "Scogliera alta",
+          "seabed": "Roccioso",
+          "depth": "3-15m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Centro paese",
+            "walking": "10-15 minuti",
+            "notes": "Sentieri sulle scogliere"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Sarago", "rating": 5, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Occhiata", "rating": 4, "months": [5, 6, 7, 8, 9] },
+            { "name": "Orata", "rating": 3, "months": [5, 6, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Rockfishing", "rating": 5, "notes": "Tecnica ideale" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Bolognese", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Gamberetto", "Bigattino", "Verme coreano"],
+          "bestArtificials": ["Micro jig", "Minnow piccoli", "Grub"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Qualsiasi",
+            "weather": "Mare calmo",
+            "moon": "Qualsiasi"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Attenzione sulle scogliere alte",
+            "I saraghi nelle buche sono di taglia",
+            "Le occhiate in estate sono abbondanti",
+            "Porta guadino con manico lungo"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Bari (35km)"
+          },
+          "rating": 4.5,
+          "difficulty": 3,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "gallipoli",
+          "name": "Gallipoli",
+          "region": "puglia",
+          "province": "Lecce",
+          "locality": "Gallipoli",
+          "coordinates": { "lat": 40.0567, "lng": 17.9923 },
+          "description": "La perla dello Ionio salentino. Spiagge, scogliere e porto offrono spot per tutte le tecniche.",
+          "environment": "Misto",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-15m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Vari",
+            "walking": "Diretto",
+            "notes": "Molti spot disponibili"
+          },
+          "species": [
+            { "name": "Orata", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Serra", "rating": 3, "months": [7, 8, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulle spiagge" },
+            { "name": "Spinning", "rating": 4, "notes": "Per serra e spigole" },
+            { "name": "Bolognese", "rating": 4, "notes": "Dal porto" }
+          ],
+          "bestBaits": ["Bibi", "Americano", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-12cm", "Metal jig", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba, tramonto, notte",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Le spiagge a nord sono ottime per surfcasting",
+            "Il porto vecchio per saraghi a bolognese",
+            "I serra arrivano in estate",
+            "In inverno pochi pescatori, tanto pesce"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque",
+            "shop": "Diversi negozi"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "vieste-gargano",
+          "name": "Vieste (Gargano)",
+          "region": "puglia",
+          "province": "Foggia",
+          "locality": "Vieste",
+          "coordinates": { "lat": 41.8812, "lng": 16.1767 },
+          "description": "Lo sperone d'Italia offre scogliere spettacolari e spiagge. Spot per spinning, surfcasting e shore jigging.",
+          "environment": "Scogliera e spiaggia",
+          "seabed": "Roccioso e sabbioso",
+          "depth": "3-25m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Vari",
+            "walking": "10-20 minuti",
+            "notes": "Diversi spot nel Gargano"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Sarago", "rating": 5, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Orata", "rating": 4, "months": [4, 5, 6, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 4, "notes": "Per dentici" },
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole" },
+            { "name": "Surfcasting", "rating": 4, "notes": "Sulle spiagge" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Sarda", "Gamberetto", "Americano"],
+          "bestArtificials": ["Jig 40-60g", "Minnow", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Qualsiasi",
+            "weather": "Mare calmo o poco mosso",
+            "moon": "Luna piena per dentici"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Parco del Gargano: verificare zone",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Il Pizzomunno è iconico ma affollato",
+            "Le calette a sud sono meno frequentate",
+            "I dentici sui fondali rocciosi profondi",
+            "In primavera i saraghi sono in frega"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Vieste centro"
+          },
+          "rating": 4.6,
+          "difficulty": 3,
+          "crowded": "Alta estate"
         }
       ]
     },
@@ -839,6 +1289,174 @@
           "rating": 4.7,
           "difficulty": 3,
           "crowded": "Alta estate, bassa inverno"
+        },
+        {
+          "id": "piombino",
+          "name": "Piombino",
+          "region": "toscana",
+          "province": "Livorno",
+          "locality": "Piombino",
+          "coordinates": { "lat": 42.9267, "lng": 10.5334 },
+          "description": "Promontorio di fronte all'Elba con spot per spinning e shore jigging. Fondali profondi vicino costa.",
+          "environment": "Scogliera e molo",
+          "seabed": "Roccioso",
+          "depth": "5-25m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Porto e promontorio",
+            "walking": "10 minuti",
+            "notes": "Diversi spot disponibili"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Ricciola", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole" },
+            { "name": "Shore Jigging", "rating": 4, "notes": "Per dentici e ricciole" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Gamberetto", "Sarda"],
+          "bestArtificials": ["Minnow 9-12cm", "Jig 40-80g", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Cambio marea",
+            "weather": "Scaduta di libeccio",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone portuali",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Punta Falcone è lo spot migliore",
+            "Le spigole in inverno sono di taglia",
+            "Shore jigging dai punti esposti",
+            "Controlla bene le condizioni del mare"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In città",
+            "shop": "Piombino centro"
+          },
+          "rating": 4.5,
+          "difficulty": 3,
+          "crowded": "Media"
+        },
+        {
+          "id": "viareggio",
+          "name": "Viareggio",
+          "region": "toscana",
+          "province": "Lucca",
+          "locality": "Viareggio",
+          "coordinates": { "lat": 43.8678, "lng": 10.2489 },
+          "description": "La perla della Versilia con lunghe spiagge sabbiose. Spot classico per surfcasting e spinning alla foce del Burlamacca.",
+          "environment": "Spiaggia e foce",
+          "seabed": "Sabbioso",
+          "depth": "2-8m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Lungomare",
+            "walking": "Diretto",
+            "notes": "Spot accessibili"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3, 4] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Mormora", "rating": 4, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Serra", "rating": 3, "months": [7, 8, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Foce del Burlamacca" },
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulle spiagge" },
+            { "name": "Beach Ledgering", "rating": 4, "notes": "Per mormore" }
+          ],
+          "bestBaits": ["Bibi", "Americano", "Arenicola"],
+          "bestArtificials": ["Minnow 9-12cm", "Soft bait", "WTD"],
+          "bestTime": {
+            "hours": "Alba e notte",
+            "tide": "Marea in uscita foce",
+            "weather": "Scaduta di libeccio",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "La foce del Burlamacca è il TOP per spigole",
+            "Le spiagge a nord per surfcasting",
+            "Dopo le piogge le spigole sono attivissime",
+            "I serra arrivano in estate"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul lungomare",
+            "shop": "Diversi negozi"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "talamone",
+          "name": "Talamone",
+          "region": "toscana",
+          "province": "Grosseto",
+          "locality": "Orbetello",
+          "coordinates": { "lat": 42.5534, "lng": 11.1345 },
+          "description": "Borgo marinaro nel Parco della Maremma. Spot selvaggio con fondali ricchi per spinning e shore jigging.",
+          "environment": "Scogliera e spiaggia",
+          "seabed": "Roccioso e sabbioso",
+          "depth": "3-20m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Paese",
+            "walking": "15-20 minuti",
+            "notes": "Sentieri nel parco"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Ricciola", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole" },
+            { "name": "Shore Jigging", "rating": 4, "notes": "Per dentici" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Gamberetto", "Sarda"],
+          "bestArtificials": ["Minnow 10-14cm", "Jig 40-60g", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Marea in movimento",
+            "weather": "Mare calmo",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Parco Maremma: zone regolamentate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Spot selvaggio e poco frequentato",
+            "Le spigole di Talamone sono famose",
+            "Verifica i confini del parco",
+            "In inverno paradiso per spinning"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "In paese",
+            "shop": "Orbetello (15km)"
+          },
+          "rating": 4.6,
+          "difficulty": 3,
+          "crowded": "Bassa"
         }
       ]
     },
@@ -903,6 +1521,231 @@
             "shop": "Sorrento centro"
           },
           "rating": 4.8,
+          "difficulty": 5,
+          "crowded": "Bassa (accesso difficile)"
+        },
+        {
+          "id": "napoli-posillipo",
+          "name": "Posillipo",
+          "region": "campania",
+          "province": "Napoli",
+          "locality": "Napoli",
+          "coordinates": { "lat": 40.8012, "lng": 14.1923 },
+          "description": "La collina di Napoli con scogliere panoramiche. Spot urbano eccellente per rockfishing e spinning con vista sul Golfo.",
+          "environment": "Scogliera",
+          "seabed": "Roccioso",
+          "depth": "3-15m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Limitato",
+            "walking": "10-15 minuti",
+            "notes": "Diversi accessi al mare"
+          },
+          "species": [
+            { "name": "Sarago", "rating": 5, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2] },
+            { "name": "Occhiata", "rating": 4, "months": [5, 6, 7, 8, 9] },
+            { "name": "Calamaro", "rating": 4, "months": [10, 11, 12, 1, 2] }
+          ],
+          "techniques": [
+            { "name": "Rockfishing", "rating": 5, "notes": "Tecnica ideale" },
+            { "name": "Bolognese", "rating": 4, "notes": "Per saraghi" },
+            { "name": "Eging", "rating": 4, "notes": "Di notte" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole" }
+          ],
+          "bestBaits": ["Bigattino", "Gamberetto", "Verme coreano"],
+          "bestArtificials": ["Micro jig", "Totanara 2.5", "Grub"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Qualsiasi",
+            "weather": "Mare calmo",
+            "moon": "Luna nuova per calamari"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Vista spettacolare sul Golfo di Napoli",
+            "I saraghi nelle buche sono di taglia",
+            "Le occhiate in estate sono abbondanti",
+            "Spot comodo per sessioni veloci"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Via Posillipo",
+            "shop": "Napoli centro"
+          },
+          "rating": 4.3,
+          "difficulty": 2,
+          "crowded": "Media"
+        },
+        {
+          "id": "ischia",
+          "name": "Isola d'Ischia",
+          "region": "campania",
+          "province": "Napoli",
+          "locality": "Ischia",
+          "coordinates": { "lat": 40.7334, "lng": 13.9012 },
+          "description": "L'isola verde del Golfo di Napoli. Fondali vulcanici ricchi di vita per spinning, shore jigging e rockfishing.",
+          "environment": "Scogliera vulcanica",
+          "seabed": "Roccioso vulcanico",
+          "depth": "5-30m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Porto",
+            "walking": "Variabile",
+            "notes": "Traghetto da Napoli/Pozzuoli"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10] },
+            { "name": "Ricciola", "rating": 4, "months": [6, 7, 8, 9] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Per dentici e ricciole" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Calamaro", "Sarda", "Gamberetto vivo"],
+          "bestArtificials": ["Jig 60-100g", "Minnow 12cm", "Popper"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna piena per pelagici"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP Regno di Nettuno: zone regolamentate",
+            "minSizes": "Dentice 30cm"
+          },
+          "tips": [
+            "Sant'Angelo e Punta Imperatore i migliori spot",
+            "Le ricciole cacciano all'alba",
+            "Informati sulle zone AMP",
+            "Fondali vulcanici ricchissimi"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque sull'isola",
+            "shop": "Ischia Porto"
+          },
+          "rating": 4.7,
+          "difficulty": 3,
+          "crowded": "Media estate"
+        },
+        {
+          "id": "cilento-palinuro",
+          "name": "Palinuro",
+          "region": "campania",
+          "province": "Salerno",
+          "locality": "Centola",
+          "coordinates": { "lat": 40.0312, "lng": 15.2834 },
+          "description": "Il promontorio del Cilento con acque cristalline. Spot famoso per dentici, ricciole e totani di taglia record.",
+          "environment": "Scogliera e calette",
+          "seabed": "Roccioso profondo",
+          "depth": "10-50m",
+          "access": {
+            "difficulty": "Difficile",
+            "parking": "Paese",
+            "walking": "20-30 minuti",
+            "notes": "Sentieri impegnativi"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10, 11] },
+            { "name": "Ricciola", "rating": 5, "months": [6, 7, 8, 9] },
+            { "name": "Totano", "rating": 5, "months": [9, 10, 11, 12] },
+            { "name": "Cernia", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Per dentici e ricciole" },
+            { "name": "Eging", "rating": 5, "notes": "Totani giganti" },
+            { "name": "Popping", "rating": 4, "notes": "In estate" }
+          ],
+          "bestBaits": ["Calamaro vivo", "Sarda", "Aguglia"],
+          "bestArtificials": ["Jig 80-120g", "Totanara 3.5-4.0", "Popper"],
+          "bestTime": {
+            "hours": "Alba per pelagici, notte per totani",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna nuova per totani"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP Costa degli Infreschi vicina",
+            "minSizes": "Dentice 30cm"
+          },
+          "tips": [
+            "Capo Palinuro è spettacolare",
+            "I totani qui sono enormi",
+            "Le ricciole passano all'alba",
+            "Attenzione alle correnti"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Palinuro paese",
+            "shop": "Palinuro centro"
+          },
+          "rating": 4.8,
+          "difficulty": 4,
+          "crowded": "Media"
+        },
+        {
+          "id": "amalfi-positano",
+          "name": "Costiera Amalfitana",
+          "region": "campania",
+          "province": "Salerno",
+          "locality": "Amalfi",
+          "coordinates": { "lat": 40.6334, "lng": 14.6023 },
+          "description": "La costiera più famosa al mondo offre spot tecnici per pescatori esperti. Fondali profondi e scenari mozzafiato.",
+          "environment": "Scogliera alta",
+          "seabed": "Roccioso profondo",
+          "depth": "10-40m",
+          "access": {
+            "difficulty": "Molto difficile",
+            "parking": "Costoso e limitato",
+            "walking": "Sentieri ripidi",
+            "notes": "Solo per esperti"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10] },
+            { "name": "Ricciola", "rating": 4, "months": [6, 7, 8, 9] },
+            { "name": "Spigola", "rating": 3, "months": [11, 12, 1, 2] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Per dentici" },
+            { "name": "Spinning", "rating": 3, "notes": "Nei punti accessibili" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Calamaro", "Sarda"],
+          "bestArtificials": ["Jig 80-120g", "Minnow", "Inchiku"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo obbligatorio",
+            "moon": "Luna piena"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP Punta Campanella vicina",
+            "minSizes": "Dentice 30cm"
+          },
+          "tips": [
+            "Mai pescare da soli qui",
+            "Le condizioni del mare sono fondamentali",
+            "Fondali profondi vicino costa = pesci grossi",
+            "L'accesso è il vero problema"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Nei paesi",
+            "shop": "Amalfi o Positano"
+          },
+          "rating": 4.6,
           "difficulty": 5,
           "crowded": "Bassa (accesso difficile)"
         }
@@ -971,6 +1814,230 @@
           "rating": 4.3,
           "difficulty": 2,
           "crowded": "Alta nel weekend"
+        },
+        {
+          "id": "gaeta",
+          "name": "Gaeta",
+          "region": "lazio",
+          "province": "Latina",
+          "locality": "Gaeta",
+          "coordinates": { "lat": 41.2123, "lng": 13.5712 },
+          "description": "Il promontorio del Golfo di Gaeta offre spot per spinning e shore jigging. Fondali vari e pesci di taglia.",
+          "environment": "Scogliera e spiaggia",
+          "seabed": "Roccioso e sabbioso",
+          "depth": "3-25m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Vari",
+            "walking": "10-15 minuti",
+            "notes": "Diversi spot nel promontorio"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Serra", "rating": 3, "months": [7, 8, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole" },
+            { "name": "Shore Jigging", "rating": 4, "notes": "Per dentici" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Gamberetto", "Sarda"],
+          "bestArtificials": ["Minnow 9-12cm", "Jig 40-60g", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Cambio marea",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone militari",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Monte Orlando è lo spot principale",
+            "Le spigole in inverno sono di taglia",
+            "I dentici sui fondali rocciosi",
+            "Spiaggia di Serapo per surfcasting"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In città",
+            "shop": "Gaeta centro"
+          },
+          "rating": 4.5,
+          "difficulty": 3,
+          "crowded": "Media"
+        },
+        {
+          "id": "ponza",
+          "name": "Isola di Ponza",
+          "region": "lazio",
+          "province": "Latina",
+          "locality": "Ponza",
+          "coordinates": { "lat": 40.8956, "lng": 12.9634 },
+          "description": "L'isola pontina per eccellenza. Acque cristalline e fondali ricchi per shore jigging e spinning di alto livello.",
+          "environment": "Scogliera vulcanica",
+          "seabed": "Roccioso",
+          "depth": "5-40m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Porto",
+            "walking": "Variabile",
+            "notes": "Traghetto da Formia/Anzio"
+          },
+          "species": [
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10] },
+            { "name": "Ricciola", "rating": 5, "months": [6, 7, 8, 9] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Cernia", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Per dentici e ricciole" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Calamaro", "Sarda", "Aguglia viva"],
+          "bestArtificials": ["Jig 60-100g", "Popper", "Minnow"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna piena"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "AMP: zone regolamentate",
+            "minSizes": "Dentice 30cm, Ricciola 30cm"
+          },
+          "tips": [
+            "Chiaia di Luna spot iconico",
+            "Le ricciole all'alba sono spettacolari",
+            "Informati sulle zone AMP",
+            "Fondali ricchissimi"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Porto",
+            "shop": "Ponza paese"
+          },
+          "rating": 4.8,
+          "difficulty": 3,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "santa-marinella",
+          "name": "Santa Marinella",
+          "region": "lazio",
+          "province": "Roma",
+          "locality": "Santa Marinella",
+          "coordinates": { "lat": 42.0345, "lng": 11.8534 },
+          "description": "Spiagge e scogliere vicino Roma. Spot accessibile per surfcasting e spinning per sessioni veloci.",
+          "environment": "Spiaggia e scogliera",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-10m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Lungomare",
+            "walking": "Diretto",
+            "notes": "Spot comodo da Roma"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Orata", "rating": 3, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Mormora", "rating": 4, "months": [4, 5, 6, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 4, "notes": "Sulle spiagge" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Bolognese", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Americano", "Bibi", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-11cm", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e tramonto",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Spot comodo per romani",
+            "Le scogliere a nord per saraghi",
+            "Le spiagge per surfcasting",
+            "In inverno pochi pescatori"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul lungomare",
+            "shop": "Santa Marinella"
+          },
+          "rating": 4.1,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "circeo",
+          "name": "San Felice Circeo",
+          "region": "lazio",
+          "province": "Latina",
+          "locality": "San Felice Circeo",
+          "coordinates": { "lat": 41.2289, "lng": 13.0867 },
+          "description": "Il promontorio del Circeo nel Parco Nazionale. Spot selvaggio per spinning e shore jigging con spigole e dentici.",
+          "environment": "Scogliera",
+          "seabed": "Roccioso",
+          "depth": "5-30m",
+          "access": {
+            "difficulty": "Difficile",
+            "parking": "Limitato",
+            "walking": "20-30 minuti",
+            "notes": "Sentieri nel Parco"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] },
+            { "name": "Ricciola", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Per spigole" },
+            { "name": "Shore Jigging", "rating": 4, "notes": "Per dentici" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Gamberetto", "Sarda"],
+          "bestArtificials": ["Minnow 10-14cm", "Jig 40-80g", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Parco Nazionale: zone regolamentate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Spot selvaggio e suggestivo",
+            "Le spigole del Circeo sono famose",
+            "Verifica i confini del Parco",
+            "Mai pescare da soli"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "San Felice paese",
+            "shop": "Terracina (15km)"
+          },
+          "rating": 4.6,
+          "difficulty": 4,
+          "crowded": "Bassa"
         }
       ]
     },
@@ -1036,6 +2103,230 @@
           },
           "rating": 4.7,
           "difficulty": 3,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "scilla",
+          "name": "Scilla",
+          "region": "calabria",
+          "province": "Reggio Calabria",
+          "locality": "Scilla",
+          "coordinates": { "lat": 38.2534, "lng": 15.7156 },
+          "description": "Il borgo di Scilla e Cariddi sullo Stretto. Correnti forti portano pesce di taglia. Spot per esperti.",
+          "environment": "Scogliera",
+          "seabed": "Roccioso profondo",
+          "depth": "10-50m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Paese",
+            "walking": "10-15 minuti",
+            "notes": "Correnti forti"
+          },
+          "species": [
+            { "name": "Ricciola", "rating": 5, "months": [6, 7, 8, 9, 10] },
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10, 11] },
+            { "name": "Palamita", "rating": 4, "months": [4, 5, 6, 9, 10] },
+            { "name": "Tonno", "rating": 3, "months": [7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Popping", "rating": 4, "notes": "Per ricciole in superficie" },
+            { "name": "Live bait", "rating": 4, "notes": "Con vivo" }
+          ],
+          "bestBaits": ["Aguglia viva", "Sarda", "Calamaro"],
+          "bestArtificials": ["Jig 80-150g", "Popper", "Stickbait"],
+          "bestTime": {
+            "hours": "Alba e cambio corrente",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna piena"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Nessuna particolare",
+            "minSizes": "Ricciola 30cm"
+          },
+          "tips": [
+            "Le correnti dello Stretto portano pesce grosso",
+            "Jig pesanti per contrastare la corrente",
+            "Le ricciole passano inseguendo le acciughe",
+            "Attenzione alle correnti: pericolose"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Chianalea",
+            "shop": "Reggio Calabria"
+          },
+          "rating": 4.8,
+          "difficulty": 4,
+          "crowded": "Media"
+        },
+        {
+          "id": "soverato",
+          "name": "Soverato",
+          "region": "calabria",
+          "province": "Catanzaro",
+          "locality": "Soverato",
+          "coordinates": { "lat": 38.6845, "lng": 16.5523 },
+          "description": "La perla dello Ionio calabrese. Spiagge e scogliere per surfcasting e spinning.",
+          "environment": "Spiaggia e scogliera",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-15m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Lungomare",
+            "walking": "Diretto",
+            "notes": "Spot accessibili"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Serra", "rating": 4, "months": [7, 8, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulle spiagge" },
+            { "name": "Spinning", "rating": 4, "notes": "Per serra e spigole" },
+            { "name": "Bolognese", "rating": 3, "notes": "Dalle scogliere" }
+          ],
+          "bestBaits": ["Bibi", "Americano", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-12cm", "Metal jig", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e notte",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Le spiagge a sud sono meno affollate",
+            "I serra in estate sono abbondanti",
+            "Le spigole in inverno nei canali",
+            "Surfcasting notturno molto produttivo"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul lungomare",
+            "shop": "Soverato centro"
+          },
+          "rating": 4.3,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "capo-vaticano",
+          "name": "Capo Vaticano",
+          "region": "calabria",
+          "province": "Vibo Valentia",
+          "locality": "Ricadi",
+          "coordinates": { "lat": 38.6156, "lng": 15.8234 },
+          "description": "Promontorio con fondali profondi vicino costa. Spot eccellente per shore jigging e spinning con ricciole e dentici.",
+          "environment": "Scogliera",
+          "seabed": "Roccioso profondo",
+          "depth": "5-40m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Lungo la strada",
+            "walking": "15-20 minuti",
+            "notes": "Sentieri verso il mare"
+          },
+          "species": [
+            { "name": "Ricciola", "rating": 5, "months": [6, 7, 8, 9, 10] },
+            { "name": "Dentice", "rating": 5, "months": [5, 6, 9, 10, 11] },
+            { "name": "Palamita", "rating": 4, "months": [4, 5, 6, 9, 10] },
+            { "name": "Spigola", "rating": 3, "months": [11, 12, 1, 2, 3] }
+          ],
+          "techniques": [
+            { "name": "Shore Jigging", "rating": 5, "notes": "Tecnica TOP" },
+            { "name": "Popping", "rating": 5, "notes": "Spettacolare in estate" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole in inverno" }
+          ],
+          "bestBaits": ["Sarda", "Aguglia viva", "Calamaro"],
+          "bestArtificials": ["Jig 60-100g", "Popper 120mm", "Long Jerk"],
+          "bestTime": {
+            "hours": "Alba",
+            "tide": "Cambio marea",
+            "weather": "Mare calmo",
+            "moon": "Luna piena"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Nessuna particolare",
+            "minSizes": "Ricciola 30cm"
+          },
+          "tips": [
+            "Fondali profondi = pesci grossi",
+            "Le ricciole cacciano all'alba sui drop-off",
+            "Cerca le mangianze in superficie",
+            "Jig da 80g è lo standard"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Ricadi (5km)",
+            "shop": "Tropea (15km)"
+          },
+          "rating": 4.7,
+          "difficulty": 3,
+          "crowded": "Media"
+        },
+        {
+          "id": "crotone-le-castella",
+          "name": "Le Castella",
+          "region": "calabria",
+          "province": "Crotone",
+          "locality": "Isola Capo Rizzuto",
+          "coordinates": { "lat": 38.9067, "lng": 17.0234 },
+          "description": "L'AMP di Capo Rizzuto offre spot regolamentati ma pescosi. Fondali ricchi per spinning e surfcasting.",
+          "environment": "Spiaggia e scogliera",
+          "seabed": "Sabbioso e roccioso",
+          "depth": "2-20m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Paese",
+            "walking": "5-10 minuti",
+            "notes": "Verificare zone AMP"
+          },
+          "species": [
+            { "name": "Orata", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Dentice", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 4, "months": [3, 4, 5, 9, 10, 11] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Per orate" },
+            { "name": "Spinning", "rating": 4, "notes": "Per spigole" },
+            { "name": "Rockfishing", "rating": 4, "notes": "Per saraghi" }
+          ],
+          "bestBaits": ["Bibi", "Americano", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-12cm", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e notte",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza + permesso AMP",
+            "restrictions": "AMP Capo Rizzuto: zone regolamentate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Informati sulle zone AMP prima",
+            "Le orate qui sono di taglia",
+            "Il castello aragonese è iconico",
+            "Nelle zone B si pesca bene"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Crotone (20km)"
+          },
+          "rating": 4.5,
+          "difficulty": 2,
           "crowded": "Alta estate"
         }
       ]
@@ -1103,6 +2394,229 @@
           "rating": 4.5,
           "difficulty": 2,
           "crowded": "Media"
+        },
+        {
+          "id": "caorle",
+          "name": "Caorle",
+          "region": "veneto",
+          "province": "Venezia",
+          "locality": "Caorle",
+          "coordinates": { "lat": 45.5989, "lng": 12.8834 },
+          "description": "Borgo marinaro con laguna e mare. Spot classico per surfcasting e pesca in laguna con orate e spigole.",
+          "environment": "Spiaggia e laguna",
+          "seabed": "Sabbioso e fangoso",
+          "depth": "1-6m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Ampio",
+            "walking": "Diretto",
+            "notes": "Spot accessibili"
+          },
+          "species": [
+            { "name": "Orata", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Mormora", "rating": 4, "months": [4, 5, 6, 9, 10] },
+            { "name": "Passera", "rating": 3, "months": [11, 12, 1, 2, 3] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulla spiaggia" },
+            { "name": "Bolognese", "rating": 4, "notes": "In laguna" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole" }
+          ],
+          "bestBaits": ["Granchio", "Bibi", "Americano", "Verme coreano"],
+          "bestArtificials": ["Minnow piccoli"],
+          "bestTime": {
+            "hours": "Alba e notte",
+            "tide": "Marea montante",
+            "weather": "Scaduta",
+            "moon": "Qualsiasi"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "La laguna di Caorle è spettacolare",
+            "Il granchio è l'esca regina per orate",
+            "Le mormore sulla spiaggia all'alba",
+            "In inverno pochi pescatori, tanto pesce"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "In paese",
+            "shop": "Caorle centro"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "jesolo",
+          "name": "Jesolo",
+          "region": "veneto",
+          "province": "Venezia",
+          "locality": "Jesolo",
+          "coordinates": { "lat": 45.5234, "lng": 12.6456 },
+          "description": "La spiaggia più lunga d'Europa. Spot turistico ma pescoso per surfcasting con orate e mormore.",
+          "environment": "Spiaggia",
+          "seabed": "Sabbioso",
+          "depth": "2-6m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Vari",
+            "walking": "Diretto",
+            "notes": "15km di spiaggia"
+          },
+          "species": [
+            { "name": "Mormora", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Rombo", "rating": 3, "months": [4, 5, 6] },
+            { "name": "Sogliola", "rating": 3, "months": [11, 12, 1, 2, 3] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Beach Ledgering", "rating": 4, "notes": "Per mormore" }
+          ],
+          "bestBaits": ["Arenicola", "Americano", "Bibi", "Cannolicchio"],
+          "bestArtificials": [],
+          "bestTime": {
+            "hours": "Notte e alba",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta di bora",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Spiagge attrezzate in estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Pesca alle estremità, meno affollate",
+            "Le mormore all'alba sono abbondanti",
+            "In autunno le orate si avvicinano",
+            "Lancia lungo, oltre la prima secca"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque",
+            "shop": "Jesolo Lido"
+          },
+          "rating": 4.0,
+          "difficulty": 1,
+          "crowded": "Molto alta estate"
+        },
+        {
+          "id": "bibione",
+          "name": "Bibione",
+          "region": "veneto",
+          "province": "Venezia",
+          "locality": "San Michele al Tagliamento",
+          "coordinates": { "lat": 45.6389, "lng": 13.0567 },
+          "description": "8km di spiaggia e foce del Tagliamento. Spot per surfcasting e spinning con spigole alla foce.",
+          "environment": "Spiaggia e foce",
+          "seabed": "Sabbioso",
+          "depth": "2-8m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Ampio",
+            "walking": "Diretto",
+            "notes": "Foce del Tagliamento accessibile"
+          },
+          "species": [
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3, 4] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Mormora", "rating": 4, "months": [4, 5, 6, 9, 10] },
+            { "name": "Passera", "rating": 3, "months": [11, 12, 1, 2] }
+          ],
+          "techniques": [
+            { "name": "Spinning", "rating": 5, "notes": "Foce del Tagliamento" },
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulla spiaggia" },
+            { "name": "Beach Ledgering", "rating": 4, "notes": "Per mormore" }
+          ],
+          "bestBaits": ["Bibi", "Americano", "Gamberetto"],
+          "bestArtificials": ["Minnow 9-12cm", "Soft bait"],
+          "bestTime": {
+            "hours": "Alba e marea uscente",
+            "tide": "Marea in movimento",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone balneazione estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "La foce del Tagliamento è eccezionale",
+            "Spigole nella corrente alla foce",
+            "Le spiagge a est meno frequentate",
+            "Dopo le piogge spinning TOP"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul lungomare",
+            "shop": "Bibione centro"
+          },
+          "rating": 4.4,
+          "difficulty": 2,
+          "crowded": "Alta estate"
+        },
+        {
+          "id": "venezia-laguna",
+          "name": "Laguna di Venezia",
+          "region": "veneto",
+          "province": "Venezia",
+          "locality": "Venezia",
+          "coordinates": { "lat": 45.4378, "lng": 12.3356 },
+          "description": "La laguna più famosa al mondo. Spot unici per orate, spigole e passere. Ideale in barca ma possibile anche da terra.",
+          "environment": "Laguna",
+          "seabed": "Fangoso con canali",
+          "depth": "1-5m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Limitato",
+            "walking": "Variabile",
+            "notes": "Barca consigliata"
+          },
+          "species": [
+            { "name": "Orata", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Passera", "rating": 4, "months": [11, 12, 1, 2, 3] },
+            { "name": "Cefalo", "rating": 4, "months": [5, 6, 7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Bolognese", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Ledgering", "rating": 4, "notes": "Nei canali" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole" }
+          ],
+          "bestBaits": ["Granchio", "Gamberetto", "Verme coreano"],
+          "bestArtificials": ["Minnow piccoli"],
+          "bestTime": {
+            "hours": "Marea montante",
+            "tide": "Fondamentale",
+            "weather": "Mare calmo",
+            "moon": "Qualsiasi"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone riservate valli da pesca",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "La marea è tutto in laguna",
+            "Il granchio è l'esca regina",
+            "I barene sono spot fantastici",
+            "Rispetta le zone private"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Nelle isole",
+            "shop": "Mestre o Venezia"
+          },
+          "rating": 4.6,
+          "difficulty": 3,
+          "crowded": "Media"
         }
       ]
     },
@@ -1165,6 +2679,230 @@
             "wc": true,
             "bar": "Ovunque",
             "shop": "Diversi negozi"
+          },
+          "rating": 4.1,
+          "difficulty": 1,
+          "crowded": "Molto alta estate"
+        },
+        {
+          "id": "rimini",
+          "name": "Rimini",
+          "region": "emilia-romagna",
+          "province": "Rimini",
+          "locality": "Rimini",
+          "coordinates": { "lat": 44.0678, "lng": 12.5689 },
+          "description": "La regina della Riviera. Lunghe spiagge per surfcasting e moli per bolognese. Spot turistico ma pescoso.",
+          "environment": "Spiaggia e molo",
+          "seabed": "Sabbioso",
+          "depth": "2-6m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Vari",
+            "walking": "Diretto",
+            "notes": "Molti spot disponibili"
+          },
+          "species": [
+            { "name": "Mormora", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Spigola", "rating": 3, "months": [10, 11, 12, 1] },
+            { "name": "Sogliola", "rating": 3, "months": [11, 12, 1, 2] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Bolognese", "rating": 4, "notes": "Dai moli" },
+            { "name": "Beach Ledgering", "rating": 4, "notes": "Per mormore" }
+          ],
+          "bestBaits": ["Arenicola", "Americano", "Bibi"],
+          "bestArtificials": [],
+          "bestTime": {
+            "hours": "Notte e alba",
+            "tide": "Indifferente",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Spiagge attrezzate estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Pesca fuori dalle zone balneari",
+            "I moli sono ottimi per saraghi",
+            "Le mormore all'alba sono il target",
+            "In autunno le orate si avvicinano"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque",
+            "shop": "Diversi negozi"
+          },
+          "rating": 4.0,
+          "difficulty": 1,
+          "crowded": "Molto alta estate"
+        },
+        {
+          "id": "ravenna-marina",
+          "name": "Marina di Ravenna",
+          "region": "emilia-romagna",
+          "province": "Ravenna",
+          "locality": "Ravenna",
+          "coordinates": { "lat": 44.4734, "lng": 12.2856 },
+          "description": "Porto e spiagge vicino Ravenna. Spot per surfcasting e bolognese dai moli con orate e spigole.",
+          "environment": "Spiaggia e molo",
+          "seabed": "Sabbioso",
+          "depth": "2-8m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Ampio",
+            "walking": "Diretto",
+            "notes": "Porto turistico pescoso"
+          },
+          "species": [
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 4, "months": [10, 11, 12, 1, 2] },
+            { "name": "Mormora", "rating": 5, "months": [4, 5, 6, 9, 10] },
+            { "name": "Sarago", "rating": 3, "months": [5, 6, 9, 10] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Sulle spiagge" },
+            { "name": "Bolognese", "rating": 4, "notes": "Dai moli" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole" }
+          ],
+          "bestBaits": ["Bibi", "Arenicola", "Americano"],
+          "bestArtificials": ["Minnow piccoli"],
+          "bestTime": {
+            "hours": "Alba e notte",
+            "tide": "Qualsiasi",
+            "weather": "Scaduta di bora",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Zone portuali",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "I moli del porto sono ottimi",
+            "Le spigole a spinning in inverno",
+            "Le mormore preferiscono l'alba",
+            "Spot meno affollato di Rimini"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Sul porto",
+            "shop": "Marina di Ravenna"
+          },
+          "rating": 4.2,
+          "difficulty": 2,
+          "crowded": "Media"
+        },
+        {
+          "id": "comacchio-valli",
+          "name": "Valli di Comacchio",
+          "region": "emilia-romagna",
+          "province": "Ferrara",
+          "locality": "Comacchio",
+          "coordinates": { "lat": 44.6945, "lng": 12.1823 },
+          "description": "Le famose valli di Comacchio. Laguna unica per orate, spigole e anguille. Spot suggestivo e pescoso.",
+          "environment": "Laguna e valli",
+          "seabed": "Fangoso",
+          "depth": "1-4m",
+          "access": {
+            "difficulty": "Media",
+            "parking": "Paese",
+            "walking": "Variabile",
+            "notes": "Barca utile ma non indispensabile"
+          },
+          "species": [
+            { "name": "Orata", "rating": 5, "months": [5, 6, 9, 10, 11] },
+            { "name": "Spigola", "rating": 5, "months": [10, 11, 12, 1, 2, 3] },
+            { "name": "Anguilla", "rating": 4, "months": [9, 10, 11, 12] },
+            { "name": "Cefalo", "rating": 4, "months": [5, 6, 7, 8, 9] }
+          ],
+          "techniques": [
+            { "name": "Bolognese", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Ledgering", "rating": 4, "notes": "Nei canali" },
+            { "name": "Spinning", "rating": 3, "notes": "Per spigole" }
+          ],
+          "bestBaits": ["Granchio", "Gamberetto", "Verme coreano", "Anguilletta"],
+          "bestArtificials": ["Minnow piccoli"],
+          "bestTime": {
+            "hours": "Marea montante",
+            "tide": "Fondamentale",
+            "weather": "Calmo",
+            "moon": "Qualsiasi"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Parco Delta Po: zone regolamentate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Paesaggio unico nel Delta",
+            "La marea è fondamentale",
+            "Le anguille in autunno sono speciali",
+            "Rispetta le zone del Parco"
+          ],
+          "facilities": {
+            "wc": false,
+            "bar": "Comacchio paese",
+            "shop": "Comacchio"
+          },
+          "rating": 4.5,
+          "difficulty": 3,
+          "crowded": "Bassa"
+        },
+        {
+          "id": "riccione",
+          "name": "Riccione",
+          "region": "emilia-romagna",
+          "province": "Rimini",
+          "locality": "Riccione",
+          "coordinates": { "lat": 43.9989, "lng": 12.6534 },
+          "description": "La perla verde dell'Adriatico. Spiagge e moli per surfcasting e bolognese. Spot turistico ma con buone catture.",
+          "environment": "Spiaggia e molo",
+          "seabed": "Sabbioso",
+          "depth": "2-6m",
+          "access": {
+            "difficulty": "Facile",
+            "parking": "Vari",
+            "walking": "Diretto",
+            "notes": "Simile a Cesenatico"
+          },
+          "species": [
+            { "name": "Mormora", "rating": 5, "months": [4, 5, 6, 9, 10, 11] },
+            { "name": "Orata", "rating": 4, "months": [5, 6, 9, 10] },
+            { "name": "Spigola", "rating": 3, "months": [10, 11, 12, 1] },
+            { "name": "Rombo", "rating": 3, "months": [4, 5, 6] }
+          ],
+          "techniques": [
+            { "name": "Surfcasting", "rating": 5, "notes": "Tecnica principale" },
+            { "name": "Bolognese", "rating": 4, "notes": "Dal porto" },
+            { "name": "Beach Ledgering", "rating": 4, "notes": "Per mormore" }
+          ],
+          "bestBaits": ["Arenicola", "Americano", "Bibi", "Cannolicchio"],
+          "bestArtificials": [],
+          "bestTime": {
+            "hours": "Notte e alba",
+            "tide": "Indifferente",
+            "weather": "Scaduta",
+            "moon": "Luna nuova"
+          },
+          "regulations": {
+            "license": "Licenza obbligatoria",
+            "restrictions": "Spiagge attrezzate estate",
+            "minSizes": "Standard"
+          },
+          "tips": [
+            "Il porto canale è ottimo",
+            "Le mormore sono il target principale",
+            "In primavera i rombi si avvicinano",
+            "Pesca lontano dagli stabilimenti"
+          ],
+          "facilities": {
+            "wc": true,
+            "bar": "Ovunque",
+            "shop": "Riccione centro"
           },
           "rating": 4.1,
           "difficulty": 1,
