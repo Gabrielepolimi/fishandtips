@@ -474,14 +474,20 @@ export default async function PostPage({ params }: Props) {
               marks: {
                 link: ({children, value}) => {
                   const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+                  const isAmazonLink = (value?.href || '').includes('amazon.it');
                   return (
                     <a 
                       href={value?.href} 
                       target={target}
                       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-                      className="text-brand-yellow hover:text-yellow-600 underline decoration-2 underline-offset-2 hover:decoration-yellow-600 transition-all duration-200 font-medium"
+                      className={`underline decoration-2 underline-offset-2 transition-all duration-200 font-medium ${
+                        isAmazonLink 
+                          ? 'text-orange-600 hover:text-orange-700 decoration-orange-400 hover:decoration-orange-600' 
+                          : 'text-blue-600 hover:text-blue-800 decoration-blue-400 hover:decoration-blue-600'
+                      }`}
                     >
                       {children}
+                      {isAmazonLink && <span className="text-xs ml-1">🛒</span>}
                     </a>
                   );
                 },

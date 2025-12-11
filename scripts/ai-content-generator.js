@@ -41,8 +41,8 @@ const CONFIG = {
   publishImmediately: true,
   readingTimeMin: 5,
   readingTimeMax: 12,
-  initialLikesMin: 15,
-  initialLikesMax: 45,
+  initialLikesMin: 750,
+  initialLikesMax: 2500,
   // Cartella immagini fallback
   fallbackImagesDir: path.join(__dirname, '..', 'public', 'images', 'fallback-fishing'),
   // Retry config per Unsplash
