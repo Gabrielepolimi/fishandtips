@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/pesci-mediterraneo', label: 'Pesci' },
   { href: '/spot-pesca-italia', label: 'Spot' },
   { href: '/calendario-pesca', label: 'Calendario' },
+  { href: '/trova-attrezzatura', label: '🎯 Quiz' },
   { href: '/migliori-pesca-2025', label: '🏆 Migliori 2025', featured: true },
 ];
 
