@@ -44,7 +44,7 @@ body {
 
 /* Link styles for better visibility */
 .prose a {
-  color: #FBD874 !important;
+  color: #2563eb !important; /* blue-600 */
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
@@ -53,6 +53,6 @@ body {
 }
 
 .prose a:hover {
-  color: #f59e0b !important;
-  text-decoration-color: #f59e0b;
+  color: #1d4ed8 !important; /* blue-700 */
+  text-decoration-color: #1d4ed8;
 }
