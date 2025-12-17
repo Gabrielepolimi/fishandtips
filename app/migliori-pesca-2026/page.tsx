@@ -6,11 +6,11 @@ import { Nunito } from 'next/font/google';
 
 const nunito = Nunito({ subsets: ['latin'] });
 
-// Data di scadenza candidature (27 Dicembre 2026)
-const DEADLINE = new Date('2026-12-27T23:59:59');
+// Data di scadenza candidature (30 Dicembre 2025)
+const DEADLINE = new Date('2025-12-30T23:59:59');
 
-// Data pubblicazione classifica (4 Gennaio 2027)
-const PUBLICATION_DATE = new Date('2027-01-04T10:00:00');
+// Data pubblicazione classifica (10 Gennaio 2026)
+const PUBLICATION_DATE = new Date('2026-01-10T10:00:00');
 
 // Categorie
 const categories = [
@@ -223,7 +223,7 @@ export default function MiglioriPesca2026Page() {
           {/* Countdown */}
           <div className="mb-8">
             <p className="text-center text-white/60 mb-4 text-sm">
-              ⏰ Candidature entro il <strong className="text-yellow-400">27 Dicembre 2026</strong>
+              ⏰ Candidature entro il <strong className="text-yellow-400">30 Dicembre 2025</strong>
             </p>
             <Countdown targetDate={PUBLICATION_DATE} />
             <p className="text-center text-white/50 mt-3 text-xs">
@@ -546,7 +546,7 @@ export default function MiglioriPesca2026Page() {
             Non perdere questa opportunità
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2026</strong>.
+            Solo 30 posti disponibili. Candidature entro il <strong>30 Dicembre 2025</strong>.
           </p>
           <a
             href="#candidati"
