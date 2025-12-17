@@ -20,7 +20,7 @@ const categories = [
     icon: '🏪',
     description: 'I migliori negozi online e fisici per attrezzatura da pesca',
     slots: 10,
-    filled: 0,
+    filled: 8,
   },
   {
     id: 'charter',
@@ -28,7 +28,7 @@ const categories = [
     icon: '🚤',
     description: 'Le migliori imbarcazioni per uscite di pesca in Italia',
     slots: 10,
-    filled: 0,
+    filled: 8,
   },
   {
     id: 'scuole',
@@ -36,7 +36,7 @@ const categories = [
     icon: '🎓',
     description: 'I migliori corsi, istruttori e organizzatori di gare',
     slots: 10,
-    filled: 0,
+    filled: 6,
   },
 ];
 
@@ -51,11 +51,6 @@ const benefits = [
     icon: '📄',
     title: 'Scheda Dedicata',
     description: 'Pagina completa con descrizione, servizi, foto e link al vostro sito',
-  },
-  {
-    icon: '🔗',
-    title: 'Backlink Permanente',
-    description: 'Link dofollow al vostro sito per migliorare il posizionamento SEO',
   },
   {
     icon: '🎤',
