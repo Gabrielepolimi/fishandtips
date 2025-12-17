@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/spot-pesca-italia', label: 'Spot' },
   { href: '/calendario-pesca', label: 'Calendario' },
   { href: '/trova-attrezzatura', label: '🎯 Quiz' },
-  { href: '/migliori-pesca-2025', label: '🏆 Migliori 2025', featured: true },
+  { href: '/migliori-pesca-2026', label: '🏆 Migliori 2026', featured: true },
 ];
 
 export default function Navbar() {

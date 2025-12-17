@@ -6,11 +6,11 @@ import { Nunito } from 'next/font/google';
 
 const nunito = Nunito({ subsets: ['latin'] });
 
-// Data di scadenza candidature (27 Dicembre 2025)
-const DEADLINE = new Date('2025-12-27T23:59:59');
+// Data di scadenza candidature (27 Dicembre 2026)
+const DEADLINE = new Date('2026-12-27T23:59:59');
 
-// Data pubblicazione classifica (4 Gennaio 2026)
-const PUBLICATION_DATE = new Date('2026-01-04T10:00:00');
+// Data pubblicazione classifica (4 Gennaio 2027)
+const PUBLICATION_DATE = new Date('2027-01-04T10:00:00');
 
 // Categorie
 const categories = [
@@ -20,7 +20,7 @@ const categories = [
     icon: '🏪',
     description: 'I migliori negozi online e fisici per attrezzatura da pesca',
     slots: 10,
-    filled: 7, // Solo 3 posti rimasti!
+    filled: 0,
   },
   {
     id: 'charter',
@@ -28,7 +28,7 @@ const categories = [
     icon: '🚤',
     description: 'Le migliori imbarcazioni per uscite di pesca in Italia',
     slots: 10,
-    filled: 6, // Solo 4 posti rimasti!
+    filled: 0,
   },
   {
     id: 'scuole',
@@ -36,7 +36,7 @@ const categories = [
     icon: '🎓',
     description: 'I migliori corsi, istruttori e organizzatori di gare',
     slots: 10,
-    filled: 8, // Solo 2 posti rimasti!
+    filled: 0,
   },
 ];
 
@@ -45,7 +45,7 @@ const benefits = [
   {
     icon: '🏅',
     title: 'Badge Ufficiale',
-    description: 'Badge "Selezionato FishandTips 2025" da esporre sul vostro sito',
+    description: 'Badge "Selezionato FishandTips 2026" da esporre sul vostro sito',
   },
   {
     icon: '📄',
@@ -65,7 +65,7 @@ const benefits = [
   {
     icon: '♾️',
     title: 'Visibilità Permanente',
-    description: 'La scheda rimane online per sempre, non solo per il 2025',
+    description: 'La scheda rimane online per sempre, non solo per il 2026',
   },
 ];
 
@@ -146,7 +146,7 @@ function Countdown({ targetDate }: { targetDate: Date }) {
   );
 }
 
-export default function MiglioriPesca2025Page() {
+export default function MiglioriPesca2026Page() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     nome: '',
@@ -212,7 +212,7 @@ export default function MiglioriPesca2025Page() {
           {/* Title */}
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-4">
             🏆 I Migliori della Pesca
-            <span className="block text-yellow-400 mt-2">2025</span>
+            <span className="block text-yellow-400 mt-2">2026</span>
           </h1>
           
           <p className="text-lg md:text-xl text-center text-white/80 max-w-2xl mx-auto mb-10">
@@ -223,7 +223,7 @@ export default function MiglioriPesca2025Page() {
           {/* Countdown */}
           <div className="mb-8">
             <p className="text-center text-white/60 mb-4 text-sm">
-              ⏰ Candidature entro il <strong className="text-yellow-400">27 Dicembre 2025</strong>
+              ⏰ Candidature entro il <strong className="text-yellow-400">27 Dicembre 2026</strong>
             </p>
             <Countdown targetDate={PUBLICATION_DATE} />
             <p className="text-center text-white/50 mt-3 text-xs">
@@ -513,7 +513,7 @@ export default function MiglioriPesca2025Page() {
               },
               {
                 q: 'Quanto rimane online la scheda?',
-                a: 'Per sempre! Non è limitata al 2025. Una volta pubblicata, la scheda rimane permanentemente sul nostro sito.',
+                a: 'Per sempre! Non è limitata al 2026. Una volta pubblicata, la scheda rimane permanentemente sul nostro sito.',
               },
               {
                 q: 'Posso modificare la scheda dopo la pubblicazione?',
@@ -546,7 +546,7 @@ export default function MiglioriPesca2025Page() {
             Non perdere questa opportunità
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2025</strong>.
+            Solo 30 posti disponibili. Candidature entro il <strong>27 Dicembre 2026</strong>.
           </p>
           <a
             href="#candidati"
@@ -559,4 +559,3 @@ export default function MiglioriPesca2025Page() {
     </div>
   );
 }
-

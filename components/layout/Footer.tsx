@@ -13,7 +13,7 @@ const footerLinks = {
     { href: '/calendario-pesca', label: 'Calendario Pesca' },
   ],
   partner: [
-    { href: '/migliori-pesca-2025', label: '🏆 I Migliori 2025' },
+    { href: '/migliori-pesca-2026', label: '🏆 I Migliori 2026' },
   ],
   info: [
     { href: '/chi-siamo', label: 'Chi Siamo' },
