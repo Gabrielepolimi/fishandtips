@@ -8,8 +8,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "update-sitemap": "node update-sitemap-auto.js",
-    "postbuild": "node update-sitemap-auto.js"
+    "update-sitemap": "node update-sitemap-auto.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

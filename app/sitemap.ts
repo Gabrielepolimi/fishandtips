@@ -1,198 +1,76 @@
-import { MetadataRoute } from 'next';
-import { sanityClient } from '../sanityClient';
-import fishData from '../data/fish-encyclopedia.json';
-import spotsData from '../data/fishing-spots.json';
-import techniquesData from '../data/fishing-techniques.json';
+import { MetadataRoute } from 'next'
+import { sanityClient } from '../sanityClient'
 
-interface Article {
-  slug: { current: string };
-  _updatedAt: string;
-}
-
-interface Category {
-  slug: { current: string };
-  _updatedAt: string;
-}
-
-interface FishSpecies {
-  slug: string;
-}
-
-interface Region {
-  id: string;
-  spots: { id: string }[];
-}
-
-interface Technique {
-  slug: string;
-}
+// Cache la sitemap per 1h per evitare richieste continue a Sanity
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://fishandtips.it';
-  const currentDate = new Date().toISOString();
+  const baseUrl = 'https://fishandtips.it'
 
-  // Fetch articles from Sanity
-  let articles: Article[] = [];
-  let categories: Category[] = [];
-  
-  try {
-    articles = await sanityClient.fetch<Article[]>(`
-      *[_type == "post" && defined(slug.current)] | order(_updatedAt desc) {
-        slug,
-        _updatedAt
-      }
-    `);
-    
-    categories = await sanityClient.fetch<Category[]>(`
-      *[_type == "category" && defined(slug.current)] {
-        slug,
-        _updatedAt
-      }
-    `);
-  } catch (error) {
-    console.error('Error fetching from Sanity:', error);
-  }
+  const [posts = [], categories = []] = await Promise.all([
+    sanityClient
+      .fetch(
+        `
+        *[_type == "post" && status == "published"] {
+          "slug": slug.current,
+          publishedAt,
+          _updatedAt
+        }
+      `,
+      )
+      .catch((err) => {
+        console.error('Errore fetch articoli per sitemap:', err)
+        return []
+      }),
+    sanityClient
+      .fetch(
+        `
+        *[_type == "category" && defined(slug.current)] {
+          "slug": slug.current,
+          _updatedAt
+        }
+      `,
+      )
+      .catch((err) => {
+        console.error('Errore fetch categorie per sitemap:', err)
+        return []
+      }),
+  ])
 
-  // Static pages
+  const now = new Date()
+
   const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/articoli`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/trova-attrezzatura`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/calendario-pesca`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/migliori-pesca-2026`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/pesci-mediterraneo`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/spot-pesca-italia`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/tecniche`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/chi-siamo`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contatti`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/mappa-del-sito`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/cookie-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ];
+    { url: baseUrl, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
+    { url: `${baseUrl}/articoli`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/chi-siamo`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/contatti`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/registrazione`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/calendario-pesca`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/pesci-mediterraneo`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/spot-pesca-italia`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/tecniche`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/trova-attrezzatura`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/mappa-del-sito`, lastModified: now, changeFrequency: 'weekly', priority: 0.5 },
+    { url: `${baseUrl}/supporto`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/newsletter`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/cookie-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${baseUrl}/termini`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+  ]
 
-  // Article pages
-  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${baseUrl}/articoli/${article.slug.current}`,
-    lastModified: article._updatedAt,
-    changeFrequency: 'weekly' as const,
+  const categoryPages: MetadataRoute.Sitemap = categories.map((category: any) => ({
+    url: `${baseUrl}/categoria/${category.slug}`,
+    lastModified: category._updatedAt ? new Date(category._updatedAt) : now,
+    changeFrequency: 'weekly',
     priority: 0.8,
-  }));
+  }))
 
-  // Category pages
-  const categoryPages: MetadataRoute.Sitemap = categories.map((category) => ({
-    url: `${baseUrl}/categoria/${category.slug.current}`,
-    lastModified: category._updatedAt,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  // Fish encyclopedia pages
-  const fishPages: MetadataRoute.Sitemap = (fishData.fish as FishSpecies[]).map((fish) => ({
-    url: `${baseUrl}/pesci-mediterraneo/${fish.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
+  const articlePages: MetadataRoute.Sitemap = posts.map((post: any) => ({
+    url: `${baseUrl}/articoli/${post.slug}`,
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(post.publishedAt),
+    changeFrequency: 'weekly',
     priority: 0.8,
-  }));
+  }))
 
-  // Fishing spots - Region pages
-  const regionPages: MetadataRoute.Sitemap = (spotsData.regions as Region[]).map((region) => ({
-    url: `${baseUrl}/spot-pesca-italia/${region.id}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  // Fishing spots - Individual spot pages
-  const spotPages: MetadataRoute.Sitemap = (spotsData.regions as Region[]).flatMap((region) =>
-    region.spots.map((spot) => ({
-      url: `${baseUrl}/spot-pesca-italia/${region.id}/${spot.id}`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    }))
-  );
-
-  // Fishing techniques pages
-  const techniquePages: MetadataRoute.Sitemap = (techniquesData.techniques as Technique[]).map((technique) => ({
-    url: `${baseUrl}/tecniche/${technique.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
-
-  return [
-    ...staticPages,
-    ...articlePages,
-    ...categoryPages,
-    ...fishPages,
-    ...regionPages,
-    ...spotPages,
-    ...techniquePages,
-  ];
+  return [...staticPages, ...categoryPages, ...articlePages]
 }
-

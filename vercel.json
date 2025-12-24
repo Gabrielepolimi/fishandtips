@@ -16,6 +16,16 @@
       ],
       "destination": "https://fishandtips.it/:path*",
       "permanent": true
+    },
+    {
+      "source": "/categoria/spot",
+      "destination": "/categoria/spot-di-pesca",
+      "permanent": true
+    },
+    {
+      "source": "/categoria/tecniche",
+      "destination": "/categoria/tecniche-di-pesca",
+      "permanent": true
     }
   ],
   "headers": [
