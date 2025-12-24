@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HeroSection() {
@@ -60,13 +59,18 @@ export default function HeroSection() {
           {/* Hero Image */}
           <div className="order-1 lg:order-2 relative">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/background.jpg"
-                alt="Pesca sportiva in Italia"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/images/background.jpg"
+              >
+                <source src="/videos/hero.webm" type="video/webm" />
+                <source src="/videos/hero.mp4" type="video/mp4" />
+              </video>
             </div>
             {/* Floating Card */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 hidden sm:block">
