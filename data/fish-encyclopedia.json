@@ -1,8 +1,8 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2024-12-06",
-    "totalSpecies": 30,
+    "lastUpdated": "2025-12-24",
+    "totalSpecies": 40,
     "description": "Enciclopedia Pesci Italia - Mediterraneo"
   },
   "fish": [
@@ -1823,6 +1823,806 @@
         "status": "VU (Vulnerable)",
         "threats": "Pesca subacquea, perdita habitat",
         "regulations": "Taglia minima 25 cm, protetta in alcune aree"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "pagro",
+      "slug": "pagro",
+      "name": "Pagro",
+      "scientificName": "Pagrus pagrus",
+      "otherNames": ["Pargo", "Pezzogna"],
+      "family": "Sparidae",
+      "category": "sparide",
+      "icon": "🐟",
+      "description": "Il pagro (Pagrus pagrus) è uno degli sparidi più pregiati del Mediterraneo, spesso confuso con l'orata ma riconoscibile per il corpo più alto e il colore rosato con macchie azzurre. Vive su fondali rocciosi e misti tra 20 e 200 m, si avvicina in primavera-estate ed è preda ambita a bolentino e traina col vivo.",
+      "characteristics": {
+        "maxLength": "90 cm",
+        "avgLength": "30-50 cm",
+        "maxWeight": "12 kg",
+        "avgWeight": "1-3 kg",
+        "lifespan": "15 anni",
+        "color": "Rosato con riflessi azzurri, puntini blu",
+        "bodyShape": "Ovale alto, testa massiccia"
+      },
+      "habitat": {
+        "environment": "Fondali rocciosi e misti",
+        "depth": "20-200 m",
+        "substrate": "Roccioso, detritico",
+        "description": "Ama secche, cigliate e zone miste roccia-sabbia."
+      },
+      "behavior": {
+        "feeding": "Molluschi, crostacei, piccoli pesci",
+        "activity": "Diurno",
+        "social": "In piccoli gruppi",
+        "migration": "Si avvicina a costa in primavera-estate"
+      },
+      "reproduction": {
+        "period": "Aprile-Giugno",
+        "maturity": "3-4 anni",
+        "spawning": "In acque costiere"
+      },
+      "fishing": {
+        "techniques": ["Bolentino", "Vertical jigging", "Traina col vivo"],
+        "bestTechnique": "Bolentino con esche naturali",
+        "bestBaits": ["Calamaro", "Seppia", "Gambero", "Sardina"],
+        "bestArtificials": ["Jig 60-120g", "Inchiku"],
+        "bestSpots": "Secche, relitti, cigliate",
+        "difficulty": 4,
+        "fightRating": 4,
+        "tips": [
+          "Usa terminali sottili e presentazione naturale",
+          "Calamaro fresco è l'esca regina",
+          "L'alba è il momento migliore"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6],
+        "good": [7, 8, 9],
+        "difficult": [10, 11, 12, 1, 2, 3],
+        "description": "Primavera-inizio estate è il top."
+      },
+      "records": {
+        "worldRecord": "12.3 kg",
+        "italyRecord": "10.1 kg",
+        "averageTrophy": "Oltre 4 kg è trofeo"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 5,
+        "taste": "Carne bianca pregiata, simile a dentice",
+        "cooking": ["Al forno", "Al sale", "Alla griglia"],
+        "minSize": "18 cm"
+      },
+      "curiosities": [
+        "Spesso chiamato pezzogna al Sud",
+        "Ha puntini azzurri evidenti sul dorso",
+        "Molto diffidente: serve finezza"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Sovrapesca locale",
+        "regulations": "Taglia minima 18 cm"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "san-pietro",
+      "slug": "san-pietro",
+      "name": "San Pietro",
+      "scientificName": "Zeus faber",
+      "otherNames": ["Pesce San Pietro", "Gallinella d'acqua"],
+      "family": "Zeidae",
+      "category": "fondale",
+      "icon": "🐟",
+      "description": "Il San Pietro (Zeus faber) è inconfondibile per il corpo discoidale e la macchia scura laterale. Predatore di fondo medio (30-200 m), vive vicino a secche e relitti. Raro da riva, più frequente a bolentino o traina lenta. Carne tra le più pregiate.",
+      "characteristics": {
+        "maxLength": "70 cm",
+        "avgLength": "30-50 cm",
+        "maxWeight": "8 kg",
+        "avgWeight": "1-3 kg",
+        "lifespan": "12 anni",
+        "color": "Bronzo dorato con macchia nera",
+        "bodyShape": "Discoidale, pinne sviluppate"
+      },
+      "habitat": {
+        "environment": "Fondali medi",
+        "depth": "30-200 m",
+        "substrate": "Roccioso, detritico",
+        "description": "Vicino a secche, relitti, pendii."
+      },
+      "behavior": {
+        "feeding": "Predatore di piccoli pesci",
+        "activity": "Diurno",
+        "social": "Solitario o in piccoli gruppi",
+        "migration": "Limitata"
+      },
+      "reproduction": {
+        "period": "Aprile-Giugno",
+        "maturity": "3-4 anni",
+        "spawning": "In acque aperte"
+      },
+      "fishing": {
+        "techniques": ["Bolentino medio", "Traina lenta"],
+        "bestTechnique": "Bolentino con esche naturali",
+        "bestBaits": ["Calamaro", "Seppia", "Arenicola"],
+        "bestArtificials": ["Jig lenti"],
+        "bestSpots": "Secche e relitti 40-120 m",
+        "difficulty": 3,
+        "fightRating": 2,
+        "tips": [
+          "Preferisce esche molli e naturali",
+          "Attacca lento ma deciso",
+          "Molto raro: cattura di pregio"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6],
+        "good": [3, 7],
+        "difficult": [8, 9, 10, 11, 12, 1],
+        "description": "Primavera il momento migliore."
+      },
+      "records": {
+        "worldRecord": "8.2 kg",
+        "italyRecord": "6.5 kg",
+        "averageTrophy": "Oltre 3 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 5,
+        "taste": "Carne bianca, dolce e finissima",
+        "cooking": ["Al forno", "Vapore", "Filetto alla piastra"],
+        "minSize": "Nessuna specifica"
+      },
+      "curiosities": [
+        "La macchia laterale è detta 'impronta di San Pietro'",
+        "Predatore molto lento",
+        "Spesso bycatch della pesca a fondo"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca a strascico",
+        "regulations": "Nessuna taglia minima specifica"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "pagello-fragolino",
+      "slug": "pagello-fragolino",
+      "name": "Pagello Fragolino",
+      "scientificName": "Pagellus erythrinus",
+      "otherNames": ["Fragolino", "Pagello"],
+      "family": "Sparidae",
+      "category": "sparide",
+      "icon": "🐟",
+      "description": "Il pagello fragolino (Pagellus erythrinus) è uno sparide comune e ricercato per la sua carne delicata. Corpo rosa-argenteo, occhi grandi, vive su fondali sabbio-fangosi 20-150 m, ma può avvicinarsi a costa. Ottimo a bolentino leggero.",
+      "characteristics": {
+        "maxLength": "60 cm",
+        "avgLength": "20-35 cm",
+        "maxWeight": "3 kg",
+        "avgWeight": "300-800 g",
+        "lifespan": "12 anni",
+        "color": "Rosa-argenteo",
+        "bodyShape": "Ovale, occhi grandi"
+      },
+      "habitat": {
+        "environment": "Fondali sabbiosi e fangosi",
+        "depth": "20-150 m",
+        "substrate": "Sabbia, fango, detrito",
+        "description": "Ama i fondi morbidi vicino a scogli sparsi."
+      },
+      "behavior": {
+        "feeding": "Vermi, crostacei, molluschi",
+        "activity": "Diurno",
+        "social": "In piccoli branchi",
+        "migration": "Limitata"
+      },
+      "reproduction": {
+        "period": "Primavera-inizio estate",
+        "maturity": "2-3 anni",
+        "spawning": "In acque costiere"
+      },
+      "fishing": {
+        "techniques": ["Bolentino leggero", "Ledgering"],
+        "bestTechnique": "Bolentino leggero",
+        "bestBaits": ["Coreano", "Americano", "Gambero", "Cozza"],
+        "bestArtificials": ["Micro jig"],
+        "bestSpots": "Fondi sabbiosi con detrito",
+        "difficulty": 2,
+        "fightRating": 2,
+        "tips": [
+          "Ami piccoli ed esche naturali",
+          "Pastura leggera aiuta",
+          "Ottimo anche di notte in estate"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6, 7],
+        "good": [8, 9, 10],
+        "difficult": [11, 12, 1, 2, 3],
+        "description": "Primavera-estate il top."
+      },
+      "records": {
+        "worldRecord": "3.1 kg",
+        "italyRecord": "2.5 kg",
+        "averageTrophy": "Oltre 1 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 5,
+        "taste": "Carne bianca delicata",
+        "cooking": ["Al forno", "Alla griglia", "Cartoccio"],
+        "minSize": "18 cm"
+      },
+      "curiosities": [
+        "Molto apprezzato in cucina",
+        "Occhi grandi, bocca piccola",
+        "Spesso in branchi misti con mormore"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca a strascico",
+        "regulations": "Taglia minima 18 cm"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "lampuga",
+      "slug": "lampuga",
+      "name": "Lampuga",
+      "scientificName": "Coryphaena hippurus",
+      "otherNames": ["Capone", "Dorado", "Mahi mahi"],
+      "family": "Coryphaenidae",
+      "category": "pelagico",
+      "icon": "🐟",
+      "description": "La lampuga (Coryphaena hippurus) è un pelagico migratore velocissimo, corpo allungato e fronte alta nei maschi. Presente in autunno vicino a FAD/boe e alghe galleggianti, attacca in superficie ed è perfetta per spinning e traina leggera. Carne ottima.",
+      "characteristics": {
+        "maxLength": "200 cm",
+        "avgLength": "50-100 cm",
+        "maxWeight": "40 kg",
+        "avgWeight": "2-8 kg",
+        "lifespan": "5 anni",
+        "color": "Verde-blu iridescente, giallo sui fianchi",
+        "bodyShape": "Allungato, fronte alta (maschi)"
+      },
+      "habitat": {
+        "environment": "Pelagico superficiale",
+        "depth": "0-50 m",
+        "substrate": "Offshore, FAD",
+        "description": "Staziona sotto boe/FAD e detriti galleggianti."
+      },
+      "behavior": {
+        "feeding": "Preda pesci foraggio e cefalopodi",
+        "activity": "Diurna",
+        "social": "In branchi",
+        "migration": "Autunnale verso costa"
+      },
+      "reproduction": {
+        "period": "Estate",
+        "maturity": "1 anno",
+        "spawning": "In mare aperto"
+      },
+      "fishing": {
+        "techniques": ["Spinning", "Traina leggera", "Popping leggero"],
+        "bestTechnique": "Spinning con topwater/jig",
+        "bestBaits": ["Jig 20-60g", "Popper piccoli", "Minnow veloci"],
+        "bestArtificials": ["Stickbait", "Jig metallici"],
+        "bestSpots": "Sotto FAD/boe, alghe galleggianti",
+        "difficulty": 3,
+        "fightRating": 5,
+        "tips": [
+          "Recuperi veloci, attacca in superficie",
+          "Sotto le boe/FAD sempre presente",
+          "Attrezzatura marina: combattimento esplosivo"
+        ]
+      },
+      "seasonality": {
+        "best": [9, 10, 11],
+        "good": [8, 12],
+        "difficult": [1, 2, 3, 4, 5, 6, 7],
+        "description": "Autunno con picco ottobre-novembre."
+      },
+      "records": {
+        "worldRecord": "39.6 kg",
+        "italyRecord": "18 kg",
+        "averageTrophy": "Oltre 8 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 4,
+        "taste": "Carne rosa, sapore delicato",
+        "cooking": ["Griglia", "Crudo", "Tartare"],
+        "minSize": "Nessuna specifica"
+      },
+      "curiosities": [
+        "Cresce velocissima, vive poco",
+        "Maschi con fronte alta (bulbo frontale)",
+        "Colorazione cambia dopo la cattura"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca industriale con FAD",
+        "regulations": "Nessuna taglia minima"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "tonnetto-alletterato",
+      "slug": "tonnetto-alletterato",
+      "name": "Tonnetto Alletterato",
+      "scientificName": "Euthynnus alletteratus",
+      "otherNames": ["Alletterato", "Little tunny"],
+      "family": "Scombridae",
+      "category": "pelagico",
+      "icon": "🐟",
+      "description": "Il tonnetto alletterato (Euthynnus alletteratus) è un piccolo tunnide costiero, riconoscibile per le macchie scure sotto la pettorale e le striature dorsali. Si avvicina a riva in estate-inizio autunno seguendo alici e sardine. Velocissimo, ideale per spinning e shore jigging.",
+      "characteristics": {
+        "maxLength": "120 cm",
+        "avgLength": "40-70 cm",
+        "maxWeight": "15 kg",
+        "avgWeight": "2-5 kg",
+        "lifespan": "8 anni",
+        "color": "Blu scuro con strisce dorsali, macchie sotto la pettorale",
+        "bodyShape": "Siluriforme, muscoloso"
+      },
+      "habitat": {
+        "environment": "Pelagico costiero",
+        "depth": "0-150 m",
+        "substrate": "Qualsiasi",
+        "description": "Segue banchi di foraggio vicino costa."
+      },
+      "behavior": {
+        "feeding": "Alici, sardine, cefalopodi",
+        "activity": "Diurna",
+        "social": "Branchi",
+        "migration": "Costiero stagionale"
+      },
+      "reproduction": {
+        "period": "Estate",
+        "maturity": "2 anni",
+        "spawning": "In mare aperto"
+      },
+      "fishing": {
+        "techniques": ["Spinning", "Shore jigging", "Traina leggera"],
+        "bestTechnique": "Spinning veloce",
+        "bestBaits": ["Jig 20-60g", "Minnow slim", "Stickbait veloci"],
+        "bestArtificials": ["Jig metallici"],
+        "bestSpots": "Mangianze, punte rocciose, foci",
+        "difficulty": 3,
+        "fightRating": 5,
+        "tips": [
+          "Recuperi molto veloci",
+          "Segui i gabbiani sulle mangianze",
+          "Trecciato e finale robusti: fughe lunghe"
+        ]
+      },
+      "seasonality": {
+        "best": [7, 8, 9, 10],
+        "good": [6, 11],
+        "difficult": [12, 1, 2, 3, 4, 5],
+        "description": "Estate-inizio autunno vicino costa."
+      },
+      "records": {
+        "worldRecord": "15 kg",
+        "italyRecord": "12 kg",
+        "averageTrophy": "Oltre 6 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 3,
+        "taste": "Carne rossa, sapore intenso",
+        "cooking": ["Griglia", "Sott'olio", "Crudo (solo freschissimo)"],
+        "minSize": "Nessuna taglia minima"
+      },
+      "curiosities": [
+        "Macchie scure sotto la pettorale distintive",
+        "Molto veloce, simile a un 'mini tonno'",
+        "Colorazione sparisce dopo la cattura"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca commerciale",
+        "regulations": "Nessuna taglia minima"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "barracuda-mediterraneo",
+      "slug": "barracuda-mediterraneo",
+      "name": "Barracuda Mediterraneo",
+      "scientificName": "Sphyraena viridensis",
+      "otherNames": ["Barracuda giallo"],
+      "family": "Sphyraenidae",
+      "category": "predatore",
+      "icon": "🦈",
+      "description": "Il barracuda mediterraneo (Sphyraena viridensis) è un predatore costiero notturno, corpo allungato e denti affilati. Staziona vicino a porti, scogliere e testate di molo, caccia in branchi al tramonto e di notte. Preda classica per lo spinning serale.",
+      "characteristics": {
+        "maxLength": "120 cm",
+        "avgLength": "50-80 cm",
+        "maxWeight": "6 kg",
+        "avgWeight": "1-3 kg",
+        "lifespan": "14 anni",
+        "color": "Grigio-argento con riflessi gialli",
+        "bodyShape": "Allungato, mandibola prominente"
+      },
+      "habitat": {
+        "environment": "Costiero",
+        "depth": "0-50 m",
+        "substrate": "Roccioso, porti",
+        "description": "Vicino a porti, scogliere, punte e relitti bassi."
+      },
+      "behavior": {
+        "feeding": "Pesci foraggio",
+        "activity": "Crepuscolare e notturno",
+        "social": "Branchi",
+        "migration": "Costiera"
+      },
+      "reproduction": {
+        "period": "Primavera",
+        "maturity": "2-3 anni",
+        "spawning": "In acque aperte"
+      },
+      "fishing": {
+        "techniques": ["Spinning", "Shore jigging"],
+        "bestTechnique": "Spinning serale",
+        "bestBaits": ["Minnow long jerk", "Needle", "Jig 20-40g"],
+        "bestArtificials": ["Long jerk 13-17cm"],
+        "bestSpots": "Porti e scogliere al tramonto/notte",
+        "difficulty": 3,
+        "fightRating": 4,
+        "tips": [
+          "Pesca al cambio luce, poi notte",
+          "Artificiali snelli e brillanti",
+          "Attenzione ai denti quando slammi"
+        ]
+      },
+      "seasonality": {
+        "best": [5, 6, 7, 8, 9],
+        "good": [4, 10],
+        "difficult": [11, 12, 1, 2, 3],
+        "description": "Tarda primavera-autunno, meglio estate-sera."
+      },
+      "records": {
+        "worldRecord": "6.3 kg",
+        "italyRecord": "5.8 kg",
+        "averageTrophy": "Oltre 3 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 3,
+        "taste": "Carne discreta, va consumato fresco",
+        "cooking": ["Griglia", "Forno"],
+        "minSize": "Nessuna specifica"
+      },
+      "curiosities": [
+        "Denti molto affilati",
+        "Caccia in branco illuminando il foraggio",
+        "Ama la luce artificiale dei porti"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca ricreativa intensa",
+        "regulations": "Nessuna taglia minima"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "sgombro",
+      "slug": "sgombro",
+      "name": "Sgombro",
+      "scientificName": "Scomber scombrus",
+      "otherNames": ["Lacerto"],
+      "family": "Scombridae",
+      "category": "pelagico",
+      "icon": "🐟",
+      "description": "Lo sgombro (Scomber scombrus) è un pelagico velocissimo, dorsale con strisce scure, diffusissimo e ideale per light game, sabiki e come esca viva. Forma banchi enormi, ottimo cibo ricco di omega-3.",
+      "characteristics": {
+        "maxLength": "60 cm",
+        "avgLength": "20-35 cm",
+        "maxWeight": "3.4 kg",
+        "avgWeight": "200-600 g",
+        "lifespan": "10 anni",
+        "color": "Dorso blu-verde con strisce scure, fianchi argento",
+        "bodyShape": "Affusolato"
+      },
+      "habitat": {
+        "environment": "Pelagico",
+        "depth": "0-250 m",
+        "substrate": "Qualsiasi",
+        "description": "Banchi costieri e offshore."
+      },
+      "behavior": {
+        "feeding": "Zooplancton, piccoli pesci",
+        "activity": "Diurna",
+        "social": "Branchi grandi",
+        "migration": "Stagionale"
+      },
+      "reproduction": {
+        "period": "Primavera",
+        "maturity": "2 anni",
+        "spawning": "In mare aperto"
+      },
+      "fishing": {
+        "techniques": ["Sabiki", "Light spinning", "Bolognese", "Traina leggera"],
+        "bestTechnique": "Sabiki",
+        "bestBaits": ["Sabiki piumette", "Piccoli jig"],
+        "bestArtificials": ["Micro jig 10-20g"],
+        "bestSpots": "Porti, moli, mangianze",
+        "difficulty": 1,
+        "fightRating": 2,
+        "tips": [
+          "Sabiki micidiale in prossimità dei banchi",
+          "Ottimo come esca viva",
+          "Cerca i gabbiani sulle mangianze"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6],
+        "good": [3, 7, 8],
+        "difficult": [9, 10, 11, 12, 1, 2],
+        "description": "Primavera-inizio estate."
+      },
+      "records": {
+        "worldRecord": "3.4 kg",
+        "italyRecord": "2.8 kg",
+        "averageTrophy": "Oltre 800g"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 4,
+        "taste": "Carne grassa, ricca di omega-3",
+        "cooking": ["Griglia", "Affumicato", "Sott'olio"],
+        "minSize": "20 cm"
+      },
+      "curiosities": [
+        "Ricchissimo di omega-3",
+        "Ottima esca viva per predatori",
+        "Strisce dorsali inconfondibili"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca commerciale",
+        "regulations": "Taglia minima 20 cm"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "tanuta",
+      "slug": "tanuta",
+      "name": "Tanuta",
+      "scientificName": "Spondyliosoma cantharus",
+      "otherNames": ["Tana", "Perchia di mare"],
+      "family": "Sparidae",
+      "category": "sparide",
+      "icon": "🐟",
+      "description": "La tanuta (Spondyliosoma cantharus) è uno sparide diffidente di fondale roccioso, corpo alto e strisce scure trasversali. Richiede esche naturali e lenze sottili. Carne buona, catture frequenti a bolentino leggero e bolognese da scoglio.",
+      "characteristics": {
+        "maxLength": "45 cm",
+        "avgLength": "20-30 cm",
+        "maxWeight": "1.6 kg",
+        "avgWeight": "300-700 g",
+        "lifespan": "10 anni",
+        "color": "Grigio con bande scure",
+        "bodyShape": "Alto e compresso"
+      },
+      "habitat": {
+        "environment": "Fondali rocciosi",
+        "depth": "5-100 m",
+        "substrate": "Roccia e posidonia",
+        "description": "Vicino a scogliere e praterie di posidonia."
+      },
+      "behavior": {
+        "feeding": "Alghe, crostacei, molluschi",
+        "activity": "Diurna",
+        "social": "Branchi piccoli",
+        "migration": "Stanziale"
+      },
+      "reproduction": {
+        "period": "Primavera",
+        "maturity": "2 anni",
+        "spawning": "Costiero"
+      },
+      "fishing": {
+        "techniques": ["Bolentino leggero", "Bolognese", "Ledgering"],
+        "bestTechnique": "Bolentino leggero",
+        "bestBaits": ["Gambero", "Coreano", "Cozza"],
+        "bestArtificials": ["Micro jig"],
+        "bestSpots": "Scogliere e cigliate",
+        "difficulty": 2,
+        "fightRating": 3,
+        "tips": [
+          "Lenze fini, è molto diffidente",
+          "Pastura leggera con sarde/gambero",
+          "Si muove in piccoli branchi"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6, 7],
+        "good": [3, 8, 9],
+        "difficult": [10, 11, 12, 1, 2],
+        "description": "Primavera-estate."
+      },
+      "records": {
+        "worldRecord": "1.6 kg",
+        "italyRecord": "1.4 kg",
+        "averageTrophy": "Oltre 800g"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 4,
+        "taste": "Carne bianca, buona",
+        "cooking": ["Forno", "Griglia"],
+        "minSize": "18 cm"
+      },
+      "curiosities": [
+        "Molto sospettosa: servono finali sottili",
+        "Strisce scure più visibili quando è stressata",
+        "Spesso mista a saraghi"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca ricreativa",
+        "regulations": "Taglia minima 18 cm"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "gallinella",
+      "slug": "gallinella",
+      "name": "Gallinella",
+      "scientificName": "Chelidonichthys lucerna",
+      "otherNames": ["Cappone di mare", "Coccio"],
+      "family": "Triglidae",
+      "category": "fondale",
+      "icon": "🐟",
+      "description": "La gallinella (Chelidonichthys lucerna) è un pesce di fondo sabbioso/fangoso, testa corazzata e pinne pettorali blu-verdi spettacolari. Cammina sul fondo con i raggi pettorali. Ottima preda a bolentino e traina lenta di fondo, carne eccellente per zuppe.",
+      "characteristics": {
+        "maxLength": "75 cm",
+        "avgLength": "30-50 cm",
+        "maxWeight": "6 kg",
+        "avgWeight": "0.8-2 kg",
+        "lifespan": "15 anni",
+        "color": "Rosso-bruno con pettorali blu",
+        "bodyShape": "Testa corazzata, corpo affusolato"
+      },
+      "habitat": {
+        "environment": "Fondali sabbiosi/fangosi",
+        "depth": "10-200 m",
+        "substrate": "Sabbia, fango",
+        "description": "Cammina sul fondo usando i raggi pettorali."
+      },
+      "behavior": {
+        "feeding": "Crostacei, vermi, piccoli pesci",
+        "activity": "Diurna",
+        "social": "Solitario o piccoli gruppi",
+        "migration": "Limitata"
+      },
+      "reproduction": {
+        "period": "Primavera-estate",
+        "maturity": "2-3 anni",
+        "spawning": "In acque costiere"
+      },
+      "fishing": {
+        "techniques": ["Bolentino", "Traina lenta di fondo"],
+        "bestTechnique": "Bolentino con esche naturali",
+        "bestBaits": ["Sarda", "Gambero", "Americano"],
+        "bestArtificials": ["Jig lenti sul fondo"],
+        "bestSpots": "Fondi sabbiosi 20-80 m",
+        "difficulty": 2,
+        "fightRating": 2,
+        "tips": [
+          "Mantieni il contatto col fondo",
+          "Sarda e gambero molto efficaci",
+          "Perfetta per zuppe e brodetti"
+        ]
+      },
+      "seasonality": {
+        "best": [4, 5, 6, 7, 8],
+        "good": [9, 10],
+        "difficult": [11, 12, 1, 2, 3],
+        "description": "Primavera-estate."
+      },
+      "records": {
+        "worldRecord": "6.2 kg",
+        "italyRecord": "5.1 kg",
+        "averageTrophy": "Oltre 2.5 kg"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 5,
+        "taste": "Carne bianca ottima per zuppe",
+        "cooking": ["Zuppa", "Brodetto", "Forno"],
+        "minSize": "Nessuna specifica"
+      },
+      "curiosities": [
+        "Emette suoni udibili fuori dall'acqua",
+        "Pettorali blu-verdi spettacolari",
+        "Cammina sul fondo con i raggi pettorali"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Pesca a strascico",
+        "regulations": "Nessuna taglia minima"
+      },
+      "relatedProducts": []
+    },
+    {
+      "id": "tracina",
+      "slug": "tracina",
+      "name": "Tracina Ragno",
+      "scientificName": "Trachinus draco",
+      "otherNames": ["Pesce ragno"],
+      "family": "Trachinidae",
+      "category": "fondale",
+      "icon": "⚠️",
+      "description": "La tracina (Trachinus draco) vive infossata nella sabbia in acque basse. Ha spine velenose sul primo dorsale e sugli opercoli: puntura molto dolorosa. Pesce di battigia, talvolta catturato a beach ledgering. Carne buona ma maneggiare con massima attenzione.",
+      "characteristics": {
+        "maxLength": "53 cm",
+        "avgLength": "15-30 cm",
+        "maxWeight": "1 kg",
+        "avgWeight": "200-500 g",
+        "lifespan": "7 anni",
+        "color": "Sabbia con bande scure",
+        "bodyShape": "Allungato, testa con spine velenose"
+      },
+      "habitat": {
+        "environment": "Fondali sabbiosi bassi",
+        "depth": "0-50 m",
+        "substrate": "Sabbia",
+        "description": "Si infossa lasciando fuori solo occhi e dorsale velenosa."
+      },
+      "behavior": {
+        "feeding": "Piccoli pesci e crostacei",
+        "activity": "Diurna",
+        "social": "Solitario",
+        "migration": "Costiera"
+      },
+      "reproduction": {
+        "period": "Primavera-estate",
+        "maturity": "2 anni",
+        "spawning": "Costiero"
+      },
+      "fishing": {
+        "techniques": ["Beach ledgering", "Bolentino leggero"],
+        "bestTechnique": "Beach ledgering",
+        "bestBaits": ["Americano", "Arenicola", "Coreano"],
+        "bestArtificials": ["Raro su artificiali"],
+        "bestSpots": "Fondali sabbiosi bassi",
+        "difficulty": 1,
+        "fightRating": 1,
+        "tips": [
+          "ATTENZIONE spine velenose dorsale e opercoli",
+          "Usa pinze lunghe per slamare",
+          "Vive infossata: abboccate improvvise"
+        ]
+      },
+      "seasonality": {
+        "best": [6, 7, 8, 9],
+        "good": [5, 10],
+        "difficult": [11, 12, 1, 2, 3, 4],
+        "description": "Estate, acque basse e sabbiose."
+      },
+      "records": {
+        "worldRecord": "1.0 kg",
+        "italyRecord": "0.9 kg",
+        "averageTrophy": "Oltre 500 g"
+      },
+      "culinary": {
+        "edible": true,
+        "quality": 3,
+        "taste": "Carne buona, usata per zuppe",
+        "cooking": ["Zuppa", "Fritto"],
+        "minSize": "Nessuna specifica"
+      },
+      "curiosities": [
+        "Puntura molto dolorosa, veleno termolabile (acqua calda aiuta)",
+        "Si infossa lasciando spuntare la dorsale",
+        "Pericolo anche per i bagnanti"
+      ],
+      "conservation": {
+        "status": "LC (Least Concern)",
+        "threats": "Nessuna particolare",
+        "regulations": "Nessuna taglia minima"
       },
       "relatedProducts": []
     }
