@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   category: 'Sports',
   classification: 'Fishing Blog',
-  alternates: {
-    canonical: 'https://fishandtips.it',
-  },
   formatDetection: {
     telephone: false,
     address: false,
