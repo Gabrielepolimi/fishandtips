@@ -49,7 +49,9 @@ const sanityClient = createClient({
 let genAI = null;
 function getGemini() {
   if (genAI) return genAI;
-  if (!GEMINI_KEY) return null;
+  if (!GEMINI_KEY) {
+    throw new Error('GEMINI_API_KEY mancante: il picker richiede il ranking LLM');
+  }
   genAI = new GoogleGenerativeAI(GEMINI_KEY);
   return genAI;
 }
@@ -242,7 +244,10 @@ function applyHardFilters(video, niche) {
 
 function isBlacklisted(snippet = {}) {
   const hay = `${snippet.title || ''} ${snippet.description || ''}`.toLowerCase();
-  const bad = ['roblox', 'minecraft', 'fortnite', 'gaming', 'piggy', '#shorts'];
+  const bad = [
+    'roblox', 'minecraft', 'fortnite', 'gaming', 'piggy', '#shorts',
+    'motivazione', 'motivation', 'yoga', 'meditazione', 'mindfulness', 'sadhguru', 'guru'
+  ];
   return bad.some(b => hay.includes(b));
 }
 
@@ -407,6 +412,11 @@ async function main() {
       c._dropReason = reason;
       return false;
     }
+    // lingua: accetta solo it/en
+    if (c.lang && !(c.lang.startsWith('it') || c.lang.startsWith('en'))) {
+      c._dropReason = 'lang';
+      return false;
+    }
     return true;
   });
 
@@ -444,10 +454,19 @@ async function main() {
     vid.score = computeScores(vid, vid.relevance, niche);
   }
 
-  // scarta se relevance < 0.65
+  // scarta se relevance < 0.65 (strict, e non salvare se nessuno supera)
   const strong = limited.filter(v => (v.relevance || 0) >= 0.65);
-  const pool = strong.length > 0 ? strong : limited; // fallback se nessuno sopra 0.65
-  const winner = pool.sort((a, b) => b.score.total - a.score.total)[0];
+  if (strong.length === 0) {
+    console.log('⚠️ Nessun candidato supera la soglia di rilevanza (0.65)');
+    if (!dryRun) {
+      await sanityClient.patch(article._id).set({
+        youtube: null,
+        showYouTubeVideo: false,
+      }).commit({ autoGenerateArrayKeys: true });
+    }
+    process.exit(0);
+  }
+  const winner = strong.sort((a, b) => b.score.total - a.score.total)[0];
 
   if (!winner) {
     console.log('⚠️ Nessun vincitore selezionato');
