@@ -479,8 +479,8 @@ async function main() {
     vid.score = computeScores(vid, vid.relevance, niche);
   }
 
-  // scarta se relevance < 0.70 (strict, e non salvare se nessuno supera)
-  const strong = limited.filter(v => (v.relevance || 0) >= 0.70);
+  // scarta se relevance < 0.85 (strict, e non salvare se nessuno supera)
+  const strong = limited.filter(v => (v.relevance || 0) >= 0.85);
   if (strong.length === 0) {
     console.log('⚠️ Nessun candidato supera la soglia di rilevanza (0.65)');
     if (!dryRun) {
