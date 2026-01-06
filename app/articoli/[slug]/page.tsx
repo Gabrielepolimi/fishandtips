@@ -355,7 +355,7 @@ export default async function PostPage({ params }: Props) {
         )}
 
       {/* Video YouTube */}
-      {post.youtube?.videoId ? (
+      {post.youtube?.videoId || post.youtube?.embedUrl || post.youtube?.url ? (
         <div className="mb-8 sm:mb-12">
           <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-6 shadow-sm">
             <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
@@ -374,7 +374,12 @@ export default async function PostPage({ params }: Props) {
               </ul>
             )}
             <YouTubeEmbed
-              videoId={post.youtube.videoId || post.youtube.embedUrl || ''}
+              videoId={
+                post.youtube.videoId ||
+                post.youtube.embedUrl ||
+                post.youtube.url ||
+                ''
+              }
               title={post.youtube.title || post.title}
               className="mt-4"
             />
