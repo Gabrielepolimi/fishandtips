@@ -251,6 +251,23 @@ function isBlacklisted(snippet = {}) {
   return bad.some(b => hay.includes(b));
 }
 
+function extractMainKeyword(article) {
+  const tryPick = (words = []) => {
+    const found = (words || []).find(w => w && w.length >= 5);
+    return found ? found.toLowerCase() : null;
+  };
+  const fromSlug = article.slug ? tryPick(String(article.slug).split('-')) : null;
+  if (fromSlug) return fromSlug;
+  const fromTitle = tryPick((article.title || '').toLowerCase().split(/\s+/));
+  return fromTitle;
+}
+
+function videoHasKeyword(video, keyword) {
+  if (!keyword) return true;
+  const hay = `${video.title || ''} ${video.description || ''}`.toLowerCase();
+  return hay.includes(keyword.toLowerCase());
+}
+
 function computeScores(video, rel, niche) {
   const relevance = clamp(rel || 0, 0, 1);
   const viewsScore = Math.log10((video.views || 1) + 1);
@@ -305,6 +322,7 @@ async function main() {
   const safeCategories = Array.isArray(article.categories) ? article.categories.filter(Boolean) : [];
   const safeTechniques = Array.isArray(article.techniques) ? article.techniques.filter(Boolean) : [];
   const articleData = {
+    slug: article.slug,
     title: article.title,
     excerpt: article.excerpt || '',
     headings: safeHeadings,
@@ -406,6 +424,7 @@ async function main() {
   });
 
   const niche = isNiche([article.title, ...safeHeadings, ...safeCategories, ...safeTechniques]);
+  const mainKeyword = extractMainKeyword(articleData);
   const filtered = candidates.filter(c => {
     const reason = applyHardFilters(c, niche);
     if (reason) {
@@ -415,6 +434,11 @@ async function main() {
     // lingua: accetta solo it/en
     if (c.lang && !(c.lang.startsWith('it') || c.lang.startsWith('en'))) {
       c._dropReason = 'lang';
+      return false;
+    }
+    // keyword hard-match: titolo/descrizione deve contenere la mainKeyword (se esiste)
+    if (mainKeyword && !videoHasKeyword(c, mainKeyword)) {
+      c._dropReason = 'keyword';
       return false;
     }
     return true;
@@ -454,8 +478,8 @@ async function main() {
     vid.score = computeScores(vid, vid.relevance, niche);
   }
 
-  // scarta se relevance < 0.65 (strict, e non salvare se nessuno supera)
-  const strong = limited.filter(v => (v.relevance || 0) >= 0.65);
+  // scarta se relevance < 0.70 (strict, e non salvare se nessuno supera)
+  const strong = limited.filter(v => (v.relevance || 0) >= 0.70);
   if (strong.length === 0) {
     console.log('⚠️ Nessun candidato supera la soglia di rilevanza (0.65)');
     if (!dryRun) {
