@@ -12,7 +12,6 @@
  */
 
 import crypto from 'crypto';
-import fetch from 'node-fetch';
 import { createClient } from '@sanity/client';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
