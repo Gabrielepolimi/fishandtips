@@ -74,16 +74,6 @@ export default function YouTubeEmbed({ videoId, title, className = '' }: YouTube
           />
         </div>
       )}
-      <div className="mt-2 text-sm text-gray-500">
-        <a
-          href={`https://www.youtube.com/watch?v=${videoIdFromUrl}`}
-          target="_blank"
-          rel="noreferrer"
-          className="underline hover:text-blue-600"
-        >
-          Apri su YouTube
-        </a>
-      </div>
     </div>
   );
 }
