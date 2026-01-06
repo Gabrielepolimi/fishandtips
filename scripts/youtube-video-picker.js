@@ -294,6 +294,7 @@ function computeScores(video, rel, niche) {
 async function main() {
   const args = process.argv.slice(2).filter(Boolean);
   const dryRun = args.includes('--dry-run');
+  const force = args.includes('--force');
   const slug = args.find(a => !a.startsWith('-'));
 
   if (!slug) {
@@ -330,7 +331,7 @@ async function main() {
     techniques: safeTechniques,
   };
 
-  // Cache check
+  // Cache check (skip if --force)
   const signature = hashSignature([
     article.title,
     article.excerpt || '',
@@ -338,7 +339,7 @@ async function main() {
     safeCategories.join('|'),
     safeTechniques.join('|'),
   ]);
-  if (article.youtube?.signatureHash === signature && article.youtube?.pickedAt) {
+  if (!force && article.youtube?.signatureHash === signature && article.youtube?.pickedAt) {
     const pickedAt = new Date(article.youtube.pickedAt).getTime();
     const ageDays = (Date.now() - pickedAt) / (1000 * 60 * 60 * 24);
     if (ageDays < CACHE_TTL_DAYS) {
@@ -536,6 +537,7 @@ async function main() {
       },
       lang: winner.lang || '',
       score: winner.score?.total || 0,
+      relevance: winner.relevance || 0,
       queries,
       pickedAt: new Date().toISOString(),
       signatureHash: signature,
