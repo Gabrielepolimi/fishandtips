@@ -18,6 +18,11 @@
       "permanent": true
     },
     {
+      "source": "/articoli/montature-surfcasting-guida-completa-con-le-mie-configurazioni-vincenti",
+      "destination": "/articoli/montature-surfcasting-2025",
+      "permanent": true
+    },
+    {
       "source": "/categoria/spot",
       "destination": "/categoria/spot-di-pesca",
       "permanent": true
