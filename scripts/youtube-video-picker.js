@@ -296,21 +296,24 @@ async function main() {
   }
 
   const headings = extractHeadingsFromBody(article.body);
+  const safeHeadings = Array.isArray(headings) ? headings : [];
+  const safeCategories = Array.isArray(article.categories) ? article.categories.filter(Boolean) : [];
+  const safeTechniques = Array.isArray(article.techniques) ? article.techniques.filter(Boolean) : [];
   const articleData = {
     title: article.title,
     excerpt: article.excerpt || '',
-    headings,
-    categories: article.categories || [],
-    techniques: article.techniques || [],
+    headings: safeHeadings,
+    categories: safeCategories,
+    techniques: safeTechniques,
   };
 
   // Cache check
   const signature = hashSignature([
     article.title,
     article.excerpt || '',
-    headings.join('|'),
-    (article.categories || []).join('|'),
-    (article.techniques || []).join('|'),
+    safeHeadings.join('|'),
+    safeCategories.join('|'),
+    safeTechniques.join('|'),
   ]);
   if (article.youtube?.signatureHash === signature && article.youtube?.pickedAt) {
     const pickedAt = new Date(article.youtube.pickedAt).getTime();
@@ -397,7 +400,7 @@ async function main() {
     };
   });
 
-  const niche = isNiche([article.title, ...article.headings, ...article.categories, ...article.techniques]);
+  const niche = isNiche([article.title, ...safeHeadings, ...safeCategories, ...safeTechniques]);
   const filtered = candidates.filter(c => {
     const reason = applyHardFilters(c, niche);
     if (reason) {
