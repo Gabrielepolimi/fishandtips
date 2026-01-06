@@ -16,6 +16,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { generateArticle } from './ai-content-generator.js';
+import { execFile } from 'child_process';
+import { promisify } from 'util';
 import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +32,8 @@ const CONFIG = {
   skipDuplicateCheck: false, // Se true, salta il pre-check dei duplicati
   maxRetryAttempts: 3 // Quante volte provare a trovare keyword non duplicate
 };
+
+const execFileAsync = promisify(execFile);
 
 // ===== KEYWORD POOL ESTESO PER STAGIONE =====
 function getSeasonalKeywords() {
@@ -375,6 +379,29 @@ async function generateWeeklyBatch(options = {}) {
           hasImage: result.hasImage,
           generatedAt: new Date().toISOString()
         });
+
+        // YouTube picker (post-step) se disponibile e se non dry-run
+        if (process.env.YOUTUBE_API_KEY) {
+          const slug = result.slug?.current;
+          if (slug) {
+            console.log('🎥 Avvio YouTube picker per', slug);
+            try {
+              await execFileAsync('node', [path.join(__dirname, 'youtube-video-picker.js'), slug], {
+                env: {
+                  ...process.env,
+                  YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
+                  SANITY_API_TOKEN: process.env.SANITY_API_TOKEN,
+                  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+                },
+              });
+              console.log('✅ YouTube picker completato per', slug);
+            } catch (err) {
+              console.warn('⚠️ YouTube picker fallito per', slug, '-', err.message);
+            }
+          }
+        } else {
+          console.log('ℹ️ YOUTUBE_API_KEY mancante: salto video picker');
+        }
       }
       
     } catch (error) {

@@ -52,6 +52,22 @@ interface Post {
   youtubeUrl?: string;
   youtubeTitle?: string;
   youtubeDescription?: string;
+  youtube?: {
+    videoId: string;
+    title?: string;
+    channelTitle?: string;
+    url?: string;
+    embedUrl?: string;
+    reason?: string;
+    takeaways?: string[];
+    metrics?: {
+      views?: number;
+      likeCount?: number;
+      commentCount?: number;
+      durationSeconds?: number;
+      publishedAt?: string;
+    };
+  };
 }
 
 interface Article {
@@ -155,7 +171,8 @@ async function getPost(slug: string): Promise<Post | null> {
         showYouTubeVideo,
         youtubeUrl,
         youtubeTitle,
-        youtubeDescription
+      youtubeDescription,
+      youtube
       }
     `, { slug }, {
       // Disabilita il caching per Vercel
@@ -337,8 +354,38 @@ export default async function PostPage({ params }: Props) {
           </div>
         )}
 
-        {/* Video YouTube */}
-        {post.showYouTubeVideo && post.youtubeUrl && (
+      {/* Video YouTube */}
+      {post.youtube?.videoId ? (
+        <div className="mb-8 sm:mb-12">
+          <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-6 shadow-sm">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
+              Video consigliato (selezionato da Fish & Tips)
+            </h2>
+            {post.youtube.reason && (
+              <p className="text-gray-700 mb-3 text-sm sm:text-base">
+                {post.youtube.reason}
+              </p>
+            )}
+            {post.youtube.takeaways && post.youtube.takeaways.length > 0 && (
+              <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1 text-sm sm:text-base">
+                {post.youtube.takeaways.slice(0, 3).map((t, idx) => (
+                  <li key={idx}>{t}</li>
+                ))}
+              </ul>
+            )}
+            <YouTubeEmbed
+              videoId={post.youtube.embedUrl || post.youtube.videoId}
+              title={post.youtube.title || post.title}
+              className="mt-4"
+            />
+            {post.youtube.channelTitle && (
+              <p className="text-xs text-gray-500 mt-2">
+                Canale: {post.youtube.channelTitle}
+              </p>
+            )}
+          </div>
+        </div>
+      ) : post.showYouTubeVideo && post.youtubeUrl && (
           <div className="mb-8 sm:mb-12">
             <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-red-200" itemScope itemType="https://schema.org/VideoObject">
               <div className="flex items-center mb-4">

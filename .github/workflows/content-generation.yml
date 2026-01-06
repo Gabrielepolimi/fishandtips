@@ -44,6 +44,7 @@ jobs:
           echo "::add-mask::${{ secrets.GEMINI_API_KEY }}"
           echo "::add-mask::${{ secrets.SANITY_API_TOKEN }}"
           echo "::add-mask::${{ secrets.UNSPLASH_ACCESS_KEY }}"
+          echo "::add-mask::${{ secrets.YOUTUBE_API_KEY }}"
       
       - name: Verify secrets are configured
         run: |
@@ -55,6 +56,10 @@ jobs:
             echo "❌ SANITY_API_TOKEN not configured in GitHub Secrets!"
             exit 1
           fi
+          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ]; then
+            echo "❌ YOUTUBE_API_KEY not configured in GitHub Secrets!"
+            exit 1
+          fi
           echo "✅ All required secrets are configured"
       
       - name: Generate Articles
@@ -63,6 +68,7 @@ jobs:
           SANITY_API_TOKEN: ${{ secrets.SANITY_API_TOKEN }}
           AMAZON_AFFILIATE_TAG: ${{ secrets.AMAZON_AFFILIATE_TAG }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             COUNT="${{ github.event.inputs.article_count }}"
