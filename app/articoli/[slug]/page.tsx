@@ -374,7 +374,7 @@ export default async function PostPage({ params }: Props) {
               </ul>
             )}
             <YouTubeEmbed
-              videoId={post.youtube.embedUrl || post.youtube.videoId}
+              videoId={post.youtube.videoId || post.youtube.embedUrl || ''}
               title={post.youtube.title || post.title}
               className="mt-4"
             />
