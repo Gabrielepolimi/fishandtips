@@ -1,554 +1,328 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Nunito } from 'next/font/google';
+import { sanityClient, urlFor } from '../../sanityClient';
 
-const nunito = Nunito({ subsets: ['latin'] });
+type AwardGroup = {
+  title: string;
+  subtitle: string;
+  items: {
+    name: string;
+    slug: string;
+    blurb: string;
+  }[];
+};
 
-// Data di scadenza candidature (30 Dicembre 2025)
-const DEADLINE = new Date('2025-12-30T23:59:59');
+type AwardPost = {
+  title: string;
+  slug: string;
+  excerpt?: string;
+  mainImage?: any;
+  seoImage?: string;
+};
 
-// Data pubblicazione classifica (10 Gennaio 2026)
-const PUBLICATION_DATE = new Date('2026-01-10T10:00:00');
+export const dynamic = 'force-dynamic';
+export const revalidate = 1800;
 
-// Categorie
-const categories = [
+export const metadata: Metadata = {
+  title: '10 Eccellenze Italiane della Pesca 2026 | Brand, Negozi, Progetti',
+  description:
+    'Le 10 eccellenze italiane della pesca 2026: brand, negozi, scuole e professionisti premiati da FishandTips. Scopri chi ha alzato l’asticella e leggi gli articoli dedicati.',
+  alternates: {
+    canonical: 'https://fishandtips.it/migliori-pesca-2026',
+  },
+  openGraph: {
+    title: '10 Eccellenze Italiane della Pesca 2026',
+    description:
+      'Le 10 eccellenze italiane della pesca 2026: brand, negozi, scuole e professionisti premiati da FishandTips.',
+    type: 'website',
+    url: 'https://fishandtips.it/migliori-pesca-2026',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '10 Eccellenze Italiane della Pesca 2026',
+    description:
+      'Le 10 eccellenze italiane della pesca 2026: brand, negozi, scuole e professionisti premiati da FishandTips.',
+  },
+};
+
+const awardGroups: AwardGroup[] = [
   {
-    id: 'negozi',
-    title: 'Negozi di Pesca',
-    icon: '🏪',
-    description: 'I migliori negozi online e fisici per attrezzatura da pesca',
-    slots: 10,
-    filled: 8,
+    title: 'Brand / Aziende di attrezzatura',
+    subtitle: 'Eccellenze italiane tra innovazione, R&D e legame con l’agonismo.',
+    items: [
+      {
+        name: 'Trabucco Fishing Diffusion',
+        slug: 'trabucco-storia-qualita-e-riferimento-nella-pesca-sportiva',
+        blurb: 'Storico brand italiano: canne, pasture, galleggianti, made in Italy.',
+      },
+      {
+        name: 'Colmic',
+        slug: 'colmic-eccellenza-italiana-premiata-tra-i-migliori-della-pesca-2026',
+        blurb: 'Riferimento per agonismo e pesca sportiva, forte R&D e team di campioni.',
+      },
+      {
+        name: 'Tubertini',
+        slug: 'tubertini-tradizione-e-innovazione-tra-i-migliori-della-pesca-2026',
+        blurb: 'Leader italiano con produzione interna e innovazione tecnica continua.',
+      },
+      {
+        name: 'Top Game Fishing',
+        slug: 'top-game-fishing-tra-i-migliori-della-pesca-2026',
+        blurb: 'Specialisti big game, traina e accessori nautici, 100% made in Italy.',
+      },
+    ],
   },
   {
-    id: 'charter',
-    title: 'Charter di Pesca',
-    icon: '🚤',
-    description: 'Le migliori imbarcazioni per uscite di pesca in Italia',
-    slots: 10,
-    filled: 8,
+    title: 'Negozi di pesca (fisici + online)',
+    subtitle: 'Store selezionati per servizio, assortimento e valore educativo.',
+    items: [
+      {
+        name: 'Fisherlandia',
+        slug: 'fisherlandia-30-anni-di-passione-per-la-pesca-sportiva',
+        blurb: 'Storico negozio + e-commerce con forte presenza educativa (YouTube, tutorial).',
+      },
+      {
+        name: 'Sampey',
+        slug: 'sampey-eccellenza-italiana-tra-i-migliori-della-pesca-2026',
+        blurb: 'E-commerce multisettore pesca/sub/nautica/outdoor, riconosciuto in Italia e fuori.',
+      },
+      {
+        name: 'FishingItalia.com',
+        slug: 'fishingitalia-com-e-tra-i-migliori-della-pesca-2026',
+        blurb: 'Specialisti feeder/colpo/agonismo, fondato da un campione del mondo.',
+      },
+      {
+        name: 'Todaro Sport',
+        slug: 'todaro-sport-tra-i-migliori-della-pesca-2026',
+        blurb: 'Negozio fisico + online pesca e subacquea, radicato sul territorio laziale.',
+      },
+    ],
   },
   {
-    id: 'scuole',
-    title: 'Scuole/Gare di Pesca',
-    icon: '🎓',
-    description: 'I migliori corsi, istruttori e organizzatori di gare',
-    slots: 10,
-    filled: 6,
+    title: 'Scuole / Progetti / Associazioni',
+    subtitle: 'Formazione, comunità e progetti educativi sul territorio.',
+    items: [
+      {
+        name: 'Fishing Accademy',
+        slug: 'fishing-accademy-tra-i-migliori-della-pesca-2026',
+        blurb: 'Associazione sportiva e scuola di pesca con lago e progetti educativi (FIPSAS).',
+      },
+      {
+        name: 'Stefano Adami',
+        slug: 'stefano-adami-tra-i-migliori-della-pesca-2026',
+        blurb: 'Guida di pesca, divulgatore e videomaker: contenuti, uscite e progetti premiati.',
+      },
+    ],
   },
 ];
 
-// Benefici per i selezionati
-const benefits = [
-  {
-    icon: '🏅',
-    title: 'Badge Ufficiale',
-    description: 'Badge "Selezionato FishandTips 2026" da esporre sul vostro sito',
-  },
-  {
-    icon: '📄',
-    title: 'Scheda Dedicata',
-    description: 'Pagina completa con descrizione, servizi, foto e link al vostro sito',
-  },
-  {
-    icon: '🎤',
-    title: 'Intervista Esclusiva',
-    description: 'Articolo intervista al titolare per raccontare la vostra storia e filosofia',
-  },
-  {
-    icon: '♾️',
-    title: 'Visibilità Permanente',
-    description: 'La scheda rimane online per sempre, non solo per il 2026',
-  },
+const awardSlugs = awardGroups.flatMap((group) => group.items.map((item) => item.slug));
+const awardLinks = awardGroups.flatMap((group) => group.items.map((item) => ({ name: item.name, slug: item.slug })));
+
+const serviceLinks = [
+  { title: 'Calendario Pesca', description: 'Mesi migliori e specie target', href: '/calendario-pesca' },
+  { title: 'Spot di Pesca in Italia', description: 'Mappe e spot per regione', href: '/spot-pesca-italia' },
+  { title: 'Trova Attrezzatura', description: 'Consigli su canne, mulinelli, esche', href: '/trova-attrezzatura' },
 ];
 
-function Countdown({ targetDate }: { targetDate: Date }) {
-  const [mounted, setMounted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    setMounted(true);
-    
-    const calculateTime = () => {
-      const now = new Date().getTime();
-      const target = targetDate.getTime();
-      const distance = target - now;
-
-      if (distance <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-      }
-
-      return {
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      };
-    };
-
-    // Calcola subito
-    setTimeLeft(calculateTime());
-    
-    // Aggiorna ogni secondo
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTime());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
-  // Mostra placeholder durante SSR
-  if (!mounted) {
-    return (
-      <div className="flex gap-3 md:gap-6 justify-center">
-        {['Giorni', 'Ore', 'Min', 'Sec'].map((label, i) => (
-          <div key={i} className="text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-5 min-w-[70px] md:min-w-[90px] border border-white/20">
-              <span className="text-3xl md:text-5xl font-bold text-white tabular-nums">--</span>
-            </div>
-            <span className="text-xs md:text-sm text-white/70 mt-2 block">{label}</span>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex gap-3 md:gap-6 justify-center">
-      {[
-        { value: timeLeft.days, label: 'Giorni' },
-        { value: timeLeft.hours, label: 'Ore' },
-        { value: timeLeft.minutes, label: 'Min' },
-        { value: timeLeft.seconds, label: 'Sec' },
-      ].map((item, i) => (
-        <div key={i} className="text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-5 min-w-[70px] md:min-w-[90px] border border-white/20">
-            <span className="text-3xl md:text-5xl font-bold text-white tabular-nums">
-              {String(item.value).padStart(2, '0')}
-            </span>
-          </div>
-          <span className="text-xs md:text-sm text-white/70 mt-2 block">{item.label}</span>
-        </div>
-      ))}
-    </div>
+async function fetchAwardPosts(): Promise<Record<string, AwardPost>> {
+  const posts = await sanityClient.fetch<AwardPost[]>(
+    `*[_type == "post" && slug.current in $slugs && status != "archived"]{
+      title,
+      "slug": slug.current,
+      excerpt,
+      mainImage,
+      "seoImage": seoImage.asset->url
+    }`,
+    { slugs: awardSlugs }
   );
+
+  return posts.reduce<Record<string, AwardPost>>((acc, post) => {
+    acc[post.slug] = post;
+    return acc;
+  }, {});
 }
 
-export default function MiglioriPesca2026Page() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
-    nome: '',
-    attivita: '',
-    categoria: '',
-    email: '',
-    sito: '',
-    messaggio: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+function getImageUrl(post?: AwardPost) {
+  if (!post) return null;
+  if (post.seoImage) return post.seoImage;
+  if (post.mainImage) return urlFor(post.mainImage).url(); // nessun resize forzato
+  return null;
+}
 
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    
-    try {
-      const response = await fetch('/api/candidatura', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Errore durante l\'invio');
-      }
-
-      setSubmitted(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Errore durante l\'invio. Riprova.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+export default async function MiglioriPesca2026Page() {
+  const postsBySlug = await fetchAwardPosts();
 
   return (
-    <div className={`min-h-screen ${nunito.className}`}>
-      {/* Hero Section con Countdown */}
-      <section className="relative bg-gradient-to-br from-primary-800 via-primary-900 to-slate-900 text-white overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
+    <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-b from-blue-900 via-blue-800 to-blue-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <nav className="flex items-center gap-2 text-sm mb-6 text-blue-100/80">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <span className="text-blue-200/60">/</span>
+            <span className="text-white font-semibold">Migliori della Pesca 2026</span>
+          </nav>
 
-        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24">
-          {/* Badge */}
-          <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-medium border border-yellow-500/30">
-              <span className="animate-pulse">🔴</span>
-              Candidature Aperte
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-4">
-            🏆 I Migliori della Pesca
-            <span className="block text-yellow-400 mt-2">2026</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-center text-white/80 max-w-2xl mx-auto mb-10">
-            La selezione ufficiale FishandTips delle migliori realtà 
-            della pesca sportiva in Italia
-          </p>
-
-          {/* Countdown */}
-          <div className="mb-8">
-            <p className="text-center text-white/60 mb-4 text-sm">
-              ⏰ Candidature entro il <strong className="text-yellow-400">30 Dicembre 2025</strong>
+          <div className="max-w-3xl space-y-4">
+            <p className="inline-flex px-3 py-1 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wide text-blue-100">
+              Lista ufficiale 2026 · 10 eccellenze italiane della pesca
             </p>
-            <Countdown targetDate={PUBLICATION_DATE} />
-            <p className="text-center text-white/50 mt-3 text-xs">
-              alla pubblicazione della classifica
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              Le 10 Eccellenze Italiane della Pesca 2026
+            </h1>
+            <p className="text-lg text-blue-100/90 leading-relaxed">
+              Selezione delle 10 eccellenze italiane che nel 2025 si sono contraddistinte per contenuti,
+              prodotti innovativi, servizi e progetti apprezzati dalla community. FishandTips le premia e le consiglia
+              come scelte di riferimento per pescatori e appassionati nel 2026. Ogni scheda porta all&apos;articolo dedicato.
             </p>
           </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <a
-              href="#candidati"
-              className="bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-105 text-center"
-            >
-              Candidati Ora
-            </a>
-            <a
-              href="#categorie"
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all border border-white/20 text-center"
-            >
-              Scopri le Categorie
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mt-16 max-w-xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-yellow-400">30</div>
-              <div className="text-sm text-white/60">Posti Totali</div>
-            </div>
-            <div className="text-center border-x border-white/20">
-              <div className="text-3xl md:text-4xl font-bold text-yellow-400">3</div>
-              <div className="text-sm text-white/60">Categorie</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-yellow-400">100%</div>
-              <div className="text-sm text-white/60">Gratuito</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-          </svg>
         </div>
       </section>
 
-      {/* Categorie Section */}
-      <section id="categorie" className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-4">
-            Le Categorie
-          </h2>
-          <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            Selezioniamo solo <strong>10 realtà per categoria</strong> tra le migliori d'Italia.
-            Posti limitati, candidature in ordine di arrivo.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {categories.map((cat) => (
-              <div
-                key={cat.id}
-                className="bg-white rounded-2xl border-2 border-slate-100 p-8 hover:border-primary-500 hover:shadow-xl transition-all group"
-              >
-                <div className="text-5xl mb-4">{cat.icon}</div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">{cat.title}</h3>
-                <p className="text-slate-600 mb-6">{cat.description}</p>
-                
-                {/* Progress Bar */}
-                <div className="mb-4">
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-slate-500">Posti disponibili</span>
-                    <span className="font-semibold text-primary-600">
-                      {cat.slots - cat.filled}/{cat.slots}
-                    </span>
-                  </div>
-                  <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all"
-                      style={{ width: `${(cat.filled / cat.slots) * 100}%` }}
-                    />
-                  </div>
-                </div>
-
-                <a
-                  href="#candidati"
-                  onClick={() => setFormData(prev => ({ ...prev, categoria: cat.title }))}
-                  className="block w-full text-center bg-slate-100 group-hover:bg-primary-600 text-slate-700 group-hover:text-white font-semibold py-3 rounded-xl transition-all"
-                >
-                  Candidati →
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-4">
-            Cosa Ottieni (Gratis)
-          </h2>
-          <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-            Essere selezionati significa ricevere visibilità e credibilità 
-            completamente <strong>senza costi</strong>.
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl p-6 border border-slate-100 hover:shadow-lg transition-all"
-              >
-                <div className="text-3xl mb-3">{benefit.icon}</div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2">{benefit.title}</h3>
-                <p className="text-slate-600 text-sm">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      <section id="candidati" className="py-16 md:py-24 bg-white">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-4">
-            Candidati Ora
-          </h2>
-          <p className="text-center text-slate-600 mb-10">
-            Compila il form e ti contatteremo entro 48 ore per confermare la selezione.
-          </p>
-
-          {submitted ? (
-            <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8 text-center">
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-green-800 mb-2">
-                Candidatura Inviata!
-              </h3>
-              <p className="text-green-700">
-                Ti contatteremo entro 48 ore all'indirizzo email fornito.
-                Controlla anche la cartella spam!
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        {awardGroups.map((group) => (
+          <div key={group.title} className="space-y-6">
+            <div>
+              <p className="text-sm font-semibold text-blue-700 uppercase tracking-wide">
+                {group.title}
               </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">{group.subtitle}</h2>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Il tuo nome *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.nome}
-                    onChange={(e) => setFormData(prev => ({ ...prev, nome: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                    placeholder="Mario Rossi"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Nome Attività *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.attivita}
-                    onChange={(e) => setFormData(prev => ({ ...prev, attivita: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                    placeholder="Pesca Shop Milano"
-                  />
-                </div>
-              </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Categoria *
-                  </label>
-                  <select
-                    required
-                    value={formData.categoria}
-                    onChange={(e) => setFormData(prev => ({ ...prev, categoria: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {group.items.map((item) => {
+                const post = postsBySlug[item.slug];
+                const imageUrl = getImageUrl(post);
+
+                return (
+                  <Link
+                    key={item.slug}
+                    href={`/articoli/${item.slug}`}
+                    className="group"
                   >
-                    <option value="">Seleziona categoria</option>
-                    <option value="Negozi di Pesca">🏪 Negozi di Pesca</option>
-                    <option value="Charter di Pesca">🚤 Charter di Pesca</option>
-                    <option value="Scuole/Gare di Pesca">🎓 Scuole/Gare di Pesca</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                    placeholder="info@tuosito.it"
-                  />
-                </div>
-              </div>
+                    <article className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                      <div className="flex flex-col sm:flex-row">
+                        <div className="sm:w-48 sm:flex-shrink-0 bg-white border border-gray-100 rounded-xl p-4 flex items-center justify-center">
+                          {imageUrl ? (
+                            <Image
+                              src={imageUrl}
+                              alt={post?.title || item.name}
+                              width={320}
+                              height={180}
+                              className="max-h-24 sm:max-h-28 w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                              priority={false}
+                              sizes="(max-width: 640px) 200px, 240px"
+                            />
+                          ) : (
+                            <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 text-blue-700 text-2xl font-semibold">
+                              {item.name
+                                .split(' ')
+                                .map((word) => word[0])
+                                .join('')
+                                .slice(0, 3)
+                                .toUpperCase()}
+                            </div>
+                          )}
+                        </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Sito Web
-                </label>
-                <input
-                  type="url"
-                  value={formData.sito}
-                  onChange={(e) => setFormData(prev => ({ ...prev, sito: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                  placeholder="https://www.tuosito.it"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Raccontaci la tua attività
-                </label>
-                <textarea
-                  rows={4}
-                  value={formData.messaggio}
-                  onChange={(e) => setFormData(prev => ({ ...prev, messaggio: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
-                  placeholder="Da quanti anni siete attivi? Quali sono i vostri punti di forza? Servite clienti in tutta Italia?"
-                />
-              </div>
-
-              {error && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
-                  ⚠️ {error}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-slate-400 text-white font-bold py-4 rounded-xl text-lg transition-all transform hover:scale-[1.02] disabled:transform-none"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    Invio in corso...
-                  </span>
-                ) : (
-                  'Invia Candidatura 🚀'
-                )}
-              </button>
-
-              <p className="text-center text-sm text-slate-500">
-                📧 Riceverai una risposta entro 48 ore. Nessun costo, nessun impegno.
-              </p>
-            </form>
-          )}
-        </div>
+                        <div className="p-5 flex-1 space-y-3">
+                          <div className="flex items-center gap-2 text-xs font-semibold text-blue-700 uppercase tracking-wide">
+                            <span>Premiati 2026</span>
+                            <span className="text-gray-300">•</span>
+                            <span>Selezione ufficiale</span>
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                            {post?.title || item.name}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed">
+                            {post?.excerpt || item.blurb}
+                          </p>
+                          <div className="inline-flex items-center text-blue-700 font-semibold text-sm">
+                            Leggi l&apos;articolo
+                            <svg
+                              className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">
-            Domande Frequenti
-          </h2>
-
-          <div className="space-y-4">
-            {[
-              {
-                q: 'Costa qualcosa essere selezionati?',
-                a: 'No, la selezione e la pubblicazione sono completamente gratuite. Non chiediamo alcun pagamento.',
-              },
-              {
-                q: 'Come vengono selezionate le attività?',
-                a: 'Valutiamo la qualità dei servizi, le recensioni online, la professionalità e la presenza sul territorio. Non è necessario essere grandi per essere selezionati.',
-              },
-              {
-                q: 'Cosa devo fare in cambio?',
-                a: 'Nulla di obbligatorio. Se vorrete, potrete menzionarci nella vostra sezione "Dicono di noi" o condividere la scheda sui social. Ma non è un requisito.',
-              },
-              {
-                q: 'Quanto rimane online la scheda?',
-                a: 'Per sempre! Non è limitata al 2026. Una volta pubblicata, la scheda rimane permanentemente sul nostro sito.',
-              },
-              {
-                q: 'Posso modificare la scheda dopo la pubblicazione?',
-                a: 'Certamente! Potrai richiedere modifiche in qualsiasi momento inviandoci una email.',
-              },
-            ].map((faq, i) => (
-              <details
-                key={i}
-                className="bg-white rounded-xl border border-slate-200 group"
+      {/* Servizi utili */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-blue-700 uppercase tracking-wide">Servizi utili</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Strumenti veloci di FishandTips</h2>
+            <p className="text-gray-600">
+              Risorse pratiche per pianificare uscite, scegliere attrezzatura e trovare nuovi spot.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {serviceLinks.map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="group rounded-2xl border border-gray-200 bg-white p-4 hover:shadow-md transition-all"
               >
-                <summary className="px-6 py-4 cursor-pointer font-semibold text-slate-800 flex justify-between items-center">
-                  {faq.q}
-                  <span className="text-primary-600 group-open:rotate-180 transition-transform">
-                    ▼
-                  </span>
-                </summary>
-                <div className="px-6 pb-4 text-slate-600">
-                  {faq.a}
+                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-600 mt-1">{service.description}</p>
+                <div className="mt-3 inline-flex items-center text-blue-700 text-sm font-semibold">
+                  Apri
+                  <svg className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-              </details>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Non perdere questa opportunità
-          </h2>
-          <p className="text-lg text-white/80 mb-8">
-            Solo 30 posti disponibili. Candidature entro il <strong>30 Dicembre 2025</strong>.
-          </p>
-          <a
-            href="#candidati"
-            className="inline-block bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold px-10 py-4 rounded-xl text-lg transition-all transform hover:scale-105"
-          >
-            Candidati Ora →
-          </a>
+      {/* Cross-link articoli premiati */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-blue-700 uppercase tracking-wide">Articoli premiati</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Approfondisci le 10 realtà selezionate</h2>
+            <p className="text-gray-600">Raggiungi direttamente gli articoli dedicati a brand, negozi, scuole e professionisti.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {awardLinks.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/articoli/${item.slug}`}
+                className="rounded-xl border border-gray-200 px-4 py-3 bg-white hover:border-blue-200 hover:shadow-sm transition-all flex items-center justify-between"
+              >
+                <span className="text-sm font-semibold text-gray-900">{item.name}</span>
+                <svg className="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>
