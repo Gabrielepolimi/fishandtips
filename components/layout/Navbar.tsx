@@ -38,8 +38,14 @@ export default function Navbar() {
               <Link href="/migliori-pesca-2026" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Migliori 2026
               </Link>
-              <Link href="/chi-siamo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Chi Siamo
+              <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Pesci
+              </Link>
+              <Link href="/spot-pesca-italia" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Spot
+              </Link>
+              <Link href="/calendario-pesca" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Calendario
               </Link>
               <Link href="/contatti" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Contatti
@@ -101,8 +107,14 @@ export default function Navbar() {
           <Link href="/migliori-pesca-2026" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Migliori 2026
           </Link>
-          <Link href="/chi-siamo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
-            Chi Siamo
+          <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Pesci
+          </Link>
+          <Link href="/spot-pesca-italia" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Spot
+          </Link>
+          <Link href="/calendario-pesca" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Calendario
           </Link>
           <Link href="/contatti" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Contatti
