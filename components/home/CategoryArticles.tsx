@@ -9,7 +9,7 @@ interface Article {
   mainImage?: { asset?: { url: string } };
   publishedAt?: string;
   author?: string;
-  categories?: string[];
+  categories?: { title?: string; slug?: string }[];
   excerpt?: string;
 }
 
@@ -25,9 +25,9 @@ interface CategoryArticlesProps {
 }
 
 export default function CategoryArticles({ category, articles }: CategoryArticlesProps) {
-  const categoryArticles = articles.filter(article => 
-    article.categories?.some(cat => 
-      cat.toLowerCase().includes(category.slug.toLowerCase())
+  const categoryArticles = articles.filter(article =>
+    article.categories?.some((cat) =>
+      (cat.slug || '').toLowerCase() === category.slug.toLowerCase()
     )
   );
 

@@ -9,7 +9,7 @@ interface Article {
   mainImage?: { asset?: { url: string } };
   publishedAt?: string;
   author?: string;
-  categories?: string[];
+  categories?: { title?: string; slug?: string }[];
   excerpt?: string;
 }
 
@@ -104,9 +104,9 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
                 <div>
                   {/* Category & Date */}
                   <div className="flex items-center gap-3 mb-2">
-                    {article.categories && article.categories[0] && (
+                    {article.categories?.[0]?.title && (
                       <span className="text-sm font-medium text-blue-600">
-                        {article.categories[0]}
+                        {article.categories[0].title}
                       </span>
                     )}
                     {article.publishedAt && (
