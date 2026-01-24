@@ -15,10 +15,9 @@ import { getAllArticlesForDuplicateCheck } from './sanity-helpers.js';
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   // Soglia di similarità per considerare un articolo duplicato (0-100)
-  // NOTA: Impostato MOLTO alto (98) - blocca SOLO duplicati praticamente identici
-  // Es: "come pescare la spigola" vs "come pescare la spigola" = duplicato
-  // Es: "pesca spigola inverno" vs "pesca spigola estate" = OK, sono diversi!
-  similarityThreshold: 98,
+  // Impostato a 92 per bloccare topic troppo simili prima della pubblicazione
+  // Es: "come pescare la spigola" vs "guida pesca alla spigola" => skip
+  similarityThreshold: 92,
   // Numero massimo di articoli da confrontare (per ottimizzare costi/tempo)
   maxArticlesToCompare: 30,
   // Abilita logging dettagliato
@@ -63,9 +62,10 @@ Per ogni articolo esistente, valuta:
 2. SEARCH INTENT: L'utente che cerca la nuova keyword troverebbe soddisfacente l'articolo esistente?
 3. KEYWORD CANNIBALIZATION: I due contenuti competerebbero per le stesse query su Google?
 
-=== REGOLE - SII ESTREMAMENTE PERMISSIVO ===
-- Similarità 98-100%: DUPLICATO - SOLO se titolo e argomento sono IDENTICI
-- Similarità 0-97%: PROCEDI SEMPRE - anche se correlati, sono articoli diversi
+=== REGOLE DI DECISIONE ===
+- Similarità >= 92%: DUPLICATO → recommendation: "skip"
+- Similarità 80-91%: OVERLAP → recommendation: "modify_angle" con angolo alternativo
+- Similarità < 80%: PROCEED
 
 REGOLA D'ORO: Blocca SOLO se qualcuno cercando su Google troverebbe ESATTAMENTE lo stesso contenuto.
 
@@ -190,6 +190,16 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
     }
 
     const analysis = JSON.parse(jsonMatch[0]);
+
+    // Applicazione soglia server-side per coerenza
+    if (analysis.maxSimilarity >= CONFIG.similarityThreshold) {
+      analysis.isDuplicate = true;
+      analysis.recommendation = 'skip';
+      analysis.mostSimilarArticle = analysis.mostSimilarArticle || {};
+      analysis.mostSimilarArticle.reason =
+        analysis.mostSimilarArticle.reason ||
+        `Similarità ${analysis.maxSimilarity}% >= soglia ${CONFIG.similarityThreshold}%`;
+    }
 
     // 5. Logga risultato
     if (verbose) {
