@@ -555,6 +555,42 @@ export default async function PostPage({ params }: Props) {
           </div>
         </footer>
 
+        {/* Approfondisci / Guide correlate */}
+        {relatedArticles && relatedArticles.length > 0 && (
+          <section className="mt-12">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Approfondisci</h2>
+              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+                Guide correlate per approfondire l&apos;argomento.
+              </p>
+              <div className="grid gap-4 sm:gap-5">
+                {relatedArticles.slice(0, 3).map((rel) => (
+                  <Link
+                    key={rel._id}
+                    href={`/articoli/${rel.slug}`}
+                    className="group flex items-start gap-4 p-4 rounded-xl bg-white border border-gray-200 hover:border-brand-blue/40 hover:shadow-sm transition"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-gray-500 mb-1">
+                        {new Date(rel.publishedAt).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}
+                      </p>
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-brand-blue line-clamp-2">
+                        {rel.title}
+                      </h3>
+                      {rel.excerpt && (
+                        <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                          {rel.excerpt}
+                        </p>
+                      )}
+                    </div>
+                    <span className="text-brand-blue font-semibold text-sm sm:text-base">→</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
                   {/* Confronto canne da pesca */}
           {post.showFishingRodComparison && (
             <FishingRodComparison 
