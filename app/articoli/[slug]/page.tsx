@@ -269,11 +269,40 @@ export default async function PostPage({ params }: Props) {
     wordCount: post.body?.length || 0,
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://fishandtips.it/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Articoli',
+        item: 'https://fishandtips.it/articoli'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://fishandtips.it/articoli/${post.slug}`
+      }
+    ]
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
         {/* Header */}

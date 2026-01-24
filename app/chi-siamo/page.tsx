@@ -78,9 +78,21 @@ export default function ChiSiamoPage() {
               Non scriviamo per riempire pagine, ma per condividere quello che viviamo ogni volta 
               che lanciamo la lenza.
             </p>
-            <p className="text-gray-700 font-medium">
+            <p className="text-gray-700 font-medium mb-4">
               Scopri le nostre guide, scritte da chi ama la pesca… per chi ama la pesca.
             </p>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Progetto editoriale indipendente</h3>
+              <p className="text-gray-700 mb-2">
+                Selezioniamo gli argomenti in base alle domande reali dei pescatori e ai dati di ricerca, non per sponsorship o pagamenti.
+              </p>
+              <p className="text-gray-700 mb-2">
+                Non accettiamo sponsorizzazioni occulte: quando segnaliamo prodotti o spot, lo facciamo perché li usiamo o li riteniamo utili.
+              </p>
+              <p className="text-gray-700">
+                Aggiorniamo e correggiamo i contenuti periodicamente: se qualcosa cambia (regolamenti, stagioni, attrezzature), lo dichiariamo nell&apos;articolo.
+              </p>
+            </div>
           </div>
         </div>
       </section>
