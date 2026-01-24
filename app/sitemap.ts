@@ -1,17 +1,30 @@
-import { MetadataRoute } from 'next'
-import { sanityClient } from '../sanityClient'
+import { MetadataRoute } from 'next';
+import { sanityClient } from '../sanityClient';
 
 // Cache la sitemap per 1h per evitare richieste continue a Sanity
-export const revalidate = 3600
+export const revalidate = 3600;
+
+type PostForSitemap = {
+  slug: string;
+  publishedAt?: string;
+  _updatedAt?: string;
+};
+
+type CategoryForSitemap = {
+  slug: string;
+  _updatedAt?: string;
+  postCount?: number;
+};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://fishandtips.it'
+  const baseUrl = 'https://fishandtips.it';
+  const now = new Date();
 
   const [posts = [], categories = []] = await Promise.all([
     sanityClient
-      .fetch(
+      .fetch<PostForSitemap[]>(
         `
-        *[_type == "post" && status == "published"] {
+        *[_type == "post" && status == "published" && defined(slug.current) && publishedAt <= now()] {
           "slug": slug.current,
           publishedAt,
           _updatedAt
@@ -19,59 +32,45 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       `,
       )
       .catch((err) => {
-        console.error('Errore fetch articoli per sitemap:', err)
-        return []
+        console.error('Errore fetch articoli per sitemap:', err);
+        return [];
       }),
     sanityClient
-      .fetch(
+      .fetch<CategoryForSitemap[]>(
         `
-        *[_type == "category" && defined(slug.current)] {
+        *[_type == "category" && defined(slug.current)]{
           "slug": slug.current,
-          _updatedAt
+          _updatedAt,
+          "postCount": count(*[_type == "post" && status == "published" && references(^._id)])
         }
       `,
       )
       .catch((err) => {
-        console.error('Errore fetch categorie per sitemap:', err)
-        return []
+        console.error('Errore fetch categorie per sitemap:', err);
+        return [];
       }),
-  ])
-
-  const now = new Date()
+  ]);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
     { url: `${baseUrl}/articoli`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${baseUrl}/chi-siamo`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/contatti`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/registrazione`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/calendario-pesca`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/pesci-mediterraneo`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/spot-pesca-italia`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/tecniche`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/trova-attrezzatura`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${baseUrl}/migliori-pesca-2026`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/mappa-del-sito`, lastModified: now, changeFrequency: 'weekly', priority: 0.5 },
-    { url: `${baseUrl}/supporto`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${baseUrl}/newsletter`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${baseUrl}/cookie-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
-    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
-    { url: `${baseUrl}/termini`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
-  ]
+  ];
 
-  const categoryPages: MetadataRoute.Sitemap = categories.map((category: any) => ({
-    url: `${baseUrl}/categoria/${category.slug}`,
-    lastModified: category._updatedAt ? new Date(category._updatedAt) : now,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }))
+  const categoryPages: MetadataRoute.Sitemap = categories
+    .filter((category) => (category.postCount || 0) > 0)
+    .map((category) => ({
+      url: `${baseUrl}/categoria/${category.slug}`,
+      lastModified: category._updatedAt ? new Date(category._updatedAt) : now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    }));
 
-  const articlePages: MetadataRoute.Sitemap = posts.map((post: any) => ({
+  const articlePages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/articoli/${post.slug}`,
-    lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(post.publishedAt),
+    lastModified: post._updatedAt ? new Date(post._updatedAt) : post.publishedAt ? new Date(post.publishedAt) : now,
     changeFrequency: 'weekly',
     priority: 0.8,
-  }))
+  }));
 
-  return [...staticPages, ...categoryPages, ...articlePages]
+  return [...staticPages, ...categoryPages, ...articlePages];
 }

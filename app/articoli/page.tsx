@@ -1,35 +1,49 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getPosts } from '../../lib/getPosts';
 
-export const metadata: Metadata = {
-  title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
-  description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli. Guide complete per spinning, bolognese, feeder e molto altro.',
-  keywords: 'articoli pesca, tecniche di pesca, guide pesca, spinning, bolognese, feeder, attrezzature pesca, spot pesca, consigli pesca',
-  openGraph: {
+type SearchParams = { [key: string]: string | string[] | undefined };
+
+export async function generateMetadata(
+  { searchParams }: { searchParams?: SearchParams }
+): Promise<Metadata> {
+  const pageParam = searchParams?.page;
+  const page = Array.isArray(pageParam) ? parseInt(pageParam[0] || '1', 10) : parseInt(pageParam || '1', 10);
+  const safePage = Number.isFinite(page) && page > 1 ? page : 1;
+  const canonicalBase = 'https://fishandtips.it/articoli';
+  const canonical = safePage > 1 ? `${canonicalBase}?page=${safePage}` : canonicalBase;
+
+  return {
     title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
     description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli. Guide complete per spinning, bolognese, feeder e molto altro.',
-    type: 'website',
-    url: 'https://fishandtips.it/articoli',
-    images: [
-      {
-        url: 'https://fishandtips.it/images/articoli.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Articoli di pesca FishandTips',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
-    description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli.',
-    images: ['https://fishandtips.it/images/articoli.jpg'],
-  },
-  alternates: {
-    canonical: 'https://fishandtips.it/articoli',
-  },
-};
+    keywords: 'articoli pesca, tecniche di pesca, guide pesca, spinning, bolognese, feeder, attrezzature pesca, spot pesca, consigli pesca',
+    robots: 'index, follow',
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
+      description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli. Guide complete per spinning, bolognese, feeder e molto altro.',
+      type: 'website',
+      url: canonical,
+      images: [
+        {
+          url: 'https://fishandtips.it/images/articoli.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Articoli di pesca FishandTips',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Articoli di Pesca - Consigli, Tecniche e Guide | FishandTips',
+      description: 'Scopri tutti gli articoli di pesca: tecniche, attrezzature, spot e consigli.',
+      images: ['https://fishandtips.it/images/articoli.jpg'],
+    },
+  };
+}
 
 const categories = [
   { 
@@ -62,7 +76,19 @@ const categories = [
   }
 ];
 
-export default function ArticoliPage() {
+export default async function ArticoliPage({ searchParams }: { searchParams?: SearchParams }) {
+  const pageParam = searchParams?.page;
+  const pageNumber = Array.isArray(pageParam) ? parseInt(pageParam[0] || '1', 10) : parseInt(pageParam || '1', 10);
+  const page = Number.isFinite(pageNumber) && pageNumber > 0 ? pageNumber : 1;
+  const perPage = 12;
+
+  const posts = await getPosts();
+  const sorted = (posts || []).sort((a: any, b: any) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const totalPages = Math.max(1, Math.ceil(sorted.length / perPage));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * perPage;
+  const paginated = sorted.slice(start, start + perPage);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -204,6 +230,93 @@ export default function ArticoliPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
+        </div>
+      </section>
+
+      {/* Elenco completo articoli con paginazione */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">Tutti gli articoli</h2>
+            <p className="text-sm text-gray-500">
+              {sorted.length} contenuti pubblicati · Pagina {currentPage} di {totalPages}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {paginated.map((post: any) => (
+              <article key={post._id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
+                {post.mainImage?.asset?.url && (
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={post.mainImage.asset.url}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+                <div className="p-5 flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <span>{new Date(post.publishedAt).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+                    <span className="text-gray-300">•</span>
+                    <span>{(post.categories && post.categories[0]) || 'Pesca'}</span>
+                  </div>
+                  <Link href={`/articoli/${post.slug}`} className="group">
+                    <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                  </Link>
+                  <p className="text-sm text-gray-600 line-clamp-3">
+                    {post.excerpt || 'Scopri tecniche, attrezzature e consigli pratici per migliorare le tue uscite di pesca.'}
+                  </p>
+                  <div className="pt-1">
+                    <Link
+                      href={`/articoli/${post.slug}`}
+                      className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700"
+                    >
+                      Leggi l&apos;articolo
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Paginazione */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-3 mt-10">
+              {currentPage > 1 ? (
+                <Link
+                  href={`/articoli?page=${currentPage - 1}`}
+                  className="px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-700 hover:border-blue-200 hover:text-blue-700 transition-colors"
+                >
+                  ← Pagina precedente
+                </Link>
+              ) : (
+                <span className="px-4 py-2 rounded-full border border-gray-100 text-sm text-gray-400 cursor-not-allowed">
+                  ← Pagina precedente
+                </span>
+              )}
+              <span className="text-sm text-gray-600">
+                Pagina {currentPage} di {totalPages}
+              </span>
+              {currentPage < totalPages ? (
+                <Link
+                  href={`/articoli?page=${currentPage + 1}`}
+                  className="px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-700 hover:border-blue-200 hover:text-blue-700 transition-colors"
+                >
+                  Pagina successiva →
+                </Link>
+              ) : (
+                <span className="px-4 py-2 rounded-full border border-gray-100 text-sm text-gray-400 cursor-not-allowed">
+                  Pagina successiva →
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </section>
     </div>
