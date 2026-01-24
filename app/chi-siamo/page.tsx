@@ -92,6 +92,9 @@ export default function ChiSiamoPage() {
               <p className="text-gray-700">
                 Aggiorniamo e correggiamo i contenuti periodicamente: se qualcosa cambia (regolamenti, stagioni, attrezzature), lo dichiariamo nell&apos;articolo.
               </p>
+              <p className="text-gray-700 mt-3">
+                Il nostro lavoro segue una <Link href="/editorial-policy" className="text-blue-600 hover:text-blue-700 underline">Linea editoriale</Link> trasparente e indipendente.
+              </p>
             </div>
           </div>
         </div>

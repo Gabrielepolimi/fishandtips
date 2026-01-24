@@ -96,6 +96,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/editorial-policy" className="text-gray-300 hover:text-white transition-colors">
+                  Editorial Policy
+                </Link>
+              </li>
+              <li>
                 <Link href="/newsletter/unsubscribe" className="text-gray-300 hover:text-white transition-colors">
                   Disiscriviti dalla Newsletter
                 </Link>
