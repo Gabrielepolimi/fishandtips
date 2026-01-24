@@ -169,7 +169,11 @@ export default async function ArticoliPage({ searchParams }: { searchParams?: Se
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginated.map((post: any) => (
+            {paginated.map((post: any) => {
+              const firstCategoryTitle = post.categories?.[0]?.title || 'Pesca';
+              const slug = typeof post.slug === 'string' ? post.slug : post.slug?.current;
+              
+              return (
               <article key={post._id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
                 {post.mainImage?.asset?.url && (
                   <div className="relative aspect-[4/3]">
@@ -186,9 +190,9 @@ export default async function ArticoliPage({ searchParams }: { searchParams?: Se
                   <div className="flex items-center gap-2 text-xs text-gray-500">
                     <span>{new Date(post.publishedAt).toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                     <span className="text-gray-300">•</span>
-                    <span>{(post.categories && post.categories[0]) || 'Pesca'}</span>
+                    <span>{firstCategoryTitle}</span>
                   </div>
-                  <Link href={`/articoli/${post.slug}`} className="group">
+                  <Link href={`/articoli/${slug}`} className="group">
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
                       {post.title}
                     </h3>
@@ -198,7 +202,7 @@ export default async function ArticoliPage({ searchParams }: { searchParams?: Se
                   </p>
                   <div className="pt-1">
                     <Link
-                      href={`/articoli/${post.slug}`}
+                      href={`/articoli/${slug}`}
                       className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700"
                     >
                       Leggi l&apos;articolo
@@ -207,7 +211,8 @@ export default async function ArticoliPage({ searchParams }: { searchParams?: Se
                   </div>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
 
           {/* Paginazione */}
