@@ -45,37 +45,6 @@ export async function generateMetadata(
   };
 }
 
-const categories = [
-  { 
-    title: 'Tecniche di Pesca', 
-    slug: 'tecniche-di-pesca', 
-    image: '/images/tecniche.jpg',
-    description: 'Spinning, bolognese, feeder e molto altro',
-    count: '25+ guide'
-  },
-  { 
-    title: 'Attrezzature', 
-    slug: 'attrezzature', 
-    image: '/images/attrezzature.jpg',
-    description: 'Canne, mulinelli, esche e accessori',
-    count: '30+ recensioni'
-  },
-  { 
-    title: 'Spot di Pesca', 
-    slug: 'spot-di-pesca', 
-    image: '/images/spot.jpg',
-    description: 'I migliori luoghi in Italia',
-    count: '20+ spot'
-  },
-  { 
-    title: 'Consigli', 
-    slug: 'consigli', 
-    image: '/images/consigligenerali.jpg',
-    description: 'Trucchi e segreti dei pro',
-    count: '40+ tips'
-  }
-];
-
 export default async function ArticoliPage({ searchParams }: { searchParams?: SearchParams }) {
   const pageParam = searchParams?.page;
   const pageNumber = Array.isArray(pageParam) ? parseInt(pageParam[0] || '1', 10) : parseInt(pageParam || '1', 10);
@@ -111,50 +80,6 @@ export default async function ArticoliPage({ searchParams }: { searchParams?: Se
               Tecniche, consigli e segreti per migliorare le tue catture. 
               Scritti da pescatori, per pescatori.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories Grid */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            Esplora per categoria
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category) => (
-              <Link 
-                key={category.slug} 
-                href={`/categoria/${category.slug}`}
-                className="group"
-              >
-                <article className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300">
-                  {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={category.image}
-                      alt={category.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-5">
-                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 mb-3">
-                      {category.description}
-                    </p>
-                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wide">
-                      {category.count}
-                    </span>
-                  </div>
-                </article>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
