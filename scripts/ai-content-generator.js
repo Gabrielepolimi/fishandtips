@@ -469,6 +469,11 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log('🔗 Inserimento link Amazon nel testo...');
   const contentWithLinks = insertAmazonLinksInContent(parsed.content, parsed.products);
 
+  // 5b. Internal linking: aggiungi blocco "Approfondisci" con link interni
+  log('🔗 Internal linking verso articoli correlati...');
+  const internalLinks = await getInternalLinks(categorySlug, finalSlug, 3);
+  const contentWithInternalLinks = appendInternalLinks(contentWithLinks, internalLinks);
+
   // 6. Cerca immagine (Unsplash + fallback locale)
   log('📸 Ricerca immagine...');
   const { mainImageAsset, imageCredit, imageSource } = await getImageWithFallback(
@@ -489,8 +494,8 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     throw new Error('Nessun autore trovato in Sanity. Crea prima un autore.');
   }
 
-  // Converti markdown (con link Amazon) in block content
-  const bodyBlocks = markdownToBlockContent(contentWithLinks);
+  // Converti markdown (con link Amazon + internal) in block content
+  const bodyBlocks = markdownToBlockContent(contentWithInternalLinks);
 
   // Calcola reading time e likes random
   const wordCount = parsed.content.split(/\s+/).length;
@@ -692,6 +697,43 @@ function extractImageKeywords(keyword, category) {
   const primary = pickRandom(pool);
   const secondary = pickRandom(pool);
   return `${primary} ${secondary}`.trim();
+}
+
+/**
+ * Recupera articoli interni per linking
+ */
+async function getInternalLinks(categorySlug, excludeSlug, limit = 3) {
+  try {
+    const posts = await sanityClient.fetch(
+      `
+      *[_type == "post" && status == "published" && defined(slug.current) && slug.current != $exclude && publishedAt <= now() && ($categorySlug in categories[]->slug.current)] 
+      | order(publishedAt desc) [0...12] {
+        title,
+        "slug": slug.current,
+        excerpt
+      }
+    `,
+      { exclude: excludeSlug, categorySlug }
+    );
+    if (!posts || posts.length === 0) return [];
+    const shuffled = [...posts].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, limit);
+  } catch (error) {
+    console.error('❌ Errore fetch internal links:', error.message);
+    return [];
+  }
+}
+
+/**
+ * Appende blocco "Approfondisci" al markdown
+ */
+function appendInternalLinks(content, links) {
+  if (!links || links.length === 0) return content;
+  const lines = links.map((l) => {
+    const teaser = l.excerpt ? ` – ${l.excerpt.slice(0, 120)}...` : '';
+    return `- [${l.title}](https://fishandtips.it/articoli/${l.slug})${teaser}`;
+  });
+  return `${content}\n\n## Approfondisci\n${lines.join('\n')}\n`;
 }
 
 /**
