@@ -26,6 +26,11 @@
       "source": "/categoria/tecniche",
       "destination": "/categoria/tecniche-di-pesca",
       "permanent": true
+    },
+    {
+      "source": "/articoli/montature-surfcasting-guida-completa-con-le-mie-configurazioni-vincenti",
+      "destination": "/articoli",
+      "permanent": true
     }
   ],
   "headers": [
