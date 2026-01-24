@@ -176,6 +176,10 @@ function getRandomFallbackImage() {
 /**
  * Ottiene immagine con fallback: prima Unsplash, poi locale
  */
+function pickRandom(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
 async function getImageWithFallback(keyword, categorySlug, finalSlug, articleTitle, log) {
   let mainImageAsset = null;
   let imageCredit = null;
@@ -188,12 +192,12 @@ async function getImageWithFallback(keyword, categorySlug, finalSlug, articleTit
       log(`   🔍 Tentativo ${attempt}/${CONFIG.unsplashMaxRetries} - Query: "${imageKeywords}"`);
       
       const photos = await searchPhotos(imageKeywords, {
-        perPage: 5,
+        perPage: 8,
         orientation: 'landscape'
       });
       
-      if (photos && photos.length > 0 && photos[0].url) {
-        const photo = photos[0];
+      if (photos && photos.length > 0) {
+        const photo = pickRandom(photos.filter(p => p?.url) || photos);
         
         // Verifica che non sia un placeholder
         if (photo.id && !photo.id.startsWith('placeholder')) {
@@ -663,11 +667,12 @@ function parseGeneratedContent(content) {
  */
 function extractImageKeywords(keyword, category) {
   const categoryImages = {
-    'tecniche-di-pesca': 'fishing technique',
-    'attrezzature': 'fishing gear equipment',
-    'consigli': 'fishing tips',
-    'spot-di-pesca': 'fishing spot sea'
+    'tecniche-di-pesca': ['fishing technique', 'angler casting', 'how to fish'],
+    'attrezzature': ['fishing gear closeup', 'rod reel detail', 'tackle box'],
+    'consigli': ['fishing tips', 'angler learning', 'fishing guide'],
+    'spot-di-pesca': ['fishing spot sea', 'shore angler', 'coastline fishing']
   };
+  const fallbacks = ['fishing action', 'angler outdoors', 'shore fishing', 'boat fishing', 'mediterranean fishing'];
   
   const mainWords = keyword
     .toLowerCase()
@@ -678,9 +683,15 @@ function extractImageKeywords(keyword, category) {
     .slice(0, 3)
     .join(' ');
   
-  const categoryKeyword = categoryImages[category] || 'fishing';
+  const pool = [
+    ...(categoryImages[category] || fallbacks),
+    mainWords || keyword,
+    'fishing'
+  ].filter(Boolean);
   
-  return `${mainWords} ${categoryKeyword} mediterranean`.trim();
+  const primary = pickRandom(pool);
+  const secondary = pickRandom(pool);
+  return `${primary} ${secondary}`.trim();
 }
 
 /**
