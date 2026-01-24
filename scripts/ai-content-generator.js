@@ -320,56 +320,46 @@ function insertAmazonLinksInContent(content, products) {
 }
 
 // ===== PROMPT TEMPLATE =====
-const ARTICLE_PROMPT = `Sei un esperto pescatore italiano e copywriter SEO. 
-Scrivi un articolo completo e dettagliato su: "{keyword}"
+const ARTICLE_PROMPT = `Sei un esperto pescatore italiano e copywriter SEO.
+Scrivi un articolo informativo e query-driven su: "{keyword}"
 
-REQUISITI OBBLIGATORI:
-1. TITOLO: Massimo 55 caratteri, accattivante e SEO-friendly (senza virgolette)
-2. EXCERPT: Descrizione di 150-155 caratteri per meta description
-3. CONTENUTO: 
-   - Minimo 1500 parole, massimo 2500
-   - Struttura con H2 e H3
-   - Paragrafi brevi (3-4 frasi)
-   - Almeno 5 sezioni principali
-   - Consigli pratici basati su esperienza reale
-   - Linguaggio coinvolgente in prima persona plurale (noi pescatori)
+OBIETTIVO: rispondere in modo pratico a una domanda/problema di pesca. Niente brand nel titolo.
 
-4. SEO:
-   - 5-7 keyword correlate (separate da virgola)
-   - Inserisci la keyword principale naturalmente nel testo
-   - Usa sinonimi e variazioni della keyword
+REQUISITI:
+1) TITOLO (max 60 caratteri): forma di domanda/problema, senza virgolette, senza brand.
+2) EXCERPT/meta description: 150-160 caratteri, informativa.
+3) LUNGHEZZA: 900-1500 parole.
+4) STRUTTURA (un solo H1 = il titolo; nel corpo usa solo H2/H3):
+   - Intro breve (problema/domanda + promessa)
+   - Perché conta / quando usarla
+   - Attrezzatura/setup consigliato
+   - Passi operativi o tecnica (step-by-step)
+   - Errori comuni
+   - Checklist rapida
+   - FAQ (3-5 Q&A)
+   - Conclusione/actionable takeaway
+5) STILE: paragrafi brevi (3-4 frasi), tono pratico, “noi pescatori”, zero fluff, esempi concreti.
+6) SEO: 5-7 keyword correlate (virgola), inserisci la keyword principale naturalmente, usa sinonimi.
+7) PRODOTTI: se non pertinenti lascia vuota la sezione PRODOTTI.
 
-5. PRODOTTI AMAZON AFFILIATI (MOLTO IMPORTANTE):
-   - Suggerisci 3-4 prodotti REALI correlati all'argomento
-   - Devono essere prodotti SPECIFICI acquistabili su Amazon.it (es: "Shimano Sedona FI 2500" non "un buon mulinello")
-   - Per ogni prodotto: nome ESATTO del prodotto, breve descrizione (max 80 car), prezzo indicativo realistico
-   - MENZIONA I PRODOTTI NEL TESTO usando il nome ESATTO che specifichi nella sezione PRODOTTI
-   - Esempio nel testo: "Per questa tecnica vi consigliamo il mulinello Shimano Sedona FI 2500, perfetto per..."
-   - I nomi dei prodotti verranno automaticamente convertiti in link Amazon
-
-6. FORMATO OUTPUT (RISPETTA ESATTAMENTE QUESTA STRUTTURA):
+FORMATO OUTPUT (rispetta esattamente):
 ---TITOLO---
-[Il titolo qui]
+[titolo qui]
 ---EXCERPT---
-[La meta description qui]
+[meta description qui]
 ---KEYWORDS---
 [keyword1, keyword2, keyword3, ...]
 ---PRODOTTI---
-PRODOTTO1: Nome ESATTO prodotto | Descrizione breve | €XX
-PRODOTTO2: Nome ESATTO prodotto | Descrizione breve | €XX
-PRODOTTO3: Nome ESATTO prodotto | Descrizione breve | €XX
-PRODOTTO4: Nome ESATTO prodotto | Descrizione breve | €XX
+[Lascia vuoto se non hai prodotti da suggerire]
 ---CONTENUTO---
-[Il contenuto markdown qui con ## per H2 e ### per H3]
-[IMPORTANTE: Menziona i prodotti usando ESATTAMENTE i nomi specificati sopra]
+[contenuto markdown con ## per H2 e ### per H3, senza H1 nel corpo]
 ---FINE---
 
 CATEGORIA ARTICOLO: {category}
 STAGIONE CORRENTE: {season}
 
-Scrivi contenuto originale, utile e basato su vera esperienza di pesca. 
-Non inventare statistiche o dati. Usa il "noi" per creare connessione con il lettore.
-RICORDA: I prodotti devono essere REALI e SPECIFICI (marca + modello) e MENZIONATI nel testo!`;
+Scrivi contenuto originale, utile e basato su vera esperienza di pesca.
+Non inventare statistiche o dati. Usa “noi” per creare connessione.`;
 
 // ===== FUNZIONE PRINCIPALE =====
 export async function generateArticle(keyword, categorySlug = 'consigli', options = {}) {
