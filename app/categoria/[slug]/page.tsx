@@ -10,18 +10,7 @@ interface PageProps {
   }>;
 }
 
-export async function generateStaticParams() {
-  const categories = [
-    { slug: 'tecniche-di-pesca' },
-    { slug: 'attrezzature' },
-    { slug: 'consigli' },
-    { slug: 'spot-di-pesca' }
-  ];
-  
-  return categories;
-}
-
-// Disabilita il build statico per ora
+// Pagina dinamica con revalidazione ogni ora
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // 1 ora
 
@@ -96,12 +85,10 @@ export default async function CategoryPage({ params }: PageProps) {
   const { slug } = await params;
   const posts = await getPosts();
   
-  // Filtra articoli per categoria - versione semplice
   const categoryPosts = posts.filter(post => 
-    post.categories?.some(cat => {
-      const categoryName = typeof cat === 'object' ? cat.title : cat;
-      return categoryName.toLowerCase().includes('tecniche') || 
-             categoryName.toLowerCase().includes('pesca');
+    post.categories?.some((cat: any) => {
+      const slugVal = typeof cat === 'object' ? cat.slug : '';
+      return slugVal === slug;
     })
   );
 
@@ -222,7 +209,7 @@ export default async function CategoryPage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categoryPosts.map((post) => (
               <article key={post._id} className="group">
-                <Link href={`/articoli/${post.slug.current}`}>
+                <Link href={`/articoli/${post.slug}`}>
                   <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden">
                     {/* Immagine */}
                     <div className="relative h-48 overflow-hidden">
