@@ -269,6 +269,11 @@ export default async function PostPage({ params }: Props) {
     wordCount: post.body?.length || 0,
   };
 
+  const formatMonthYear = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+  };
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -321,6 +326,25 @@ export default async function PostPage({ params }: Props) {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             {post.title}
           </h1>
+          
+          {/* TL;DR / Summary box */}
+          <div className="mb-6 sm:mb-8">
+            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 sm:p-5">
+              <h2 className="text-base sm:text-lg font-semibold text-blue-900 mb-2">In breve</h2>
+              <p className="text-sm sm:text-base text-blue-900">
+                {post.excerpt
+                  ? `In questa guida scoprirai ${post.excerpt}`
+                  : 'In questa guida scoprirai quando usarla, come impostare l’attrezzatura e gli errori da evitare.'}
+              </p>
+            </div>
+          </div>
+          
+          {/* Freshness signal */}
+          {post.publishedAt && (
+            <p className="text-sm text-gray-500 mb-4">
+              Ultimo aggiornamento: {formatMonthYear(post.publishedAt)}
+            </p>
+          )}
           
           {post.excerpt && (
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">

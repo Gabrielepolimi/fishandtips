@@ -469,10 +469,15 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log('🔗 Inserimento link Amazon nel testo...');
   const contentWithLinks = insertAmazonLinksInContent(parsed.content, parsed.products);
 
-  // 5b. Internal linking: aggiungi blocco "Approfondisci" con link interni
+  // 5b. TL;DR e freshness
+  const tldrBlock = buildTldrBlock(keyword, parsed.excerpt);
+  const freshnessBlock = buildFreshnessBlock();
+  const contentWithSignals = `${tldrBlock}\n\n${contentWithLinks}\n\n${freshnessBlock}`;
+
+  // 5c. Internal linking: aggiungi blocco "Approfondisci" con link interni
   log('🔗 Internal linking verso articoli correlati...');
   const internalLinks = await getInternalLinks(categorySlug, finalSlug, 3);
-  const contentWithInternalLinks = appendInternalLinks(contentWithLinks, internalLinks);
+  const contentWithInternalLinks = appendInternalLinks(contentWithSignals, internalLinks);
 
   // 6. Cerca immagine (Unsplash + fallback locale)
   log('📸 Ricerca immagine...');
@@ -734,6 +739,19 @@ function appendInternalLinks(content, links) {
     return `- [${l.title}](https://fishandtips.it/articoli/${l.slug})${teaser}`;
   });
   return `${content}\n\n## Approfondisci\n${lines.join('\n')}\n`;
+}
+
+function buildTldrBlock(keyword, excerpt) {
+  const summary = excerpt && excerpt.length > 0
+    ? excerpt
+    : `In questa guida su "${keyword}" trovi quando usarla, come impostare l'attrezzatura e gli errori da evitare.`;
+  return `## In breve\n${summary}`;
+}
+
+function buildFreshnessBlock() {
+  const now = new Date();
+  const monthYear = now.toLocaleDateString('it-IT', { month: 'long', year: 'numeric' });
+  return `> Ultimo aggiornamento: ${monthYear} – contenuti e tecniche attuali.`;
 }
 
 /**
