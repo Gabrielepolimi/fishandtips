@@ -509,7 +509,8 @@ export default async function PostPage({ params }: Props) {
                 },
               },
               block: {
-                h1: ({children}) => <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-8 sm:mt-12 mb-4 sm:mb-6">{children}</h1>,
+                // Evita H1 multipli nel corpo: il solo H1 è nel header sopra
+                h1: ({children}) => <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-8 sm:mt-12 mb-4 sm:mb-6">{children}</h2>,
                 h2: ({children}) => <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-6 sm:mt-10 mb-3 sm:mb-5">{children}</h2>,
                 h3: ({children}) => <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-5 sm:mt-8 mb-2 sm:mb-4">{children}</h3>,
                 h4: ({children}) => <h4 className="text-lg sm:text-xl font-bold text-gray-900 mt-4 sm:mt-6 mb-2 sm:mb-3">{children}</h4>,
