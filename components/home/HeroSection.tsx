@@ -10,14 +10,10 @@ export default function HeroSection() {
           {/* Text Content */}
           <div className="order-2 lg:order-1">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              La tua guida per la{' '}
-              <span className="text-blue-600">pesca sportiva</span>{' '}
-              in Italia
+              Guida completa alla pesca in Italia: tecniche, spot, attrezzature e normative
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-lg">
-              Scopri tecniche, spot segreti e consigli esperti per migliorare 
-              le tue catture. Dalla costa ai laghi, tutto quello che serve 
-              per diventare un pescatore migliore.
+              Guide pratiche, checklist e aggiornamenti sulle regole regionali, scritte da pescatori per pescatori.
             </p>
             
             {/* CTA Buttons */}
