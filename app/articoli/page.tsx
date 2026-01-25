@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPosts } from '../../lib/getPosts';
 
+export const dynamic = 'force-dynamic';
 type SearchParams = { [key: string]: string | string[] | undefined };
 
 export async function generateMetadata(
