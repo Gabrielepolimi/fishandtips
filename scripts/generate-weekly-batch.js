@@ -223,15 +223,28 @@ async function generateWeeklyBatch(options = {}) {
     results: []
   };
   
-  // 1. Determina le keyword da usare (topic queue Sanity oppure pool stagionale/file)
-  const useTopicQueue = options.useTopicQueue === true;
+  // 1. Determina le keyword: --file ha priorità, poi default = topic queue, --use-pool = pool stagionale
+  const useTopicQueue = options.useTopicQueue !== false;
   let allKeywords;
   let safeKeywords = [];
   let checkedCount = 0;
   let skippedKeywords = [];
+  let sourceIsTopicQueue = false;
 
-  if (useTopicQueue) {
-    console.log('📋 Modalità TOPIC QUEUE: uso solo topic approvati da Sanity\n');
+  if (keywordsFile) {
+    const filePath = path.join(__dirname, '..', 'data', keywordsFile);
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      allKeywords = data.keywords || data;
+      console.log(`📂 Keyword da file: ${keywordsFile}\n`);
+    } else {
+      console.error(`❌ File non trovato: ${filePath}`);
+      return log;
+    }
+    allKeywords = shuffleArray(allKeywords);
+  } else if (useTopicQueue) {
+    sourceIsTopicQueue = true;
+    console.log('📋 Modalità TOPIC QUEUE (default): uso solo topic approvati da Sanity\n');
     const topics = await getUnusedApprovedTopics(count);
     if (topics.length === 0) {
       console.log('⚠️ Nessun topic approvato disponibile (tutti usati o tipo approvedTopic non presente).');
@@ -243,83 +256,56 @@ async function generateWeeklyBatch(options = {}) {
       topicId: t._id
     }));
     console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
-  } else if (keywordsFile) {
-    // Carica da file
-    const filePath = path.join(__dirname, '..', 'data', keywordsFile);
-    if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      allKeywords = data.keywords || data;
-      console.log(`📂 Keyword caricate da: ${keywordsFile}`);
-    } else {
-      console.error(`❌ File non trovato: ${filePath}`);
-      return;
-    }
-    allKeywords = shuffleArray(allKeywords);
   } else {
-    // Mix di keyword stagionali + evergreen (POOL GRANDE)
     const { keywords: seasonal } = getSeasonalKeywords();
     allKeywords = [...seasonal, ...EVERGREEN_KEYWORDS];
-    console.log('🎲 Keyword pool automatico (stagionali + evergreen)');
-    console.log(`   Pool totale: ${allKeywords.length} keyword disponibili`);
+    console.log('🎲 Modalità POOL (--use-pool): stagionali + evergreen');
+    console.log(`   Pool totale: ${allKeywords.length} keyword\n`);
     allKeywords = shuffleArray(allKeywords);
   }
 
-  // 2. Trova keyword non duplicate (solo se NON topic queue e check abilitato)
-  if (!useTopicQueue && !skipDuplicateCheck && !dryRun) {
+  // 2. Trova keyword non duplicate (solo se pool/file, non topic queue, e check abilitato): rispetta le raccomandazioni del checker
+  if (!sourceIsTopicQueue && allKeywords && !skipDuplicateCheck && !dryRun) {
     console.log('\n' + '🔍'.repeat(20));
     console.log('FASE 1: RICERCA KEYWORD NON DUPLICATE');
     console.log('🔍'.repeat(20) + '\n');
-    console.log(`Obiettivo: trovare ${count} keyword uniche\n`);
+    console.log(`Obiettivo: trovare ${count} keyword (skip/modify_angle/error rispettati)\n`);
     
     for (const kw of allKeywords) {
-      // Stop se abbiamo abbastanza keyword
       if (safeKeywords.length >= count) break;
-      
-      // Limita il numero di check per evitare rate limit
-      if (checkedCount >= count * 3) {
-        console.log(`⚠️ Raggiunti ${checkedCount} check, uso keyword rimanenti senza check`);
-        break;
-      }
-      
+      if (checkedCount >= count * 5) break; // stop dopo N tentativi, senza riempire dal pool
+
       checkedCount++;
       console.log(`[${checkedCount}] Verifico: "${kw.keyword.substring(0, 50)}..."`);
-      
+
       try {
         const analysis = await checkSemanticDuplicate(kw.keyword, { verbose: false });
-        
-        // ULTRA PERMISSIVO: skip SOLO se similarità >= 98% (praticamente identico)
-        const isRealDuplicate = analysis.isDuplicate && analysis.maxSimilarity >= 98;
-        
-        if (isRealDuplicate) {
-          console.log(`   🔴 SKIP - Duplicato identico (${analysis.maxSimilarity}%): "${analysis.mostSimilarArticle?.title?.substring(0, 40)}..."`);
+
+        if (analysis.recommendation === 'error') {
+          console.log(`   ❌ ERRORE check - Non procedo (${analysis.error?.substring(0, 40) || 'unknown'}...)`);
+          skippedKeywords.push({ ...kw, reason: 'check_error', error: analysis.error });
+        } else if (analysis.recommendation === 'skip' || analysis.isDuplicate) {
+          console.log(`   🔴 SKIP - Duplicato (${analysis.maxSimilarity}%): "${analysis.mostSimilarArticle?.title?.substring(0, 40)}..."`);
           skippedKeywords.push({ ...kw, similarTo: analysis.mostSimilarArticle?.title });
         } else {
-          // Procedi SEMPRE se < 98%
-          console.log(`   ✅ OK (${analysis.maxSimilarity}% - procedo)`);
+          // proceed o modify_angle: aggiungi; il generatore inietterà suggestedAngle se modify_angle
+          const label = analysis.recommendation === 'modify_angle' ? 'MODIFY_ANGLE' : 'OK';
+          console.log(`   ✅ ${label} (${analysis.maxSimilarity}%) - procedo`);
           safeKeywords.push(kw);
         }
-        
-        // Pausa tra check per rate limit
+
         await new Promise(r => setTimeout(r, CONFIG.pauseBetweenDuplicateChecks));
-        
       } catch (error) {
-        // In caso di errore (es: rate limit), aggiungi comunque la keyword
-        console.log(`   ⚠️ Errore check: ${error.message.substring(0, 50)} - Aggiungo comunque`);
-        safeKeywords.push(kw);
+        console.log(`   ❌ Errore check: ${error.message.substring(0, 50)} - Non aggiungo`);
+        skippedKeywords.push({ ...kw, reason: 'check_error', error: error.message });
       }
     }
-    
-    // Se ancora non abbiamo abbastanza, prendi dal pool senza check
+
+    // Nessun riempimento dal pool senza check: se non bastano, generiamo meno articoli
     if (safeKeywords.length < count) {
-      const remaining = allKeywords
-        .filter(kw => !safeKeywords.find(s => s.keyword === kw.keyword))
-        .filter(kw => !skippedKeywords.find(s => s.keyword === kw.keyword))
-        .slice(0, count - safeKeywords.length);
-      
-      console.log(`\n📥 Aggiungo ${remaining.length} keyword extra senza check duplicati`);
-      safeKeywords.push(...remaining);
+      console.log(`\n⚠️ Keyword sicure trovate: ${safeKeywords.length}/${count}. Nessun fill senza check.`);
     }
-    
+
     log.duplicateCheck = {
       totalChecked: checkedCount,
       safe: safeKeywords.length,
@@ -333,11 +319,11 @@ async function generateWeeklyBatch(options = {}) {
     console.log(`🔴 Keyword saltate: ${skippedKeywords.length}`);
     console.log('='.repeat(50) + '\n');
     
-  } else if (!useTopicQueue) {
-    // Skip check, prendi le prime N keyword
+  } else if (!sourceIsTopicQueue && allKeywords) {
+    // Pool/file senza fase check (--skip-check o dry-run): prendi le prime N
     safeKeywords = allKeywords.slice(0, count);
     if (skipDuplicateCheck) {
-      console.log('\n⏭️ Check duplicati saltato\n');
+      console.log('\n⏭️ Check duplicati saltato (--skip-check)\n');
     }
   }
 
@@ -371,9 +357,9 @@ async function generateWeeklyBatch(options = {}) {
     console.log('-'.repeat(50));
     
     try {
-      // Con topic queue esegui il check duplicati nel generatore; con pool stagionale già fatto sopra
+      // Topic queue: check nel generatore. Pool/file: già fatto in Fase 1, evita doppia chiamata Gemini.
       const result = await generateArticle(keyword, category, {
-        skipDuplicateCheck: !useTopicQueue
+        skipDuplicateCheck: !sourceIsTopicQueue
       });
       
       if (result?.skipped) {
@@ -555,7 +541,7 @@ async function main() {
     keywordsFile: null,
     dryRun: false,
     skipDuplicateCheck: false,
-    useTopicQueue: false
+    useTopicQueue: true
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -569,6 +555,8 @@ async function main() {
       options.dryRun = true;
     } else if (args[i] === '--skip-check') {
       options.skipDuplicateCheck = true;
+    } else if (args[i] === '--use-pool') {
+      options.useTopicQueue = false;
     } else if (args[i] === '--use-topic-queue') {
       options.useTopicQueue = true;
     } else if (args[i] === '--help') {
@@ -585,23 +573,23 @@ Uso:
 Opzioni:
   --count <n>        Numero di articoli da generare (default: 3)
   --file <nome.json> Usa file keyword personalizzato dalla cartella data/
-  --use-topic-queue  Usa solo topic approvati da Sanity (piano editoriale)
+  --use-topic-queue  Usa topic approvati da Sanity (DEFAULT)
+  --use-pool         Usa pool stagionale + evergreen (fallback)
   --dry-run          Mostra keyword senza generare articoli
-  --skip-check       Salta il check dei duplicati semantici
+  --skip-check       Salta il check duplicati (solo con --use-pool/--file)
   --help             Mostra questo messaggio
 
 Esempi:
   node scripts/generate-weekly-batch.js
   node scripts/generate-weekly-batch.js --count 5
-  node scripts/generate-weekly-batch.js --use-topic-queue --count 2
+  node scripts/generate-weekly-batch.js --use-pool --count 2
   node scripts/generate-weekly-batch.js --file keywords-custom.json
   node scripts/generate-weekly-batch.js --count 10 --dry-run
-  node scripts/generate-weekly-batch.js --count 5 --skip-check
 
 Sistema Anti-Duplicati:
-  Cerca automaticamente keyword uniche dal pool di 55+ keyword.
-  Se trova duplicati, prova altre keyword fino a trovarne abbastanza.
-  Le immagini vengono cercate automaticamente su Unsplash.
+  Di default usa la topic queue (topic approvati in Sanity).
+  Con --use-pool rispetta le raccomandazioni del checker: skip/modify_angle/error.
+  Nessun riempimento dal pool senza check.
 `);
       return;
     }
