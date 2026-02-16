@@ -246,15 +246,18 @@ async function generateWeeklyBatch(options = {}) {
     sourceIsTopicQueue = true;
     console.log('📋 Modalità TOPIC QUEUE (default): uso solo topic approvati da Sanity\n');
     const topics = await getUnusedApprovedTopics(count);
-    if (topics.length === 0) {
-      console.log('⚠️ Nessun topic approvato disponibile (tutti usati o tipo approvedTopic non presente).');
+    safeKeywords = topics
+      .slice(0, count)
+      .filter((t) => t.title && !String(t.title).trim().startsWith('-'))
+      .map((t) => ({
+        keyword: t.title.trim(),
+        category: t.categorySlug || 'consigli',
+        topicId: t._id
+      }));
+    if (safeKeywords.length === 0) {
+      console.log('⚠️ Nessun topic approvato disponibile (tutti usati, tipo approvedTopic assente, o titoli non validi).');
       return log;
     }
-    safeKeywords = topics.slice(0, count).map((t) => ({
-      keyword: t.title,
-      category: t.categorySlug || 'consigli',
-      topicId: t._id
-    }));
     console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
   } else {
     const { keywords: seasonal } = getSeasonalKeywords();

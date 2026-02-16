@@ -77,8 +77,9 @@ jobs:
             COUNT="2"
             DRY_RUN="false"
           fi
+          COUNT="${COUNT:-2}"
           if [ "$DRY_RUN" = "true" ]; then
-            node scripts/generate-weekly-batch.js --count $COUNT --dry-run
+            node scripts/generate-weekly-batch.js --count "$COUNT" --dry-run
           else
-            node scripts/generate-weekly-batch.js --count $COUNT
+            node scripts/generate-weekly-batch.js --count "$COUNT"
           fi
