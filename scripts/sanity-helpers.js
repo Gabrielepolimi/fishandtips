@@ -208,6 +208,65 @@ export async function getAllArticlesForDuplicateCheck() {
 }
 
 /**
+ * Recupera solo i titoli degli articoli pubblicati per iniettarli nel prompt di generazione.
+ * Così Gemini sa quali argomenti sono già coperti e non li ripete.
+ * @param {number} limit - Numero massimo di titoli (default 150, per evitare prompt troppo grandi)
+ * @returns {Promise<string[]>} Lista di titoli (più recenti per data)
+ */
+export async function getExistingArticleTitlesForPrompt(limit = 150) {
+  try {
+    const articles = await sanityClient.fetch(`
+      *[_type == "post" && status == "published"] | order(publishedAt desc) [0...$limit] {
+        title
+      }
+    `, { limit });
+    return (articles || []).map((a) => a.title).filter(Boolean);
+  } catch (error) {
+    console.error('❌ Errore nel recupero titoli per prompt:', error.message);
+    return [];
+  }
+}
+
+/**
+ * Recupera topic approvati non ancora usati (per piano editoriale / topic queue)
+ * @param {number} limit - Numero massimo di topic da restituire
+ * @returns {Promise<Array<{_id, title, categorySlug, used, usedAt}>>}
+ */
+export async function getUnusedApprovedTopics(limit = 10) {
+  try {
+    const topics = await sanityClient.fetch(`
+      *[_type == "approvedTopic" && used != true] | order(createdAt asc) [0...$limit] {
+        _id,
+        title,
+        categorySlug,
+        used,
+        usedAt,
+        createdAt,
+        seasonHint
+      }
+    `, { limit });
+    return topics || [];
+  } catch (error) {
+    console.error('❌ Errore nel recupero topic approvati:', error.message);
+    return [];
+  }
+}
+
+/**
+ * Segna un topic come usato dopo la pubblicazione dell'articolo
+ * @param {string} topicId - _id del documento approvedTopic
+ */
+export async function markTopicAsUsed(topicId) {
+  try {
+    await sanityClient.patch(topicId).set({ used: true, usedAt: new Date().toISOString() }).commit();
+    console.log(`✅ Topic segnato come usato: ${topicId}`);
+  } catch (error) {
+    console.error('❌ Errore nel segnare topic come usato:', error.message);
+    throw error;
+  }
+}
+
+/**
  * Crea un documento in Sanity
  * @param {Object} document - Il documento da creare
  * @returns {Promise<Object>} Il documento creato
@@ -508,6 +567,9 @@ export default {
   getArticleBySlug,
   getLatestArticles,
   getAllArticlesForDuplicateCheck,
+  getExistingArticleTitlesForPrompt,
+  getUnusedApprovedTopics,
+  markTopicAsUsed,
   createDocument,
   validatePostDocument,
   markdownToBlockContent,

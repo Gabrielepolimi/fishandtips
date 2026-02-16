@@ -19,6 +19,7 @@ import {
   getDefaultAuthorId,
   getCategoryIdBySlug,
   articleExistsBySlug,
+  getExistingArticleTitlesForPrompt,
   markdownToBlockContent,
   slugify,
   validatePostDocument
@@ -41,8 +42,9 @@ const CONFIG = {
   publishImmediately: true,
   readingTimeMin: 5,
   readingTimeMax: 12,
-  initialLikesMin: 750,
-  initialLikesMax: 2500,
+  initialLikesMin: 0,
+  initialLikesMax: 0,
+  authorProfile: "L'autore pesca principalmente in Liguria, pratica surfcasting e spinning, ha 15 anni di esperienza. I consigli devono essere coerenti con questo profilo.",
   // Cartella immagini fallback
   fallbackImagesDir: path.join(__dirname, '..', 'public', 'images', 'fallback-fishing'),
   // Retry config per Unsplash
@@ -327,6 +329,15 @@ function insertAmazonLinksInContent(content, products) {
 const ARTICLE_PROMPT = `Sei un esperto pescatore italiano e copywriter SEO.
 Scrivi un articolo informativo e query-driven su: "{keyword}"
 
+ARTICOLI GIÀ PUBBLICATI (NON ripetere questi argomenti):
+{existingTitles}
+Scrivi SOLO su un argomento che non è già coperto da uno di questi titoli.
+
+ANGOLO/FOCUS RICHIESTO (per differenziarti da articoli simili già presenti): {suggestedAngle}
+
+PROFILO AUTORE: {authorProfile}
+I "consigli personali" e i "tip" devono essere coerenti con questo profilo e credibili, non generici.
+
 OBIETTIVO: rispondere in modo pratico a una domanda/problema di pesca. Niente brand nel titolo.
 
 REQUISITI:
@@ -375,12 +386,20 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log(`GENERAZIONE ARTICOLO: "${keyword}"`);
   log('🎣'.repeat(25) + '\n');
 
-  // 1. Check duplicati semantici (se non saltato)
+  let suggestedAngle = 'Nessuno.';
   if (!skipDuplicateCheck) {
     log('🔍 Controllo duplicati semantici...');
     try {
       const duplicateAnalysis = await checkSemanticDuplicate(keyword, { verbose: false });
-      
+
+      if (duplicateAnalysis.recommendation === 'error') {
+        log(`❌ SKIP: Errore nel check duplicati (${duplicateAnalysis.error || 'unknown'}). Non generare per evitare duplicati.`);
+        return {
+          skipped: true,
+          reason: 'duplicate_check_error',
+          error: duplicateAnalysis.error
+        };
+      }
       if (duplicateAnalysis.isDuplicate || duplicateAnalysis.recommendation === 'skip') {
         log(`❌ SKIP: Keyword troppo simile a "${duplicateAnalysis.mostSimilarArticle?.title}"`);
         log(`   Similarità: ${duplicateAnalysis.maxSimilarity}%`);
@@ -391,9 +410,19 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
           similarity: duplicateAnalysis.maxSimilarity
         };
       }
-      log(`✅ Nessun duplicato trovato (max ${duplicateAnalysis.maxSimilarity}% similarità)`);
+      if (duplicateAnalysis.recommendation === 'modify_angle' && duplicateAnalysis.suggestedAngle) {
+        suggestedAngle = duplicateAnalysis.suggestedAngle;
+        log(`🟡 Angolo suggerito per differenziarsi: "${suggestedAngle.substring(0, 60)}..."`);
+      } else {
+        log(`✅ Nessun duplicato trovato (max ${duplicateAnalysis.maxSimilarity}% similarità)`);
+      }
     } catch (error) {
-      log(`⚠️ Errore check duplicati: ${error.message} - Procedo comunque`);
+      log(`❌ SKIP: Errore check duplicati: ${error.message}`);
+      return {
+        skipped: true,
+        reason: 'duplicate_check_error',
+        error: error.message
+      };
     }
   }
 
@@ -407,11 +436,25 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   }
   const finalSlug = slugExists ? `${baseSlug}-${Date.now()}` : baseSlug;
 
-  // 3. Genera contenuto con Gemini
+  // 3. Recupera titoli esistenti (limit 150) e costruisci prompt; tronca se troppo lungo
+  const TITLES_MAX_CHARS = 12000;
+  log('📚 Caricamento catalogo articoli esistenti per il prompt...');
+  const existingTitles = await getExistingArticleTitlesForPrompt(150);
+  let existingTitlesBlock = existingTitles.length > 0
+    ? existingTitles.map((t, i) => `${i + 1}. ${t}`).join('\n')
+    : '(nessuno ancora)';
+  if (existingTitlesBlock.length > TITLES_MAX_CHARS) {
+    existingTitlesBlock = existingTitlesBlock.slice(0, TITLES_MAX_CHARS) + '\n... (altri articoli omessi)';
+    log(`   ⚠️ Catalogo troncato a ${TITLES_MAX_CHARS} caratteri`);
+  }
+
   log('🤖 Generazione contenuto con Gemini AI...');
   const season = getCurrentSeason();
   const prompt = ARTICLE_PROMPT
     .replace('{keyword}', keyword)
+    .replace('{existingTitles}', existingTitlesBlock)
+    .replace('{suggestedAngle}', suggestedAngle)
+    .replace('{authorProfile}', CONFIG.authorProfile || 'Esperto pescatore italiano.')
     .replace('{category}', categorySlug)
     .replace('{season}', season);
 
@@ -512,7 +555,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     Math.random() * (CONFIG.initialLikesMax - CONFIG.initialLikesMin + 1)
   ) + CONFIG.initialLikesMin;
 
-  // Documento completo
+  // Documento completo (initialLikes omesso se 0, così il frontend non mostra il contatore)
   const sanityDocument = {
     _type: 'post',
     title: parsed.title,
@@ -522,7 +565,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     categories: categoryId ? [{ _type: 'reference', _ref: categoryId }] : [],
     body: bodyBlocks,
     readingTime,
-    initialLikes,
+    ...(initialLikes > 0 && { initialLikes }),
     seoTitle: parsed.title,
     seoDescription: parsed.excerpt,
     seoKeywords: parsed.keywords || [],
@@ -572,7 +615,7 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     log(`   🔗 Slug: ${finalSlug}`);
     log(`   📊 Parole: ~${wordCount}`);
     log(`   ⏱️ Lettura: ${readingTime} min`);
-    log(`   ❤️ Likes: ${initialLikes}`);
+    log(`   ❤️ Likes: ${initialLikes > 0 ? initialLikes : '(campo omesso, contatore nascosto)'}`);
     log(`   🛒 Prodotti linkati: ${parsed.products?.length || 0}`);
     if (mainImageAsset) {
       log(`   📸 Immagine: ✅ (${imageSource === 'unsplash' ? 'Unsplash' : 'Fallback locale'})`);

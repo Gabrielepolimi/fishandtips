@@ -14,15 +14,26 @@ import { getAllArticlesForDuplicateCheck } from './sanity-helpers.js';
 
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
-  // Soglia di similarità per considerare un articolo duplicato (0-100)
-  // Impostato a 92 per bloccare topic troppo simili prima della pubblicazione
-  // Es: "come pescare la spigola" vs "guida pesca alla spigola" => skip
-  similarityThreshold: 92,
-  // Numero massimo di articoli da confrontare (per ottimizzare costi/tempo)
-  maxArticlesToCompare: 30,
-  // Abilita logging dettagliato
+  // Soglia per skip (duplicato): >= 75% similarità
+  similarityThreshold: 75,
+  // Soglia per modify_angle: tra 60% e 75%
+  modifyAngleThreshold: 60,
+  // Numero massimo di articoli da confrontare con Gemini
+  maxArticlesToCompare: 150,
   verbose: true
 };
+
+// Stopword italiane complete: articoli, preposizioni, congiunzioni + parole che Gemini usa per far sembrare titoli diversi (stesso articolo)
+const STOPWORDS_IT = new Set([
+  'di', 'del', 'della', 'dello', 'dei', 'degli', 'delle', 'a', 'al', 'allo', 'ai', 'agli', 'all', 'alla', 'alle',
+  'da', 'dal', 'dallo', 'dai', 'dagli', 'dall', 'dalla', 'dalle', 'in', 'con', 'su', 'per', 'tra', 'fra',
+  'la', 'il', 'lo', 'le', 'gli', 'i', 'un', 'uno', 'una', 'un\'', 'questo', 'questa', 'questi', 'queste',
+  'quello', 'quella', 'quelli', 'quelle', 'come', 'quale', 'quali', 'cosa', 'che', 'cui', 'chi', 'quando',
+  'dove', 'perché', 'poiché', 'se', 'ma', 'e', 'ed', 'o', 'oppure', 'né', 'sia', 'che', 'né',
+  'guida', 'completa', 'definitiva', 'migliori', 'top', 'perfetta', 'perfetto', 'vincente', 'vincenti',
+  'consigli', 'tecnica', 'tecniche', 'pratici', 'pratico', 'tutto', 'tutta', 'tutti', 'tutte', 'altro', 'altra', 'altri', 'altre',
+  'pesca', 'pescare' // troppo generici: quasi tutti gli articoli li contengono, evitano falsi positivi su keyword corte
+]);
 
 let genAI;
 let model;
@@ -36,6 +47,59 @@ function initGemini() {
   }
   genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+}
+
+/**
+ * Estrae parole significative dalla keyword (rimuove stopword)
+ */
+function extractKeywords(text) {
+  const normalized = (text || '')
+    .toLowerCase()
+    .replace(/[^\w\sàèéìòùç]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean);
+  return normalized.filter((w) => w.length > 1 && !STOPWORDS_IT.has(w));
+}
+
+/**
+ * Pre-check deterministico: blocca duplicati ovvi senza chiamare Gemini.
+ * Se un articolo esistente contiene 3 su 4 (o 2 su 3) delle parole chiave estratte dalla keyword, è duplicato.
+ */
+function deterministicDuplicateCheck(newKeyword, existingArticles) {
+  const keywords = extractKeywords(newKeyword);
+  if (keywords.length < 2) return null;
+
+  const minMatch = keywords.length >= 4 ? 3 : keywords.length >= 3 ? 2 : 2;
+  const keywordSet = new Set(keywords);
+
+  for (const article of existingArticles) {
+    const titleNorm = (article.title || '')
+      .toLowerCase()
+      .replace(/[^\w\sàèéìòùç]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean);
+    const titleSet = new Set(titleNorm);
+    let matches = 0;
+    for (const kw of keywordSet) {
+      if (titleSet.has(kw)) matches++;
+    }
+    if (matches >= minMatch) {
+      return {
+        isDuplicate: true,
+        maxSimilarity: 95,
+        recommendation: 'skip',
+        mostSimilarArticle: {
+          title: article.title,
+          slug: article.slug,
+          similarity: 95,
+          reason: `Pre-check deterministico: ${matches} parole chiave in comune ("${keywords.slice(0, 4).join('", "')}")`
+        },
+        analysis: 'Duplicato rilevato dal pre-check (overlap parole chiave). Nessuna chiamata Gemini.',
+        deterministic: true
+      };
+    }
+  }
+  return null;
 }
 
 /**
@@ -63,24 +127,21 @@ Per ogni articolo esistente, valuta:
 3. KEYWORD CANNIBALIZATION: I due contenuti competerebbero per le stesse query su Google?
 
 === REGOLE DI DECISIONE ===
-- Similarità >= 92%: DUPLICATO → recommendation: "skip"
-- Similarità 80-91%: OVERLAP → recommendation: "modify_angle" con angolo alternativo
-- Similarità < 80%: PROCEED
+- Similarità >= 75%: DUPLICATO → recommendation: "skip"
+- Similarità 60-74%: OVERLAP → recommendation: "modify_angle" con angolo alternativo
+- Similarità < 60%: PROCEED
 
-REGOLA D'ORO: Blocca SOLO se qualcuno cercando su Google troverebbe ESATTAMENTE lo stesso contenuto.
+REGOLA FONDAMENTALE: Se due articoli rispondono alla STESSA DOMANDA dell'utente anche con parole diverse, sono duplicati. In quel caso blocca (skip). Esempio: "Fluorocarbon Invernale: Terminali Invisibili" e "Come scegliere il fluorocarbon per i terminali invernali?" = stesso argomento = skip.
 
-ESEMPI DI NON-DUPLICATI (PROCEDI SEMPRE):
+ESEMPI DI NON-DUPLICATI (PROCEDI):
 - "pesca spigola inverno" vs "pesca spigola estate" = DIVERSI (stagione diversa)
 - "spinning spigola" vs "surfcasting spigola" = DIVERSI (tecnica diversa)
 - "pesca orata" vs "pesca spigola" = DIVERSI (pesce diverso)
-- "migliori esche mare" vs "migliori esche lago" = DIVERSI (ambiente diverso)
-- "attrezzatura principianti" vs "attrezzatura esperti" = DIVERSI (livello diverso)
 - "pesca Sicilia" vs "pesca Sardegna" = DIVERSI (luogo diverso)
 
-ESEMPI DI DUPLICATI (BLOCCA SOLO QUESTI):
-- "come pescare la spigola guida" vs "guida pesca alla spigola" = STESSO IDENTICO ARTICOLO
-
-Nel dubbio, rispondi SEMPRE con isDuplicate: false e recommendation: "proceed".
+ESEMPI DI DUPLICATI (BLOCCA):
+- "come pescare la spigola guida" vs "guida pesca alla spigola" = STESSO ARTICOLO
+- "fluorocarbon invernale terminali" vs "come scegliere fluorocarbon terminali invernali" = STESSO ARGOMENTO
 
 Rispondi SOLO con questo JSON (senza markdown code blocks):
 {
@@ -137,11 +198,22 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
     };
   }
 
-  // 2. Limita il numero di articoli da confrontare
-  const articlesToCompare = existingArticles.slice(0, CONFIG.maxArticlesToCompare);
-  if (verbose) console.log(`📊 Confronto con ${articlesToCompare.length} articoli esistenti...`);
+  // 2. Pre-check deterministico (risparmia Gemini, blocca duplicati ovvi)
+  const deterministicResult = deterministicDuplicateCheck(newKeyword, existingArticles);
+  if (deterministicResult) {
+    if (verbose) {
+      console.log('\n🔴 DUPLICATO (pre-check deterministico)');
+      console.log(`   Articolo simile: "${deterministicResult.mostSimilarArticle?.title}"`);
+      console.log(`   Motivo: ${deterministicResult.mostSimilarArticle?.reason}\n`);
+    }
+    return deterministicResult;
+  }
 
-  // 3. Inizializza Gemini e analizza con retry
+  // 3. Limita il numero di articoli da confrontare con Gemini
+  const articlesToCompare = existingArticles.slice(0, CONFIG.maxArticlesToCompare);
+  if (verbose) console.log(`📊 Confronto con ${articlesToCompare.length} articoli esistenti (Gemini)...`);
+
+  // 4. Inizializza Gemini e analizza con retry
   initGemini();
 
   const maxRetries = 2;
@@ -180,25 +252,29 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
 
     const jsonMatch = cleanContent.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      console.warn('⚠️ Risposta non in formato JSON, procedo comunque');
+      console.warn('⚠️ Risposta non in formato JSON');
       return {
         isDuplicate: false,
         maxSimilarity: 0,
-        recommendation: 'proceed',
-        error: 'Parse error - proceeding anyway'
+        recommendation: 'error',
+        error: 'Parse error - risposta Gemini non in formato JSON'
       };
     }
 
     const analysis = JSON.parse(jsonMatch[0]);
 
-    // Applicazione soglia server-side per coerenza
-    if (analysis.maxSimilarity >= CONFIG.similarityThreshold) {
+    // Applicazione soglie server-side (skip >= 75%, modify_angle 60-74%)
+    const sim = analysis.maxSimilarity ?? 0;
+    if (sim >= CONFIG.similarityThreshold) {
       analysis.isDuplicate = true;
       analysis.recommendation = 'skip';
       analysis.mostSimilarArticle = analysis.mostSimilarArticle || {};
       analysis.mostSimilarArticle.reason =
         analysis.mostSimilarArticle.reason ||
-        `Similarità ${analysis.maxSimilarity}% >= soglia ${CONFIG.similarityThreshold}%`;
+        `Similarità ${sim}% >= soglia skip ${CONFIG.similarityThreshold}%`;
+    } else if (sim >= CONFIG.modifyAngleThreshold) {
+      analysis.recommendation = 'modify_angle';
+      analysis.isDuplicate = false;
     }
 
     // 5. Logga risultato
@@ -230,11 +306,10 @@ export async function checkSemanticDuplicate(newKeyword, options = {}) {
 
   } catch (error) {
     console.error('❌ Errore nell\'analisi semantica:', error.message);
-    // In caso di errore, procedi comunque (fail-safe)
     return {
       isDuplicate: false,
       maxSimilarity: 0,
-      recommendation: 'proceed',
+      recommendation: 'error',
       error: error.message
     };
   }

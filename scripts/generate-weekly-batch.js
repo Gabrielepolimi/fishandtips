@@ -19,6 +19,7 @@ import { generateArticle } from './ai-content-generator.js';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
+import { getUnusedApprovedTopics, markTopicAsUsed } from './sanity-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -222,10 +223,27 @@ async function generateWeeklyBatch(options = {}) {
     results: []
   };
   
-  // 1. Determina le keyword da usare
+  // 1. Determina le keyword da usare (topic queue Sanity oppure pool stagionale/file)
+  const useTopicQueue = options.useTopicQueue === true;
   let allKeywords;
-  
-  if (keywordsFile) {
+  let safeKeywords = [];
+  let checkedCount = 0;
+  let skippedKeywords = [];
+
+  if (useTopicQueue) {
+    console.log('📋 Modalità TOPIC QUEUE: uso solo topic approvati da Sanity\n');
+    const topics = await getUnusedApprovedTopics(count);
+    if (topics.length === 0) {
+      console.log('⚠️ Nessun topic approvato disponibile (tutti usati o tipo approvedTopic non presente).');
+      return log;
+    }
+    safeKeywords = topics.slice(0, count).map((t) => ({
+      keyword: t.title,
+      category: t.categorySlug || 'consigli',
+      topicId: t._id
+    }));
+    console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
+  } else if (keywordsFile) {
     // Carica da file
     const filePath = path.join(__dirname, '..', 'data', keywordsFile);
     if (fs.existsSync(filePath)) {
@@ -236,23 +254,18 @@ async function generateWeeklyBatch(options = {}) {
       console.error(`❌ File non trovato: ${filePath}`);
       return;
     }
+    allKeywords = shuffleArray(allKeywords);
   } else {
     // Mix di keyword stagionali + evergreen (POOL GRANDE)
     const { keywords: seasonal } = getSeasonalKeywords();
     allKeywords = [...seasonal, ...EVERGREEN_KEYWORDS];
     console.log('🎲 Keyword pool automatico (stagionali + evergreen)');
     console.log(`   Pool totale: ${allKeywords.length} keyword disponibili`);
+    allKeywords = shuffleArray(allKeywords);
   }
 
-  // Shuffle tutto il pool
-  allKeywords = shuffleArray(allKeywords);
-  
-  // 2. Trova keyword non duplicate (con retry)
-  let safeKeywords = [];
-  let checkedCount = 0;
-  let skippedKeywords = [];
-  
-  if (!skipDuplicateCheck && !dryRun) {
+  // 2. Trova keyword non duplicate (solo se NON topic queue e check abilitato)
+  if (!useTopicQueue && !skipDuplicateCheck && !dryRun) {
     console.log('\n' + '🔍'.repeat(20));
     console.log('FASE 1: RICERCA KEYWORD NON DUPLICATE');
     console.log('🔍'.repeat(20) + '\n');
@@ -320,18 +333,19 @@ async function generateWeeklyBatch(options = {}) {
     console.log(`🔴 Keyword saltate: ${skippedKeywords.length}`);
     console.log('='.repeat(50) + '\n');
     
-  } else {
+  } else if (!useTopicQueue) {
     // Skip check, prendi le prime N keyword
     safeKeywords = allKeywords.slice(0, count);
     if (skipDuplicateCheck) {
       console.log('\n⏭️ Check duplicati saltato\n');
     }
   }
-  
+
   // Mostra keyword selezionate
   console.log(`📝 Keyword da generare (${safeKeywords.length}):`);
   safeKeywords.forEach((k, i) => {
-    console.log(`   ${i + 1}. "${k.keyword.substring(0, 60)}..." [${k.category}]`);
+    const kwShort = (k.keyword || '').substring(0, 60);
+    console.log(`   ${i + 1}. "${kwShort}${k.keyword?.length > 60 ? '...' : ''}" [${k.category}]`);
   });
   
   if (dryRun) {
@@ -357,8 +371,10 @@ async function generateWeeklyBatch(options = {}) {
     console.log('-'.repeat(50));
     
     try {
-      // Salta il check duplicati nella generazione (già fatto sopra)
-      const result = await generateArticle(keyword, category, { skipDuplicateCheck: true });
+      // Con topic queue esegui il check duplicati nel generatore; con pool stagionale già fatto sopra
+      const result = await generateArticle(keyword, category, {
+        skipDuplicateCheck: !useTopicQueue
+      });
       
       if (result?.skipped) {
         log.results.push({
@@ -379,6 +395,15 @@ async function generateWeeklyBatch(options = {}) {
           hasImage: result.hasImage,
           generatedAt: new Date().toISOString()
         });
+
+        // Topic queue: segna il topic come usato
+        if (safeKeywords[i].topicId) {
+          try {
+            await markTopicAsUsed(safeKeywords[i].topicId);
+          } catch (err) {
+            console.warn('⚠️ Impossibile segnare topic come usato:', err.message);
+          }
+        }
 
         // YouTube picker (post-step) se disponibile e se non dry-run
         if (process.env.YOUTUBE_API_KEY) {
@@ -529,10 +554,10 @@ async function main() {
     count: CONFIG.defaultArticleCount,
     keywordsFile: null,
     dryRun: false,
-    skipDuplicateCheck: false
+    skipDuplicateCheck: false,
+    useTopicQueue: false
   };
-  
-  // Parse argomenti
+
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--count' && args[i + 1]) {
       options.count = parseInt(args[i + 1]);
@@ -544,6 +569,8 @@ async function main() {
       options.dryRun = true;
     } else if (args[i] === '--skip-check') {
       options.skipDuplicateCheck = true;
+    } else if (args[i] === '--use-topic-queue') {
+      options.useTopicQueue = true;
     } else if (args[i] === '--help') {
       console.log(`
 🗓️ FishandTips Weekly Batch Generator
@@ -558,6 +585,7 @@ Uso:
 Opzioni:
   --count <n>        Numero di articoli da generare (default: 3)
   --file <nome.json> Usa file keyword personalizzato dalla cartella data/
+  --use-topic-queue  Usa solo topic approvati da Sanity (piano editoriale)
   --dry-run          Mostra keyword senza generare articoli
   --skip-check       Salta il check dei duplicati semantici
   --help             Mostra questo messaggio
@@ -565,6 +593,7 @@ Opzioni:
 Esempi:
   node scripts/generate-weekly-batch.js
   node scripts/generate-weekly-batch.js --count 5
+  node scripts/generate-weekly-batch.js --use-topic-queue --count 2
   node scripts/generate-weekly-batch.js --file keywords-custom.json
   node scripts/generate-weekly-batch.js --count 10 --dry-run
   node scripts/generate-weekly-batch.js --count 5 --skip-check

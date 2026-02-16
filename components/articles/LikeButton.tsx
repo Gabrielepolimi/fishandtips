@@ -52,11 +52,16 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
     }
   };
 
+  // Nascondi il contatore quando non c'è traffico reale (initialLikes 0 e nessun like utente)
+  const showCounter = initialLikes > 0 || likes > 0;
+
   return (
     <div className="flex items-center space-x-3">
-      <span className="text-sm text-gray-600 font-medium">
-        Utenti che apprezzano questo contenuto:
-      </span>
+      {showCounter && (
+        <span className="text-sm text-gray-600 font-medium">
+          Utenti che apprezzano questo contenuto:
+        </span>
+      )}
       <button
         onClick={handleLike}
         disabled={isLoading}
@@ -72,9 +77,11 @@ export default function LikeButton({ articleId, initialLikes }: LikeButtonProps)
             isLiked ? 'fill-red-600 text-red-600' : 'text-gray-600'
           }`} 
         />
-        <span className="font-medium">
-          {Math.max(0, likes)}
-        </span>
+        {showCounter && (
+          <span className="font-medium">
+            {Math.max(0, likes)}
+          </span>
+        )}
       </button>
     </div>
   );
