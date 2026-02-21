@@ -255,12 +255,9 @@ async function generateWeeklyBatch(options = {}) {
         topicId: t._id
       }));
     if (safeKeywords.length === 0) {
-      console.log('⚠️ Topic queue vuota — fallback automatico sul pool stagionale + evergreen\n');
-      sourceIsTopicQueue = false;
-      const { keywords: seasonal } = getSeasonalKeywords();
-      allKeywords = [...seasonal, ...EVERGREEN_KEYWORDS];
-      console.log(`   Pool totale: ${allKeywords.length} keyword\n`);
-      allKeywords = shuffleArray(allKeywords);
+      console.log('🛑 Topic queue vuota. Aggiungi nuovi topic approvati in Sanity (tipo approvedTopic).');
+      console.log('   Nessun articolo verrà generato fino a quando la queue non viene rifornita.');
+      return log;
     } else {
       console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
     }
@@ -281,7 +278,7 @@ async function generateWeeklyBatch(options = {}) {
     
     for (const kw of allKeywords) {
       if (safeKeywords.length >= count) break;
-      if (checkedCount >= count * 5) break; // stop dopo N tentativi, senza riempire dal pool
+      if (checkedCount >= Math.max(count * 5, 20)) break;
 
       checkedCount++;
       console.log(`[${checkedCount}] Verifico: "${kw.keyword.substring(0, 50)}..."`);

@@ -435,7 +435,10 @@ Prerequisiti:
   await checkSemanticDuplicate(keyword);
 }
 
-main().catch(console.error);
+const isDirectRun = process.argv[1]?.includes('semantic-duplicate-checker');
+if (isDirectRun) {
+  main().catch(console.error);
+}
 
 export default {
   checkSemanticDuplicate,
