@@ -255,10 +255,15 @@ async function generateWeeklyBatch(options = {}) {
         topicId: t._id
       }));
     if (safeKeywords.length === 0) {
-      console.log('⚠️ Nessun topic approvato disponibile (tutti usati, tipo approvedTopic assente, o titoli non validi).');
-      return log;
+      console.log('⚠️ Topic queue vuota — fallback automatico sul pool stagionale + evergreen\n');
+      sourceIsTopicQueue = false;
+      const { keywords: seasonal } = getSeasonalKeywords();
+      allKeywords = [...seasonal, ...EVERGREEN_KEYWORDS];
+      console.log(`   Pool totale: ${allKeywords.length} keyword\n`);
+      allKeywords = shuffleArray(allKeywords);
+    } else {
+      console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
     }
-    console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
   } else {
     const { keywords: seasonal } = getSeasonalKeywords();
     allKeywords = [...seasonal, ...EVERGREEN_KEYWORDS];

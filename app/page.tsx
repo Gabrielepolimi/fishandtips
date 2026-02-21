@@ -5,6 +5,8 @@ import NewsletterSection from '../components/home/NewsletterSection';
 import CategoryArticles from '../components/home/CategoryArticles';
 import { getPosts } from '../lib/getPosts';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
   description:
