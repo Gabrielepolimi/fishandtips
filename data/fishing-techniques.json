@@ -1,920 +1,439 @@
 {
   "metadata": {
-    "lastUpdated": "2024-12-08",
-    "totalTechniques": 12
+    "lastUpdated": "2026-02-22",
+    "totalTechniques": 10,
+    "affiliateTag": "fishandtips-21"
   },
   "techniques": [
     {
-      "id": "spinning",
-      "slug": "spinning",
-      "name": "Spinning",
-      "subtitle": "La tecnica più versatile per i predatori",
-      "shortDescription": "Pesca attiva con artificiali per spigole, serra, barracuda e altri predatori costieri.",
-      "heroImage": "/images/tecniche/spinning.jpg",
-      "difficulty": 2,
-      "popularity": 5,
-      "environment": ["mare", "lago", "fiume"],
-      "targetSpecies": ["Spigola", "Serra", "Barracuda", "Leccia", "Luccio", "Persico", "Black Bass"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Lo spinning è una delle tecniche di pesca più praticate e versatili al mondo. Consiste nel lanciare e recuperare esche artificiali (artificiali o lure) che imitano il movimento di piccoli pesci, gamberi o altri organismi preda. È una pesca attiva che richiede movimento, tecnica e conoscenza del comportamento dei predatori.",
-      "history": "Lo spinning moderno nasce negli Stati Uniti negli anni '50, quando i primi mulinelli a bobina fissa permisero lanci più lunghi e precisi. In Italia si è diffuso a partire dagli anni '70, diventando rapidamente la tecnica preferita per la pesca alla spigola e ai predatori costieri.",
-      "sections": [
-        {
-          "title": "Attrezzatura Necessaria",
-          "content": "Per iniziare con lo spinning serve un'attrezzatura specifica ma non necessariamente costosa. La canna da spinning è generalmente corta (1.80-2.40m) e sensibile, con azione di punta per sentire le tocche e ferrare rapidamente. Il mulinello deve essere di taglia 2500-4000 con un buon sistema di frizione e recupero fluido. Il filo può essere trecciato (PE 0.8-1.5) per maggiore sensibilità o nylon/fluorocarbon per situazioni specifiche."
-        },
-        {
-          "title": "Tipologie di Spinning",
-          "content": "Esistono diverse varianti dello spinning: Light Spinning (0-10g) per pesci di taglia piccola-media in porti e scogliere, Medium Spinning (10-30g) la versione più versatile per spigole e serra, Heavy Spinning (30-60g) per predatori di taglia come lecce e barracuda, e Ultra Light Spinning per la pesca sportiva di piccoli predatori con attrezzatura leggerissima."
-        },
-        {
-          "title": "Esche Artificiali",
-          "content": "Gli artificiali per spinning si dividono in diverse categorie: Minnow (pesciolini di plastica che nuotano a diverse profondità), Jig (teste piombate con gomma), Soft Bait (esche in silicone di varie forme), Popper e WTD (esche di superficie), Metal Jig (artificiali metallici per lanci lunghi). Ogni tipologia ha un utilizzo specifico in base alle condizioni di mare, vento e attività dei pesci."
-        },
-        {
-          "title": "Tecnica di Lancio e Recupero",
-          "content": "Il lancio nello spinning deve essere preciso verso le zone di caccia dei predatori: massi sommersi, correnti, schiuma. Il recupero varia in base all'artificiale: lineare per i minnow, a jerkata per i jig, stop-and-go per stimolare l'attacco. La ferratura deve essere decisa ma non violenta per non strappare l'artificiale dalla bocca del pesce."
-        },
-        {
-          "title": "Spot Ideali",
-          "content": "I migliori spot per lo spinning sono le scogliere con acqua profonda, le foci dei fiumi, i porti con buona circolazione d'acqua, le secche al largo raggiungibili con lanci lunghi. All'alba e al tramonto l'attività dei predatori aumenta, rendendo questi i momenti migliori per pescare."
-        },
-        {
-          "title": "Errori Comuni da Evitare",
-          "content": "I principianti spesso commettono errori come recuperare troppo velocemente (i pesci non riescono ad attaccare), usare artificiali troppo grandi per le condizioni, ferrarare troppo presto o troppo tardi, non controllare la frizione del mulinello. La pazienza e l'osservazione dell'acqua sono fondamentali."
-        }
-      ],
-      "tips": [
-        "Usa artificiali naturali (colori argentati, grigi) in acqua limpida e colori accesi in acqua torbida",
-        "Cambia spesso artificiale se non hai tocche dopo 15-20 lanci",
-        "Presta attenzione alle mangianze (pesci che saltano in superficie)",
-        "Il vento leggero è tuo alleato: muove la superficie e nasconde la tua presenza"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Spinning Mare 2.40m",
-          "description": "Canna da spinning versatile 2.40m, 10-35g, perfetta per iniziare",
-          "price": 89,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+spinning+mare+2.40+spigola&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Spinning 3000",
-          "description": "Mulinello leggero e affidabile con ottimo rapporto qualità/prezzo",
-          "price": 69,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+spinning+3000+mare&tag=fishandtips-21"
-        },
-        "filo": {
-          "name": "Trecciato PE 0.8-1.0",
-          "description": "Trecciato 8 capi ultra resistente, 150m",
-          "price": 24,
-          "amazonUrl": "https://www.amazon.it/s?k=trecciato+pesca+spinning+8+capi&tag=fishandtips-21"
-        },
-        "artificiali": {
-          "name": "Kit Artificiali Spinning",
-          "description": "Set misto con minnow, jig e soft bait per iniziare",
-          "price": 19,
-          "amazonUrl": "https://www.amazon.it/s?k=artificiali+spinning+mare+kit&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["spigola", "serra", "barracuda", "leccia-amia"],
-      "relatedArticles": ["tecniche-di-pesca", "attrezzature"],
-      "seoKeywords": ["spinning pesca", "pesca a spinning", "come pescare a spinning", "artificiali spinning", "canna spinning", "spinning mare", "spinning spigola"]
-    },
-    {
-      "id": "surfcasting",
       "slug": "surfcasting",
       "name": "Surfcasting",
-      "subtitle": "Lanci dalla spiaggia per le grandi prede",
-      "shortDescription": "Pesca dalla spiaggia con esche naturali a lunga distanza per orate, spigole e mormore.",
-      "heroImage": "/images/tecniche/surfcasting.jpg",
-      "difficulty": 3,
-      "popularity": 4,
-      "environment": ["mare"],
-      "targetSpecies": ["Orata", "Spigola", "Mormora", "Sarago", "Ombrina"],
-      "bestSeasons": ["autunno", "inverno", "primavera"],
-      "introduction": "Il surfcasting è la tecnica regina della pesca dalla spiaggia. Il nome deriva dall'inglese 'surf' (onda) e 'casting' (lancio), indicando la pesca nelle zone di frangente dove le onde si infrangono sulla battigia. È una pesca di attesa che richiede lanci lunghi (anche oltre 150 metri) per raggiungere le zone dove stazionano i pesci.",
-      "history": "Nato sulle coste atlantiche europee, il surfcasting si è sviluppato in Italia a partire dagli anni '60, trovando terreno fertile lungo le coste adriatiche e tirreniche. Oggi conta migliaia di appassionati e numerose competizioni a livello nazionale e internazionale.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Surfcasting",
-          "content": "L'attrezzatura da surfcasting è progettata per lanci estremi e combattimenti con pesci di taglia. La canna è lunga (4.20-4.50m) con azione parabolica progressiva, capace di lanciare piombi da 100-175g a distanze di 100-150 metri. Il mulinello deve essere robusto (taglia 6000-8000) con ampia capacità di filo e frizione potente. Il filo principale è solitamente nylon 0.25-0.35mm per ammortizzare i combattimenti."
-        },
-        {
-          "title": "Montature e Terminali",
-          "content": "Le montature da surfcasting sono numerose: long arm per i lanci lunghi, short arm per le mangianze vicine, scorrevole per i pesci diffidenti, pulley rig per le spiagge con corrente. Il terminale in fluorocarbon (0.18-0.30mm) è fondamentale per non insospettire i pesci. Gli ami variano dal n.4 al n.1/0 in base all'esca e alla preda."
-        },
-        {
-          "title": "Esche Naturali",
-          "content": "Le esche da surfcasting sono rigorosamente naturali: arenicola (verme di mare, eccellente per orate), americano (verme robusto e resistente), bibi (verme carnoso per le orate), coreano (verme rosso per spigole), cannolicchio, granchio, totano. La freschezza dell'esca è determinante per il successo."
-        },
-        {
-          "title": "Tecnica di Lancio",
-          "content": "Il lancio nel surfcasting è un'arte. Le tecniche principali sono: lancio sopra la testa (overhead), lancio laterale, lancio a pendolo (ground cast), lancio off the ground. Ogni tecnica richiede pratica e permette di raggiungere distanze diverse. La posizione del corpo, la rotazione del busto e il rilascio del filo sono fondamentali."
-        },
-        {
-          "title": "Lettura della Spiaggia",
-          "content": "Saper leggere una spiaggia è cruciale. I pesci stazionano nei canali (zone più profonde tra i banchi di sabbia), nelle buche, lungo le scogliere sommerse, nelle zone con alghe. L'acqua più scura indica profondità maggiore. Le condizioni ideali sono mare mosso in scaduta, acqua leggermente torbida, pressione in calo."
-        },
-        {
-          "title": "Momenti Migliori",
-          "content": "I periodi più produttivi per il surfcasting sono l'autunno e l'inverno, quando orate e spigole si avvicinano alla costa per alimentarsi. Le ore migliori sono l'alba, il tramonto e la notte. Le mareggiate in scaduta portano cibo in sospensione e attivano le prede."
-        }
+      "emoji": "🏖️",
+      "shortDescription": "La tecnica del lancio dalla spiaggia verso il largo, regina della pesca sulle coste sabbiose italiane.",
+      "description": "Il surfcasting è la tecnica per eccellenza della pesca dalla spiaggia. Consiste nel lanciare esche naturali a grande distanza — anche oltre 150 metri — nelle zone di frangente dove onde e correnti creano buche e canali ricchi di nutrimento. È una pesca di attesa e pazienza: si pianta la canna su un picchetto e si aspetta che il pesce trovi l'esca. Le prede principali sono orate, mormore, spigole e ombrine, pesci che pascolano sui fondali sabbiosi alla ricerca di vermi e molluschi. Il surfcasting richiede una buona conoscenza della lettura della spiaggia: imparare a riconoscere buche, scalini e correnti laterali è fondamentale per posizionare l'esca nel punto giusto. In Italia questa tecnica è praticata lungo tutte le coste, ma le spiagge adriatiche, toscane e sarde offrono i risultati migliori. I periodi d'oro sono la primavera e l'autunno, quando le mareggiate portano nutrimento e i pesci si avvicinano alla riva per alimentarsi. L'attrezzatura prevede canne lunghe (4-4.5m), mulinelli robusti e montature specifiche con piombi da 80 a 200 grammi.",
+      "difficulty": "Media",
+      "minBudget": 150,
+      "maxBudget": 600,
+      "targetSpecies": ["orata", "mormora", "spigola", "ombrina"],
+      "seasons": { "gennaio": 2, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 2, "giugno": 1, "luglio": 1, "agosto": 1, "settembre": 3, "ottobre": 3, "novembre": 2, "dicembre": 2 },
+      "rod": { "length": "4.0-4.5m", "action": "Fast", "power": "100-200g" },
+      "reel": { "size": "5000-6000", "type": "Frizione anteriore" },
+      "line": { "type": "Trecciato + shock leader", "diameter": "0.18-0.25mm + 0.35mm" },
+      "rigs": ["Montatura a piombo fisso", "Montatura scorrevole", "Bi-amo con braccioli", "Long arm con galleggiante"],
+      "baits": ["Verme americano", "Cannolicchio", "Bibi", "Granchio", "Arenicola"],
+      "steps": [
+        { "title": "Scegli la spiaggia giusta", "description": "Cerca fondali con buche, canali e variazioni di profondità. Osserva dove le onde si rompono in modo diverso: quei punti indicano cambiamenti di fondale dove si concentrano i pesci. Le foci dei fiumi e i canali di bonifica sono punti caldi." },
+        { "title": "Prepara la montatura", "description": "Lega lo shock leader al trecciato con un nodo PR o FG. Prepara il terminale in fluorocarbon 0.25-0.30mm con ami del 2-4 a gambo lungo per i vermi, a gambo corto per granchi e cannolicchi. Il piombo deve essere adeguato alla corrente." },
+        { "title": "Innesca l'esca correttamente", "description": "L'innesco è fondamentale: il verme americano va infilato sull'ago da innesco e fatto scendere sull'amo coprendo gambo e curva. Il cannolicchio si innesca intero legandolo con filo elastico. L'esca deve presentarsi naturale." },
+        { "title": "Lancia nel punto giusto", "description": "Il lancio nel surfcasting deve essere potente e preciso. Usa la tecnica del pendolare o del ground cast per raggiungere le buche individuate. Non lanciare sempre nello stesso punto: esplora distanze diverse tra 50 e 150 metri." },
+        { "title": "Attendi e controlla", "description": "Pianta la canna sul picchetto con il cimino alto per leggere le mangiate. Controlla ogni 15-20 minuti lo stato dell'esca e sostituiscila se scarica. Nelle notti di mareggiata le orate si avvicinano sotto riva, prova anche a 30-40 metri." }
       ],
       "tips": [
-        "Controlla sempre le previsioni meteo e delle maree prima di uscire",
-        "Porta almeno 3 canne per coprire più distanze e usare esche diverse",
-        "Non sottovalutare l'abbigliamento: waders e giacca impermeabile sono essenziali",
-        "Innesca l'esca in modo che non si stacchi durante il lancio"
+        "Pesca sempre nelle prime ore dopo una mareggiata: il mare in scaduta porta nutrimento e le orate si avvicinano alla riva",
+        "Le notti di luna piena sono eccezionali per le orate: il chiarore attira le prede nei bassi fondali",
+        "Usa il filo elastico per legare esche fragili come il cannolicchio: regge meglio il lancio",
+        "Porta sempre almeno 3 tipi di esca diversi: il pesce può essere selettivo"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Surfcasting 4.50m",
-          "description": "Canna da surfcasting 4.50m, 100-200g, ottima potenza di lancio",
-          "price": 129,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+surfcasting+4.50+metri&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Surfcasting 6500",
-          "description": "Mulinello robusto e impermeabile, ideale per spiaggia",
-          "price": 149,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+surfcasting+6500+mare&tag=fishandtips-21"
-        },
-        "filo": {
-          "name": "Filo Surfcasting Conico",
-          "description": "Nylon conico per surfcasting, 220m + shock leader",
-          "price": 18,
-          "amazonUrl": "https://www.amazon.it/s?k=filo+surfcasting+conico+shock+leader&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Kit Completo Surfcasting",
-          "description": "Picchetti, portacanne, piombi assortiti, ami e terminali",
-          "price": 45,
-          "amazonUrl": "https://www.amazon.it/s?k=kit+surfcasting+completo+accessori&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["orata", "spigola", "mormora", "sarago-maggiore"],
-      "relatedArticles": ["spot-di-pesca", "consigli"],
-      "seoKeywords": ["surfcasting", "pesca surfcasting", "come pescare a surfcasting", "canna surfcasting", "esche surfcasting", "montature surfcasting", "surfcasting orate"]
+      "commonMistakes": [
+        "Lanciare sempre alla stessa distanza senza esplorare diverse buche",
+        "Usare filo troppo spesso che crea resistenza al lancio e riduce la distanza",
+        "Non cambiare l'esca regolarmente: dopo 15-20 minuti perde attrattiva",
+        "Ignorare la lettura della spiaggia e lanciare a caso"
+      ],
+      "bestSpotTypes": ["Spiagge sabbiose con buche", "Foci di fiumi", "Baie con corrente laterale", "Spiagge dopo scogliere artificiali"],
+      "relatedTechniques": ["beach-ledgering", "feeder"],
+      "amazonProducts": [
+        { "name": "Trabucco Searcher Surf 4.20m", "type": "Canna", "query": "canna+surfcasting+4+metri+trabucco" },
+        { "name": "Shimano Baitrunner DL 6000", "type": "Mulinello", "query": "mulinello+surfcasting+shimano+6000" },
+        { "name": "Trabucco T-Force XPS Surf 0.20mm", "type": "Filo", "query": "trecciato+surfcasting+0.20mm" }
+      ]
     },
     {
-      "id": "bolognese",
-      "slug": "bolognese",
-      "name": "Pesca a Bolognese",
-      "subtitle": "Eleganza e precisione con il galleggiante",
-      "shortDescription": "Tecnica tradizionale italiana con canna lunga e galleggiante per sparidi e pesci di scogliera.",
-      "heroImage": "/images/tecniche/bolognese.jpg",
-      "difficulty": 3,
-      "popularity": 4,
-      "environment": ["mare"],
-      "targetSpecies": ["Sarago", "Orata", "Occhiata", "Mormora", "Cefalo", "Boga"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "La pesca a bolognese è una tecnica italiana per eccellenza, nata nelle acque dolci dell'Emilia-Romagna e poi adattata con grande successo alla pesca in mare. Si pratica con canne telescopiche lunghe (5-8 metri) dotate di mulinello e galleggiante, permettendo di presentare l'esca in modo naturale a diverse profondità.",
-      "history": "La bolognese nasce negli anni '50 nelle acque del Po, dove i pescatori locali svilupparono canne sempre più lunghe per raggiungere le zone di corrente dove stazionavano i pesci. La tecnica si è poi diffusa in mare, diventando una delle più praticate lungo le coste italiane.",
-      "sections": [
-        {
-          "title": "Attrezzatura Bolognese",
-          "content": "La canna da bolognese è telescopica, lunga da 5 a 8 metri, con azione semi-parabolica che permette di assorbire le fughe dei pesci. Il mulinello è di taglia medio-piccola (2500-3000) con frizione precisa. Il filo principale è nylon sottile (0.14-0.18mm) per non insospettire i pesci. Il galleggiante può essere fisso o scorrevole in base alla profondità di pesca."
-        },
-        {
-          "title": "Galleggianti e Piombature",
-          "content": "La scelta del galleggiante è fondamentale: forme allungate per mare calmo, forme tozze per mare mosso, portate da 1 a 10 grammi. La piombatura distribuita (spallinata) permette una discesa naturale dell'esca, mentre la piombatura concentrata raggiunge rapidamente il fondo. La taratura deve essere perfetta: il galleggiante deve affiorare appena."
-        },
-        {
-          "title": "Esche e Pastura",
-          "content": "Le esche classiche sono: bigattino (larva di mosca), coreano, americano, gamberetto, pane. La pasturazione è fondamentale per attirare e trattenere i pesci nella zona di pesca. Si usa una miscela di sfarinati, formaggio, pane bagnato e esche sminuzzate, lanciata a mano o con fionda."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "La bolognese si pratica principalmente da scogliere, moli e porti. Si lancia il galleggiante nella zona pasturata e si accompagna la deriva con la canna, tenendo il filo in tensione. La ferratura avviene quando il galleggiante affonda o si sposta lateralmente. La trattenuta (frenare la deriva) attiva le mangiate."
-        },
-        {
-          "title": "Profondità di Pesca",
-          "content": "La profondità si regola spostando il galleggiante lungo il filo. Per pesci di fondo come saraghi e orate si pesca a fondo, per occhiate e boghe a mezz'acqua. La pesca a galla (superficie) è efficace per cefali. È importante variare la profondità fino a trovare quella giusta."
-        },
-        {
-          "title": "Condizioni Ideali",
-          "content": "Le condizioni migliori per la bolognese sono: mare calmo o poco mosso, acqua limpida, corrente leggera. Le ore dell'alba e del tramonto sono le più produttive. In estate si pesca bene anche di notte con galleggianti luminosi."
-        }
+      "slug": "spinning",
+      "name": "Spinning",
+      "emoji": "🎯",
+      "shortDescription": "Pesca attiva con esche artificiali per predatori costieri: spigole, serra, barracuda e lecce.",
+      "description": "Lo spinning è la pesca dei predatori per eccellenza: una tecnica attiva e dinamica che consiste nel lanciare e recuperare esche artificiali imitando il movimento di piccole prede. A differenza delle tecniche di attesa, lo spinning richiede di muoversi continuamente lungo la costa, cercando i punti dove i predatori cacciano. La chiave è leggere l'acqua: cercare schiume, correnti, massi sommersi e qualsiasi variazione dove i pesci possano tendere imboscate. In Italia lo spinning in mare è esploso negli ultimi vent'anni, con la spigola come preda regina. Ma anche serra, barracuda, lecce e occhiate regalano emozioni indimenticabili. Le esche artificiali si dividono in minnow (pesciolini di plastica che nuotano a diverse profondità), soft bait (esche in silicone), metal jig e topwater (superficie). Ogni tipo ha un utilizzo specifico: minnow per la ricerca, soft bait per lavorare le buche, topwater per le esplosioni in superficie. L'attrezzatura è relativamente leggera e maneggevole: canne da 2.10-2.70m con azione di punta, mulinelli taglia 2500-4000 e trecciato sottile per la massima sensibilità.",
+      "difficulty": "Media",
+      "minBudget": 100,
+      "maxBudget": 500,
+      "targetSpecies": ["spigola", "serra", "leccia-amia", "barracuda-mediterraneo"],
+      "seasons": { "gennaio": 2, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 3, "giugno": 2, "luglio": 2, "agosto": 2, "settembre": 3, "ottobre": 3, "novembre": 3, "dicembre": 2 },
+      "rod": { "length": "2.10-2.70m", "action": "Fast/Extra Fast", "power": "7-35g" },
+      "reel": { "size": "2500-4000", "type": "Frizione anteriore, recupero alto" },
+      "line": { "type": "Trecciato PE", "diameter": "PE 0.8-1.5 (8-20lb)" },
+      "rigs": ["Artificiale diretto su snap", "Leader in fluorocarbon 0.30-0.40mm", "Split ring per minnow"],
+      "baits": ["Minnow 9-12cm", "Soft bait (shad, grub)", "Metal jig 20-40g", "Popper e WTD"],
+      "steps": [
+        { "title": "Individua lo spot", "description": "Cerca zone con variazioni: scogli sommersi, correnti, schiume, foci di fiumi. I predatori si posizionano dove la corrente canalizza le prede. All'alba e al tramonto l'attività è massima." },
+        { "title": "Scegli l'artificiale giusto", "description": "Con acqua limpida usa colori naturali (argento, verde oliva). Con acqua torbida usa colori accesi (chartreuse, arancio). Inizia con un minnow sospending per coprire più acqua, poi passa alle soft bait per lavorare i punti caldi." },
+        { "title": "Lancia con precisione", "description": "Il lancio deve essere preciso: punta verso i massi sommersi, le correnti e le zone di schiuma. Nelle scogliere lancia parallelo alla costa per coprire più territorio. Nelle foci lancia a monte della corrente." },
+        { "title": "Recupera con variazioni", "description": "Non recuperare mai in modo lineare monotono. Alterna jerks (strappi secchi), pause e accelerazioni. I predatori attaccano spesso durante le pause perché l'esca sembra ferita e vulnerabile." },
+        { "title": "Ferra e combatti", "description": "Quando senti la toccata, ferra con un colpo secco del polso. Mantieni la canna alta e la frizione tarata correttamente. Le spigole fanno fughe potenti vicino a riva: non forzare e usa il guadino." }
       ],
       "tips": [
-        "Pastura poco ma spesso per mantenere i pesci in zona senza saziarli",
-        "Usa finali sottili (0.10-0.14mm) per pesci diffidenti",
-        "Fai attenzione al vento: può rendere difficile il controllo del galleggiante",
-        "Varia la velocità di discesa dell'esca per stimolare le mangiate"
+        "Le prime luci dell'alba sono il momento migliore: i predatori cacciano attivamente prima del sorgere del sole",
+        "Dopo una mareggiata l'acqua torbida porta i predatori sotto riva: usa soft bait pesanti e lente",
+        "Cambia artificiale ogni 15-20 lanci se non hai toccate: il pesce potrebbe aver ignorato quel profilo",
+        "Osserva i gabbiani che si tuffano: sotto di loro ci sono spesso predatori in caccia"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Bolognese 6 metri",
-          "description": "Canna bolognese 6 metri, leggera e reattiva",
-          "price": 79,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+bolognese+6+metri+mare&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Bolognese 2500",
-          "description": "Mulinello affidabile per bolognese, frizione morbida",
-          "price": 39,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+bolognese+2500&tag=fishandtips-21"
-        },
-        "galleggianti": {
-          "name": "Set Galleggianti Bolognese",
-          "description": "10 galleggianti assortiti da 2 a 6 grammi",
-          "price": 15,
-          "amazonUrl": "https://www.amazon.it/s?k=galleggianti+bolognese+mare+set&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Kit Terminali Bolognese",
-          "description": "Ami, pallini, girelle e fluorocarbon assortiti",
-          "price": 22,
-          "amazonUrl": "https://www.amazon.it/s?k=kit+bolognese+terminali+ami&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["sarago-maggiore", "orata", "occhiata", "cefalo"],
-      "relatedArticles": ["tecniche-di-pesca", "consigli"],
-      "seoKeywords": ["pesca bolognese", "bolognese mare", "canna bolognese", "tecnica bolognese", "galleggiante bolognese", "bolognese saraghi"]
+      "commonMistakes": [
+        "Recuperare troppo velocemente: il pesce non riesce ad attaccare o non si interessa",
+        "Usare artificiali troppo grandi per le condizioni: in inverno le prede sono piccole, usa minnow da 7-9cm",
+        "Ferrare troppo presto alla prima toccata: aspetta di sentire il peso del pesce",
+        "Non usare il fluorocarbon come leader: i predatori hanno vista acuta e vedono il trecciato"
+      ],
+      "bestSpotTypes": ["Scogliere con acqua profonda", "Foci di fiumi e canali", "Porti con buona circolazione", "Secche e reef"],
+      "relatedTechniques": ["light-rock-fishing", "jigging"],
+      "amazonProducts": [
+        { "name": "Major Craft Crostage 2.40m 7-28g", "type": "Canna", "query": "canna+spinning+mare+2.40m+spigola" },
+        { "name": "Shimano Stradic FL 3000", "type": "Mulinello", "query": "mulinello+spinning+shimano+3000+mare" },
+        { "name": "Trecciato YGK X-Braid PE 1.0", "type": "Filo", "query": "trecciato+pesca+spinning+PE+1.0" }
+      ]
     },
     {
-      "id": "eging",
       "slug": "eging",
       "name": "Eging",
-      "subtitle": "La caccia ai cefalopodi con le totanare",
-      "shortDescription": "Tecnica giapponese per la pesca di seppie e calamari con esche artificiali specifiche.",
-      "heroImage": "/images/tecniche/eging.jpg",
-      "difficulty": 2,
-      "popularity": 4,
-      "environment": ["mare"],
-      "targetSpecies": ["Calamaro", "Seppia", "Totano"],
-      "bestSeasons": ["autunno", "inverno", "primavera"],
-      "introduction": "L'Eging è una tecnica di pesca giapponese dedicata alla cattura dei cefalopodi (seppie, calamari, totani) utilizzando esche artificiali chiamate 'egi' o totanare. È una pesca attiva e stimolante che richiede sensibilità e timing per sentire le 'abbracciate' dei cefalopodi e ferrare al momento giusto.",
-      "history": "L'Eging nasce in Giappone dove la pesca ai cefalopodi ha una tradizione millenaria. Il termine deriva dalla contrazione di 'egi' (totanara) e 'fishing'. In Italia si è diffuso a partire dagli anni 2000, conquistando rapidamente migliaia di appassionati grazie alla sua efficacia e alla possibilità di praticarla tutto l'anno.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Eging",
-          "content": "La canna da eging è specifica: lunghezza 2.40-2.70m, azione di punta sensibilissima per sentire le tocche delicate, potenza sufficiente per lanciare totanare da 2.5 a 4.0. Il mulinello è di taglia 2500-3000 con frizione morbida. Il filo è trecciato sottile (PE 0.6-0.8) per massima sensibilità, con finale in fluorocarbon."
-        },
-        {
-          "title": "Totanare (Egi)",
-          "content": "Le totanare sono esche artificiali a forma di gambero con uncini senza ardiglione. Si misurano in 'numeri' (2.0, 2.5, 3.0, 3.5, 4.0) che indicano la dimensione. Esistono versioni con diverse velocità di affondamento: shallow (lente), medium, deep (veloci). I colori spaziano dal naturale all'UV fluorescente."
-        },
-        {
-          "title": "Tecnica di Jerkatura",
-          "content": "La tecnica base dell'eging è la jerkatura: dopo il lancio si lascia affondare la totanara, poi si recupera con jerks (colpi secchi) della canna che fanno 'saltare' l'esca sul fondo. I cefalopodi attaccano durante le pause, quindi è fondamentale mantenere la lenza in tensione per sentire l'abbraccio."
-        },
-        {
-          "title": "Quando Pescare",
-          "content": "L'eging è più produttivo all'alba, al tramonto e durante la notte. La stagione migliore va da settembre a maggio, con picchi in autunno (calamari) e primavera (seppie). Le notti di luna nuova sono particolarmente favorevoli perché i cefalopodi salgono in superficie attratti dalle luci."
-        },
-        {
-          "title": "Spot Ideali",
-          "content": "I migliori spot per l'eging sono i porti con fondali misti (sabbia e roccia), le scogliere con praterie di posidonia, le zone con acqua profonda vicino a riva. I cefalopodi stazionano dove trovano riparo e prede, quindi cerca zone con strutture sommerse."
-        },
-        {
-          "title": "Eging Notturno",
-          "content": "L'eging notturno è estremamente produttivo. Si usano totanare fosforescenti o si pesca sotto le luci dei porti che attirano i cefalopodi. La sensibilità deve essere massima perché non si vede la lenza; ci si affida completamente al tatto attraverso la canna."
-        }
+      "emoji": "🦑",
+      "shortDescription": "Tecnica specifica per cefalopodi con esche artificiali chiamate totanare: calamari, seppie e totani.",
+      "description": "L'eging è la tecnica specializzata nella pesca dei cefalopodi — calamari, seppie e totani — utilizzando esche artificiali chiamate totanare (o egi in giapponese, da cui il nome). Importata dal Giappone dove è un vero e proprio culto, in Italia si è diffusa rapidamente negli ultimi dieci anni conquistando migliaia di appassionati. La tecnica prevede lanci in zone rocciose o miste e un recupero fatto di jerkate secche intervallate da pause: durante la caduta dell'egi il cefalopode lo avvolge con i tentacoli. Il bello dell'eging è la sua stagionalità perfetta per chi ama pescare di sera e notte: i calamari si pescano da ottobre a gennaio, le seppie in primavera e autunno. Le totanare hanno pesi e colori diversi: in acque profonde servono modelli da 3.0-3.5 (più pesanti), in bassofondo bastano da 2.5. I colori fluo funzionano bene di notte con la lampada, mentre i colori naturali sono migliori di giorno. L'attrezzatura è leggera e sensibile: canne da eging da 2.40-2.70m con azione rapida, mulinelli 2500-3000 e trecciato sottile.",
+      "difficulty": "Media",
+      "minBudget": 80,
+      "maxBudget": 400,
+      "targetSpecies": ["calamaro", "seppia", "totano"],
+      "seasons": { "gennaio": 3, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 2, "giugno": 1, "luglio": 1, "agosto": 1, "settembre": 2, "ottobre": 3, "novembre": 3, "dicembre": 3 },
+      "rod": { "length": "2.40-2.70m", "action": "Extra Fast", "power": "3.0-25g" },
+      "reel": { "size": "2500-3000", "type": "Frizione anteriore, bobina shallow" },
+      "line": { "type": "Trecciato PE", "diameter": "PE 0.6-0.8 (6-12lb)" },
+      "rigs": ["Totanara diretta su snap", "Totanara con piombo addizionale", "Drop shot per seppie"],
+      "baits": ["Totanare 2.5 (seppie, bassofondo)", "Totanare 3.0 (calamari)", "Totanare 3.5 (profondità, corrente)", "Totanare glow per pesca notturna"],
+      "steps": [
+        { "title": "Scegli il momento giusto", "description": "I calamari sono più attivi al tramonto e nelle prime ore della notte. Le seppie si pescano bene anche di giorno, soprattutto in primavera. Le notti senza luna e con mare calmo sono ideali: usa una lampada per attirare i cefalopodi." },
+        { "title": "Seleziona la totanara", "description": "Di notte usa colori fluo (rosa, arancio) o glow-in-the-dark. Di giorno scegli colori naturali (verde oliva, marrone). La taglia dipende dalla profondità: 2.5 per fondali bassi, 3.0-3.5 per profondità oltre i 5 metri." },
+        { "title": "Lancia e lascia affondare", "description": "Lancia verso il largo o lungo le scogliere. Conta i secondi di affondamento per stabilire la profondità. Inizia lasciando affondare completamente, poi riduci il tempo se i cefalopodi sono a mezz'acqua." },
+        { "title": "Jerkate e pause", "description": "Esegui 2-3 jerkate secche con la punta della canna verso l'alto, poi lascia ricadere la totanara in tensione controllata. L'attacco avviene quasi sempre durante la fase di caduta: sentirai un peso morbido sulla canna, non una botta secca." },
+        { "title": "Porta a riva con calma", "description": "Il cefalopode si attacca con i tentacoli, non con la bocca: non ferrare violentemente o lo perdi. Recupera con movimento costante senza strappi. Tieni il guadino pronto: calamari e seppie rilasciano inchiostro al momento dello sguadino." }
       ],
       "tips": [
-        "Quando senti l'abbraccio non ferrare subito: aspetta 1-2 secondi che il cefalopode si giri",
-        "Usa totanare più piccole in acque limpide, più grandi in acque torbide",
-        "Porta sempre un guadino: salpare un calamaro a mano rischia di fartelo perdere",
-        "Non lavare la totanara dopo una cattura: l'odore attira altri cefalopodi"
+        "Porta sempre una lampada frontale a luce bianca: i calamari sono attratti dalla luce e si avvicinano al cerchio luminoso",
+        "Con corrente forte aggiungi un piombo addizionale sopra la totanara per farla affondare più velocemente",
+        "I porti sono spot eccellenti per eging notturno: le luci dei lampioni attirano i cefalopodi",
+        "Dopo la cattura di un calamaro, rilancia immediatamente nello stesso punto: spesso sono in gruppo"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Eging 2.50m",
-          "description": "Canna da eging 2.51m, azione 2.5-3.5, sensibilità top",
-          "price": 109,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+eging+calamari+seppie&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Eging 2500",
-          "description": "Mulinello leggero e fluido, perfetto per eging",
-          "price": 59,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+eging+2500+leggero&tag=fishandtips-21"
-        },
-        "totanare": {
-          "name": "Kit Totanare Assortite",
-          "description": "Mix di colori e misure 2.5-3.5 per tutte le condizioni",
-          "price": 25,
-          "amazonUrl": "https://www.amazon.it/s?k=totanare+eging+kit+calamari&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Porta Totanare + Guadino",
-          "description": "Organizer per egi e guadino specifico per cefalopodi",
-          "price": 35,
-          "amazonUrl": "https://www.amazon.it/s?k=guadino+calamari+porta+totanare&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["calamaro", "seppia", "totano"],
-      "relatedArticles": ["tecniche-di-pesca", "consigli"],
-      "seoKeywords": ["eging", "pesca eging", "totanare", "pesca calamari", "pesca seppie", "come pescare a eging", "eging tecnica"]
+      "commonMistakes": [
+        "Ferrare violentemente alla toccata: il cefalopode si tiene con i tentacoli e si stacca facilmente",
+        "Usare trecciato troppo spesso: riduce la sensibilità necessaria per sentire la presa morbida",
+        "Pescare solo dal molo: le scogliere naturali offrono spesso risultati migliori",
+        "Non variare la profondità di pesca: i cefalopodi cambiano livello durante la serata"
+      ],
+      "bestSpotTypes": ["Porti illuminati", "Scogliere con fondale misto", "Promontori con acqua profonda", "Moli con luci notturne"],
+      "relatedTechniques": ["bolognese", "light-rock-fishing"],
+      "amazonProducts": [
+        { "name": "Shimano Sephia BB 2.50m", "type": "Canna", "query": "canna+eging+shimano+sephia+calamaro" },
+        { "name": "Daiwa Fuego LT 2500", "type": "Mulinello", "query": "mulinello+eging+daiwa+2500" },
+        { "name": "Set Totanare Yamashita EGI-OH 3.0", "type": "Totanare", "query": "totanare+yamashita+eging+3.0+set" }
+      ]
     },
     {
-      "id": "feeder",
+      "slug": "bolognese",
+      "name": "Bolognese",
+      "emoji": "🎣",
+      "shortDescription": "La tecnica italiana per eccellenza: pesca con canna lunga e galleggiante da porti, moli e scogliere.",
+      "description": "La bolognese è la tecnica di pesca più diffusa e versatile d'Italia, praticata da milioni di pescatori in tutto il paese. Prende il nome dalla città di Bologna, dove venne perfezionata negli anni '60 per la pesca in fiume, ma si è poi estesa al mare diventando la regina dei moli e dei porti. La tecnica utilizza una canna lunga con anelli (5-7 metri) che permette di controllare il galleggiante e l'esca a media distanza. Il galleggiante scorrevole o fisso porta l'esca alla profondità desiderata, dove saraghi, occhiate, cefali e triglie si alimentano. La bolognese è la tecnica ideale per chi inizia a pescare: è intuitiva, non richiede un grande investimento e regala soddisfazioni immediate. In mare la si pratica principalmente dai moli, dai porti e dalle scogliere basse dove si può raggiungere una profondità di 3-8 metri. L'innesco classico prevede verme coreano o bigattino sulla lenza, con pasturazione leggera per attirare i pesci nella zona di pesca. Funziona praticamente tutto l'anno, con i mesi primaverili e autunnali particolarmente produttivi.",
+      "difficulty": "Facile",
+      "minBudget": 50,
+      "maxBudget": 200,
+      "targetSpecies": ["sarago", "occhiata", "cefalo"],
+      "seasons": { "gennaio": 2, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 3, "giugno": 2, "luglio": 2, "agosto": 2, "settembre": 3, "ottobre": 3, "novembre": 3, "dicembre": 2 },
+      "rod": { "length": "5.0-7.0m", "action": "Parabolica progressiva", "power": "5-25g" },
+      "reel": { "size": "2500-3000", "type": "Frizione posteriore o anteriore" },
+      "line": { "type": "Nylon", "diameter": "0.16-0.20mm madre, 0.12-0.16mm terminale" },
+      "rigs": ["Galleggiante fisso con piombi spaccati", "Galleggiante scorrevole", "Inglese leggero"],
+      "baits": ["Verme coreano", "Bigattino", "Gamberetto", "Pane", "Pasta di pane"],
+      "steps": [
+        { "title": "Scegli la postazione", "description": "Cerca un molo o una scogliera con acqua profonda almeno 3 metri. I porti con piloni sommersi sono ideali perché attirano saraghi e occhiate. Posizionati dove la corrente porta il cibo verso di te." },
+        { "title": "Prepara la lenza", "description": "Infila il galleggiante sulla madre, aggiungi i piombi spaccati per bilanciarlo (deve affiorare solo l'antenna) e lega il terminale in fluorocarbon più sottile con l'amo. Per saraghi usa amo del 8-12, per occhiate del 10-14." },
+        { "title": "Pastura la zona", "description": "Lancia piccole palline di pastura (sarde tritate, bigattini con pan grattato) nel punto dove metterai il galleggiante. La pastura deve creare una colonna di attrattivo nell'acqua. Pastura poco ma spesso: 3-4 palline ogni 5 minuti." },
+        { "title": "Pesca e leggi il galleggiante", "description": "Lancia il galleggiante nella zona pasturata e tieni la canna in mano. Osserva il galleggiante: un'affondata decisa indica un sarago, un tremolìo lento indica un'occhiata, un movimento laterale indica un cefalo. Ferra quando il galleggiante scompare." },
+        { "title": "Gestisci il combattimento", "description": "Con la bolognese la canna è lunga e ammortizza le fughe del pesce. Accompagna i suoi movimenti senza forzare. I saraghi puntano verso il fondo e le tane: tieni la canna alta per evitare che si incanino." }
+      ],
+      "tips": [
+        "La pasturazione è fondamentale: senza pastura i pesci non si concentrano nel tuo punto di pesca",
+        "Usa ami piccoli e terminali sottili: i pesci da bolognese hanno bocca piccola e sono diffidenti",
+        "Cambia la profondità del galleggiante se non hai abboccate: i pesci cambiano livello durante il giorno",
+        "Il bigattino è l'esca universale da bolognese: funziona con tutte le specie e in tutte le stagioni"
+      ],
+      "commonMistakes": [
+        "Usare terminali troppo spessi: 0.16mm è già tanto per i saraghi, meglio 0.12-0.14mm",
+        "Pasturare troppo in una volta: sazia i pesci prima che trovino la tua esca",
+        "Non bilanciare correttamente il galleggiante: se affonda troppo non vedi le tocche delicate",
+        "Pescare sempre alla stessa profondità senza adattarsi"
+      ],
+      "bestSpotTypes": ["Moli e pontili", "Porti con piloni", "Scogliere basse", "Banchine con acqua profonda"],
+      "relatedTechniques": ["light-rock-fishing", "feeder"],
+      "amazonProducts": [
+        { "name": "Trabucco Antrax Bolognese 6m", "type": "Canna", "query": "canna+bolognese+6+metri+mare" },
+        { "name": "Shimano Sienna FG 2500", "type": "Mulinello", "query": "mulinello+bolognese+shimano+2500" },
+        { "name": "Nylon Trabucco T-Force 0.18mm", "type": "Filo", "query": "nylon+pesca+bolognese+0.18mm" }
+      ]
+    },
+    {
+      "slug": "light-rock-fishing",
+      "name": "Light Rock Fishing",
+      "emoji": "🪨",
+      "shortDescription": "Pesca ultraleggera dalle rocce con micro esche artificiali per saraghi, occhiate e piccoli predatori.",
+      "description": "Il Light Rock Fishing (LRF) è la frontiera più divertente e accessibile della pesca sportiva moderna. Nata in Giappone e diffusasi rapidamente in Europa, questa tecnica consiste nel pescare dalle scogliere e dai porti con attrezzatura ultraleggera e micro esche artificiali (jig head da 1-5 grammi con piccole soft bait). Il fascino del LRF sta nella sua semplicità: bastano una canna corta e leggera, un piccolo mulinello e una manciata di esche artificiali per passare ore a pescare saraghi, occhiate, bavose, ghiozzi, scorfanetti e tanti altri piccoli abitanti delle rocce. Ogni pesce, anche il più piccolo, diventa un avversario emozionante con attrezzatura così leggera. La tecnica è ideale per i principianti perché le prede sono abbondanti e le attrezzature economiche, ma anche i pescatori esperti la adorano per le sensazioni tattili amplificate. Si pratica principalmente su moli, porti e scogliere basse dove i micro predatori si nascondono tra anfratti, alghe e cozze. Il LRF funziona tutto l'anno, anche nei mesi invernali quando le altre tecniche rallentano, rendendolo perfetto per chi non vuole mai smettere di pescare.",
+      "difficulty": "Facile",
+      "minBudget": 50,
+      "maxBudget": 250,
+      "targetSpecies": ["sarago", "occhiata", "scorfano"],
+      "seasons": { "gennaio": 2, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 3, "giugno": 2, "luglio": 2, "agosto": 2, "settembre": 3, "ottobre": 3, "novembre": 3, "dicembre": 2 },
+      "rod": { "length": "1.80-2.10m", "action": "Extra Fast / Solid Tip", "power": "0.5-7g" },
+      "reel": { "size": "1000-2000", "type": "Frizione anteriore, leggero" },
+      "line": { "type": "Trecciato PE o Nylon fine", "diameter": "PE 0.3-0.6 (3-8lb)" },
+      "rigs": ["Jig head 1-3g con soft bait", "Drop shot con micro esca", "Carolina rig leggero", "Split shot rig"],
+      "baits": ["Micro shad 2-3 pollici", "Worm in silicone 1.5-2 pollici", "Creature bait", "Craw (gambero artificiale)"],
+      "steps": [
+        { "title": "Scegli lo spot tra le rocce", "description": "Cerca zone con anfratti, cozze, ricci e alghe: qui si nascondono i piccoli predatori. I moli con massi alla base sono ideali. Nelle scogliere naturali cerca le pozze di marea e i canali tra i sassi." },
+        { "title": "Monta la jig head", "description": "Scegli una jig head da 1-3 grammi in base alla corrente e alla profondità. Infila una piccola soft bait (shad da 2 pollici o worm). Il colore deve imitare le prede locali: gambero (arancio/marrone), pesciolino (argento/verde)." },
+        { "title": "Lancia e lascia affondare", "description": "Lanci corti e precisi: 5-15 metri. Lascia affondare la jig head fino al fondo contando i secondi. Una volta sul fondo, inizia il recupero con piccoli saltelli e pause." },
+        { "title": "Anima l'esca sul fondo", "description": "Piccoli colpetti con la punta della canna per far saltellare la jig head sul fondo, imitando un gamberetto o un vermetto. Alterna saltelli a pause di 2-3 secondi: gli attacchi arrivano spesso durante la pausa." },
+        { "title": "Senti la toccata e ferra", "description": "Con il LRF sentirai ogni tocca amplificata dalla canna sensibile. Le toccate sono spesso timide (tap-tap). Ferra con un colpo del polso delicato ma deciso. Anche un sarago da 200 grammi darà un combattimento emozionante." }
+      ],
+      "tips": [
+        "Porta sempre almeno 3-4 colori diversi di soft bait: il pesce può essere selettivo in base alla luce e alla trasparenza dell'acqua",
+        "Le ore centrali del giorno funzionano bene per il LRF, a differenza di altre tecniche: i piccoli predatori mangiano anche a sole alto",
+        "In inverno il LRF è spesso l'unica tecnica produttiva: i pesci piccoli restano attivi anche con acqua fredda",
+        "Usa il fluorocarbon come leader: in acque limpide fa la differenza tra abboccata e rifiuto"
+      ],
+      "commonMistakes": [
+        "Usare jig head troppo pesanti: con più di 3g perdi la sensibilità e i pesci sentono la resistenza innaturale",
+        "Ferrare troppo forte: con fili sottili rischi di rompere e con ami piccoli strappi la bocca del pesce",
+        "Pescare solo a fondo: molte specie si alimentano a mezz'acqua, varia la profondità",
+        "Non portare soft bait di ricambio: i pesci le distruggono velocemente"
+      ],
+      "bestSpotTypes": ["Moli con massi alla base", "Scogliere basse con anfratti", "Porti con piloni", "Pozze di marea"],
+      "relatedTechniques": ["bolognese", "spinning"],
+      "amazonProducts": [
+        { "name": "Major Craft Firstcast LRF 2.00m 0.5-7g", "type": "Canna", "query": "canna+light+rock+fishing+LRF+mare" },
+        { "name": "Shimano Nasci FB 1000", "type": "Mulinello", "query": "mulinello+ultraleggero+1000+LRF" },
+        { "name": "Set Jig Head + Soft Bait LRF", "type": "Esche", "query": "kit+jig+head+soft+bait+LRF+mare" }
+      ]
+    },
+    {
       "slug": "feeder",
-      "name": "Feeder Fishing",
-      "subtitle": "Precisione e pasturazione per pesci di fondo",
-      "shortDescription": "Tecnica inglese con pasturatore per carpe, carassi, tinche e pesci di fondo in acque dolci.",
-      "heroImage": "/images/tecniche/feeder.jpg",
-      "difficulty": 2,
-      "popularity": 4,
-      "environment": ["lago", "fiume"],
-      "targetSpecies": ["Carpa", "Carassio", "Tinca", "Barbo", "Orata (mare)"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Il feeder fishing è una tecnica di pesca a fondo che utilizza un pasturatore (feeder) per rilasciare la pastura esattamente nel punto di pesca. Originaria dell'Inghilterra, si è diffusa in Europa per la sua efficacia nella pesca di ciprinidi e altri pesci di fondo. La precisione e la costanza nella pasturazione sono le chiavi del successo.",
-      "history": "Il feeder nasce in Inghilterra negli anni '60 come evoluzione del ledgering tradizionale. L'intuizione di incorporare un contenitore per la pastura nel piombo ha rivoluzionato la pesca a fondo, permettendo di concentrare i pesci in una zona precisa. In Italia si è diffuso a partire dagli anni '90.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Feeder",
-          "content": "La canna da feeder è specifica: lunghezza 3.30-3.90m con vette intercambiabili (quiver tip) di diverse sensibilità. Il mulinello è di taglia 4000-5000 con frizione potente per i combattimenti con carpe. Il filo principale può essere nylon (0.20-0.25mm) o trecciato, il finale sempre in nylon o fluorocarbon più sottile."
-        },
-        {
-          "title": "Tipologie di Pasturatori",
-          "content": "Esistono diversi tipi di feeder: cage feeder (gabbia aperta per pastura umida), method feeder (per metodo a palla), ground feeder (piombato per corrente), pellet feeder (per pellet). La scelta dipende dal tipo di pastura, dalla corrente e dalla distanza di pesca."
-        },
-        {
-          "title": "Pastura e Esche",
-          "content": "La pastura deve essere della consistenza giusta: non troppo secca (si svuota subito) né troppo umida (non si svuota). Si aggiungono esche come mais, caster, pellet. Le esche per l'amo includono: mais dolce, vermi, caster, boilie, pellet innescabili, pop-up."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Dopo aver scelto il punto di pesca si effettuano i primi lanci solo con pastura per richiamare i pesci. Poi si inizia a pescare, lanciando sempre nello stesso punto (si usa un elastico sul mulinello come riferimento). Si attende la mangiata osservando la vetta della canna: quando si piega è il momento di ferrare."
-        },
-        {
-          "title": "Lettura della Vetta",
-          "content": "La vetta (quiver tip) è l'indicatore di abboccata. Le toccate si manifestano come: vibrazioni (pesce in pastura), piegamenti brevi (interesse), piegamento deciso (abboccata). Bisogna imparare a distinguere le false toccate dalle abboccate vere. Non ferrare troppo presto!"
-        },
-        {
-          "title": "Feeder in Mare",
-          "content": "Il feeder si pratica anche in mare per orate, saraghi e mormore. Si usano pasturatori più pesanti, pasture specifiche per acqua salata (con sardina, formaggio) ed esche come americano, coreano, bigattino. La tecnica è identica ma con attrezzatura più robusta."
-        }
+      "name": "Feeder",
+      "emoji": "🧺",
+      "shortDescription": "Pesca a fondo con pasturatore: precisione e pasturazione costante per orate, mormore e saraghi.",
+      "description": "Il feeder fishing è una tecnica di pesca a fondo che utilizza un pasturatore (feeder) come piombo: un piccolo contenitore forato che rilascia progressivamente la pastura sul fondale, attirando i pesci esattamente nel punto dove si trova l'esca. Nato in Inghilterra per la pesca in acqua dolce, il feeder si è adattato brillantemente alla pesca in mare dove ha rivoluzionato l'approccio alla pesca dalle spiagge e dai moli. La forza di questa tecnica sta nella precisione: ogni lancio deposita pastura e esca nello stesso identico punto, creando una zona di alimentazione irresistibile. Le prede principali in mare sono orate, mormore e saraghi, ma anche spigole e ombrine non disdegnano il feeder. L'attrezzatura prevede una canna specifica (quiver tip) con cimino intercambiabile che funge da segnalatore di abboccata: quando il pesce mangia, il cimino si piega delicatamente. Il feeder richiede una buona capacità di lancio per essere preciso e costante, ma una volta padroneggiato regala catture abbondanti. I periodi migliori sono primavera e autunno, quando le orate si avvicinano alla costa per alimentarsi.",
+      "difficulty": "Media",
+      "minBudget": 80,
+      "maxBudget": 350,
+      "targetSpecies": ["orata", "mormora", "sarago"],
+      "seasons": { "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 3, "giugno": 2, "luglio": 1, "agosto": 1, "settembre": 3, "ottobre": 3, "novembre": 2, "dicembre": 1 },
+      "rod": { "length": "3.30-3.90m", "action": "Quiver tip intercambiabile", "power": "40-120g" },
+      "reel": { "size": "4000-5000", "type": "Frizione anteriore, baitrunner opzionale" },
+      "line": { "type": "Trecciato o Nylon", "diameter": "Trecciato 0.12mm o Nylon 0.22-0.25mm" },
+      "rigs": ["Method feeder con hair rig", "Cage feeder con paternoster", "Inline feeder scorrevole", "Flat method con mold"],
+      "baits": ["Verme coreano", "Bigattino", "Mais dolce", "Mini boilie", "Granchio"],
+      "steps": [
+        { "title": "Scegli il punto e clipppa", "description": "Lancia esplorativo per trovare la distanza giusta (fondale con variazioni). Una volta trovato il punto, clippa il filo sul mulinello così ogni lancio arriverà alla stessa distanza. Questa precisione è la chiave del feeder." },
+        { "title": "Prepara la pastura e il feeder", "description": "Mescola la pastura con acqua di mare fino a ottenere una consistenza che si sbricioli in 2-3 minuti sul fondo. Riempi il feeder, comprimi e aggiungi qualche bigattino o verme tritato nella miscela. Il feeder deve pesare 40-80g per il mare." },
+        { "title": "Fai i lanci iniziali di pasturazione", "description": "Prima di pescare, fai 5-10 lanci solo con il feeder pieno (senza esca sull'amo) per creare un tappeto di pastura sul fondo. Questo attira i pesci nella zona prima di iniziare a pescare." },
+        { "title": "Innesca e pesca", "description": "Innesca l'amo con verme, bigattino o mais. Lancia nel punto clippato, appoggia la canna sul supporto e osserva il quiver tip. Tieni il filo in tensione per leggere le tocche: il cimino si piega dolcemente quando il pesce mangia." },
+        { "title": "Rilancia regolarmente", "description": "Anche senza abboccate, rilancia ogni 5-7 minuti per ricaricare il feeder. La pasturazione costante è il segreto: ogni lancio aggiunge attrattivo sul fondo. Se il quiver tip trema senza piegarsi, aspetta: il pesce sta assaggiando." }
       ],
       "tips": [
-        "Pastura poco e spesso: meglio 10 lanci leggeri che 3 pesanti",
-        "Usa una vetta morbida per pesci piccoli, rigida per corrente o pesci grandi",
-        "Segna la distanza di lancio con un elastico sulla bobina del mulinello",
-        "Cambia esca dopo ogni lancio se non hai abboccate"
+        "La precisione del lancio è tutto nel feeder: allenati a lanciare sempre nello stesso punto prima di iniziare a pescare",
+        "Aggiungi sempre qualche pezzo di esca nella pastura del feeder: vermi tritati o bigattini aumentano l'attrattiva",
+        "Con corrente forte usa feeder più pesanti e pastura più compatta che non si dissolva troppo velocemente",
+        "L'orata al feeder abbocca con toccate delicate: non ferrare al primo movimento del quiver tip, aspetta la piegata decisa"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Feeder 3.60m",
-          "description": "Canna feeder versatile con 3 vette intercambiabili",
-          "price": 89,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+feeder+3.60+quiver+tip&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Feeder 4000",
-          "description": "Mulinello robusto con frizione posteriore, perfetto per feeder",
-          "price": 49,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+feeder+4000+carpe&tag=fishandtips-21"
-        },
-        "pasturatori": {
-          "name": "Set Pasturatori Feeder",
-          "description": "10 feeder cage e method da 30 a 80 grammi",
-          "price": 18,
-          "amazonUrl": "https://www.amazon.it/s?k=pasturatori+feeder+method+cage&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Kit Completo Feeder",
-          "description": "Fionda, secchio pastura, contenitori esche, terminali",
-          "price": 42,
-          "amazonUrl": "https://www.amazon.it/s?k=kit+feeder+pesca+accessori&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["carpa", "carassio", "tinca", "orata"],
-      "relatedArticles": ["tecniche-di-pesca", "attrezzature"],
-      "seoKeywords": ["feeder fishing", "pesca a feeder", "feeder carpe", "tecnica feeder", "pasturatore feeder", "canna feeder"]
+      "commonMistakes": [
+        "Non clippare il filo: senza clippatura ogni lancio finisce in un punto diverso e la pastura si disperde",
+        "Usare pastura troppo bagnata che si disfa prima di arrivare sul fondo",
+        "Non rilanciare abbastanza spesso: il feeder funziona solo con pasturazione costante",
+        "Ferrare troppo presto sulle tocche delicate delle orate"
+      ],
+      "bestSpotTypes": ["Spiagge con fondali misti", "Moli e banchine", "Canali portuali", "Baie riparate"],
+      "relatedTechniques": ["surfcasting", "beach-ledgering"],
+      "amazonProducts": [
+        { "name": "Shimano Alivio CX Feeder 3.60m", "type": "Canna", "query": "canna+feeder+mare+shimano+3.60m" },
+        { "name": "Daiwa Ninja Match LT 4000", "type": "Mulinello", "query": "mulinello+feeder+mare+4000+daiwa" },
+        { "name": "Set Method Feeder + Mold", "type": "Feeder", "query": "method+feeder+mare+set+mold" }
+      ]
     },
     {
-      "id": "traina",
-      "slug": "traina",
-      "name": "Traina Costiera",
-      "subtitle": "Pesca in movimento dai grandi predatori",
-      "shortDescription": "Pesca dalla barca trainando artificiali o esche vive per ricciole, dentici e lampughe.",
-      "heroImage": "/images/tecniche/traina.jpg",
-      "difficulty": 3,
-      "popularity": 3,
-      "environment": ["mare"],
-      "targetSpecies": ["Ricciola", "Dentice", "Lampuga", "Palamita", "Tonno", "Leccia"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "La traina costiera è una tecnica di pesca che si pratica dalla barca, trainando esche artificiali o vive a velocità controllata. È la tecnica per eccellenza per insidiare i grandi predatori pelagici come ricciole, dentici e lampughe. Richiede una barca, anche piccola, e attrezzatura specifica.",
-      "history": "La traina è una delle tecniche di pesca più antiche, praticata già dai popoli mediterranei con barche a vela. Con l'avvento dei motori si è evoluta permettendo velocità e manovre impossibili prima. Oggi si divide in traina costiera (vicino alla costa) e traina d'altura (in mare aperto per tonni e pesci spada).",
-      "sections": [
-        {
-          "title": "Attrezzatura da Traina",
-          "content": "Le canne da traina sono corte e potenti (1.70-2.10m) con roller o anelli Alconite, capaci di sopportare la pressione del pesce e il traino. I mulinelli sono rotanti (conventional) di taglia 20-50 con capacità di almeno 300m di filo. Il filo è nylon robusto (0.50-0.80mm) o trecciato con leader in fluorocarbon."
-        },
-        {
-          "title": "Esche da Traina",
-          "content": "Le esche si dividono in artificiali e naturali. Artificiali: rapala, octopus, piume, cucchiaini rotanti. Naturali: aguglia, sgombro, seppia, calamaro (vivi o morti). Le esche vive sono micidiali ma richiedono una vasca ossigenata a bordo. La velocità di traina varia da 2 a 8 nodi in base all'esca."
-        },
-        {
-          "title": "Affondatori e Piombi",
-          "content": "Per raggiungere diverse profondità si usano: piombi guardiani (da 100 a 500g), affondatori a palla, downrigger (per profondità precise), dipsy diver (affondatori plananti). La traina può essere di superficie, a mezz'acqua o di fondo in base alle prede."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Si naviga a velocità costante lungo rotte studiate: margini di secche, cambi di fondale, zone con corrente. Le canne sono posizionate in portacanne a diverse distanze dalla barca. Quando un pesce abbocca la canna si piega violentemente: si deve afferrare e iniziare il combattimento."
-        },
-        {
-          "title": "Lettura del Mare",
-          "content": "Un buon trainista sa leggere il mare: le mangianze in superficie indicano predatori in caccia, gli uccelli marini segnalano la presenza di pesce, i cambi di colore dell'acqua indicano correnti e termoclini. L'ecoscandaglio è fondamentale per individuare i banchi di pesce."
-        },
-        {
-          "title": "Sicurezza in Barca",
-          "content": "La sicurezza è fondamentale: controllare sempre le condizioni meteo, portare giubbotti di salvataggio, informare qualcuno del piano di navigazione. Durante il combattimento con un pesce grosso, il timoniere deve manovrare per aiutare il pescatore."
-        }
-      ],
-      "tips": [
-        "Varia la velocità ogni tanto: i cambi di ritmo stimolano gli attacchi",
-        "Usa colori diversi sulle varie canne per capire quale funziona meglio",
-        "Controlla sempre i nodi prima di partire: un nodo allentato significa pesce perso",
-        "Se peschi a traina di fondo, usa sempre un fondale noto per evitare incagli"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Traina 1.80m",
-          "description": "Canna da traina robusta e versatile per costiera",
-          "price": 79,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+traina+costiera+barca&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Traina Rotante",
-          "description": "Mulinello rotante potente con leva frizione",
-          "price": 159,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+traina+rotante+mare&tag=fishandtips-21"
-        },
-        "artificiali": {
-          "name": "Set Rapala Traina",
-          "description": "Minnow classici da traina in colori assortiti",
-          "price": 45,
-          "amazonUrl": "https://www.amazon.it/s?k=rapala+traina+mare+artificiali&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Portacanne da Traina",
-          "description": "2 portacanne regolabili e affondatore manuale",
-          "price": 89,
-          "amazonUrl": "https://www.amazon.it/s?k=portacanne+traina+barca+regolabile&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["ricciola", "dentice", "lampuga", "leccia-amia"],
-      "relatedArticles": ["spot-di-pesca", "attrezzature"],
-      "seoKeywords": ["traina costiera", "pesca a traina", "traina ricciole", "attrezzatura traina", "esche traina", "traina dalla barca"]
-    },
-    {
-      "id": "rockfishing",
-      "slug": "rockfishing",
-      "name": "Rock Fishing",
-      "subtitle": "Ultraleggero dalla scogliera",
-      "shortDescription": "Pesca leggera da scogliere e moli per piccoli predatori con attrezzatura ultralight.",
-      "heroImage": "/images/tecniche/rockfishing.jpg",
-      "difficulty": 1,
-      "popularity": 4,
-      "environment": ["mare"],
-      "targetSpecies": ["Sciarrano", "Tordo", "Perchia", "Ghiozzo", "Bavosa", "Donzella"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Il Rock Fishing (o Light Rock Fishing - LRF) è una tecnica ultraleggera che si pratica da scogliere, moli e porti. Si insidiano piccoli predatori di tana come sciarrani, tordi e perchie usando attrezzatura leggerissima e micro artificiali o esche naturali. È una pesca divertente, rilassante e adatta a tutti.",
-      "history": "Il rock fishing nasce dalla tradizione giapponese del 'mebaring' e 'ajing', tecniche ultraleggere per pesci di scogliera. In Europa si è diffuso negli anni 2010 grazie alla sua accessibilità: si può praticare ovunque ci sia una scogliera, non richiede barca e l'attrezzatura è economica.",
-      "sections": [
-        {
-          "title": "Attrezzatura Ultraleggera",
-          "content": "L'attrezzatura da rock fishing è estremamente leggera: canne 1.80-2.10m con potenza 0.5-7g, mulinelli taglia 1000-2000, filo trecciato PE 0.2-0.4 o nylon 0.12-0.16mm. L'obiettivo è sentire ogni tocca dei piccoli pesci e divertirsi anche con prede di pochi etti."
-        },
-        {
-          "title": "Micro Artificiali",
-          "content": "Gli artificiali da rock fishing sono miniaturizzati: micro jig da 1-5g, piccole soft bait da 1-2 pollici, micro minnow da 3-5cm. I colori più efficaci sono i naturali (sabbia, grigio) e i fosforescenti per la pesca notturna. Anche piccole imitazioni di gamberi e vermi funzionano bene."
-        },
-        {
-          "title": "Esche Naturali",
-          "content": "Le esche naturali sono molto efficaci: pezzetti di gambero, cozze, bigattini, vermi piccoli. Si innescano su ami finissimi (n.10-14) con piombini spaccati leggeri. Questa variante è ottima per chi inizia o vuole catture più costanti."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Si pesca esplorando ogni anfratto della scogliera: buche, fessure, zone d'ombra. Il lancio è corto (5-15 metri) e il recupero lentissimo con piccole animazioni. I pesci attaccano spesso durante le pause. Si pesca a fondo o a mezz'acqua in base alla specie."
-        },
-        {
-          "title": "Spot Ideali",
-          "content": "Ogni scogliera naturale o artificiale (massi frangiflutti) è uno spot potenziale. I migliori sono quelli con tanti anfratti, rocce sommerse e alghe. Anche i porti turistici con pali e corde offrono rifugio a molti piccoli predatori."
-        },
-        {
-          "title": "Perché Praticarlo",
-          "content": "Il rock fishing è perfetto per: principianti che vogliono imparare, pescatori esperti che cercano relax, vacanzieri che vogliono pescare senza attrezzatura ingombrante, chi vuole catture sicure anche quando i grandi predatori non mangiano."
-        }
-      ],
-      "tips": [
-        "I piccoli predatori sono sempre attivi: puoi pescare a qualsiasi ora",
-        "Usa polarizzate per vedere i pesci nelle buche",
-        "Non sottovalutare questi pesci: uno sciarrano combatte come un mini-predatore",
-        "È la tecnica perfetta per i bambini: catture garantite e divertimento assicurato"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Ultralight 2.00m",
-          "description": "Canna ultralight giapponese, sensibilissima",
-          "price": 49,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+ultralight+rock+fishing&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello 1000 Ultralight",
-          "description": "Mulinello compatto e leggero per rock fishing",
-          "price": 49,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+1000+ultralight+leggero&tag=fishandtips-21"
-        },
-        "artificiali": {
-          "name": "Kit Micro Jig e Soft Bait",
-          "description": "20 pezzi assortiti per rock fishing",
-          "price": 15,
-          "amazonUrl": "https://www.amazon.it/s?k=micro+jig+rock+fishing+kit&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Borsa Rock Fishing",
-          "description": "Borsa con scatole, pinze, forbici e accessori",
-          "price": 25,
-          "amazonUrl": "https://www.amazon.it/s?k=borsa+pesca+rock+fishing+accessori&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["sciarrano", "tordo", "perchia"],
-      "relatedArticles": ["consigli", "tecniche-di-pesca"],
-      "seoKeywords": ["rock fishing", "light rock fishing", "LRF pesca", "pesca ultraleggera", "pesca scogliera", "micro fishing"]
-    },
-    {
-      "id": "bolentino",
-      "slug": "bolentino",
-      "name": "Bolentino",
-      "subtitle": "Pesca verticale dalla barca",
-      "shortDescription": "Tecnica tradizionale dalla barca ancorata o alla deriva per pesci di fondale.",
-      "heroImage": "/images/tecniche/bolentino.jpg",
-      "difficulty": 2,
-      "popularity": 3,
-      "environment": ["mare"],
-      "targetSpecies": ["Pagello", "Fragolino", "Tanuta", "Sarago", "Dentice", "Cernia"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Il bolentino è una tecnica classica della pesca in mare dalla barca. Si pesca in verticale, calando l'esca sul fondo e aspettando che i pesci abbocchino. È una pesca di attesa, rilassante ma che richiede conoscenza dei fondali e delle specie target. Praticabile anche su fondali profondi (50-200m).",
-      "history": "Il bolentino è probabilmente la tecnica di pesca in mare più antica, praticata da millenni in tutto il Mediterraneo. Ogni regione ha sviluppato varianti locali con terminali e tecniche specifiche. Resta ancora oggi una delle tecniche più praticate dai pescatori italiani.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Bolentino",
-          "content": "L'attrezzatura varia in base alla profondità. Per bolentino costiero (10-50m): canne 2-3m con azione 50-150g, mulinelli 4000-6000. Per bolentino profondo (50-200m): canne più corte e potenti, mulinelli elettrici o a leva con molta capacità di filo. Il filo è nylon o trecciato in base alla profondità."
-        },
-        {
-          "title": "Terminali e Montature",
-          "content": "Le montature da bolentino sono specifiche per ogni fondale e preda. Il terminale base ha 2-4 braccioli con ami (n.6-1/0) distanziati 40-60cm, chiuso da un piombo (50-300g). Varianti: paternoster, long arm, terminale per cernie. Il fluorocarbon è preferibile per la sua invisibilità."
-        },
-        {
-          "title": "Esche Naturali",
-          "content": "Le esche più usate sono: gambero (fresco o congelato), totano, sardina, sgombro, cozza, vermi (americano, coreano). L'esca deve essere fresca e innescata solidamente per resistere alla calata. Alcuni pescatori aggiungono pastura aromatica per attirare i pesci."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Si ancora la barca o si pesca alla deriva su un fondale conosciuto. Si cala il terminale fino al fondo e si tiene la lenza in tensione. Le tocche si sentono come tiretti sulla canna. Si ferra quando il pesce ha preso bene l'esca e si recupera mantenendo la tensione."
-        },
-        {
-          "title": "Lettura dell'Ecoscandaglio",
-          "content": "L'ecoscandaglio è fondamentale per individuare: il tipo di fondale (roccia, sabbia, fango), la presenza di pesci, la profondità esatta. I pesci appaiono come archi o macchie colorate. Le secche e i dislivelli sono sempre zone promettenti."
-        },
-        {
-          "title": "Bolentino Profondo",
-          "content": "Il bolentino profondo (oltre 100m) richiede attrezzatura specifica: mulinelli elettrici per il recupero, piombi pesanti (300-500g), terminali robusti. Si insidiano pesci pregiati come cernie, dentici e pagelli di taglia. È una pesca impegnativa ma con grandi soddisfazioni."
-        }
-      ],
-      "tips": [
-        "Studia le carte nautiche per individuare le secche e i cambi di fondale",
-        "Porta sempre esche diverse: i pesci possono essere selettivi",
-        "Ferra con decisione ma senza strappi per non perdere il pesce",
-        "Se peschi profondo, usa guanti per proteggere le mani dal filo"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Bolentino 2.10m",
-          "description": "Canna da bolentino robusta 50-150g",
-          "price": 89,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+bolentino+barca+mare&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Bolentino Rotante",
-          "description": "Mulinello rotante con leva frizione",
-          "price": 79,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+bolentino+rotante+barca&tag=fishandtips-21"
-        },
-        "terminali": {
-          "name": "Set Terminali Bolentino",
-          "description": "10 terminali pronti per diverse profondità",
-          "price": 22,
-          "amazonUrl": "https://www.amazon.it/s?k=terminali+bolentino+pronti+pesca&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Kit Piombi e Ami Bolentino",
-          "description": "Piombi 50-200g, ami assortiti, girelle",
-          "price": 28,
-          "amazonUrl": "https://www.amazon.it/s?k=piombi+bolentino+ami+kit&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["pagello", "dentice", "cernia-bruna", "sarago-maggiore"],
-      "relatedArticles": ["spot-di-pesca", "attrezzature"],
-      "seoKeywords": ["bolentino", "pesca a bolentino", "bolentino profondo", "pesca dalla barca", "terminali bolentino", "attrezzatura bolentino"]
-    },
-    {
-      "id": "carpfishing",
-      "slug": "carpfishing",
-      "name": "Carpfishing",
-      "subtitle": "La caccia ai giganti d'acqua dolce",
-      "shortDescription": "Tecnica specializzata per la cattura di carpe di taglia con boilie ed hair rig.",
-      "heroImage": "/images/tecniche/carpfishing.jpg",
-      "difficulty": 3,
-      "popularity": 4,
-      "environment": ["lago", "fiume"],
-      "targetSpecies": ["Carpa Comune", "Carpa Specchio", "Carpa Regina", "Amur"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Il carpfishing è una tecnica specializzata nella cattura delle carpe, i giganti delle acque dolci europee. Nato in Inghilterra, si distingue per l'uso di boilie (esche sferiche), hair rig (innesco a capello) e sessioni di pesca che possono durare giorni. È una filosofia più che una tecnica, con forte etica di catch & release.",
-      "history": "Il carpfishing moderno nasce in Inghilterra negli anni '70-'80, quando pescatori come Rod Hutchinson rivoluzionarono l'approccio alla pesca della carpa. Le innovazioni chiave furono le boilie (esche proteiche che le carpe non possono sputare) e l'hair rig (amo separato dall'esca). In Italia si diffuse negli anni '90.",
-      "sections": [
-        {
-          "title": "Attrezzatura Specializzata",
-          "content": "L'attrezzatura da carpfishing è specifica: canne lunghe (3.60-3.90m) con azione parabolica e potenza 2.75-3.5lb, mulinelli big pit (5000-10000) con freno baitrunner, filo nylon 0.30-0.40mm o trecciato. Il rod pod (supporto per canne) e gli avvisatori elettronici sono essenziali."
-        },
-        {
-          "title": "Boilie e Esche",
-          "content": "Le boilie sono esche sferiche (14-24mm) composte da farine, uova, aromi e additivi. Esistono migliaia di ricette. Altre esche efficaci: mais, tiger nut, pellet, pop-up (galleggianti). La pasturazione è fondamentale: si spargono kg di boilie per attirare le carpe nella zona."
-        },
-        {
-          "title": "Hair Rig e Montature",
-          "content": "L'hair rig è una rivoluzione: l'esca non è sull'amo ma legata a un capello di filo. La carpa aspira la boilie e l'amo le si conficca nel labbro quando tenta di sputarla. Le montature includono: lead clip (sgancio piombo), helicopter rig, zig rig (mezz'acqua), chod rig."
-        },
-        {
-          "title": "Tecnica e Strategia",
-          "content": "La sessione di carpfishing inizia con lo studio dello spot: profondità, strutture sommerse, zone di pascolo. Si pastura abbondantemente, si posizionano le canne sui rod pod con avvisatori, e si attende. Le carpe si nutrono spesso di notte. Un combattimento può durare anche 30 minuti."
-        },
-        {
-          "title": "Catch & Release",
-          "content": "Il carpfishing promuove il rilascio delle catture. Si usano materassini di slamatura per non ferire il pesce, guadini senza nodi, prodotti antisettici per le ferite. Le carpe vengono fotografate, pesate e rilasciate velocemente per minimizzare lo stress."
-        },
-        {
-          "title": "Sessioni Lunghe",
-          "content": "Le sessioni di carpfishing durano spesso 24-72 ore. Servono: bivvy (tenda), lettino, sacco a pelo, fornello, cibo. È una pesca immersiva nella natura, dove si passa più tempo ad aspettare che a pescare. Ma l'emozione di una partenza notturna ripaga tutto."
-        }
-      ],
-      "tips": [
-        "Studia lo spot prima di pescare: osserva dove saltano le carpe, cerca bolle",
-        "Non avere fretta di ferrare: la carpa deve auto-ferrarsi grazie alla montatura",
-        "Pastura nei giorni precedenti alla sessione per abituare le carpe a mangiare le tue boilie",
-        "Rispetta il pesce: una carpa può vivere 40+ anni, trattala con cura"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Carpfishing 3.60m 3lb",
-          "description": "Canna da carpfishing professionale, azione perfetta",
-          "price": 189,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+carpfishing+3+lb+carpe&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Big Pit Baitrunner",
-          "description": "Big pit con baitrunner, ideale per carpe",
-          "price": 149,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+carpfishing+baitrunner+big+pit&tag=fishandtips-21"
-        },
-        "boilie": {
-          "name": "Boilie Carpfishing 1kg",
-          "description": "Boilie premium molto attrattive",
-          "price": 18,
-          "amazonUrl": "https://www.amazon.it/s?k=boilie+carpfishing+carpe+1kg&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Kit Completo Carpfishing",
-          "description": "Rod pod, avvisatori, guadino, materassino",
-          "price": 159,
-          "amazonUrl": "https://www.amazon.it/s?k=kit+carpfishing+rod+pod+avvisatori&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["carpa"],
-      "relatedArticles": ["spot-di-pesca", "consigli"],
-      "seoKeywords": ["carpfishing", "pesca carpe", "boilie", "hair rig", "canna carpfishing", "tecniche carpfishing"]
-    },
-    {
-      "id": "mosca",
-      "slug": "pesca-a-mosca",
-      "name": "Pesca a Mosca",
-      "subtitle": "L'arte della presentazione perfetta",
-      "shortDescription": "Tecnica elegante con mosche artificiali per trote, temoli e predatori d'acqua dolce.",
-      "heroImage": "/images/tecniche/mosca.jpg",
-      "difficulty": 4,
-      "popularity": 3,
-      "environment": ["fiume", "lago"],
-      "targetSpecies": ["Trota Fario", "Trota Iridea", "Temolo", "Cavedano", "Luccio"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "La pesca a mosca è considerata da molti l'arte suprema della pesca. Si utilizzano imitazioni di insetti (mosche artificiali) presentate sulla superficie dell'acqua o appena sotto con un lancio particolare che sfrutta il peso della coda di topo anziché dell'esca. È una pesca tecnica, elegante e profondamente connessa con la natura.",
-      "history": "Le prime testimonianze di pesca a mosca risalgono al II secolo d.C. in Macedonia. Si sviluppò in Inghilterra nel XV secolo, diventando lo sport dei gentiluomini. In Italia ha una lunga tradizione soprattutto in Trentino, Friuli e nelle valli alpine. Oggi vive un nuovo rinascimento con l'euro-nymphing.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Mosca",
-          "content": "L'attrezzatura è unica: la canna (8-9 piedi, azione 4-6) è flessibile per permettere il lancio, la coda di topo (fly line) è il vero peso che si lancia, il mulinello serve solo per contenere il filo. Il finale (leader) è conico e termina con un tippet sottilissimo a cui si lega la mosca."
-        },
-        {
-          "title": "Tipologie di Mosche",
-          "content": "Le mosche si dividono in: secche (galleggianti, imitano insetti adulti), sommerse (affondate leggermente), ninfe (imitano larve sul fondo), streamer (imitano pesciolini). Esistono migliaia di pattern, dal classico Adams alle moderne mosche CDC. Il costruttore di mosche (fly tier) è una passione nella passione."
-        },
-        {
-          "title": "Tecnica di Lancio",
-          "content": "Il lancio è l'essenza della pesca a mosca. Il movimento base è il back cast (lancio all'indietro) seguito dal forward cast (lancio in avanti). La coda si deve distendere completamente ad ogni movimento. Esistono lanci speciali: roll cast, side cast, double haul per distanze maggiori."
-        },
-        {
-          "title": "Presentazione",
-          "content": "La presentazione è cruciale: la mosca deve adagiarsi sull'acqua senza fare rumore, il finale non deve creare ombre, la deriva deve essere drag-free (senza trascinamento). Osservare l'acqua per capire dove si alimentano le trote è fondamentale. La schiusa degli insetti è il momento magico."
-        },
-        {
-          "title": "Lettura del Fiume",
-          "content": "Le trote stazionano dove trovano: corrente che porta cibo, riparo, acqua ossigenata. Le zone classiche sono: dietro i massi, nelle buche, sotto le rive scavate, negli scarichi delle pozze. L'avvicinamento deve essere furtivo: le trote vedono benissimo."
-        },
-        {
-          "title": "Euro-Nymphing",
-          "content": "L'euro-nymphing (tecnica ceca/francese/spagnola) è una rivoluzione moderna: si usano ninfe pesanti senza galleggiante, con canne lunghe (10-11 piedi) e movimenti di deriva controllata. È devastante per efficacia ma richiede sensibilità ed esperienza per sentire le abboccate."
-        }
-      ],
-      "tips": [
-        "Osserva sempre l'acqua prima di pescare: cerca le bollate (cerchi delle trote)",
-        "Inizia con mosche secche di media grandezza: sono più facili da vedere",
-        "Il lancio si impara solo praticando: vai al parco con un pezzo di lana",
-        "Usa polarizzate: vedrai le trote e potrai presentare la mosca meglio"
-      ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Mosca 9 piedi #5",
-          "description": "Canna da mosca versatile, ottima per iniziare",
-          "price": 179,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+pesca+mosca+9+piedi&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Mosca",
-          "description": "Mulinello leggero con frizione progressiva",
-          "price": 99,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+pesca+mosca+trota&tag=fishandtips-21"
-        },
-        "code": {
-          "name": "Coda di Topo Galleggiante",
-          "description": "Coda di topo galleggiante, facile da lanciare",
-          "price": 59,
-          "amazonUrl": "https://www.amazon.it/s?k=coda+di+topo+pesca+mosca&tag=fishandtips-21"
-        },
-        "mosche": {
-          "name": "Kit 30 Mosche Assortite",
-          "description": "Secche, ninfe e streamer per tutte le situazioni",
-          "price": 29,
-          "amazonUrl": "https://www.amazon.it/s?k=mosche+artificiali+pesca+kit&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["trota-fario", "temolo"],
-      "relatedArticles": ["spot-di-pesca", "consigli"],
-      "seoKeywords": ["pesca a mosca", "fly fishing", "mosche artificiali", "canna mosca", "lancio mosca", "trota mosca"]
-    },
-    {
-      "id": "jigging",
       "slug": "jigging",
       "name": "Jigging",
-      "subtitle": "Vertical power per i predatori di profondità",
-      "shortDescription": "Pesca verticale con artificiali metallici per dentici, ricciole e predatori di fondale.",
-      "heroImage": "/images/tecniche/jigging.jpg",
-      "difficulty": 3,
-      "popularity": 3,
-      "environment": ["mare"],
-      "targetSpecies": ["Dentice", "Ricciola", "Cernia", "Leccia", "Tonno"],
-      "bestSeasons": ["primavera", "estate", "autunno"],
-      "introduction": "Il jigging è una tecnica di pesca verticale dalla barca che utilizza artificiali metallici pesanti (jig) fatti affondare e recuperati con movimenti violenti della canna. È la tecnica per eccellenza per insidiare i grandi predatori di profondità come dentici, ricciole e cernie. Richiede forza fisica ed attrezzatura specifica.",
-      "history": "Il jigging moderno nasce in Giappone negli anni '90, dove pescatori innovativi svilupparono jig metallici e tecniche specifiche per la pesca su fondali rocciosi. La tecnica si è evoluta in diverse varianti: speed jigging (recupero velocissimo), slow jigging (movimenti lenti e cadenzati), light jigging.",
-      "sections": [
-        {
-          "title": "Attrezzatura da Jigging",
-          "content": "L'attrezzatura è specializzata: canne corte (1.50-1.90m) molto potenti con azione veloce, mulinelli overhead (spinning o conventional) robusti con frizione potente, trecciato PE 2-6 (25-80lb). Per lo slow jigging si usano canne più morbide che accompagnano la caduta del jig."
-        },
-        {
-          "title": "Tipologie di Jig",
-          "content": "I jig si dividono per forma e utilizzo: long jig (allungati, per caduta veloce), slow jig (più larghi, caduta planante), knife jig (asimmetrici), inchiku (con gomma). I pesi vanno da 80g per fondali bassi a 400g+ per profondità di 100-200m. I colori più efficaci sono argento, rosa, blu."
-        },
-        {
-          "title": "Speed Jigging",
-          "content": "Lo speed jigging è la tecnica più fisica: il jig viene recuperato con jerks violenti e veloci della canna, simulando un pesce in fuga. Richiede braccia forti e resistenti. È micidiale per ricciole e leccie in caccia. Le abboccate sono esplosive."
-        },
-        {
-          "title": "Slow Jigging",
-          "content": "Lo slow jigging (o slow pitch jigging) usa movimenti lenti e cadenzati: il jig viene alzato e lasciato planare, imitando un pesce ferito. Funziona meglio per dentici e cernie, pesci più calcolatori. L'abboccata avviene spesso in caduta. È meno faticoso ma richiede più sensibilità."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Si posiziona la barca sulla verticale dello spot (secca, relitto, cambio fondale) e si cala il jig fino al fondo. Poi si inizia il recupero con la tecnica scelta. Quando un pesce abbocca la canna si piega violentemente. Il combattimento in verticale è un braccio di ferro: bisogna pompare e guadagnare filo metro dopo metro."
-        },
-        {
-          "title": "Sicurezza e Preparazione",
-          "content": "Il jigging è fisicamente impegnativo. Usa guanti da jigging per proteggere le mani. Idratati spesso e fai pause. La barca deve essere stabile e il timoniere pronto a manovrare. Porta sempre ami di ricambio e split ring: i pesci grossi li piegano."
-        }
+      "emoji": "⚡",
+      "shortDescription": "Pesca verticale dalla barca con jig metallici per grandi predatori: ricciole, dentici e palamite.",
+      "description": "Il jigging è la tecnica più adrenalinica della pesca in mare: consiste nel calare jig metallici pesanti (40-200g) dalla barca e animarli con jerkate potenti e ritmiche per provocare l'attacco dei grandi predatori pelagici. Ricciole, dentici, lecce, palamite e persino tonni non resistono al movimento frenetico di un jig che simula un pesce ferito. La tecnica richiede preparazione fisica — le sessioni di jigging sono intense e faticose — e un'attrezzatura robusta capace di sopportare combattimenti violenti con pesci che possono superare i 20 kg. Esistono due varianti principali: lo speed jigging, con recupero veloce e jerkate aggressive, e lo slow jigging, con movimenti lenti e cadute controllate che imitano un pesce morente. Il Mediterraneo italiano offre spot eccezionali per il jigging: lo Stretto di Messina, le isole pontine, l'Arcipelago Toscano e la Sardegna nord sono mete leggendarie. La stagione va da maggio a novembre, con il picco estivo per ricciole e palamite. Il jigging si pratica su fondali dai 30 ai 100 metri, spesso su secche e cappelli rocciosi dove i predatori si appostano.",
+      "difficulty": "Difficile",
+      "minBudget": 200,
+      "maxBudget": 800,
+      "targetSpecies": ["ricciola", "dentice", "leccia-amia", "palamita"],
+      "seasons": { "gennaio": 1, "febbraio": 1, "marzo": 1, "aprile": 2, "maggio": 3, "giugno": 3, "luglio": 3, "agosto": 3, "settembre": 3, "ottobre": 3, "novembre": 2, "dicembre": 1 },
+      "rod": { "length": "1.70-1.90m", "action": "Fast, specifica jigging", "power": "60-200g" },
+      "reel": { "size": "5000-8000", "type": "Mulinello rotante o spinning robusto" },
+      "line": { "type": "Trecciato PE", "diameter": "PE 2.0-4.0 (30-60lb)" },
+      "rigs": ["Jig con assist hook singolo", "Jig con doppio assist hook", "Jig con amo in coda", "Slow jig con doppio assist"],
+      "baits": ["Metal jig 60-120g (speed)", "Slow jig 80-200g", "Jig a foglia (flutter)", "Jig long (silhouette)"],
+      "steps": [
+        { "title": "Posiziona la barca sulla secca", "description": "Usa l'ecoscandaglio per individuare secche, cappelli rocciosi o variazioni di fondale dove i predatori si appostano. Posiziona la barca a monte della corrente per derivare sulla zona calda. Profondità ideali: 30-80 metri." },
+        { "title": "Scegli il jig giusto", "description": "Il peso del jig dipende dalla profondità e dalla corrente: in acque calme 60-80g, con corrente 100-200g. I colori naturali (argento, blu) funzionano in acqua limpida; rosa e glow in profondità o acqua torbida." },
+        { "title": "Cala il jig sul fondo", "description": "Apri l'archetto e lascia scendere il jig a filo libero fino al fondo. Conta i secondi per stabilire la profondità. Appena tocca il fondo, inizia immediatamente: i predatori spesso attaccano durante la prima risalita." },
+        { "title": "Jerka con ritmo", "description": "Nello speed jigging: jerkate potenti e ritmiche con la canna recuperando contemporaneamente con il mulinello. Nello slow jigging: movimenti lenti e ampi della canna lasciando flutterare il jig nella caduta. Alterna velocità e pause." },
+        { "title": "Combatti e recupera", "description": "Quando il predatore attacca sentirai uno strappo violento. Tieni la canna piegata e la frizione tarata. Le ricciole puntano verso il fondo con fughe lunghissime: non forzare, lascia correre il filo e recupera quando si ferma. Il pompaggio è fondamentale." }
       ],
       "tips": [
-        "Colora il trecciato ogni 10m per sapere sempre a che profondità sei",
-        "Inizia con jig da 150-200g: sono versatili per molte situazioni",
-        "Se non hai tocche, cambia colore e velocità di recupero",
-        "Lo slow jigging funziona meglio con corrente debole"
+        "Le ricciole attaccano spesso nei primi 10 metri di risalita del jig: concentra la jerkata nella zona subito sopra il fondo",
+        "Con corrente forte usa jig più pesanti e asimmetrici che non planano troppo: devono arrivare verticali sotto la barca",
+        "Porta sempre assist hook di scorta: i predatori grossi li aprono e li distruggono",
+        "L'alba è il momento migliore per i dentici: arrivano sulla secca per cacciare al primo chiarore"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Jigging 1.75m",
-          "description": "Canna da jigging top di gamma, potenza e sensibilità",
-          "price": 249,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+jigging+slow+pitch&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Jigging Rotante",
-          "description": "Mulinello overhead per jigging, indistruttibile",
-          "price": 449,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+jigging+rotante+mare&tag=fishandtips-21"
-        },
-        "jig": {
-          "name": "Set Jig Assortiti 150-250g",
-          "description": "Mix speed e slow jig in colori efficaci",
-          "price": 49,
-          "amazonUrl": "https://www.amazon.it/s?k=jig+pesca+slow+jigging+set&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Guanti Jigging + Assist Hook",
-          "description": "Guanti protettivi e ami di ricambio",
-          "price": 35,
-          "amazonUrl": "https://www.amazon.it/s?k=guanti+jigging+assist+hook&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["dentice", "ricciola", "cernia-bruna", "leccia-amia"],
-      "relatedArticles": ["attrezzature", "spot-di-pesca"],
-      "seoKeywords": ["jigging", "pesca jigging", "slow jigging", "speed jigging", "jig pesca", "jigging dentice"]
+      "commonMistakes": [
+        "Usare jig troppo leggeri per la corrente: il jig non arriva mai in verticale e perde efficacia",
+        "Jerkata monotona senza variazioni: alterna velocità, pause e cambi di ritmo per provocare l'attacco",
+        "Frizione troppo serrata: con pesci grossi rischi la rottura del filo o la slamatura",
+        "Non controllare gli assist hook dopo ogni pesce: un amo aperto significa pesce perso"
+      ],
+      "bestSpotTypes": ["Secche offshore", "Cappelli rocciosi", "Stretto di Messina", "Isole e reef sommersi"],
+      "relatedTechniques": ["traina", "spinning"],
+      "amazonProducts": [
+        { "name": "Shimano Grappler Type J 1.80m", "type": "Canna", "query": "canna+jigging+shimano+grappler+mare" },
+        { "name": "Shimano Saragosa SW 6000", "type": "Mulinello", "query": "mulinello+jigging+shimano+6000+mare" },
+        { "name": "Set Metal Jig 60-120g assortiti", "type": "Jig", "query": "metal+jig+pesca+mare+set+60g+120g" }
+      ]
     },
     {
-      "id": "pesca-fondo",
-      "slug": "pesca-a-fondo",
-      "name": "Pesca a Fondo",
-      "subtitle": "La tecnica più versatile per tutti i fondali",
-      "shortDescription": "Tecnica classica con piombo ed esca naturale per pesci di fondo in mare e acqua dolce.",
-      "heroImage": "/images/tecniche/fondo.jpg",
-      "difficulty": 1,
-      "popularity": 5,
-      "environment": ["mare", "lago", "fiume"],
-      "targetSpecies": ["Orata", "Sarago", "Mormora", "Carpa", "Anguilla", "Persico"],
-      "bestSeasons": ["primavera", "estate", "autunno", "inverno"],
-      "introduction": "La pesca a fondo è la tecnica più antica e accessibile. Consiste nel posare l'esca sul fondale e aspettare che il pesce abbocchi. Si pratica dalla riva (scogliera, spiaggia, molo) o dalla barca. È perfetta per principianti ma offre soddisfazioni anche ai pescatori esperti. Funziona tutto l'anno.",
-      "history": "La pesca a fondo è vecchia quanto l'umanità: una lenza, un peso, un amo e un'esca. Ogni cultura ha sviluppato le sue varianti. In Italia la tradizione include tecniche come il ledgering, la pesca all'inglese, e le varianti regionali. Resta la tecnica più praticata per numero di pescatori.",
-      "sections": [
-        {
-          "title": "Attrezzatura Base",
-          "content": "L'attrezzatura da fondo è semplice: canna 2.70-4m con azione di punta (per sentire le tocche), mulinello 3000-5000, filo nylon 0.25-0.35mm. Il terminale è composto da un piombo (20-100g in base alla corrente) e uno o più braccioli con ami. La scelta dell'amo dipende dall'esca e dalla preda."
-        },
-        {
-          "title": "Tipologie di Montature",
-          "content": "Le montature classiche includono: scorrevole (il piombo scorre, il pesce non sente resistenza), fissa (il piombo è bloccato, più sensibile), long arm (bracciolo lungo per pesci diffidenti), paternoster (2-3 ami su braccioli corti). La scelta dipende dal fondale e dalla specie."
-        },
-        {
-          "title": "Esche Naturali",
-          "content": "Le esche da fondo sono naturali: vermi (americano, coreano, arenicola), molluschi (cozza, vongola, cannolicchio), crostacei (gambero, granchio), pesci (sardina, aguglia). Ogni esca attira specie diverse. La freschezza è fondamentale: un'esca fresca emana più odori attrattivi."
-        },
-        {
-          "title": "Tecnica di Pesca",
-          "content": "Si lancia, si aspetta che il piombo tocchi il fondo, si mette in tensione la lenza e si attende. Le tocche si manifestano come tiretti sulla cima della canna. Non ferrare alla prima tocca: aspetta che il pesce abbia preso bene l'esca. Alcuni pescatori usano campanelli o bastoncini luminosi come indicatori."
-        },
-        {
-          "title": "Pasturazione",
-          "content": "La pasturazione aumenta le catture: si getta in acqua una miscela di sfarinati, pane, sardine tritate per attirare i pesci. In mare si usano anche retine con sardina. La pastura deve essere costante per tenere i pesci in zona senza saziarli. Pastura poco ma spesso."
-        },
-        {
-          "title": "Pesca Notturna",
-          "content": "La pesca a fondo notturna è molto produttiva: molti pesci si alimentano di notte quando si sentono più sicuri. Si usano starlight (bastoncini luminosi) come indicatori di abboccata. Le prede tipiche notturne sono orate, saraghi, anguille. Porta sempre una lampada frontale."
-        }
+      "slug": "traina",
+      "name": "Traina",
+      "emoji": "🚤",
+      "shortDescription": "Pesca dalla barca in movimento trainando esche artificiali o naturali per ricciole, tonni e lampughe.",
+      "description": "La traina è la tecnica più emozionante della pesca d'altura: la barca naviga a velocità costante trainando una o più esche — artificiali o naturali — che nuotano a diverse profondità imitando pesci in fuga. Quando il predatore attacca, la canna si piega violentemente e inizia un combattimento che può durare minuti o ore a seconda della preda. In Italia la traina costiera è praticata lungo tutte le coste, ma è nel Tirreno meridionale, in Sardegna e nelle isole che raggiunge i vertici. Le prede principali sono ricciole, dentici, tonni, lampughe, palamite e lecce amia — pesci potenti che possono superare i 50 kg. Esistono diverse varianti: la traina costiera (entro le 6 miglia, esche piccole, prede medie), la traina d'altura (oltre le 6 miglia, esche grandi, prede giganti) e il drifting (alla deriva con esche vive per i tonni). L'attrezzatura varia enormemente: dalla traina leggera con canne da 12-20 libbre per ricciole costiere, alla traina pesante con canne da 50-80 libbre per i tonni. Il budget è il più alto tra tutte le tecniche perché richiede una barca, benzina e attrezzatura dedicata.",
+      "difficulty": "Difficile",
+      "minBudget": 500,
+      "maxBudget": 3000,
+      "targetSpecies": ["ricciola", "dentice", "tonno", "lampuga"],
+      "seasons": { "gennaio": 1, "febbraio": 1, "marzo": 1, "aprile": 2, "maggio": 2, "giugno": 3, "luglio": 3, "agosto": 3, "settembre": 3, "ottobre": 2, "novembre": 1, "dicembre": 1 },
+      "rod": { "length": "1.70-2.10m", "action": "Parabolica, roller tip", "power": "12-50lb class" },
+      "reel": { "size": "30-50 classe", "type": "Mulinello rotante con leva frizione" },
+      "line": { "type": "Nylon o Trecciato", "diameter": "Nylon 0.40-0.60mm o Trecciato PE 3.0-6.0" },
+      "rigs": ["Minnow da traina 12-18cm", "Octopus skirt con piombo", "Rapala da traina", "Esca viva con cavetto"],
+      "baits": ["Minnow da traina (Rapala, Yo-Zuri)", "Octopus e skirted lure", "Esca viva (aguglia, sgombro)", "Piuma e polpetto"],
+      "steps": [
+        { "title": "Pianifica la rotta", "description": "Studia le carte nautiche e individua secche, cadute di fondale e zone dove i predatori si concentrano. Naviga lungo le linee batimetriche seguendo le variazioni di profondità. I FAD (oggetti galleggianti) attirano lampughe in estate." },
+        { "title": "Prepara le lenze", "description": "Cala 2-4 canne con esche a diverse distanze (20-60 metri dalla barca) e diverse profondità. Usa divergenti o piombi per far scendere le esche. Le esche più lontane e profonde sono per i pesci più grandi." },
+        { "title": "Regola la velocità", "description": "La velocità di traina è critica: 3-5 nodi per rapala e minnow, 5-8 nodi per octopus e lure d'altura. Osserva che le esche nuotino correttamente: devono avere un'azione regolare senza uscire dall'acqua." },
+        { "title": "Gestisci l'attacco", "description": "Quando un pesce attacca la canna si piega violentemente. Togli la canna dal porta canne, inseriscila nel reggicanna a cintura e inizia il combattimento. Le altre lenze vanno recuperate immediatamente per evitare grovigli." },
+        { "title": "Combatti e imbarca", "description": "Il combattimento a traina è fisicamente intenso: pompa alzando la canna e recupera abbassandola. Con tonni e ricciole grandi il combattimento può durare 30-60 minuti. Usa il raffio o il guadino per imbarcare il pesce." }
       ],
       "tips": [
-        "Usa sempre un finale più sottile del filo principale: se si incaglia perdi solo il terminale",
-        "Cambia esca ogni 15-20 minuti: un'esca 'scarica' attira meno pesci",
-        "Non sottovalutare la cozza come esca: è micidiale per orate e saraghi",
-        "In estate pesca all'alba o al tramonto: col caldo i pesci sono meno attivi"
+        "Le lampughe si trovano sotto oggetti galleggianti (FAD, cassette, tronchi): in estate naviga cercando oggetti in superficie",
+        "I tonni spesso cacciano vicino alle tonnare: chiedi ai pescatori locali dove sono le zone calde",
+        "Traina sempre con il sole alle spalle: le esche sono più visibili per i pesci e la tua ombra non li spaventa",
+        "Porta sempre una lenza di riserva pronta: quando perdi un pesce vuoi rilanciare immediatamente"
       ],
-      "equipment": {
-        "canna": {
-          "name": "Canna Fondo Mare 3.60m",
-          "description": "Canna da fondo versatile, ottimo rapporto qualità/prezzo",
-          "price": 39,
-          "amazonUrl": "https://www.amazon.it/s?k=canna+pesca+fondo+mare+3.60&tag=fishandtips-21"
-        },
-        "mulinello": {
-          "name": "Mulinello Fondo 4000",
-          "description": "Mulinello affidabile per pesca da riva",
-          "price": 29,
-          "amazonUrl": "https://www.amazon.it/s?k=mulinello+pesca+fondo+4000&tag=fishandtips-21"
-        },
-        "terminali": {
-          "name": "Kit Terminali Pronti",
-          "description": "Montature assortite per ogni fondale",
-          "price": 12,
-          "amazonUrl": "https://www.amazon.it/s?k=terminali+pesca+fondo+pronti&tag=fishandtips-21"
-        },
-        "accessori": {
-          "name": "Set Completo Pesca Fondo",
-          "description": "Piombi, ami, girelle, starlight, campanelli",
-          "price": 25,
-          "amazonUrl": "https://www.amazon.it/s?k=kit+pesca+fondo+accessori+piombi&tag=fishandtips-21"
-        }
-      },
-      "relatedFish": ["orata", "sarago-maggiore", "mormora", "carpa"],
-      "relatedArticles": ["consigli", "spot-di-pesca"],
-      "seoKeywords": ["pesca a fondo", "pesca fondo mare", "montature fondo", "esche pesca fondo", "pesca orate fondo", "pesca notturna fondo"]
+      "commonMistakes": [
+        "Velocità di traina sbagliata: troppo veloce e le esche non lavorano, troppo lenta e non attraggono",
+        "Non controllare le esche durante la navigazione: un'alga sull'amo o un'esca che gira male è tempo perso",
+        "Frizione troppo serrata: un tonno in fuga può spezzare il filo o piegare l'amo",
+        "Trainare troppo vicino alla costa: i grandi predatori pelagici sono su fondali dai 30 metri in su"
+      ],
+      "bestSpotTypes": ["Secche offshore", "Cadute di fondale", "Isole e arcipelaghi", "Zone con correnti forti"],
+      "relatedTechniques": ["jigging", "bolentino"],
+      "amazonProducts": [
+        { "name": "Penn Warfare Trolling 20-30lb", "type": "Canna", "query": "canna+traina+penn+30lb+mare" },
+        { "name": "Penn Squall II 30LW", "type": "Mulinello", "query": "mulinello+traina+penn+rotante+30" },
+        { "name": "Set Rapala X-Rap Magnum 14cm", "type": "Esche", "query": "rapala+traina+mare+set+minnow+14cm" }
+      ]
+    },
+    {
+      "slug": "bolentino",
+      "name": "Bolentino",
+      "emoji": "⚓",
+      "shortDescription": "Pesca a fondo dalla barca con esche naturali su fondali rocciosi per dentici, saraghi, triglie e scorfani.",
+      "description": "Il bolentino è la tecnica più classica della pesca dalla barca: la barca si ancora o deriva lentamente sopra un fondale roccioso, e si cala una lenza con piombo ed esche naturali fino al fondo dove stazionano le prede. È la tecnica più antica e universale della pesca in mare, praticata dai pescatori italiani da secoli lungo tutte le coste. Il bolentino moderno ha evoluto le attrezzature ma il concetto resta lo stesso: portare l'esca dove vivono i pesci, sui fondali rocciosi ricchi di tane e anfratti. Le prede sono pregiate e varie: dentici, saraghi, triglie, scorfani, pagelli, cernie e tanti altri pesci di fondo che non si catturano facilmente da riva. Esistono due varianti principali: il bolentino leggero (fondali 10-40m, lenze sottili, piombi 30-80g) e il bolentino profondo (fondali 40-150m, lenze robuste, piombi 100-300g). La tecnica è accessibile anche ai principianti — non servono lanci particolari — ma richiede conoscenza dei fondali e capacità di sentire le tocche delicate dei pesci di fondo. I periodi migliori sono primavera e estate, quando la temperatura dell'acqua sale e i pesci sono più attivi.",
+      "difficulty": "Facile",
+      "minBudget": 50,
+      "maxBudget": 300,
+      "targetSpecies": ["dentice", "sarago", "pagello", "scorfano"],
+      "seasons": { "gennaio": 1, "febbraio": 1, "marzo": 2, "aprile": 3, "maggio": 3, "giugno": 3, "luglio": 3, "agosto": 3, "settembre": 3, "ottobre": 2, "novembre": 1, "dicembre": 1 },
+      "rod": { "length": "1.80-2.40m", "action": "Sensibile con cimino morbido", "power": "30-150g" },
+      "reel": { "size": "3000-5000", "type": "Mulinello rotante o spinning" },
+      "line": { "type": "Trecciato o Nylon", "diameter": "Trecciato 0.18-0.25mm o Nylon 0.30-0.40mm" },
+      "rigs": ["Paternoster a 2-3 ami", "Montatura a braccioli", "Bolentino con piombo scorrevole", "Sabiki per esche vive"],
+      "baits": ["Gamberetto", "Calamaro a strisce", "Sardina", "Verme coreano", "Totano"],
+      "steps": [
+        { "title": "Individua il fondale giusto", "description": "Usa l'ecoscandaglio per cercare fondali rocciosi con coralligeno, secche e cadute di fondale. I dentici stazionano sulle punte delle secche dove la corrente accelera. I saraghi amano le pareti verticali con anfratti." },
+        { "title": "Ancora o prepara la deriva", "description": "Se il fondale lo permette, ancora la barca a monte del punto di pesca così la corrente porterà la pastura verso le tane. Altrimenti prepara una deriva controllata con il motore elettrico sopra la zona individuata." },
+        { "title": "Prepara la montatura", "description": "Lega il piombo in fondo e 2-3 braccioli laterali con ami del 4-8 in base alla preda. I braccioli devono essere distanziati di 40-60cm. Usa fluorocarbon 0.25-0.30mm per i braccioli: è invisibile e i pesci di fondo sono diffidenti." },
+        { "title": "Cala e senti il fondo", "description": "Cala la montatura a filo libero fino a sentire il piombo toccare il fondo. Poi recupera mezzo metro per tenere le esche sospese sopra le rocce. Tieni la canna in mano e il filo in leggera tensione per sentire le tocche." },
+        { "title": "Leggi le tocche e ferra", "description": "I pesci di fondo hanno tocche diverse: il dentice dà colpi secchi e potenti, il sarago mangia piano con piccoli tiretti, lo scorfano ingoia di colpo. Aspetta che il pesce abbia in bocca l'esca, poi ferra con decisione alzando la canna." }
+      ],
+      "tips": [
+        "Pastura con un sacchetto di sarde tritate legato all'ancora: la corrente porta l'odore e attira i pesci nella zona di pesca",
+        "Il gamberetto vivo è l'esca numero uno per i dentici: se riesci a procurarlo, le catture aumentano enormemente",
+        "In acque profonde (oltre 40m) usa il trecciato: trasmette le tocche istantaneamente, il nylon le ammortizza",
+        "Cambia la profondità del terminale di 1-2 metri se non hai tocche: a volte i pesci non sono esattamente sul fondo"
+      ],
+      "commonMistakes": [
+        "Usare piombi troppo leggeri per la corrente: la montatura deve stare verticale, non in diagonale",
+        "Ferrare troppo presto sulla prima toccata: aspetta che il pesce abbia in bocca l'esca completamente",
+        "Non pasturare: senza richiamo i pesci non si concentrano sotto la barca",
+        "Restare troppo tempo nello stesso punto senza tocche: se dopo 20 minuti non abbocca nulla, cambia posizione"
+      ],
+      "bestSpotTypes": ["Secche rocciose", "Fondali con coralligeno", "Cadute di fondale", "Pareti verticali sommerse"],
+      "relatedTechniques": ["traina", "jigging"],
+      "amazonProducts": [
+        { "name": "Shimano Beastmaster CX Boat 2.10m", "type": "Canna", "query": "canna+bolentino+barca+shimano+2.10m" },
+        { "name": "Daiwa BG 4000", "type": "Mulinello", "query": "mulinello+bolentino+daiwa+4000+mare" },
+        { "name": "Kit Montature Bolentino 3 ami", "type": "Montature", "query": "montature+bolentino+mare+kit+ami" }
+      ]
+    },
+    {
+      "slug": "beach-ledgering",
+      "name": "Beach Ledgering",
+      "emoji": "🏝️",
+      "shortDescription": "Pesca a fondo dalla spiaggia con attrezzatura leggera e piombi ridotti, perfetta per orate e mormore.",
+      "description": "Il beach ledgering è il fratello gentile del surfcasting: una tecnica di pesca dalla spiaggia che utilizza attrezzatura più leggera, piombi ridotti (20-60g) e lanci meno potenti. Mentre il surfcasting punta alla distanza estrema, il beach ledgering lavora nella fascia intermedia dei 30-80 metri dove spesso si concentrano orate e mormore, specialmente nelle spiagge con fondali bassi e degradanti. Questa tecnica è perfetta per chi vuole pescare dalla spiaggia senza l'impegno fisico del surfcasting e senza investire in attrezzatura pesante. Le canne sono più corte e maneggevoli (3.00-3.60m), i mulinelli più leggeri e le montature più sottili e sensibili. Il risultato è una pesca più raffinata dove si sentono anche le tocche più delicate. Il beach ledgering eccelle nelle spiagge con fondali bassi dove il surfcasting tradizionale è eccessivo: le spiagge adriatiche, le baie riparate e le zone di foce sono il terreno ideale. Le esche sono le stesse del surfcasting — vermi, cannolicchi, bibi — ma si possono usare inneschi più piccoli e delicati. I periodi migliori sono primavera e autunno, con notti primaverili eccezionali per le orate.",
+      "difficulty": "Facile",
+      "minBudget": 60,
+      "maxBudget": 250,
+      "targetSpecies": ["orata", "mormora", "spigola"],
+      "seasons": { "gennaio": 2, "febbraio": 2, "marzo": 3, "aprile": 3, "maggio": 3, "giugno": 1, "luglio": 1, "agosto": 1, "settembre": 3, "ottobre": 3, "novembre": 2, "dicembre": 2 },
+      "rod": { "length": "3.00-3.60m", "action": "Sensibile, cimino quiver", "power": "20-60g" },
+      "reel": { "size": "3000-4000", "type": "Frizione anteriore" },
+      "line": { "type": "Nylon o Trecciato fine", "diameter": "Nylon 0.20-0.25mm o Trecciato 0.10-0.14mm" },
+      "rigs": ["Montatura scorrevole leggera", "Paternoster a un amo", "Running ledger", "Feeder leggero con pasturatore"],
+      "baits": ["Verme coreano", "Bibi", "Cannolicchio", "Arenicola", "Gambero sgusciato"],
+      "steps": [
+        { "title": "Scegli la spiaggia giusta", "description": "Cerca spiagge con fondale che degrada dolcemente, senza correnti troppo forti. Le baie riparate e le zone vicino a scogli sommersi o foci di canali sono ideali. Il beach ledgering funziona meglio con mare calmo o poco mosso." },
+        { "title": "Prepara la montatura leggera", "description": "Usa un piombo scorrevole da 30-50g con un terminale in fluorocarbon 0.18-0.22mm lungo 1-1.5 metri. L'amo del 6-10 a gambo lungo per i vermi. La montatura deve essere sensibile: il pesce non deve sentire resistenza quando mangia." },
+        { "title": "Lancia a media distanza", "description": "Non serve lanciare lontanissimo: 40-70 metri sono spesso sufficienti. Nelle spiagge adriatiche con fondali bassi le orate pascolano anche a 30 metri da riva. Lancia in diversi punti per trovare le buche produttive." },
+        { "title": "Tieni la canna sul picchetto e osserva", "description": "Appoggia la canna sul picchetto con il cimino alto. Se usi il quiver tip, tieni il filo leggermente in tensione. Le orate al beach ledgering danno tocche delicate: il cimino trema prima di piegarsi. Le mormore danno toccate rapide e secche." },
+        { "title": "Ferra con dolcezza", "description": "Con piombi leggeri e terminali sottili, la ferrata deve essere morbida: un colpo secco spezzerebbe il terminale. Alza la canna fluidamente quando senti la piegata del cimino. Il combattimento è emozionante con attrezzatura leggera." }
+      ],
+      "tips": [
+        "Le notti di luna nuova in primavera sono perfette per le orate al beach ledgering: si avvicinano a riva in cerca di vermi",
+        "Usa il filo del telefono (gommino in silicone) come segnalatore di abboccata: lo agganci al filo tra i primi due anelli e cade quando il pesce tira",
+        "Porta sempre verme coreano e bibi: sono le esche migliori per questa tecnica e le orate li adorano",
+        "Con mare calmo piatto usa piombi più leggeri (20-30g): meno resistenza significa più sensibilità alle tocche"
+      ],
+      "commonMistakes": [
+        "Usare piombi troppo pesanti: il vantaggio del beach ledgering è la leggerezza, non trasformarlo in un mini-surfcasting",
+        "Terminali troppo corti: almeno 1 metro di fluorocarbon per distanziare l'esca dal piombo",
+        "Ferrare troppo forte: con fili sottili rischi la rottura, e con ami piccoli strappi la bocca del pesce",
+        "Non cambiare l'esca regolarmente: i vermi perdono attrattiva dopo 15-20 minuti"
+      ],
+      "bestSpotTypes": ["Spiagge con fondale basso", "Baie riparate", "Zone di foce", "Spiagge adriatiche"],
+      "relatedTechniques": ["surfcasting", "feeder"],
+      "amazonProducts": [
+        { "name": "Shimano Catana CX Beach Ledger 3.30m", "type": "Canna", "query": "canna+beach+ledgering+3.30m+mare" },
+        { "name": "Shimano Sienna FG 3000", "type": "Mulinello", "query": "mulinello+beach+ledgering+3000" },
+        { "name": "Kit Piombi Scorrevoli 20-50g", "type": "Piombi", "query": "piombi+scorrevoli+pesca+mare+set" }
+      ]
     }
   ]
 }

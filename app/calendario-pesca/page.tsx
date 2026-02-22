@@ -378,6 +378,37 @@ export default function CalendarioPescaPage() {
         </div>
       </div>
 
+      {/* Vai al mese */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4 text-center">Vai direttamente al mese</h2>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+            {[
+              { slug: 'gennaio', name: 'Gennaio' }, { slug: 'febbraio', name: 'Febbraio' },
+              { slug: 'marzo', name: 'Marzo' }, { slug: 'aprile', name: 'Aprile' },
+              { slug: 'maggio', name: 'Maggio' }, { slug: 'giugno', name: 'Giugno' },
+              { slug: 'luglio', name: 'Luglio' }, { slug: 'agosto', name: 'Agosto' },
+              { slug: 'settembre', name: 'Settembre' }, { slug: 'ottobre', name: 'Ottobre' },
+              { slug: 'novembre', name: 'Novembre' }, { slug: 'dicembre', name: 'Dicembre' },
+            ].map((m) => {
+              const md = (calendarData.months as Record<string, MonthData>)[(
+                ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'].indexOf(m.slug) + 1
+              ).toString()];
+              return (
+                <Link
+                  key={m.slug}
+                  href={`/calendario-pesca/${m.slug}`}
+                  className="p-3 rounded-xl text-center text-sm font-medium bg-white border border-gray-200 text-gray-700 hover:border-gray-400 transition-colors"
+                >
+                  {m.name}
+                  {md && <span className="block text-xs mt-0.5 text-gray-400">{md.species.length} specie</span>}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Info Section */}
       <section className="bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

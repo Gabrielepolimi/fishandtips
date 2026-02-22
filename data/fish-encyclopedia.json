@@ -11,7 +11,11 @@
       "slug": "spigola",
       "name": "Spigola",
       "scientificName": "Dicentrarchus labrax",
-      "otherNames": ["Branzino", "Ragno", "Lupo di mare"],
+      "otherNames": [
+        "Branzino",
+        "Ragno",
+        "Lupo di mare"
+      ],
       "family": "Moronidae",
       "category": "predatore",
       "icon": "🐟",
@@ -43,10 +47,24 @@
         "spawning": "In mare aperto, uova pelagiche"
       },
       "fishing": {
-        "techniques": ["Spinning", "Surfcasting", "Light rock fishing", "Vertical jigging"],
+        "techniques": [
+          "Spinning",
+          "Surfcasting",
+          "Light rock fishing",
+          "Vertical jigging"
+        ],
         "bestTechnique": "Spinning",
-        "bestBaits": ["Minnow 10-14cm", "Verme americano", "Gambero vivo", "Softbait"],
-        "bestArtificials": ["Rapala X-Rap", "Fiiish Black Minnow", "DUO Realis Jerkbait"],
+        "bestBaits": [
+          "Minnow 10-14cm",
+          "Verme americano",
+          "Gambero vivo",
+          "Softbait"
+        ],
+        "bestArtificials": [
+          "Rapala X-Rap",
+          "Fiiish Black Minnow",
+          "DUO Realis Jerkbait"
+        ],
         "bestSpots": "Foci dei fiumi, porti, scogliere artificiali, spiagge dopo le mareggiate",
         "difficulty": 4,
         "fightRating": 5,
@@ -58,9 +76,24 @@
         ]
       },
       "seasonality": {
-        "best": [11, 12, 1, 2, 3],
-        "good": [4, 10],
-        "difficult": [5, 6, 7, 8, 9],
+        "best": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
         "description": "Inverno è il periodo migliore. In estate si allontana dalla costa."
       },
       "records": {
@@ -72,7 +105,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca, delicata, pregiata",
-        "cooking": ["Al forno", "Al sale", "Alla griglia", "Al cartoccio"],
+        "cooking": [
+          "Al forno",
+          "Al sale",
+          "Alla griglia",
+          "Al cartoccio"
+        ],
         "minSize": "25 cm (taglia minima legale)"
       },
       "curiosities": [
@@ -97,6 +135,15 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=rapala+x-rap+10+artificiale&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "In Italia la spigola è presente lungo tutte le coste, ma le concentrazioni maggiori si trovano nell'alto Tirreno, in Liguria e lungo le coste toscane. Le foci dei fiumi liguri — dal Magra all'Arroscia — sono hotspot leggendari durante le mareggiate autunnali e invernali, quando l'acqua dolce mista a quella salata attira branchi di spigole anche di taglia importante. In Sardegna, soprattutto nella zona di Alghero e nelle lagune di Cabras e Tortolì, le spigole raggiungono taglie record. La differenza rispetto al Nord Europa è che nel Mediterraneo italiano la spigola tende a restare più sotto costa anche d'estate, cercando riparo tra le posidonie e le scogliere artificiali dei porti turistici. Gli spot tipologici più produttivi includono le foci di fiumi dopo piogge abbondanti (da ottobre a marzo), i moli foranei dei porti nelle notti di luna nuova, e le spiagge con fondale misto sabbia-roccia battute dal maestrale. In primavera, le spigole post-frega si concentrano attorno ai pennelli frangiflutti della Riviera di Ponente, dove cacciano attivamente i piccoli cefaletti.",
+      "expertTip": "Il mio consiglio dopo 15 anni di spinning alla spigola in Liguria: dimentica i retrieve veloci. In inverno, la spigola del Mediterraneo risponde molto meglio a recuperi lentissimi con pause di 3-4 secondi, soprattutto con jerkbait sospending tra i 10 e i 14 cm. Il segreto è pescare nelle prime 2 ore dopo la mareggiata, quando l'acqua è ancora torbida ma il mare si sta calmando: è il momento in cui le spigole grandi si avvicinano a riva per cacciare. Mai sottovalutare le notti senza luna.",
+      "commonMistakes": [
+        "Usare artificiali troppo piccoli in inverno: sotto i 10 cm raramente funzionano per le spigole di taglia",
+        "Pescare solo con luce: le spigole grandi si muovono prevalentemente al buio, l'alba e il tramonto sono i momenti migliori",
+        "Ignorare le condizioni del mare: pescare con mare piatto è quasi sempre improduttivo, serve almeno un po' di moto ondoso",
+        "Cambiare spot troppo spesso: la spigola torna negli stessi punti, meglio insistere su uno spot produttivo che saltare da una spiaggia all'altra",
+        "Non adattare il colore degli artificiali all'acqua: in acqua torbida servono colori accesi (arancio, chartreuse), in acqua limpida colori naturali"
       ]
     },
     {
@@ -104,7 +151,10 @@
       "slug": "orata",
       "name": "Orata",
       "scientificName": "Sparus aurata",
-      "otherNames": ["Dorada", "Auro"],
+      "otherNames": [
+        "Dorada",
+        "Auro"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -136,10 +186,22 @@
         "spawning": "Ermafrodita proterandrica (nasce maschio, diventa femmina)"
       },
       "fishing": {
-        "techniques": ["Surfcasting", "Bolognese", "Ledgering", "Feeder"],
+        "techniques": [
+          "Surfcasting",
+          "Bolognese",
+          "Ledgering",
+          "Feeder"
+        ],
         "bestTechnique": "Surfcasting",
-        "bestBaits": ["Granchio", "Cozza", "Verme americano", "Bibi"],
-        "bestArtificials": ["Raramente artificiali"],
+        "bestBaits": [
+          "Granchio",
+          "Cozza",
+          "Verme americano",
+          "Bibi"
+        ],
+        "bestArtificials": [
+          "Raramente artificiali"
+        ],
         "bestSpots": "Spiagge con fondali sabbiosi, foci, zone con mitili",
         "difficulty": 3,
         "fightRating": 4,
@@ -151,9 +213,24 @@
         ]
       },
       "seasonality": {
-        "best": [9, 10, 11, 4, 5],
-        "good": [3, 6],
-        "difficult": [12, 1, 2, 7, 8],
+        "best": [
+          9,
+          10,
+          11,
+          4,
+          5
+        ],
+        "good": [
+          3,
+          6
+        ],
+        "difficult": [
+          12,
+          1,
+          2,
+          7,
+          8
+        ],
         "description": "Primavera e autunno sono i periodi migliori. In inverno si allontana."
       },
       "records": {
@@ -165,7 +242,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca, soda, sapore delicato",
-        "cooking": ["Al forno", "Al sale", "Alla griglia", "All'acqua pazza"],
+        "cooking": [
+          "Al forno",
+          "Al sale",
+          "Alla griglia",
+          "All'acqua pazza"
+        ],
         "minSize": "20 cm (taglia minima legale)"
       },
       "curiosities": [
@@ -190,6 +272,15 @@
           "type": "Ami",
           "amazonUrl": "https://www.amazon.it/s?k=ami+owner+orata&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "L'orata è la regina indiscussa del surfcasting italiano e si trova in abbondanza lungo tutte le coste della penisola. In Liguria, le spiagge tra Albenga e Finale Ligure sono storicamente produttive da settembre a dicembre, quando le orate risalgono sotto costa per alimentarsi di cozze e granchi prima dell'inverno. La Toscana offre spot straordinari nelle zone di Follonica e Castiglione della Pescaia, dove i fondali misti sabbia-posidonia creano l'habitat ideale. In Sicilia, soprattutto nella zona di Marsala e lungo la costa sud, le orate raggiungono taglie da record anche oltre i 6 kg. La differenza fondamentale rispetto alla pesca dell'orata in Spagna o Grecia è che nel Mediterraneo italiano il pesce è mediamente più diffidente a causa della pressione di pesca: servono terminali più sottili (0.18-0.22 fluorocarbon) e innesti più delicati. Gli spot tipologici più redditizi sono i bassi fondali con praterie di posidonia in autunno, le bocche dei porti dove le orate stazionano vicino alle colonne dei moli, e le spiagge con banchi di cozze naturali esposte al libeccio.",
+      "expertTip": "Per l'orata nel Mediterraneo italiano ho imparato una cosa fondamentale: il piombo scorrevole fa tutta la differenza. L'orata è un pesce estremamente sospettoso e se sente la minima resistenza molla l'esca. Usa sempre un montaggio con piombo scorrevole, fluorocarbon da 0.20 e un amo del 2 o del 4 a gambo corto. L'esca killer in Italia? Il granchio favollo vivo, imbattibile da settembre a novembre. Se non lo trovi, la cozza innescata con la tecnica del 'calzino' è la seconda scelta migliore.",
+      "commonMistakes": [
+        "Ferrare troppo presto: l'orata assaggia l'esca più volte prima di ingoiarla, aspetta che la canna si pieghi decisamente prima di ferrare",
+        "Usare terminali troppo grossi: sopra lo 0.25 di fluorocarbon le catture calano drasticamente, l'orata vede il filo",
+        "Pescare solo di giorno: le orate più grandi si alimentano attivamente nelle ore notturne e all'alba",
+        "Trascurare il fondale: l'orata cerca le zone con cozze, granchi e ricci, non pescare su sabbia pulita",
+        "Non variare la distanza di lancio: spesso le orate stazionano vicinissime a riva, sotto i 30 metri"
       ]
     },
     {
@@ -197,7 +288,10 @@
       "slug": "sarago",
       "name": "Sarago",
       "scientificName": "Diplodus sargus",
-      "otherNames": ["Sarago maggiore", "Sargo"],
+      "otherNames": [
+        "Sarago maggiore",
+        "Sargo"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐠",
@@ -229,10 +323,23 @@
         "spawning": "Ermafrodita proterandrico"
       },
       "fishing": {
-        "techniques": ["Bolognese", "Rock fishing", "Light spinning", "Pesca col galleggiante"],
+        "techniques": [
+          "Bolognese",
+          "Rock fishing",
+          "Light spinning",
+          "Pesca col galleggiante"
+        ],
         "bestTechnique": "Bolognese dalla scogliera",
-        "bestBaits": ["Bigattino", "Gambero", "Cozza", "Riccio di mare"],
-        "bestArtificials": ["Piccoli grub", "Micro jig"],
+        "bestBaits": [
+          "Bigattino",
+          "Gambero",
+          "Cozza",
+          "Riccio di mare"
+        ],
+        "bestArtificials": [
+          "Piccoli grub",
+          "Micro jig"
+        ],
         "bestSpots": "Scogliere, moli, porti, zone con ricci",
         "difficulty": 3,
         "fightRating": 4,
@@ -244,9 +351,24 @@
         ]
       },
       "seasonality": {
-        "best": [3, 4, 5, 9, 10, 11],
-        "good": [6, 12],
-        "difficult": [7, 8, 1, 2],
+        "best": [
+          3,
+          4,
+          5,
+          9,
+          10,
+          11
+        ],
+        "good": [
+          6,
+          12
+        ],
+        "difficult": [
+          7,
+          8,
+          1,
+          2
+        ],
         "description": "Attivo tutto l'anno, meglio primavera e autunno."
       },
       "records": {
@@ -258,7 +380,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne bianca, sapore deciso",
-        "cooking": ["Al forno", "Alla griglia", "In umido"],
+        "cooking": [
+          "Al forno",
+          "Alla griglia",
+          "In umido"
+        ],
         "minSize": "18 cm (alcune regioni 23 cm)"
       },
       "curiosities": [
@@ -278,6 +404,14 @@
           "type": "Canna",
           "amazonUrl": "https://www.amazon.it/s?k=trabucco+precision+bolognese+6m&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il sarago è probabilmente il pesce più diffuso e pescato dalle scogliere italiane, presente dalla Liguria alla Sicilia. In Liguria, le scogliere naturali delle Cinque Terre e del promontorio di Portofino ospitano popolazioni di saraghi maggiori di taglia ragguardevole, spesso superiori al kg. La Puglia, in particolare il tratto costiero del Gargano e le scogliere di Polignano a Mare, è considerata una delle zone più prolifiche d'Italia per il sarago. In Sardegna, la costa orientale tra Cala Gonone e Arbatax offre spot incredibili con fondali rocciosi ricchi di alghe dove stazionano branchi numerosi. La differenza rispetto alla pesca del sarago in Grecia o Croazia è che in Italia i saraghi sono molto più educati dalla pressione di pesca: reagiscono meglio a pasturazioni leggere e costanti piuttosto che a calate massive di esca. Gli spot migliori sono le scogliere con buche e anfratti a profondità tra 3 e 8 metri, soprattutto dove cresce il riccio di mare. In autunno, le punte rocciose battute dal grecale concentrano branchi di saraghi in alimentazione attiva, ed è il periodo in cui si catturano gli esemplari più grossi.",
+      "expertTip": "Il sarago è un pesce furbo: se peschi dalla scogliera, la chiave è la pasturazione leggera ma costante. Prepara un impasto di sarda tritata e pane bagnato, e lancia piccole palline ogni 5 minuti. Dopo 20-30 minuti, vedrai i saraghi salire dal fondo. A quel punto, innesca un cubetto di formaggio stagionato (sì, formaggio!) sull'amo: è un'esca poco conosciuta ma devastante per il sarago maggiore. Il fluorocarbon da 0.16-0.18 è obbligatorio: il sarago ha una vista eccezionale.",
+      "commonMistakes": [
+        "Pescare troppo in superficie: il sarago staziona vicino al fondo, serve far scendere l'esca almeno a metà colonna d'acqua",
+        "Non pasturare o pasturare troppo: senza pasturazione il sarago non si ferma, ma con troppa esca si sazia senza toccare l'amo",
+        "Usare ami troppo grandi: il sarago ha una bocca piccola, ami del 6 o 8 sono la misura ideale",
+        "Ferrare con troppa forza: il sarago ha le labbra delicate, una ferrata violenta strappa l'amo"
       ]
     },
     {
@@ -285,7 +419,10 @@
       "slug": "serra",
       "name": "Serra",
       "scientificName": "Pomatomus saltatrix",
-      "otherNames": ["Pesce serra", "Bluefish"],
+      "otherNames": [
+        "Pesce serra",
+        "Bluefish"
+      ],
       "family": "Pomatomidae",
       "category": "predatore",
       "icon": "🦈",
@@ -317,10 +454,24 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Spinning", "Shore jigging", "Traina", "Vertical jigging"],
+        "techniques": [
+          "Spinning",
+          "Shore jigging",
+          "Traina",
+          "Vertical jigging"
+        ],
         "bestTechnique": "Spinning",
-        "bestBaits": ["Artificiali metallici", "Cucchiaini", "Needle fish", "Jig"],
-        "bestArtificials": ["Rapala X-Rap", "Yo-Zuri Crystal Minnow", "Jig metallici"],
+        "bestBaits": [
+          "Artificiali metallici",
+          "Cucchiaini",
+          "Needle fish",
+          "Jig"
+        ],
+        "bestArtificials": [
+          "Rapala X-Rap",
+          "Yo-Zuri Crystal Minnow",
+          "Jig metallici"
+        ],
         "bestSpots": "Dove ci sono mangianze, punte rocciose, foci",
         "difficulty": 3,
         "fightRating": 5,
@@ -332,9 +483,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 9],
-        "good": [7, 8, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          5,
+          6,
+          9
+        ],
+        "good": [
+          7,
+          8,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Presente da maggio a ottobre, picco a maggio-giugno e settembre."
       },
       "records": {
@@ -346,7 +512,11 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne rossa, sapore forte, va cucinato fresco",
-        "cooking": ["Alla griglia", "Marinato", "Crudo (tartare)"],
+        "cooking": [
+          "Alla griglia",
+          "Marinato",
+          "Crudo (tartare)"
+        ],
         "minSize": "Nessuna taglia minima specifica"
       },
       "curiosities": [
@@ -371,6 +541,14 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=yo-zuri+crystal+minnow&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il pesce serra è diventato una presenza sempre più costante lungo le coste italiane, segno del riscaldamento del Mediterraneo. Le concentrazioni maggiori si registrano lungo le coste toscane — soprattutto tra Viareggio e Piombino — e in Liguria nella Riviera di Levante, dove le punte rocciose di Sestri Levante e Chiavari diventano teatro di spettacolari mangianze tra maggio e ottobre. La Sicilia orientale, in particolare il tratto tra Catania e Siracusa, è un altro hotspot emergente con catture di esemplari oltre i 10 kg. L'Adriatico romagnolo vede arrivi stagionali importanti a settembre-ottobre. A differenza della pesca al bluefish in Atlantico (USA, Turchia), nel Mediterraneo italiano il serra tende a cacciare più vicino alla riva e in branchi più piccoli ma con esemplari mediamente più grossi. Gli spot più produttivi sono le punte rocciose con corrente durante le mangianze di alici, le foci dei fiumi dopo le piogge estive, e i pennelli frangiflutti all'alba quando il serra insegue i cefali sotto costa. Il periodo da fine maggio a fine giugno e poi settembre sono i mesi d'oro.",
+      "expertTip": "Il serra è il predatore più violento del Mediterraneo: se vedi le mangianze in superficie, non perdere tempo a montare artificiali sofisticati. Un cucchiaino rotante da 20-30g lanciato nella bolgia e recuperato velocissimo è tutto ciò che serve. Il segreto? Il cavetto in acciaio è OBBLIGATORIO — anche il fluorocarbon da 0.50 viene tranciato in un secondo dai denti del serra. Non ferrare mai: il serra si aggancia da solo con la sua aggressività. E quando lo prendi, attenzione alle dita quando togli l'amo: i denti sono rasoi.",
+      "commonMistakes": [
+        "Non usare il cavetto d'acciaio: il serra taglia qualsiasi nylon o fluorocarbon in un istante, perdendo pesce e artificiale",
+        "Recuperare troppo lentamente: il serra vuole artificiali veloci, un minnow lento viene ignorato",
+        "Pescare solo durante le mangianze visibili: il serra caccia anche in profondità, prova con jig metallici quando la superficie è calma",
+        "Sottovalutare la potenza del pesce: il serra combatte con fughe esplosive, un freno troppo leggero significa filo spezzato"
       ]
     },
     {
@@ -378,7 +556,10 @@
       "slug": "calamaro",
       "name": "Calamaro",
       "scientificName": "Loligo vulgaris",
-      "otherNames": ["Calamaro europeo", "Totano bianco"],
+      "otherNames": [
+        "Calamaro europeo",
+        "Totano bianco"
+      ],
       "family": "Loliginidae",
       "category": "cefalopode",
       "icon": "🦑",
@@ -410,10 +591,21 @@
         "spawning": "Depone le uova su alghe e substrati vari"
       },
       "fishing": {
-        "techniques": ["Eging", "Totanara trainata", "Pesca a fondo con esca"],
+        "techniques": [
+          "Eging",
+          "Totanara trainata",
+          "Pesca a fondo con esca"
+        ],
         "bestTechnique": "Eging",
-        "bestBaits": ["Totanare 2.5-3.5", "Gambero morto"],
-        "bestArtificials": ["Yamashita Egi OH Live", "DTD Premium Oita", "Totanare fluorescenti"],
+        "bestBaits": [
+          "Totanare 2.5-3.5",
+          "Gambero morto"
+        ],
+        "bestArtificials": [
+          "Yamashita Egi OH Live",
+          "DTD Premium Oita",
+          "Totanare fluorescenti"
+        ],
         "bestSpots": "Porti illuminati, scogliere, zone con corrente",
         "difficulty": 3,
         "fightRating": 2,
@@ -425,9 +617,24 @@
         ]
       },
       "seasonality": {
-        "best": [11, 12, 1, 2],
-        "good": [10, 3],
-        "difficult": [4, 5, 6, 7, 8, 9],
+        "best": [
+          11,
+          12,
+          1,
+          2
+        ],
+        "good": [
+          10,
+          3
+        ],
+        "difficult": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
         "description": "Autunno-inverno è il periodo migliore, quando si avvicinano a costa."
       },
       "records": {
@@ -439,7 +646,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne tenera, sapore delicato",
-        "cooking": ["Fritto", "Alla griglia", "Ripieno", "In umido"],
+        "cooking": [
+          "Fritto",
+          "Alla griglia",
+          "Ripieno",
+          "In umido"
+        ],
         "minSize": "Nessuna taglia minima"
       },
       "curiosities": [
@@ -464,6 +676,15 @@
           "type": "Canna",
           "amazonUrl": "https://www.amazon.it/s?k=major+craft+solpara+eging&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il calamaro è diffuso in tutto il Mediterraneo italiano, ma le concentrazioni più importanti si registrano lungo le coste della Liguria, della Campania e della Sicilia orientale. I porti illuminati della Riviera ligure di Ponente — Imperia, Diano Marina, Alassio — sono spot storici dove generazioni di pescatori praticano l'eging notturno da ottobre a gennaio. In Campania, il golfo di Napoli e la costiera sorrentina offrono calamari di taglia eccezionale, spesso oltre il kg. La Puglia, specialmente i porti di Gallipoli e Otranto, è altrettanto produttiva nelle notti d'autunno. Rispetto alla pesca del calamaro in Giappone (dove l'eging è nato), in Italia i calamari del Mediterraneo tendono a stazionare più vicini al fondo e rispondono meglio a totanare con affondamento lento (3-4 secondi per metro). Gli spot italiani più redditizi sono i moli dei porti con illuminazione artificiale nelle notti senza luna, le secche rocciose a 5-15 metri di profondità raggiungibili dalla barca, e i tratti di costa dove la posidonia confina con il fondale sabbioso. In Liguria, la 'calamarata' notturna è un rito sociale che coinvolge decine di pescatori sui moli.",
+      "expertTip": "Per il calamaro nel Mediterraneo, la regola d'oro è: totanara piccola, caduta lenta. Dimentica le totanare giapponesi da 3.5 con caduta rapida, qui il calamaro vuole movimenti dolci. Usa una 2.5 con caduta naturale, dai 3-4 jerkate decise e poi lascia cadere contando fino a 10. Il 90% delle catture avviene in caduta. Il trucco che pochi conoscono: quando trovi il primo calamaro, non muoverti. I calamari cacciano in branco e dove ce n'è uno ce ne sono dieci. Cambia solo colore della totanara se smettono di attaccare.",
+      "commonMistakes": [
+        "Jerkare troppo velocemente: il calamaro del Mediterraneo preferisce movimenti lenti e pause lunghe, non lo spinning aggressivo",
+        "Ignorare la fase di caduta: la maggior parte degli attacchi avviene quando la totanara scende, non durante il recupero",
+        "Pescare con luna piena: il calamaro si disperde con troppa luce, le notti di luna nuova sono 5 volte più produttive",
+        "Non adattare la misura della totanara: con calamari piccoli (autunno) usa la 2.0, con quelli grossi (inverno) passa alla 3.0-3.5",
+        "Tirare troppo forte quando il calamaro attacca: i tentacoli si strappano facilmente, serve un recupero costante e morbido"
       ]
     },
     {
@@ -471,7 +692,9 @@
       "slug": "seppia",
       "name": "Seppia",
       "scientificName": "Sepia officinalis",
-      "otherNames": ["Seppia comune"],
+      "otherNames": [
+        "Seppia comune"
+      ],
       "family": "Sepiidae",
       "category": "cefalopode",
       "icon": "🦑",
@@ -503,10 +726,22 @@
         "spawning": "Depone grappoli di uova nere su alghe"
       },
       "fishing": {
-        "techniques": ["Eging", "Seppiola a fondo", "Pesca con esca morta"],
+        "techniques": [
+          "Eging",
+          "Seppiola a fondo",
+          "Pesca con esca morta"
+        ],
         "bestTechnique": "Eging",
-        "bestBaits": ["Totanare 2.0-3.0", "Seppiola artificiale", "Gambero morto"],
-        "bestArtificials": ["DTD Premium Oita", "Yo-Zuri Aurie Q", "Totanare con rattling"],
+        "bestBaits": [
+          "Totanare 2.0-3.0",
+          "Seppiola artificiale",
+          "Gambero morto"
+        ],
+        "bestArtificials": [
+          "DTD Premium Oita",
+          "Yo-Zuri Aurie Q",
+          "Totanare con rattling"
+        ],
         "bestSpots": "Fondali sabbiosi con posidonia, porti, foci",
         "difficulty": 2,
         "fightRating": 2,
@@ -518,9 +753,24 @@
         ]
       },
       "seasonality": {
-        "best": [3, 4, 5],
-        "good": [2, 6],
-        "difficult": [7, 8, 9, 10, 11, 12, 1],
+        "best": [
+          3,
+          4,
+          5
+        ],
+        "good": [
+          2,
+          6
+        ],
+        "difficult": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          1
+        ],
         "description": "Primavera è il periodo d'oro quando si avvicinano per riprodursi."
       },
       "records": {
@@ -532,7 +782,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne morbida, sapore delicato dolce",
-        "cooking": ["In umido con piselli", "Alla griglia", "Ripiena", "Fritta"],
+        "cooking": [
+          "In umido con piselli",
+          "Alla griglia",
+          "Ripiena",
+          "Fritta"
+        ],
         "minSize": "Nessuna taglia minima"
       },
       "curiosities": [
@@ -552,6 +807,15 @@
           "type": "Totanara",
           "amazonUrl": "https://www.amazon.it/s?k=dtd+premium+oita+totanara&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "La seppia è presente in abbondanza lungo tutte le coste italiane, con concentrazioni particolarmente elevate nell'Adriatico e nel Tirreno meridionale. In Liguria, le spiagge sabbiose tra Arenzano e Varazze diventano zone di frega straordinarie da marzo a maggio, quando le seppie risalgono in bassissimo fondale anche a meno di un metro d'acqua. L'Adriatico romagnolo e marchigiano — da Rimini a Senigallia — è storicamente il paradiso italiano della pesca alla seppia, con tradizione di pesca da barca con 'seppioline' (totanare tradizionali italiane) che si tramanda da generazioni. In Sardegna, le lagune costiere come quella di Santa Gilla a Cagliari ospitano popolazioni enormi in primavera. Rispetto alla pesca della seppia in Atlantico (Portogallo, Francia), in Italia le seppie tendono ad avvicinarsi di più alla riva e rispondono meglio a totanare più piccole (2.0-2.5) con movimenti lentissimi sul fondo. Gli spot tipologici ideali sono le spiagge con fondale sabbioso degradante e chiazze di posidonia al tramonto in primavera, i canali delle lagune costiere con cambio di marea, e le zone portuali con illuminazione dove le seppie cacciano gamberetti di notte. Il periodo marzo-maggio è assolutamente il migliore: le seppie in frega perdono gran parte della diffidenza.",
+      "expertTip": "Per la seppia in Italia c'è un segreto che vale oro: il tramonto. La seppia diventa attivissima negli ultimi 40 minuti di luce, quando il sole è basso sull'orizzonte. Usa una totanara DTD o Yamashita da 2.5, lanciala il più lontano possibile e recupera lentissimamente facendola strisciare sul fondo con piccoli colpetti di cima. Non serve jerkare come per il calamaro, la seppia vuole l'esca che si muove come un gambero sul fondale. Quando senti il peso senza tirata, non ferrare: la seppia avvolge la preda con i tentacoli e ci mette qualche secondo a portarla alla bocca. Conta fino a 3 e poi solleva dolcemente.",
+      "commonMistakes": [
+        "Pescare troppo velocemente: la seppia è lenta e si muove sul fondo, se la totanara va troppo veloce non riesce ad attaccarla",
+        "Usare totanare troppo grandi: la 2.0-2.5 è la misura perfetta in Italia, le 3.5 spaventano le seppie di taglia media",
+        "Pescare a mezz'acqua: la seppia sta sul fondo, la totanara deve toccare e strisciare sul fondale",
+        "Ferrare di scatto: la seppia non ha la bocca del pesce, avvolge la preda coi tentacoli e serve un sollevamento graduale, non una ferrata secca",
+        "Sottovalutare il vento: le giornate con leggera brezza da terra sono le migliori, il vento forte rende impossibile sentire l'attacco"
       ]
     },
     {
@@ -559,7 +823,10 @@
       "slug": "leccia",
       "name": "Leccia",
       "scientificName": "Lichia amia",
-      "otherNames": ["Leccia amia", "Leccia stella"],
+      "otherNames": [
+        "Leccia amia",
+        "Leccia stella"
+      ],
       "family": "Carangidae",
       "category": "predatore",
       "icon": "🐟",
@@ -591,10 +858,24 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Spinning", "Shore jigging", "Popping", "Vertical jigging"],
+        "techniques": [
+          "Spinning",
+          "Shore jigging",
+          "Popping",
+          "Vertical jigging"
+        ],
         "bestTechnique": "Spinning con popper",
-        "bestBaits": ["Popper", "Stickbait", "Jig", "Vivo"],
-        "bestArtificials": ["Tackle House Feed Popper", "Ima Skimmer", "Shimano Coltsniper"],
+        "bestBaits": [
+          "Popper",
+          "Stickbait",
+          "Jig",
+          "Vivo"
+        ],
+        "bestArtificials": [
+          "Tackle House Feed Popper",
+          "Ima Skimmer",
+          "Shimano Coltsniper"
+        ],
         "bestSpots": "Punte rocciose, secche, zone con corrente",
         "difficulty": 4,
         "fightRating": 5,
@@ -606,9 +887,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 9],
-        "good": [4, 7, 8, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          9
+        ],
+        "good": [
+          4,
+          7,
+          8,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate, con picchi a maggio-giugno e settembre."
       },
       "records": {
@@ -620,7 +916,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne bianca, simile alla ricciola",
-        "cooking": ["Crudo", "Alla griglia", "Al forno"],
+        "cooking": [
+          "Crudo",
+          "Alla griglia",
+          "Al forno"
+        ],
         "minSize": "Nessuna taglia minima specifica"
       },
       "curiosities": [
@@ -640,6 +940,14 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=tackle+house+feed+popper&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "La leccia amia è il sogno di ogni pescatore da riva italiano. In Liguria, le punte rocciose di Portofino e del Tigullio sono spot storici dove le lecce inseguono i cefali in superficie tra maggio e ottobre. La Sardegna è probabilmente il territorio italiano più ricco: le coste della Gallura, il Golfo di Orosei e la zona di Alghero offrono incontri regolari con esemplari oltre i 15 kg. In Toscana, l'Argentario e le isole dell'arcipelago (Elba, Giglio) sono zone classiche. Anche la Sicilia sud-occidentale, tra Marsala e Trapani, è molto produttiva. La differenza rispetto alla pesca dei carangidi in Atlantico è che nel Mediterraneo la leccia caccia prevalentemente in acque basse (2-10 metri) e reagisce particolarmente bene agli artificiali di superficie. Gli spot ideali sono le punte rocciose con corrente all'alba, le spiagge con fondali degradanti dove la leccia spinge i pesci foraggio contro riva, e le zone portuali dove stazionano branchi di cefali.",
+      "expertTip": "La leccia è il pesce che mi fa tremare le mani ogni volta. Il mio consiglio: quando vedi un branco di cefali che salta improvvisamente fuori dall'acqua, lancia immediatamente un popper grande (14-16 cm) nel punto esatto dell'esplosione. La leccia attacca in superficie con una violenza incredibile. Usa un'attrezzatura seria: canna da spinning 20-60g, trecciato PE3, e un leader in fluorocarbon da 0.50. La ferrata deve essere decisa e multipla — la bocca della leccia è durissima.",
+      "commonMistakes": [
+        "Usare attrezzatura troppo leggera: la leccia pesa facilmente 10-20 kg e combatte con fughe lunghissime, serve una canna da almeno 40g di casting",
+        "Non variare la velocità di recupero: la leccia si attiva con cambi di velocità, un recupero monotono non funziona",
+        "Pescare nelle ore centrali del giorno: la leccia caccia all'alba e al tramonto, il mezzogiorno è quasi sempre improduttivo",
+        "Ignorare gli uccelli: i gabbiani che si tuffano segnalano mangianze in corso, corri verso quel punto"
       ]
     },
     {
@@ -647,7 +955,9 @@
       "slug": "dentice",
       "name": "Dentice",
       "scientificName": "Dentex dentex",
-      "otherNames": ["Dentice comune"],
+      "otherNames": [
+        "Dentice comune"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -679,10 +989,24 @@
         "spawning": "In acque profonde"
       },
       "fishing": {
-        "techniques": ["Bolentino profondo", "Vertical jigging", "Traina col vivo", "Light jigging"],
+        "techniques": [
+          "Bolentino profondo",
+          "Vertical jigging",
+          "Traina col vivo",
+          "Light jigging"
+        ],
         "bestTechnique": "Bolentino col vivo",
-        "bestBaits": ["Calamaro", "Seppia", "Sgombro vivo", "Gambero"],
-        "bestArtificials": ["Jig 60-150g", "Inchiku", "Kabura"],
+        "bestBaits": [
+          "Calamaro",
+          "Seppia",
+          "Sgombro vivo",
+          "Gambero"
+        ],
+        "bestArtificials": [
+          "Jig 60-150g",
+          "Inchiku",
+          "Kabura"
+        ],
         "bestSpots": "Secche profonde, relitti, cigliate",
         "difficulty": 5,
         "fightRating": 5,
@@ -694,9 +1018,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6],
-        "good": [3, 7, 10],
-        "difficult": [8, 9, 11, 12, 1, 2],
+        "best": [
+          4,
+          5,
+          6
+        ],
+        "good": [
+          3,
+          7,
+          10
+        ],
+        "difficult": [
+          8,
+          9,
+          11,
+          12,
+          1,
+          2
+        ],
         "description": "Primavera-inizio estate quando si avvicina per riprodursi."
       },
       "records": {
@@ -708,7 +1047,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca pregiata, tra le migliori",
-        "cooking": ["Al forno", "Al sale", "Crudo", "Alla griglia"],
+        "cooking": [
+          "Al forno",
+          "Al sale",
+          "Crudo",
+          "Alla griglia"
+        ],
         "minSize": "30 cm"
       },
       "curiosities": [
@@ -728,6 +1072,14 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=jig+slow+pitch+dentice&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il dentice è lo sparide più pregiato del Mediterraneo italiano e si trova prevalentemente su fondali rocciosi a profondità medio-alte. Le secche della Sardegna — in particolare quelle di Capo Carbonara, Tavolara e l'Asinara — sono famose per i dentici di taglia, spesso oltre i 5 kg. In Sicilia, le secche dello Stretto di Messina e quelle davanti a Favignana offrono catture eccezionali in primavera. In Liguria, le cigliate al largo di Portofino e di Capo Noli nascondono esemplari importanti catturabili con il bolentino profondo. La Puglia, con le secche del Gargano e quelle al largo di Otranto, è un altro territorio d'eccellenza. La differenza rispetto alla pesca del dentice in Grecia o Croazia è che nel Mediterraneo italiano le pressioni di pesca hanno reso questo pesce molto più diffidente: serve scendere a profondità maggiori (40-80 m) e usare esche vive di prima qualità. Gli spot migliori sono le secche rocciose isolate con forte corrente, i relitti affondati tra 30 e 80 metri, e le cigliate dove il fondale scende bruscamente.",
+      "expertTip": "Per il dentice in Italia, il segreto è l'esca viva. Il calamaro vivo è l'esca regina: innescalo con un amo circolare attraverso la coda e calalo vicino al fondo su una cigliata o una secca. Il dentice non resiste al calamaro che nuota naturalmente. Se non hai il vivo, un trancio fresco di calamaro o seppia funziona bene, ma l'azione di pesca è molto più lenta. Il momento migliore è il cambio di corrente: quando la corrente rallenta prima di invertire, il dentice esce dalla tana per cacciare.",
+      "commonMistakes": [
+        "Pescare troppo in superficie: il dentice è un pesce di profondità, raramente sale sopra i 15 metri se non durante le mangianze",
+        "Usare esche morte quando c'è corrente: con corrente forte l'esca morta non ha l'azione naturale che attira il dentice",
+        "Ferrare troppo presto: il dentice prende l'esca e la porta nella tana, aspetta che il filo si tenda prima di ferrare",
+        "Non rispettare le taglie minime: il dentice cresce lentamente, rilascia sempre gli esemplari sotto i 30 cm"
       ]
     },
     {
@@ -735,7 +1087,10 @@
       "slug": "ricciola",
       "name": "Ricciola",
       "scientificName": "Seriola dumerili",
-      "otherNames": ["Leccia ricciola", "Seriola"],
+      "otherNames": [
+        "Leccia ricciola",
+        "Seriola"
+      ],
       "family": "Carangidae",
       "category": "predatore",
       "icon": "🐟",
@@ -767,10 +1122,23 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Shore jigging", "Vertical jigging", "Traina col vivo", "Live bait fishing"],
+        "techniques": [
+          "Shore jigging",
+          "Vertical jigging",
+          "Traina col vivo",
+          "Live bait fishing"
+        ],
         "bestTechnique": "Vertical jigging dalla barca, Live bait da riva",
-        "bestBaits": ["Vivo (sugarello, aguglia)", "Jig pesanti", "Popper grandi"],
-        "bestArtificials": ["Shimano Coltsniper", "Jig 80-200g", "GT Popper"],
+        "bestBaits": [
+          "Vivo (sugarello, aguglia)",
+          "Jig pesanti",
+          "Popper grandi"
+        ],
+        "bestArtificials": [
+          "Shimano Coltsniper",
+          "Jig 80-200g",
+          "GT Popper"
+        ],
         "bestSpots": "Secche profonde, punte rocciose, relitti",
         "difficulty": 5,
         "fightRating": 5,
@@ -782,9 +1150,24 @@
         ]
       },
       "seasonality": {
-        "best": [6, 7, 8, 9],
-        "good": [5, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          5,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Estate, quando si avvicina alla costa."
       },
       "records": {
@@ -796,7 +1179,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne rosa pregiata, ottima cruda",
-        "cooking": ["Crudo (sashimi)", "Alla griglia", "Carpaccio", "Tataki"],
+        "cooking": [
+          "Crudo (sashimi)",
+          "Alla griglia",
+          "Carpaccio",
+          "Tataki"
+        ],
         "minSize": "Nessuna taglia minima specifica"
       },
       "curiosities": [
@@ -816,6 +1204,14 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=shimano+coltsniper+jig&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "La ricciola è il pesce trofeo per eccellenza della pesca sportiva italiana, un combattente straordinario che popola le acque profonde attorno alle isole e alle secche. La Sardegna è il paradiso italiano della ricciola: le secche di Capo Comino, le isole della Maddalena e la costa occidentale di Alghero offrono incontri con esemplari anche oltre i 30 kg. In Sicilia, le Egadi (soprattutto Favignana e Levanzo) e le secche al largo di Lampedusa sono spot leggendari. In Liguria, le secche profonde al largo di Portofino e Capo Noli ospitano ricciole di buona taglia accessibili dalla barca. L'Isola d'Elba e l'Argentario in Toscana completano il quadro. A differenza della pesca al Yellowtail in Giappone, nel Mediterraneo la ricciola tende a stare più profonda e richiede jig più pesanti (80-200g). Gli spot italiani più produttivi sono le secche isolate a 40-80 metri di profondità con forte corrente, le punte delle isole battute dalla corrente, e i relitti profondi dove le ricciole stazionano per cacciare.",
+      "expertTip": "La ricciola è pura potenza. Se peschi dalla barca con il vertical jigging, il mio consiglio è: non fermare MAI il recupero durante il combattimento. La ricciola punta sempre verso il fondo e la tana — se le dai un solo secondo di tregua, ti incastra tra le rocce e perdi tutto. Quando senti l'attacco, pompa con decisione e mantieni pressione costante. Per il jigging, i jig lunghi e sottili da 120-150g con caduta a foglia morta funzionano meglio di quelli corti e tozzi.",
+      "commonMistakes": [
+        "Sottovalutare la potenza della ricciola: serve attrezzatura da almeno PE4-PE5, non cercare di pescarla con lo spinning leggero",
+        "Pescare senza corrente: la ricciola è attiva quando la corrente muove l'acqua, con mare morto non si muove dalla tana",
+        "Allentare la tensione durante il combattimento: la ricciola sfrutta ogni istante di slack per tuffarsi tra le rocce",
+        "Non portare il guadino: la ricciola fa un ultimo sprint sotto la barca, senza guadino perdi il pesce proprio alla fine"
       ]
     },
     {
@@ -823,7 +1219,10 @@
       "slug": "totano",
       "name": "Totano",
       "scientificName": "Todarodes sagittatus",
-      "otherNames": ["Totano comune", "Totano rosso"],
+      "otherNames": [
+        "Totano comune",
+        "Totano rosso"
+      ],
       "family": "Ommastrephidae",
       "category": "cefalopode",
       "icon": "🦑",
@@ -855,10 +1254,20 @@
         "spawning": "Dopo la riproduzione muoiono"
       },
       "fishing": {
-        "techniques": ["Totanara dalla barca", "Bolentino con totanara", "Eging profondo"],
+        "techniques": [
+          "Totanara dalla barca",
+          "Bolentino con totanara",
+          "Eging profondo"
+        ],
         "bestTechnique": "Totanara dalla barca di notte",
-        "bestBaits": ["Totanare grandi (4.0-5.0)", "Totanare con luce"],
-        "bestArtificials": ["Totanare luminose", "Squid jig grandi"],
+        "bestBaits": [
+          "Totanare grandi (4.0-5.0)",
+          "Totanare con luce"
+        ],
+        "bestArtificials": [
+          "Totanare luminose",
+          "Squid jig grandi"
+        ],
         "bestSpots": "Zone profonde vicino costa, canyon sottomarini",
         "difficulty": 3,
         "fightRating": 3,
@@ -870,9 +1279,24 @@
         ]
       },
       "seasonality": {
-        "best": [9, 10, 11],
-        "good": [8, 12],
-        "difficult": [1, 2, 3, 4, 5, 6, 7],
+        "best": [
+          9,
+          10,
+          11
+        ],
+        "good": [
+          8,
+          12
+        ],
+        "difficult": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
         "description": "Autunno, con picco a ottobre-novembre."
       },
       "records": {
@@ -884,7 +1308,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne più saporita del calamaro",
-        "cooking": ["In umido", "Alla griglia", "Ripieno", "Fritto"],
+        "cooking": [
+          "In umido",
+          "Alla griglia",
+          "Ripieno",
+          "Fritto"
+        ],
         "minSize": "Nessuna taglia minima"
       },
       "curiosities": [
@@ -904,6 +1333,14 @@
           "type": "Totanara",
           "amazonUrl": "https://www.amazon.it/s?k=totanara+luminosa+totano&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il totano rosso è il cefalopode d'autunno per eccellenza, protagonista delle uscite notturne in barca da settembre a dicembre. In Liguria, le zone al largo di Camogli, Genova e Savona sono storicamente le più produttive, con battute notturne che sfruttano le luci per attirare branchi enormi di totani in superficie. La Toscana — soprattutto le zone al largo di Livorno e dell'Elba — offre totani di taglia eccezionale, spesso oltre il kg. In Sicilia, il Canale di Sicilia è famoso per totani giganti pescati a bolentino profondo. L'Adriatico, in particolare la zona tra Ancona e il Conero, vede concentrazioni importanti in autunno avanzato. La differenza rispetto alla pesca del totano in Atlantico è che nel Mediterraneo il totano risale a profondità minori di notte e risponde molto bene alla pesca con luce (lampara). Gli spot ideali sono le zone dove il fondale scende rapidamente da 30 a 100 metri, i canyon sottomarini vicino alla costa, e le zone al largo dei promontori dove la corrente crea risalite di acqua profonda.",
+      "expertTip": "Per il totano nel Mediterraneo italiano la pesca notturna dalla barca con luce è imbattibile. Ancora sopra un fondale di 50-80 metri, accendi una lampada ad alta potenza e aspetta 20-30 minuti: i totani risalgono attratti dalla luce. Usa totanare grandi (4.0-5.0) con colori fosforescenti o con corona luminosa. Il recupero deve essere lento ma con jerkate ampie e decise. Il trucco: quando catturi il primo totano, non staccarlo subito — lascialo penzolare in acqua vicino alla superficie, il suo inchiostro e i suoi movimenti attireranno gli altri membri del branco.",
+      "commonMistakes": [
+        "Pescare dalla riva: il totano è un cefalopode pelagico profondo, la pesca da riva è quasi sempre improduttiva",
+        "Usare totanare troppo piccole: il totano è molto più grande del calamaro, servono totanare da 4.0 minimo",
+        "Pescare senza luce: la lampara o una buona torcia subacquea fanno tutta la differenza, il totano risale verso la luce",
+        "Confondere totano e calamaro: hanno comportamenti completamente diversi, il totano vuole movimenti più ampi e aggressivi"
       ]
     },
     {
@@ -911,7 +1348,9 @@
       "slug": "occhiata",
       "name": "Occhiata",
       "scientificName": "Oblada melanura",
-      "otherNames": ["Occhione"],
+      "otherNames": [
+        "Occhione"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -943,10 +1382,21 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Bolognese", "Pesca con galleggiante", "Light rock fishing"],
+        "techniques": [
+          "Bolognese",
+          "Pesca con galleggiante",
+          "Light rock fishing"
+        ],
         "bestTechnique": "Bolognese con pastura",
-        "bestBaits": ["Bigattino", "Pane", "Gambero", "Pasta"],
-        "bestArtificials": ["Piccoli grub"],
+        "bestBaits": [
+          "Bigattino",
+          "Pane",
+          "Gambero",
+          "Pasta"
+        ],
+        "bestArtificials": [
+          "Piccoli grub"
+        ],
         "bestSpots": "Porti, moli, scogliere",
         "difficulty": 1,
         "fightRating": 2,
@@ -958,9 +1408,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6, 9, 10],
-        "good": [3, 7, 8, 11],
-        "difficult": [12, 1, 2],
+        "best": [
+          4,
+          5,
+          6,
+          9,
+          10
+        ],
+        "good": [
+          3,
+          7,
+          8,
+          11
+        ],
+        "difficult": [
+          12,
+          1,
+          2
+        ],
         "description": "Presente tutto l'anno, meglio in primavera-autunno."
       },
       "records": {
@@ -972,7 +1437,11 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne discreta, può avere sapore erbaceo",
-        "cooking": ["Fritta", "Al forno", "In umido"],
+        "cooking": [
+          "Fritta",
+          "Al forno",
+          "In umido"
+        ],
         "minSize": "18 cm"
       },
       "curiosities": [
@@ -986,14 +1455,25 @@
         "threats": "Nessuna particolare",
         "regulations": "Taglia minima 18 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "L'occhiata è uno degli sparidi più comuni e abbondanti lungo le coste italiane, presente praticamente ovunque ci siano scogliere o strutture portuali. In Liguria, i moli di tutti i porti — da Ventimiglia a La Spezia — ospitano branchi numerosi di occhiate che rendono questa specie perfetta per i principianti. La Sardegna offre occhiate di taglia superiore alla media, specialmente lungo la costa nord e nelle zone di Porto Torres e Stintino. In Campania, le scogliere di Amalfi e la costa flegrea sono molto produttive. In Puglia, il Salento è un territorio eccezionale per l'occhiata di taglia. La differenza rispetto alla pesca dell'occhiata in altre zone del Mediterraneo è che in Italia i pesci sono abituati alla pastura e rispondono molto meglio a una pasturazione costante con sfarinato e sarda tritata. Gli spot migliori sono le scogliere naturali con buche e anfratti, i moli portuali dove le occhiate stazionano in branco a mezz'acqua, e le zone con corrente moderata dove cacciano plancton e piccoli organismi.",
+      "expertTip": "L'occhiata è il pesce perfetto per imparare la bolognese. Il segreto è la pastura: prepara un composto di sfarinato, sarda tritata e pane bagnato, e lancia palline costanti per creare una scia in corrente. L'occhiata segue la pastura e si concentra nella tua zona di pesca. Usa un galleggiante scorrevole, fluorocarbon da 0.14-0.16 e ami del 10-12. L'esca migliore? Il bigattino, senza discussioni. Due o tre bigattini sull'amo con la punta nascosta sono irresistibili.",
+      "commonMistakes": [
+        "Usare terminali troppo grossi: l'occhiata è diffidente, sopra lo 0.18 di fluorocarbon le abboccate calano drasticamente",
+        "Non pasturare con costanza: senza pastura l'occhiata si disperde, serve mantenere un ritmo costante ogni 2-3 minuti",
+        "Pescare sul fondo: l'occhiata è un pesce di mezz'acqua, regola la profondità del galleggiante a metà colonna d'acqua",
+        "Ferrare troppo forte: l'occhiata ha le labbra sottili, serve una ferrata delicata per non strappare l'amo"
+      ]
     },
     {
       "id": "mormore",
       "slug": "mormora",
       "name": "Mormora",
       "scientificName": "Lithognathus mormyrus",
-      "otherNames": ["Marmora", "Mormiro"],
+      "otherNames": [
+        "Marmora",
+        "Mormiro"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -1025,10 +1505,21 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Surfcasting", "Ledgering", "Beach legering"],
+        "techniques": [
+          "Surfcasting",
+          "Ledgering",
+          "Beach legering"
+        ],
         "bestTechnique": "Surfcasting leggero",
-        "bestBaits": ["Verme coreano", "Verme americano", "Muriddu", "Bibi"],
-        "bestArtificials": ["Raramente artificiali"],
+        "bestBaits": [
+          "Verme coreano",
+          "Verme americano",
+          "Muriddu",
+          "Bibi"
+        ],
+        "bestArtificials": [
+          "Raramente artificiali"
+        ],
         "bestSpots": "Spiagge sabbiose, zone con alghe",
         "difficulty": 2,
         "fightRating": 3,
@@ -1040,9 +1531,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate quando si avvicina a riva."
       },
       "records": {
@@ -1054,7 +1560,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne bianca delicata",
-        "cooking": ["Al forno", "Alla griglia", "In umido"],
+        "cooking": [
+          "Al forno",
+          "Alla griglia",
+          "In umido"
+        ],
         "minSize": "20 cm"
       },
       "curiosities": [
@@ -1068,14 +1578,24 @@
         "threats": "Nessuna particolare",
         "regulations": "Taglia minima 20 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La mormora è la regina del surfcasting estivo italiano, presente su tutte le spiagge sabbiose della penisola. Le coste romagnole — da Rimini a Cesenatico — sono storicamente tra le più produttive, con catture regolari su fondali sabbiosi bassi. In Liguria, le rare spiagge sabbiose tra Albenga e Loano offrono mormore di buona taglia, spesso mescolate a orate. La Toscana, soprattutto il tratto tra Marina di Grosseto e Castiglione della Pescaia, è un altro territorio d'eccellenza. In Sardegna, le spiagge del sud (Chia, Villasimius) offrono esemplari di taglia notevole su fondali cristallini. La Sicilia sud-orientale completa il quadro con spiagge molto produttive. La differenza rispetto alla pesca della mormora in Atlantico è che nel Mediterraneo italiano il pesce è mediamente più piccolo ma molto più numeroso, e risponde meglio a esche sottili (verme coreano piuttosto che arenicola). Gli spot ideali sono le spiagge con fondale sabbioso degradante e piccole buche, le zone dove la corrente crea accumuli di detriti organici, e le aree con posidonia rada su sabbia.",
+      "expertTip": "La mormora è più furba di quello che pensi. Il mio consiglio per il surfcasting estivo: pesca nelle prime due ore dell'alba e nell'ultima ora prima del buio. Di giorno con il sole alto la mormora si sposta in profondità. Usa un terminale con amo del 6-8 e innesca un ciuffo di verme coreano lasciando la punta dell'amo completamente coperta. Il piombo scorrevole è essenziale: la mormora sente la resistenza e molla immediatamente. La distanza ideale? Spesso è molto più vicina a riva di quanto pensi — prova a 20-30 metri prima di lanciare lontano.",
+      "commonMistakes": [
+        "Pescare troppo lontano: la mormora spesso mangia a meno di 30 metri dalla riva, soprattutto all'alba",
+        "Usare piombi fissi: la mormora è un pesce diffidente, il piombo scorrevole è quasi obbligatorio",
+        "Pescare nelle ore centrali della giornata: con il sole alto la mormora si allontana dalla riva e smette di mangiare",
+        "Innestare esche troppo grandi: la mormora ha una bocca piccola, un ciuffo contenuto di verme coreano è più efficace di un innesco abbondante"
+      ]
     },
     {
       "id": "palamita",
       "slug": "palamita",
       "name": "Palamita",
       "scientificName": "Sarda sarda",
-      "otherNames": ["Bonito atlantico"],
+      "otherNames": [
+        "Bonito atlantico"
+      ],
       "family": "Scombridae",
       "category": "predatore",
       "icon": "🐟",
@@ -1107,10 +1627,23 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Spinning", "Traina leggera", "Shore jigging", "Vertical jigging"],
+        "techniques": [
+          "Spinning",
+          "Traina leggera",
+          "Shore jigging",
+          "Vertical jigging"
+        ],
         "bestTechnique": "Spinning/Shore jigging",
-        "bestBaits": ["Jig metallici", "Cucchiaini", "Rapala"],
-        "bestArtificials": ["Jig 20-40g", "Cichetti", "Cucchiaini rotanti"],
+        "bestBaits": [
+          "Jig metallici",
+          "Cucchiaini",
+          "Rapala"
+        ],
+        "bestArtificials": [
+          "Jig 20-40g",
+          "Cichetti",
+          "Cucchiaini rotanti"
+        ],
         "bestSpots": "Zone con mangianze, punte, secche",
         "difficulty": 2,
         "fightRating": 4,
@@ -1122,9 +1655,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate-inizio autunno."
       },
       "records": {
@@ -1136,7 +1684,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne rossa simile al tonno",
-        "cooking": ["Alla griglia", "Crudo", "Sott'olio"],
+        "cooking": [
+          "Alla griglia",
+          "Crudo",
+          "Sott'olio"
+        ],
         "minSize": "25 cm"
       },
       "curiosities": [
@@ -1156,6 +1708,14 @@
           "type": "Artificiale",
           "amazonUrl": "https://www.amazon.it/s?k=jig+metallico+palamita+spinning&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "La palamita è uno dei predatori pelagici più emozionanti da insidiare dalla costa italiana, parente stretta del tonno ma molto più accessibile. In Liguria, le punte rocciose tra Portofino e le Cinque Terre sono spot eccellenti quando i branchi inseguono le alici sotto costa tra maggio e settembre. La Toscana tirrenica — soprattutto il tratto tra Castiglioncello e Piombino — offre incontri regolari con branchi numerosi durante le mangianze. In Sardegna, le coste orientali e la zona dello Stretto di Bonifacio vedono passaggi di palamite di taglia notevole. La Sicilia, in particolare il tratto ionico e le Egadi, è altrettanto produttiva. In Puglia, il Gargano e le punte del Salento concentrano le mangianze autunnali. La differenza rispetto alla pesca della palamita in Atlantico è che nel Mediterraneo i branchi sono più contenuti ma i pesci sono più aggressivi e reagiscono a recuperi velocissimi. Gli spot migliori sono le punte rocciose con corrente dove si formano le mangianze, le zone al largo dei promontori accessibili con lancio lungo, e le aree portuali dove le palamite inseguono i branchi di acciughe.",
+      "expertTip": "La palamita vuole velocità. Quando vedi la mangianza in superficie, lancia un jig metallico da 20-40g il più lontano possibile e recupera velocissimo — velocità massima che riesci a tenere con il mulinello. Se non attacca al primo lancio, cambia angolo: spesso la palamita insegue da una direzione specifica. Un trucco micidiale: usa un piccolo assist hook con piumetta sul jig, le palamite piccole lo attaccano con furia. La trecciata sottile (PE1-1.5) fa fare lanci più lunghi e dà una sensibilità pazzesca durante il combattimento.",
+      "commonMistakes": [
+        "Recuperare troppo lentamente: la palamita è un pesce velocissimo, un artificiale lento viene completamente ignorato",
+        "Pescare con attrezzatura troppo pesante: la palamita si combatte meglio con spinning leggero (10-30g), l'attrezzatura pesante toglie il divertimento",
+        "Non cambiare artificiale: se la palamita rifiuta un colore, cambia immediatamente — il silver e il blue-pink sono i più affidabili",
+        "Arrendersi dopo 15 minuti: le mangianze vanno e vengono, aspetta pazientemente o sposta lo sguardo lungo la costa"
       ]
     },
     {
@@ -1163,7 +1723,11 @@
       "slug": "sugarello",
       "name": "Sugarello",
       "scientificName": "Trachurus trachurus",
-      "otherNames": ["Suro", "Sauro", "Sgombro bastardo"],
+      "otherNames": [
+        "Suro",
+        "Sauro",
+        "Sgombro bastardo"
+      ],
       "family": "Carangidae",
       "category": "pelagico",
       "icon": "🐟",
@@ -1195,10 +1759,22 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Sabiki", "Bolognese", "Light game", "Paternoster"],
+        "techniques": [
+          "Sabiki",
+          "Bolognese",
+          "Light game",
+          "Paternoster"
+        ],
         "bestTechnique": "Sabiki",
-        "bestBaits": ["Sabiki con piumette", "Bigattino", "Piccoli pezzi di pesce"],
-        "bestArtificials": ["Sabiki", "Micro jig"],
+        "bestBaits": [
+          "Sabiki con piumette",
+          "Bigattino",
+          "Piccoli pezzi di pesce"
+        ],
+        "bestArtificials": [
+          "Sabiki",
+          "Micro jig"
+        ],
         "bestSpots": "Porti, moli, zone con corrente",
         "difficulty": 1,
         "fightRating": 2,
@@ -1210,9 +1786,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate quando i banchi si avvicinano."
       },
       "records": {
@@ -1224,7 +1815,11 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne delicata, può essere grasso",
-        "cooking": ["Fritto", "Alla griglia", "Marinato"],
+        "cooking": [
+          "Fritto",
+          "Alla griglia",
+          "Marinato"
+        ],
         "minSize": "15 cm"
       },
       "curiosities": [
@@ -1244,6 +1839,14 @@
           "type": "Terminale",
           "amazonUrl": "https://www.amazon.it/s?k=sabiki+sugarello+pesca&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "Il sugarello è il carangide più comune del Mediterraneo italiano e rappresenta una preda divertente in light game, oltre che un'eccellente esca viva per i predatori maggiori. Lo si trova in abbondanza in tutti i porti italiani: in Liguria i moli di Genova, Savona e Imperia ospitano branchi enormi da maggio a ottobre. L'Adriatico — da Trieste a Bari — è particolarmente ricco, con i porti romagnoli che registrano le concentrazioni più alte in estate. In Campania, i porti del Golfo di Napoli sono spot classici. In Sardegna e Sicilia la presenza è costante tutto l'anno nelle zone portuali. La differenza rispetto ad altri paesi mediterranei è che in Italia il sugarello viene molto apprezzato come esca viva per dentice, ricciola e serra, oltre che come preda light game. Gli spot ideali sono i moli portuali con illuminazione notturna, le zone con corrente moderata dove i sugarelli cacciano in branco a mezz'acqua, e le bocche dei porti dove si concentrano al tramonto.",
+      "expertTip": "Il sugarello è il pesce perfetto per il sabiki: monta un finale sabiki con 6 ami e piumette dorate o argentate, aggiungi un piombo da 15-20g in fondo e cala a mezz'acqua nel porto. Quando senti la prima tirata, non ferrare subito — aspetta 5 secondi e spesso si agganciamo 3-4 sugarelli alla volta. Se li vuoi usare come esca viva per dentice o ricciola, portali con un secchio aerato e innescali attraverso il dorso con un amo circolare. Un sugarello vivo è l'esca più irresistibile per i grandi predatori.",
+      "commonMistakes": [
+        "Pescare troppo in profondità: il sugarello staziona tipicamente a mezz'acqua, non sul fondo",
+        "Usare ami troppo grandi sul sabiki: il sugarello ha una bocca piccola, ami del 10-12 sono la misura perfetta",
+        "Non adattare il piombo alla corrente: troppo leggero e il sabiki non scende, troppo pesante e perde sensibilità",
+        "Conservare male le esche vive: il sugarello è delicato, serve un secchio con aeratore o cambi d'acqua frequenti"
       ]
     },
     {
@@ -1251,7 +1854,10 @@
       "slug": "aguglia",
       "name": "Aguglia",
       "scientificName": "Belone belone",
-      "otherNames": ["Aguglia comune", "Ago"],
+      "otherNames": [
+        "Aguglia comune",
+        "Ago"
+      ],
       "family": "Belonidae",
       "category": "pelagico",
       "icon": "🐟",
@@ -1283,10 +1889,21 @@
         "spawning": "Attacca le uova alle alghe"
       },
       "fishing": {
-        "techniques": ["Bombarda", "Spinning ultralight", "Galleggiante"],
+        "techniques": [
+          "Bombarda",
+          "Spinning ultralight",
+          "Galleggiante"
+        ],
         "bestTechnique": "Bombarda con ago",
-        "bestBaits": ["Ago artificiale", "Striscia di pesce", "Piumette"],
-        "bestArtificials": ["Aghi", "Piccoli minnow lunghi"],
+        "bestBaits": [
+          "Ago artificiale",
+          "Striscia di pesce",
+          "Piumette"
+        ],
+        "bestArtificials": [
+          "Aghi",
+          "Piccoli minnow lunghi"
+        ],
         "bestSpots": "Superficie in zone aperte, porti",
         "difficulty": 2,
         "fightRating": 3,
@@ -1298,9 +1915,24 @@
         ]
       },
       "seasonality": {
-        "best": [6, 7, 8, 9],
-        "good": [5, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          5,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Estate, presente da maggio a ottobre."
       },
       "records": {
@@ -1312,7 +1944,10 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne bianca, molte spine",
-        "cooking": ["Fritta", "Alla griglia"],
+        "cooking": [
+          "Fritta",
+          "Alla griglia"
+        ],
         "minSize": "Nessuna taglia minima"
       },
       "curiosities": [
@@ -1332,6 +1967,14 @@
           "type": "Piombo",
           "amazonUrl": "https://www.amazon.it/s?k=bombarda+galleggiante+pesca+aguglia&tag=fishandtips-21"
         }
+      ],
+      "localNotes": "L'aguglia è un pesce pelagico superficiale presente in grande quantità lungo tutte le coste italiane in estate. In Liguria, è comunissima dalla primavera all'autunno e si pesca facilmente dai moli e dalle scogliere della Riviera. La Sardegna vede concentrazioni enormi, soprattutto lungo la costa nord e nel Golfo dell'Asinara, dove le aguglie formano branchi fittissimi in superficie. L'Adriatico settentrionale — dai porti di Venezia a quelli di Rimini — offre aguglie in abbondanza da giugno a settembre. In Sicilia, le coste orientali e le isole Eolie sono zone eccellenti. La Puglia e la Campania completano il quadro con presenza costante. A differenza della pesca all'aguglia in Atlantico, nel Mediterraneo italiano questo pesce è mediamente più piccolo ma molto più abbondante e aggressivo, e risponde bene alla tecnica della bombarda con ago. Gli spot migliori sono le zone portuali e i moli dove le aguglie cacciano in superficie piccoli pesci e gamberetti, le spiagge con acqua limpida dove si vedono i branchi, e le punte rocciose con corrente.",
+      "expertTip": "L'aguglia sembra facile ma ha un becco lungo e stretto che rende la ferrata difficilissima. Il trucco è l'ago: usa un ago da aguglia (un filo di lana intrecciato senza amo) che si incastra nei denti del becco. Monta l'ago su una bombarda da 15-30g e lancia lontano, poi recupera a scatti brevi. Quando l'aguglia attacca, NON ferrare — continua a recuperare e l'ago si impiglia nei dentini. Se perdi troppe aguglie, aggiungi un piccolo treble hook dietro l'ago come sicurezza.",
+      "commonMistakes": [
+        "Usare ami normali: il becco dell'aguglia è lungo e stretto, gli ami tradizionali non si agganciano — serve l'ago o ami specifici",
+        "Pescare in profondità: l'aguglia è un pesce di superficie, la bombarda deve navigare nei primi 50 cm d'acqua",
+        "Ferrare con forza: la bocca dell'aguglia è ossea e delicata, una ferrata violenta strappa tutto",
+        "Pescare con mare mosso: l'aguglia preferisce il mare calmo o poco mosso, con le onde si sposta in profondità"
       ]
     },
     {
@@ -1339,7 +1982,11 @@
       "slug": "cefalo",
       "name": "Cefalo",
       "scientificName": "Mugil cephalus",
-      "otherNames": ["Muggine", "Muletto", "Volpina"],
+      "otherNames": [
+        "Muggine",
+        "Muletto",
+        "Volpina"
+      ],
       "family": "Mugilidae",
       "category": "onnivoro",
       "icon": "🐟",
@@ -1371,10 +2018,22 @@
         "spawning": "In mare, poi i giovani entrano in laguna"
       },
       "fishing": {
-        "techniques": ["Bolognese", "Pastura", "Pane", "Match fishing"],
+        "techniques": [
+          "Bolognese",
+          "Pastura",
+          "Pane",
+          "Match fishing"
+        ],
         "bestTechnique": "Bolognese con pastura",
-        "bestBaits": ["Pane", "Pasta", "Bigattino", "Sarda"],
-        "bestArtificials": ["Raramente"],
+        "bestBaits": [
+          "Pane",
+          "Pasta",
+          "Bigattino",
+          "Sarda"
+        ],
+        "bestArtificials": [
+          "Raramente"
+        ],
         "bestSpots": "Porti, foci, lagune, moli",
         "difficulty": 3,
         "fightRating": 3,
@@ -1386,9 +2045,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9, 10],
-        "good": [4, 11],
-        "difficult": [12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "good": [
+          4,
+          11
+        ],
+        "difficult": [
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Attivo tutto l'anno, meglio in estate."
       },
       "records": {
@@ -1400,7 +2074,11 @@
         "edible": true,
         "quality": 3,
         "taste": "Dipende dall'ambiente, può sapere di fango",
-        "cooking": ["Alla griglia", "Al forno", "Bottarga (uova)"],
+        "cooking": [
+          "Alla griglia",
+          "Al forno",
+          "Bottarga (uova)"
+        ],
         "minSize": "20 cm"
       },
       "curiosities": [
@@ -1414,14 +2092,25 @@
         "threats": "Nessuna particolare",
         "regulations": "Taglia minima 20 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il cefalo è probabilmente il pesce più abbondante e ubiquitario delle coste italiane, presente in ogni porto, laguna e foce dalla Liguria alla Sicilia. In Liguria si trova in quantità enormi nei porti di Genova, Savona e La Spezia. L'Adriatico è il territorio del cefalo per eccellenza: le lagune venete (Chioggia, Grado), le foci del Po e i porti romagnoli ospitano popolazioni sterminate. In Toscana, le lagune di Orbetello sono famose per i cefali di taglia. In Sardegna, gli stagni di Cabras e Tortolì sono zone tradizionali di pesca del cefalo. In Campania e Sicilia la presenza è costante tutto l'anno. La differenza rispetto ad altri paesi è che in Italia il cefalo ha sviluppato una diffidenza estrema nei porti frequentati, richiedendo tecniche molto raffinate. Gli spot più produttivi sono le foci dei fiumi dove cefali enormi stazionano in branchi, le zone portuali con scarichi e corrente, le lagune costiere con cambi di marea, e i moli dove i cefali si alimentano in superficie.",
+      "expertTip": "Il cefalo è il maestro della frustrazione: lo vedi, ma non abbocca. Il segreto è la pastura fine e costante. Prepara un composto di pane secco ammollato, sarda tritata finissima e un po' di farina di mais per legare. Lancia piccole palline ogni minuto per 15-20 minuti prima di iniziare a pescare. Quando i cefali salgono in pastura, usa il pane come esca (un cubetto da 5mm su amo del 10 con fluorocarbon da 0.12). Il galleggiante deve essere leggerissimo — il cefalo sente qualsiasi peso. La ferrata deve essere istantanea: al minimo movimento del galleggiante, ferra.",
+      "commonMistakes": [
+        "Non pasturare: senza pastura il cefalo non si concentra nella tua zona, è la base di tutto",
+        "Usare fluorocarbon troppo grosso: il cefalo vede benissimo, sopra lo 0.14 le catture calano tantissimo",
+        "Pescare solo con verme: il cefalo è onnivoro e spesso preferisce pane, formaggio o pasta piuttosto che vermi",
+        "Non avere pazienza: il cefalo richiede pasturazione lunga prima di iniziare a mangiare, almeno 15-20 minuti"
+      ]
     },
     {
       "id": "scorfano-rosso",
       "slug": "scorfano-rosso",
       "name": "Scorfano Rosso",
       "scientificName": "Scorpaena scrofa",
-      "otherNames": ["Scorfano di fondale", "Cappone"],
+      "otherNames": [
+        "Scorfano di fondale",
+        "Cappone"
+      ],
       "family": "Scorpaenidae",
       "category": "fondale",
       "icon": "🐟",
@@ -1453,10 +2142,21 @@
         "spawning": "Depone masse gelatinose di uova"
       },
       "fishing": {
-        "techniques": ["Bolentino", "Vertical jigging", "Rock fishing"],
+        "techniques": [
+          "Bolentino",
+          "Vertical jigging",
+          "Rock fishing"
+        ],
         "bestTechnique": "Bolentino profondo",
-        "bestBaits": ["Gambero", "Calamaro", "Pezzetti di pesce"],
-        "bestArtificials": ["Jig lenti", "Inchiku"],
+        "bestBaits": [
+          "Gambero",
+          "Calamaro",
+          "Pezzetti di pesce"
+        ],
+        "bestArtificials": [
+          "Jig lenti",
+          "Inchiku"
+        ],
         "bestSpots": "Fondali rocciosi profondi, relitti",
         "difficulty": 3,
         "fightRating": 2,
@@ -1468,9 +2168,24 @@
         ]
       },
       "seasonality": {
-        "best": [6, 7, 8, 9],
-        "good": [5, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          5,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Pescabile tutto l'anno, meglio in estate."
       },
       "records": {
@@ -1482,7 +2197,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca, soda, squisita",
-        "cooking": ["Zuppa di pesce", "All'acqua pazza", "Al forno"],
+        "cooking": [
+          "Zuppa di pesce",
+          "All'acqua pazza",
+          "Al forno"
+        ],
         "minSize": "18 cm"
       },
       "curiosities": [
@@ -1496,14 +2215,25 @@
         "threats": "Pesca commerciale",
         "regulations": "Taglia minima 18 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Lo scorfano rosso è il re dei fondali rocciosi italiani, un pesce dall'aspetto minaccioso ma dalla carne straordinariamente pregiata. In Liguria, le cigliate profonde al largo di Camogli e Portofino ospitano esemplari di ottima taglia catturabili con il bolentino profondo. La Sardegna è il territorio d'eccellenza: le secche profonde di Capo Carbonara, la costa orientale e le zone al largo dell'Asinara offrono scorfani rossi di dimensioni ragguardevoli. In Sicilia, lo Stretto di Messina e le zone profonde delle Egadi sono spot storici. La Puglia, con le secche al largo del Gargano, e la Campania con le zone al largo di Capri e Ischia completano il quadro. La differenza rispetto alla pesca dello scorfano in Atlantico è che nel Mediterraneo italiano si trova a profondità leggermente inferiori e si cattura efficacemente con il bolentino tradizionale. Gli spot ideali sono i fondali rocciosi con anfratti e grotte tra 30 e 100 metri, le cigliate dove il fondo scende bruscamente, e i relitti affondati dove gli scorfani trovano riparo.",
+      "expertTip": "Lo scorfano rosso è un pesce stanziale: se ne trovi uno, ce ne sono altri nella stessa zona. Il bolentino profondo con calamaro fresco è la tecnica regina. Taglia il calamaro a strisce lunghe e sottili — lo scorfano preferisce esche che ondeggiano nella corrente. Cala il terminale fino a toccare il fondo e poi solleva di mezzo metro: lo scorfano caccia appena sopra il fondale. ATTENZIONE: le spine dorsali dello scorfano sono velenose — usa sempre un guanto e pinze per slamarlo. Mai prendere in mano uno scorfano senza protezione.",
+      "commonMistakes": [
+        "Pescare troppo alto dal fondo: lo scorfano è un pesce di fondale, l'esca deve stare entro un metro dal fondo",
+        "Usare esche piccole: lo scorfano ha una bocca grande per le sue dimensioni, esche generose funzionano meglio",
+        "Toccare il pesce a mani nude: le spine dorsali sono velenose e causano un dolore fortissimo, usa sempre guanti o pinze",
+        "Usare ami troppo sottili: le fauci dello scorfano sono dure, servono ami robusti e una ferrata decisa"
+      ]
     },
     {
       "id": "ombrina",
       "slug": "ombrina",
       "name": "Ombrina",
       "scientificName": "Umbrina cirrosa",
-      "otherNames": ["Ombrina comune", "Umbra"],
+      "otherNames": [
+        "Ombrina comune",
+        "Umbra"
+      ],
       "family": "Sciaenidae",
       "category": "sparide",
       "icon": "🐟",
@@ -1535,10 +2265,20 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Surfcasting", "Beach legering"],
+        "techniques": [
+          "Surfcasting",
+          "Beach legering"
+        ],
         "bestTechnique": "Surfcasting",
-        "bestBaits": ["Verme americano", "Cannolicchio", "Bibi", "Gambero"],
-        "bestArtificials": ["Raramente"],
+        "bestBaits": [
+          "Verme americano",
+          "Cannolicchio",
+          "Bibi",
+          "Gambero"
+        ],
+        "bestArtificials": [
+          "Raramente"
+        ],
         "bestSpots": "Spiagge con fondali misti, vicino a scogli sommersi",
         "difficulty": 4,
         "fightRating": 4,
@@ -1550,9 +2290,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate quando si avvicina a costa."
       },
       "records": {
@@ -1564,7 +2319,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca pregiata, tra le migliori",
-        "cooking": ["Al forno", "Al sale", "Alla griglia"],
+        "cooking": [
+          "Al forno",
+          "Al sale",
+          "Alla griglia"
+        ],
         "minSize": "25 cm"
       },
       "curiosities": [
@@ -1578,14 +2337,25 @@
         "threats": "Sovrapesca, perdita habitat",
         "regulations": "Taglia minima 25 cm, alcune aree protette"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "L'ombrina è lo scienide più ambito del surfcasting italiano, un pesce raro e pregiato che popola le spiagge con fondali misti. L'Adriatico è il territorio tradizionale dell'ombrina in Italia: le coste romagnole, marchigiane e abruzzesi offrono le migliori possibilità da maggio a ottobre. In Toscana, il tratto della Maremma tra Marina di Grosseto e Capalbio è un altro spot storico. In Liguria è piuttosto rara ma presente occasionalmente sulle spiagge di Albenga e Finale. La Sardegna, in particolare le spiagge del sud e la costa orientale, registra catture eccellenti. In Sicilia, le spiagge del versante ionico sono produttive. La differenza rispetto alla pesca dell'ombrina in Atlantico (dove raggiunge taglie enormi) è che nel Mediterraneo italiano le catture sono più contenute come dimensioni ma il pesce è considerato una preda di altissimo valore. Gli spot tipici sono le spiagge con fondale misto sabbia-roccia, le zone con scogli sommersi a 40-60 metri dalla riva, e le foci dei fiumi con fondale degradante dove l'ombrina cerca cibo.",
+      "expertTip": "L'ombrina è il trofeo del surfcaster italiano: catturarne una è un evento memorabile. Il segreto è pescare nelle ultime due ore di luce e nella prima ora del buio, quando l'ombrina si avvicina a riva per cibarsi. L'esca killer è il bibi (verme di Rimini): innescalo intero su un amo del 2/0 con gambo lungo e fluorocarbon da 0.30-0.35. Il lancio deve essere preciso verso le zone con scogli sommersi o buche nel fondale. Quando l'ombrina abbocca non la confonderai mai: parte con una fuga potente e il suo muso a cucchiaio la rende un combattente unico.",
+      "commonMistakes": [
+        "Pescare solo su sabbia pulita: l'ombrina cerca le zone con scogli sommersi, detriti e strutture sul fondo",
+        "Usare esche piccole: l'ombrina ha una bocca grande, serve un'esca generosa come un intero bibi o un fascio di americano",
+        "Non controllare le maree: l'ombrina si avvicina a riva con l'alta marea, la bassa marea la allontana",
+        "Ferrare troppo presto: l'ombrina tasta l'esca con il muso sensibile prima di ingoiarla, aspetta la partenza decisa"
+      ]
     },
     {
       "id": "triglia",
       "slug": "triglia",
       "name": "Triglia",
       "scientificName": "Mullus surmuletus",
-      "otherNames": ["Triglia di scoglio", "Triglietta"],
+      "otherNames": [
+        "Triglia di scoglio",
+        "Triglietta"
+      ],
       "family": "Mullidae",
       "category": "fondale",
       "icon": "🐟",
@@ -1617,10 +2387,20 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Bolentino leggero", "Palamito", "Surfcasting"],
+        "techniques": [
+          "Bolentino leggero",
+          "Palamito",
+          "Surfcasting"
+        ],
         "bestTechnique": "Bolentino leggero",
-        "bestBaits": ["Gamberetto", "Verme coreano", "Pezzetti di pesce"],
-        "bestArtificials": ["Raramente"],
+        "bestBaits": [
+          "Gamberetto",
+          "Verme coreano",
+          "Pezzetti di pesce"
+        ],
+        "bestArtificials": [
+          "Raramente"
+        ],
         "bestSpots": "Fondali misti, zone con detrito",
         "difficulty": 2,
         "fightRating": 1,
@@ -1632,9 +2412,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Pescabile tutto l'anno, meglio in estate."
       },
       "records": {
@@ -1646,7 +2441,12 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne delicata, sapore raffinato",
-        "cooking": ["Al cartoccio", "Fritta", "In umido", "Alla livornese"],
+        "cooking": [
+          "Al cartoccio",
+          "Fritta",
+          "In umido",
+          "Alla livornese"
+        ],
         "minSize": "11 cm"
       },
       "curiosities": [
@@ -1660,14 +2460,24 @@
         "threats": "Pesca a strascico",
         "regulations": "Taglia minima 11 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La triglia — sia la triglia di scoglio che quella di fango — è uno dei pesci più comuni e apprezzati in cucina lungo tutte le coste italiane. In Liguria si trova su fondali misti tra 10 e 40 metri, catturabile con il bolentino leggero da piccole imbarcazioni. L'Adriatico è il mare della triglia per eccellenza: le triglie di fango dell'Adriatico romagnolo e marchigiano sono famose per la qualità e l'abbondanza. In Toscana, le zone al largo dell'Elba e della costa maremmana offrono triglie di scoglio di taglia. In Sardegna, i fondali tra 20 e 60 metri con detrito e posidonia sono particolarmente produttivi. In Sicilia, soprattutto nel Canale di Sicilia, le triglie raggiungono dimensioni notevoli. La differenza rispetto ad altri paesi è che in Italia la triglia di scoglio è considerata nettamente superiore alla triglia di fango per qualità gastronomica. Gli spot migliori sono i fondali con detrito e alghe a 10-50 metri, le zone rocciose con sabbia fine, e le aree dove il fondale misto crea microhabitat ricchi di invertebrati.",
+      "expertTip": "La triglia è un pesce di fondale che cerca cibo scavando nella sabbia con i suoi barbigi sensoriali. Per il bolentino leggero, usa un terminale con amo del 8-10 e innesca un gamberetto piccolo o un pezzetto di coreano. La chiave è far lavorare l'esca sul fondo: cala fino a toccare, poi solleva appena (20-30 cm) e ridiscendi. Questo movimento simula un piccolo organismo che si muove nel sedimento. Il trucco? Aggiungi una piccola perla luminosa sopra l'amo — la triglia è attratta dai punti luminosi sul fondale.",
+      "commonMistakes": [
+        "Pescare troppo alto dal fondo: la triglia è un pesce bentonico, l'esca deve stare a contatto con il fondale",
+        "Usare ami troppo grandi: la triglia ha una bocca piccola, ami del 8-10 sono la misura ideale",
+        "Non sentire l'abboccata: la triglia morde delicatamente, serve un terminale sensibile e attenzione massima",
+        "Confondere triglia di scoglio e di fango: la triglia di scoglio ha colori più vivaci e sta su fondali rocciosi, quella di fango su fondali sabbiosi"
+      ]
     },
     {
       "id": "cernia",
       "slug": "cernia",
       "name": "Cernia",
       "scientificName": "Epinephelus marginatus",
-      "otherNames": ["Cernia bruna"],
+      "otherNames": [
+        "Cernia bruna"
+      ],
       "family": "Serranidae",
       "category": "predatore",
       "icon": "🐟",
@@ -1699,10 +2509,21 @@
         "spawning": "Ermafrodita proterogina"
       },
       "fishing": {
-        "techniques": ["Pesca subacquea (dove permesso)", "Bolentino profondo", "Vertical jigging"],
+        "techniques": [
+          "Pesca subacquea (dove permesso)",
+          "Bolentino profondo",
+          "Vertical jigging"
+        ],
         "bestTechnique": "Bolentino profondo con vivo",
-        "bestBaits": ["Vivo (sugarello, boga)", "Calamaro", "Seppia"],
-        "bestArtificials": ["Jig pesanti", "Inchiku grandi"],
+        "bestBaits": [
+          "Vivo (sugarello, boga)",
+          "Calamaro",
+          "Seppia"
+        ],
+        "bestArtificials": [
+          "Jig pesanti",
+          "Inchiku grandi"
+        ],
         "bestSpots": "Secche profonde, relitti, zone rocciose",
         "difficulty": 5,
         "fightRating": 5,
@@ -1714,9 +2535,24 @@
         ]
       },
       "seasonality": {
-        "best": [6, 7, 8, 9],
-        "good": [5, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          5,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Estate, ma verifica sempre le regolamentazioni."
       },
       "records": {
@@ -1728,7 +2564,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca, soda, pregiata",
-        "cooking": ["Al forno", "All'acqua pazza", "Alla griglia"],
+        "cooking": [
+          "Al forno",
+          "All'acqua pazza",
+          "Alla griglia"
+        ],
         "minSize": "45 cm (dove pescabile)"
       },
       "curiosities": [
@@ -1742,14 +2582,25 @@
         "threats": "Sovrapesca, pesca subacquea, inquinamento",
         "regulations": "Protetta in molte aree, moratoria pesca sub, taglia minima 45 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La cernia è il pesce simbolo dei fondali rocciosi del Mediterraneo italiano, un predatore maestoso che oggi gode di importanti misure di protezione. In Sardegna, l'Area Marina Protetta di Tavolara e quella di Capo Carbonara ospitano popolazioni di cernie brune di dimensioni impressionanti, spesso superiori ai 20 kg, che si lasciano avvicinare dai subacquei. In Sicilia, le Egadi (Favignana in particolare) e Ustica sono zone storiche per la cernia. In Liguria, il Parco Marino di Portofino è diventato un santuario dove le cernie si sono ripopolate magnificamente dopo anni di protezione. In Puglia, le Tremiti offrono avvistamenti regolari. In Campania, i fondali di Capri e della Costiera Amalfitana nascondono tane di cernie importanti. La differenza rispetto alla pesca della cernia in altri mari è che in Italia la specie è fortemente protetta: la pesca subacquea della cernia bruna è vietata e il prelievo è consentito solo con tecniche selettive a profondità elevate. Gli spot dove la cernia è presente sono le secche profonde con grotte e anfratti tra 30 e 80 metri, i relitti affondati che fungono da tana, e le cigliate rocciose con corrente.",
+      "expertTip": "La cernia è il pesce più emozionante da combattere dal fondo: quando abbocca, punta dritto nella tana e se ci arriva è finita. Il mio consiglio per il bolentino profondo: usa un finale in fluorocarbon da 0.60-0.70 (le rocce lo rovinano) e un amo circolare del 6/0 con un sugarello vivo innescato dalla bocca. Quando senti il peso, NON fermare — pompa immediatamente con tutta la forza che hai per staccarla dal fondo prima che si intani. I primi 5 metri sono quelli decisivi. Se riesci a portarla in acqua libera, il combattimento diventa più gestibile.",
+      "commonMistakes": [
+        "Allentare il filo dopo l'abboccata: la cernia si intana in un secondo, serve pressione massima e costante dal primo istante",
+        "Usare leader troppo sottili: le rocce taglienti distruggono il fluorocarbon sottile, sotto lo 0.50 si perde tutto",
+        "Pescare in zone non profonde abbastanza: la cernia di taglia sta oltre i 25-30 metri, le cerniette sotto costa sono esemplari giovani da rilasciare",
+        "Non verificare le normative locali: la cernia è protetta in molte aree marine italiane, informati sempre prima di pescare"
+      ]
     },
     {
       "id": "corvina",
       "slug": "corvina",
       "name": "Corvina",
       "scientificName": "Sciaena umbra",
-      "otherNames": ["Corvo di mare", "Ombra"],
+      "otherNames": [
+        "Corvo di mare",
+        "Ombra"
+      ],
       "family": "Sciaenidae",
       "category": "fondale",
       "icon": "🐟",
@@ -1781,10 +2632,20 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Rock fishing notturno", "Bolentino", "Surfcasting"],
+        "techniques": [
+          "Rock fishing notturno",
+          "Bolentino",
+          "Surfcasting"
+        ],
         "bestTechnique": "Rock fishing notturno",
-        "bestBaits": ["Gambero", "Verme americano", "Granchio"],
-        "bestArtificials": ["Piccoli grub scuri"],
+        "bestBaits": [
+          "Gambero",
+          "Verme americano",
+          "Granchio"
+        ],
+        "bestArtificials": [
+          "Piccoli grub scuri"
+        ],
         "bestSpots": "Scogliere con anfratti, ingressi di grotte",
         "difficulty": 3,
         "fightRating": 3,
@@ -1796,9 +2657,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate, pesca notturna."
       },
       "records": {
@@ -1810,7 +2686,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne bianca, sapore deciso",
-        "cooking": ["Al forno", "In umido", "Alla griglia"],
+        "cooking": [
+          "Al forno",
+          "In umido",
+          "Alla griglia"
+        ],
         "minSize": "25 cm"
       },
       "curiosities": [
@@ -1824,14 +2704,25 @@
         "threats": "Pesca subacquea, perdita habitat",
         "regulations": "Taglia minima 25 cm, protetta in alcune aree"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La corvina è un pesce misterioso e affascinante che vive nelle grotte e negli anfratti rocciosi più bui delle coste italiane. In Liguria, le scogliere profonde di Portofino e delle Cinque Terre ospitano corvine catturabili con il rock fishing notturno dalle scogliere a picco. In Sardegna, le zone rocciose della costa nord-est e le grotte marine della Gallura sono habitat ideali. La Sicilia orientale, con le scogliere laviche dell'Etna e le grotte di Taormina, è particolarmente produttiva. In Toscana, le secche dell'Argentario e i fondali dell'Isola d'Elba nascondono popolazioni significative. In Puglia, le scogliere del Gargano e di Polignano a Mare sono spot conosciuti. La differenza rispetto alla pesca della corvina in Atlantico (dove esistono corvine da 50+ kg) è che nel Mediterraneo la specie è più piccola ma molto più frequente in zone rocciose costiere accessibili dalla riva. Gli spot ideali sono le scogliere con grotte e anfratti profondi, gli ingressi delle grotte marine raggiungibili dalla riva, e le zone rocciose con buio totale dove la corvina caccia di notte.",
+      "expertTip": "La corvina è un pesce notturno che emette un suono caratteristico — un 'ronzio' che i pescatori esperti sanno riconoscere. Il mio consiglio: pesca nelle notti più buie (luna nuova), dalle scogliere a picco sul mare con fondali di almeno 5-8 metri sotto di te. Usa un galleggiante luminoso e cala l'esca (gambero vivo o verme americano grosso) a mezz'acqua vicino alla parete rocciosa. La corvina esce dalla tana per cacciare solo quando il buio è totale, quindi evita le torce frontali che illuminano l'acqua — usa solo la luce del galleggiante.",
+      "commonMistakes": [
+        "Pescare di giorno: la corvina è quasi esclusivamente notturna, di giorno resta nascosta nelle grotte e non si muove",
+        "Illuminare l'acqua con la torcia: la luce spaventa la corvina, usa galleggianti luminosi e muoviti nel buio",
+        "Pescare lontano dalla roccia: la corvina non si allontana molto dalla parete rocciosa, l'esca deve essere vicina alla scogliera",
+        "Usare esche troppo piccole: la corvina ha una bocca grande e preferisce esche importanti come gamberi interi o fasci di verme"
+      ]
     },
     {
       "id": "pagro",
       "slug": "pagro",
       "name": "Pagro",
       "scientificName": "Pagrus pagrus",
-      "otherNames": ["Pargo", "Pezzogna"],
+      "otherNames": [
+        "Pargo",
+        "Pezzogna"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -1863,10 +2754,22 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Bolentino", "Vertical jigging", "Traina col vivo"],
+        "techniques": [
+          "Bolentino",
+          "Vertical jigging",
+          "Traina col vivo"
+        ],
         "bestTechnique": "Bolentino con esche naturali",
-        "bestBaits": ["Calamaro", "Seppia", "Gambero", "Sardina"],
-        "bestArtificials": ["Jig 60-120g", "Inchiku"],
+        "bestBaits": [
+          "Calamaro",
+          "Seppia",
+          "Gambero",
+          "Sardina"
+        ],
+        "bestArtificials": [
+          "Jig 60-120g",
+          "Inchiku"
+        ],
         "bestSpots": "Secche, relitti, cigliate",
         "difficulty": 4,
         "fightRating": 4,
@@ -1877,9 +2780,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6],
-        "good": [7, 8, 9],
-        "difficult": [10, 11, 12, 1, 2, 3],
+        "best": [
+          4,
+          5,
+          6
+        ],
+        "good": [
+          7,
+          8,
+          9
+        ],
+        "difficult": [
+          10,
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-inizio estate è il top."
       },
       "records": {
@@ -1891,7 +2809,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca pregiata, simile a dentice",
-        "cooking": ["Al forno", "Al sale", "Alla griglia"],
+        "cooking": [
+          "Al forno",
+          "Al sale",
+          "Alla griglia"
+        ],
         "minSize": "18 cm"
       },
       "curiosities": [
@@ -1904,14 +2826,25 @@
         "threats": "Sovrapesca locale",
         "regulations": "Taglia minima 18 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il pagro è uno degli sparidi più pregiati del Mediterraneo italiano, con una carne eccezionale che lo rende ricercatissimo sia dai pescatori sportivi che dai professionisti. In Sardegna, le secche profonde di Capo Carbonara, l'Asinara e la costa occidentale offrono pagri di taglia importante, spesso oltre i 3 kg. In Sicilia, le Egadi e le secche al largo di Siracusa sono zone storiche. In Liguria, le cigliate profonde al largo di Capo Noli e le secche oltre Portofino producono catture regolari in primavera. In Puglia, il Gargano e le secche al largo di Monopoli sono spot conosciuti. L'Adriatico meridionale è generalmente più produttivo del settentrionale per questa specie. La differenza rispetto alla pesca del pagro in Atlantico è che nel Mediterraneo gli esemplari sono mediamente più piccoli ma più combattivi e diffidenti. Gli spot migliori sono le secche rocciose isolate a 30-80 metri di profondità, le cigliate dove il fondale scende bruscamente creando zone di corrente, e i relitti affondati dove il pagro staziona per cacciare.",
+      "expertTip": "Il pagro è un parente stretto dell'orata ma molto più diffidente e combattivo. Per il bolentino profondo, il mio consiglio è usare un terminale lungo (2-3 metri) di fluorocarbon da 0.35-0.40 con un amo del 2/0 innescato con un trancio di calamaro fresco. Il segreto è la calata: il pagro attacca durante la discesa dell'esca, non quando è ferma sul fondo. Fai scendere lentamente controllando il filo con il pollice, e quando senti il 'toc' della mangiata, conta fino a 2 e poi ferra con decisione verso l'alto. Il pagro ha la mandibola durissima, serve una ferrata potente.",
+      "commonMistakes": [
+        "Usare esche non fresche: il pagro è estremamente selettivo, esche congelate o vecchie vengono sistematicamente rifiutate",
+        "Non far lavorare l'esca in discesa: il pagro attacca spesso in caduta, lasciare l'esca ferma sul fondo è meno efficace",
+        "Pescare senza corrente: il pagro si attiva con la corrente, senza movimento d'acqua resta nella tana",
+        "Fare troppo rumore: il pagro è sensibilissimo alle vibrazioni, motori in folle e rumori sul fondo della barca lo spaventano"
+      ]
     },
     {
       "id": "san-pietro",
       "slug": "san-pietro",
       "name": "San Pietro",
       "scientificName": "Zeus faber",
-      "otherNames": ["Pesce San Pietro", "Gallinella d'acqua"],
+      "otherNames": [
+        "Pesce San Pietro",
+        "Gallinella d'acqua"
+      ],
       "family": "Zeidae",
       "category": "fondale",
       "icon": "🐟",
@@ -1943,10 +2876,19 @@
         "spawning": "In acque aperte"
       },
       "fishing": {
-        "techniques": ["Bolentino medio", "Traina lenta"],
+        "techniques": [
+          "Bolentino medio",
+          "Traina lenta"
+        ],
         "bestTechnique": "Bolentino con esche naturali",
-        "bestBaits": ["Calamaro", "Seppia", "Arenicola"],
-        "bestArtificials": ["Jig lenti"],
+        "bestBaits": [
+          "Calamaro",
+          "Seppia",
+          "Arenicola"
+        ],
+        "bestArtificials": [
+          "Jig lenti"
+        ],
         "bestSpots": "Secche e relitti 40-120 m",
         "difficulty": 3,
         "fightRating": 2,
@@ -1957,9 +2899,23 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6],
-        "good": [3, 7],
-        "difficult": [8, 9, 10, 11, 12, 1],
+        "best": [
+          4,
+          5,
+          6
+        ],
+        "good": [
+          3,
+          7
+        ],
+        "difficult": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          1
+        ],
         "description": "Primavera il momento migliore."
       },
       "records": {
@@ -1971,7 +2927,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca, dolce e finissima",
-        "cooking": ["Al forno", "Vapore", "Filetto alla piastra"],
+        "cooking": [
+          "Al forno",
+          "Vapore",
+          "Filetto alla piastra"
+        ],
         "minSize": "Nessuna specifica"
       },
       "curiosities": [
@@ -1984,14 +2944,25 @@
         "threats": "Pesca a strascico",
         "regulations": "Nessuna taglia minima specifica"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il San Pietro è uno dei pesci più singolari e pregiati del Mediterraneo italiano, riconoscibile per il suo corpo alto e compresso con la caratteristica macchia nera su ciascun fianco. In Liguria si cattura occasionalmente con il bolentino profondo al largo di Camogli e delle secche di Portofino, su fondali tra 40 e 100 metri. La Toscana — soprattutto le zone al largo dell'Elba e del Monte Argentario — è più produttiva, con catture regolari su secche a profondità media. In Sardegna, le zone profonde al largo della costa occidentale e le secche dell'Asinara offrono esemplari di taglia. In Sicilia, il Canale di Sicilia è una delle zone più ricche del Mediterraneo per questa specie. L'Adriatico meridionale, da Bari in giù, vede catture significative con i palamiti professionali. La differenza rispetto alla pesca del San Pietro in Atlantico è che nel Mediterraneo il pesce è più raro ma più apprezzato gastronomicamente. Gli spot ideali sono le secche e i relitti tra 40 e 120 metri con fondale misto, le zone dove i fondali sabbiosi confinano con quelli rocciosi, e le aree con corrente moderata dove il San Pietro caccia piccoli pesci.",
+      "expertTip": "Il San Pietro è una cattura accidentale per la maggior parte dei pescatori — raramente lo peschi di proposito. Detto questo, se vuoi aumentare le probabilità, il mio consiglio è: pesca con il bolentino a mezz'acqua su fondali di 50-80 metri, usando un filetto di seppia o calamaro che svolazza nella corrente. Il San Pietro è un cacciatore di agguato lento: non insegue le prede veloci ma le aspetta e le aspira con la sua bocca protrattile enorme. Per questo motivo, esche lente e fluttuanti funzionano molto meglio di esche pesanti e ferme. Se ne catturi uno, consideralo un regalo del mare — la sua carne è tra le più pregiate in assoluto.",
+      "commonMistakes": [
+        "Cercarlo vicino alla costa: il San Pietro vive a profondità medio-alte, raramente sotto i 30 metri",
+        "Usare esche troppo piccole: nonostante l'aspetto, il San Pietro ha una bocca enorme e protrattile che può ingoiare prede sorprendentemente grandi",
+        "Recuperare troppo velocemente: il San Pietro ha una bocca delicata, un recupero brusco può strappare l'amo",
+        "Sottovalutare il pesce in cucina: il San Pietro è uno dei pesci più buoni del Mediterraneo, non buttarlo perché ha un aspetto strano"
+      ]
     },
     {
       "id": "pagello-fragolino",
       "slug": "pagello-fragolino",
       "name": "Pagello Fragolino",
       "scientificName": "Pagellus erythrinus",
-      "otherNames": ["Fragolino", "Pagello"],
+      "otherNames": [
+        "Fragolino",
+        "Pagello"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -2023,10 +2994,20 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Bolentino leggero", "Ledgering"],
+        "techniques": [
+          "Bolentino leggero",
+          "Ledgering"
+        ],
         "bestTechnique": "Bolentino leggero",
-        "bestBaits": ["Coreano", "Americano", "Gambero", "Cozza"],
-        "bestArtificials": ["Micro jig"],
+        "bestBaits": [
+          "Coreano",
+          "Americano",
+          "Gambero",
+          "Cozza"
+        ],
+        "bestArtificials": [
+          "Micro jig"
+        ],
         "bestSpots": "Fondi sabbiosi con detrito",
         "difficulty": 2,
         "fightRating": 2,
@@ -2037,9 +3018,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6, 7],
-        "good": [8, 9, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "good": [
+          8,
+          9,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate il top."
       },
       "records": {
@@ -2051,7 +3047,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca delicata",
-        "cooking": ["Al forno", "Alla griglia", "Cartoccio"],
+        "cooking": [
+          "Al forno",
+          "Alla griglia",
+          "Cartoccio"
+        ],
         "minSize": "18 cm"
       },
       "curiosities": [
@@ -2064,14 +3064,26 @@
         "threats": "Pesca a strascico",
         "regulations": "Taglia minima 18 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il pagello fragolino è uno degli sparidi più comuni e apprezzati della pesca da barca italiana, con la sua caratteristica livrea rosata che gli vale il soprannome di 'fragolino'. In Liguria si trova su fondali sabbiosi e fangosi tra 20 e 60 metri al largo di tutta la Riviera, catturabile con il bolentino leggero. L'Adriatico è probabilmente il mare più ricco di pagelli fragolini in Italia: da Venezia a Puglia, i fondali sabbiosi tra 15 e 50 metri ospitano popolazioni enormi. La Toscana — zona di Livorno e Piombino — offre catture costanti. In Sardegna, i fondali sabbiosi della costa occidentale e del Golfo di Cagliari sono produttivi tutto l'anno. In Sicilia, il Canale di Sicilia è una zona d'eccellenza. La differenza rispetto ad altri paesi mediterranei è che in Italia il pagello fragolino è tradizionalmente la preda principale del bolentino leggero da piccola barca, una tecnica accessibile a tutti. Gli spot ideali sono i fondali sabbiosi con detriti tra 20 e 60 metri, le zone dove la sabbia confina con la posidonia, e le aree con leggera corrente che mantiene il pesce attivo.",
+      "expertTip": "Il pagello fragolino è il pesce perfetto per chi inizia con il bolentino da barca. Il mio consiglio: usa un terminale con 2-3 ami del 8-10 a intervalli di 30 cm, innescati con pezzetti di gambero o cozza, e un piombo da 30-50g a seconda della corrente. Cala fino al fondo e poi solleva di un metro — il pagello staziona appena sopra il fondale. Il trucco dei vecchi pescatori liguri? Aggiungi un pezzetto di materiale fluorescente (tubo di gomma gialla) sopra ogni amo — il pagello è molto attratto dai punti colorati. Con questa tecnica puoi prendere 3 pagelli alla volta.",
+      "commonMistakes": [
+        "Pescare troppo in profondità: il pagello fragolino è più comune tra 20 e 50 metri, non serve andare a 100 metri",
+        "Usare esche troppo grosse: il pagello ha una bocca piccola, pezzetti di gambero o coreano della dimensione di un'unghia sono perfetti",
+        "Non sentire le abboccate delicate: il pagello morde piano, serve un terminale sensibile e canna con puntale morbido",
+        "Restare fermo sullo stesso punto: se non prendi dopo 15 minuti, sposta la barca di 50-100 metri e riprova"
+      ]
     },
     {
       "id": "lampuga",
       "slug": "lampuga",
       "name": "Lampuga",
       "scientificName": "Coryphaena hippurus",
-      "otherNames": ["Capone", "Dorado", "Mahi mahi"],
+      "otherNames": [
+        "Capone",
+        "Dorado",
+        "Mahi mahi"
+      ],
       "family": "Coryphaenidae",
       "category": "pelagico",
       "icon": "🐟",
@@ -2103,10 +3115,21 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Spinning", "Traina leggera", "Popping leggero"],
+        "techniques": [
+          "Spinning",
+          "Traina leggera",
+          "Popping leggero"
+        ],
         "bestTechnique": "Spinning con topwater/jig",
-        "bestBaits": ["Jig 20-60g", "Popper piccoli", "Minnow veloci"],
-        "bestArtificials": ["Stickbait", "Jig metallici"],
+        "bestBaits": [
+          "Jig 20-60g",
+          "Popper piccoli",
+          "Minnow veloci"
+        ],
+        "bestArtificials": [
+          "Stickbait",
+          "Jig metallici"
+        ],
         "bestSpots": "Sotto FAD/boe, alghe galleggianti",
         "difficulty": 3,
         "fightRating": 5,
@@ -2117,9 +3140,24 @@
         ]
       },
       "seasonality": {
-        "best": [9, 10, 11],
-        "good": [8, 12],
-        "difficult": [1, 2, 3, 4, 5, 6, 7],
+        "best": [
+          9,
+          10,
+          11
+        ],
+        "good": [
+          8,
+          12
+        ],
+        "difficult": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
         "description": "Autunno con picco ottobre-novembre."
       },
       "records": {
@@ -2131,7 +3169,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne rosa, sapore delicato",
-        "cooking": ["Griglia", "Crudo", "Tartare"],
+        "cooking": [
+          "Griglia",
+          "Crudo",
+          "Tartare"
+        ],
         "minSize": "Nessuna specifica"
       },
       "curiosities": [
@@ -2144,14 +3186,25 @@
         "threats": "Pesca industriale con FAD",
         "regulations": "Nessuna taglia minima"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La lampuga (o corifena) è un pesce pelagico tropicale che ha conquistato il Mediterraneo italiano, sempre più presente grazie al riscaldamento delle acque. In Sicilia è la regina dell'autunno: la pesca tradizionale con i 'cannizzi' (strutture galleggianti) tra agosto e novembre è una pratica secolare, soprattutto nella zona di Palermo, Cefalù e le Eolie. In Sardegna, le zone al largo della costa occidentale e del sud vedono arrivi stagionali importanti da settembre. In Liguria è ancora rara ma le catture aumentano ogni anno, specialmente al largo delle Cinque Terre. In Campania, al largo di Capri e delle isole flegree, si registrano catture significative in autunno. La differenza rispetto alla pesca della lampuga (mahi-mahi) in oceano è che nel Mediterraneo gli esemplari sono più piccoli (raramente oltre i 10 kg) ma il comportamento è identico: la lampuga staziona sotto oggetti galleggianti. Gli spot migliori sono le zone sotto boe, FAD e detriti galleggianti, le chiazze di alghe in mare aperto, e le zone al largo dei promontori dove la corrente concentra materiale in superficie.",
+      "expertTip": "La lampuga è puro divertimento: quando ne trovi una, ce ne sono molte altre. Il segreto è trovare gli oggetti galleggianti — boe, tronchi, alghe, cassette — e pescare immediatamente sotto. Usa un jig da 20-40g o un piccolo popper e lancia il più vicino possibile all'oggetto galleggiante. La lampuga attacca con una violenza incredibile e combatte con salti spettacolari fuori dall'acqua. Un trucco micidiale: dopo aver catturato la prima, non staccarla subito — lasciala in acqua vicino alla barca e le altre lampughe del branco si avvicineranno per curiosità. A quel punto lancia con un secondo set-up e fai doppietta.",
+      "commonMistakes": [
+        "Cercarla in inverno: la lampuga è nel Mediterraneo italiano solo da agosto a novembre-dicembre, poi migra",
+        "Pescare lontano dagli oggetti galleggianti: la lampuga è quasi sempre associata a strutture in superficie, pescare in mare aperto senza riferimenti è inutile",
+        "Usare attrezzatura troppo pesante: la lampuga si diverte con spinning leggero (10-30g), l'attrezzatura pesante rovina l'esperienza",
+        "Non portare un secchio per il pesce: la lampuga ha carni che si deteriorano velocemente, va messa in ghiaccio immediatamente"
+      ]
     },
     {
       "id": "tonnetto-alletterato",
       "slug": "tonnetto-alletterato",
       "name": "Tonnetto Alletterato",
       "scientificName": "Euthynnus alletteratus",
-      "otherNames": ["Alletterato", "Little tunny"],
+      "otherNames": [
+        "Alletterato",
+        "Little tunny"
+      ],
       "family": "Scombridae",
       "category": "pelagico",
       "icon": "🐟",
@@ -2183,10 +3236,20 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Spinning", "Shore jigging", "Traina leggera"],
+        "techniques": [
+          "Spinning",
+          "Shore jigging",
+          "Traina leggera"
+        ],
         "bestTechnique": "Spinning veloce",
-        "bestBaits": ["Jig 20-60g", "Minnow slim", "Stickbait veloci"],
-        "bestArtificials": ["Jig metallici"],
+        "bestBaits": [
+          "Jig 20-60g",
+          "Minnow slim",
+          "Stickbait veloci"
+        ],
+        "bestArtificials": [
+          "Jig metallici"
+        ],
         "bestSpots": "Mangianze, punte rocciose, foci",
         "difficulty": 3,
         "fightRating": 5,
@@ -2197,9 +3260,24 @@
         ]
       },
       "seasonality": {
-        "best": [7, 8, 9, 10],
-        "good": [6, 11],
-        "difficult": [12, 1, 2, 3, 4, 5],
+        "best": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "good": [
+          6,
+          11
+        ],
+        "difficult": [
+          12,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
         "description": "Estate-inizio autunno vicino costa."
       },
       "records": {
@@ -2211,7 +3289,11 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne rossa, sapore intenso",
-        "cooking": ["Griglia", "Sott'olio", "Crudo (solo freschissimo)"],
+        "cooking": [
+          "Griglia",
+          "Sott'olio",
+          "Crudo (solo freschissimo)"
+        ],
         "minSize": "Nessuna taglia minima"
       },
       "curiosities": [
@@ -2224,14 +3306,24 @@
         "threats": "Pesca commerciale",
         "regulations": "Nessuna taglia minima"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il tonnetto alletterato è il piccolo tonno del Mediterraneo, un pesce pelagico velocissimo che offre combattimenti spettacolari anche su attrezzatura leggera. In Liguria, le punte rocciose della Riviera di Levante — da Portofino alle Cinque Terre — sono zone eccellenti da luglio a ottobre quando i tonnetti inseguono le acciughe sotto costa. In Toscana, il tratto tra Castiglioncello e l'Argentario vede mangianze regolari. In Sardegna, le coste orientali e il nord sono particolarmente produttivi con branchi enormi in estate e autunno. La Sicilia orientale, dallo Stretto di Messina a Siracusa, è una delle zone più ricche d'Italia. In Puglia, le punte del Gargano e del Salento concentrano le mangianze autunnali. L'Adriatico meridionale è generalmente più produttivo del settentrionale. La differenza rispetto alla pesca del little tunny in Atlantico è che nel Mediterraneo i tonnetti alletterati tendono ad avvicinarsi di più alla costa e sono accessibili con lo spinning da riva. Gli spot migliori sono le punte rocciose con corrente dove si formano le mangianze, le zone al largo dei promontori, e le bocche dei porti dove i tonnetti inseguono i pesci foraggio.",
+      "expertTip": "Il tonnetto alletterato è il miglior insegnante di spinning veloce. Quando vedi la mangianza — uccelli che si tuffano, spruzzi in superficie — corri e lancia immediatamente un jig metallico da 20-40g. Il recupero deve essere VELOCISSIMO, il più veloce che puoi: il tonnetto mangia solo prede in fuga rapida. Se non attacca il jig, prova un piccolo stickbait recuperato a walking-the-dog: a volte la superficie funziona meglio della profondità. Attenzione al combattimento: il tonnetto sembra piccolo ma ha la potenza di un pesce tre volte il suo peso — preparati a fughe lunghe e il mulinello che canta.",
+      "commonMistakes": [
+        "Recuperare troppo lentamente: il tonnetto ignora completamente artificiali lenti, serve velocità massima",
+        "Usare artificiali troppo grandi: il tonnetto mangia prede piccole (alici, sardine), jig da 20-40g sono la misura perfetta",
+        "Arrivare tardi sulla mangianza: le mangianze durano pochi minuti, bisogna essere pronti con l'attrezzatura montata e correre",
+        "Cercare di mangiare la carne cruda senza preparazione: il tonnetto alletterato ha carni rosse che richiedono dissanguamento immediato, altrimenti diventano immangiabili"
+      ]
     },
     {
       "id": "barracuda-mediterraneo",
       "slug": "barracuda-mediterraneo",
       "name": "Barracuda Mediterraneo",
       "scientificName": "Sphyraena viridensis",
-      "otherNames": ["Barracuda giallo"],
+      "otherNames": [
+        "Barracuda giallo"
+      ],
       "family": "Sphyraenidae",
       "category": "predatore",
       "icon": "🦈",
@@ -2263,10 +3355,19 @@
         "spawning": "In acque aperte"
       },
       "fishing": {
-        "techniques": ["Spinning", "Shore jigging"],
+        "techniques": [
+          "Spinning",
+          "Shore jigging"
+        ],
         "bestTechnique": "Spinning serale",
-        "bestBaits": ["Minnow long jerk", "Needle", "Jig 20-40g"],
-        "bestArtificials": ["Long jerk 13-17cm"],
+        "bestBaits": [
+          "Minnow long jerk",
+          "Needle",
+          "Jig 20-40g"
+        ],
+        "bestArtificials": [
+          "Long jerk 13-17cm"
+        ],
         "bestSpots": "Porti e scogliere al tramonto/notte",
         "difficulty": 3,
         "fightRating": 4,
@@ -2277,9 +3378,24 @@
         ]
       },
       "seasonality": {
-        "best": [5, 6, 7, 8, 9],
-        "good": [4, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          4,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Tarda primavera-autunno, meglio estate-sera."
       },
       "records": {
@@ -2291,7 +3407,10 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne discreta, va consumato fresco",
-        "cooking": ["Griglia", "Forno"],
+        "cooking": [
+          "Griglia",
+          "Forno"
+        ],
         "minSize": "Nessuna specifica"
       },
       "curiosities": [
@@ -2304,14 +3423,24 @@
         "threats": "Pesca ricreativa intensa",
         "regulations": "Nessuna taglia minima"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Il barracuda mediterraneo (Sphyraena viridensis) è un predatore tropicale ormai stabilmente insediato nelle acque italiane, sempre più frequente grazie al riscaldamento del Mediterraneo. In Sicilia è ormai comunissimo: le coste orientali, le Eolie e le Egadi ospitano popolazioni importanti con esemplari che superano regolarmente il metro di lunghezza. In Sardegna, le coste del sud e dell'est vedono barracuda in grande quantità, soprattutto nei mesi estivi. In Liguria la presenza è in aumento: i porti di Genova, Portofino e Santa Margherita vedono arrivi regolari di branchi al tramonto. In Campania, i porti di Capri e Ischia sono diventati spot classici. In Puglia, il Salento e il Gargano registrano catture crescenti anno dopo anno. La differenza rispetto alla pesca del barracuda caraibico è che la specie mediterranea è più piccola (massimo 1.5 m contro 2 m) ma caccia in branchi più numerosi e reagisce particolarmente bene allo spinning serale. Gli spot ideali sono i porti illuminati al tramonto e di notte, le zone rocciose con acqua limpida dove i branchi di cefali attirano i barracuda, e le punte con corrente dove il barracuda tende agguati.",
+      "expertTip": "Il barracuda mediterraneo è il predatore più sottovalutato delle nostre coste. Il mio consiglio: pescalo al tramonto nei porti con acqua limpida, quando i branchi si attivano per cacciare i cefali. Usa un minnow lungo e sottile (12-16 cm tipo needle) argentato e recupera con jerkate secche e pause di 2 secondi. Il barracuda attacca prevalentemente in pausa — quando il minnow si ferma e oscilla. Il cavetto in acciaio non è obbligatorio come per il serra (i denti del barracuda mediterraneo sono meno taglienti), ma un leader in fluorocarbon da 0.50 è consigliato. I barracuda di branco sono molto curiosi: se ne mancano uno, rilancia nello stesso punto.",
+      "commonMistakes": [
+        "Pescare nelle ore centrali del giorno: il barracuda mediterraneo è un cacciatore crepuscolare e notturno, di giorno è quasi inattivo",
+        "Usare artificiali troppo corti e tozzi: il barracuda preferisce prede lunghe e sottili che imitano cefali e aguglie",
+        "Recuperare senza pause: il barracuda attacca durante le pause del recupero, un retrieve continuo è meno efficace",
+        "Confonderlo con il serra: il barracuda non taglia il filo come il serra, ma ha denti affilati — maneggialo con pinze"
+      ]
     },
     {
       "id": "sgombro",
       "slug": "sgombro",
       "name": "Sgombro",
       "scientificName": "Scomber scombrus",
-      "otherNames": ["Lacerto"],
+      "otherNames": [
+        "Lacerto"
+      ],
       "family": "Scombridae",
       "category": "pelagico",
       "icon": "🐟",
@@ -2343,10 +3472,20 @@
         "spawning": "In mare aperto"
       },
       "fishing": {
-        "techniques": ["Sabiki", "Light spinning", "Bolognese", "Traina leggera"],
+        "techniques": [
+          "Sabiki",
+          "Light spinning",
+          "Bolognese",
+          "Traina leggera"
+        ],
         "bestTechnique": "Sabiki",
-        "bestBaits": ["Sabiki piumette", "Piccoli jig"],
-        "bestArtificials": ["Micro jig 10-20g"],
+        "bestBaits": [
+          "Sabiki piumette",
+          "Piccoli jig"
+        ],
+        "bestArtificials": [
+          "Micro jig 10-20g"
+        ],
         "bestSpots": "Porti, moli, mangianze",
         "difficulty": 1,
         "fightRating": 2,
@@ -2357,9 +3496,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6],
-        "good": [3, 7, 8],
-        "difficult": [9, 10, 11, 12, 1, 2],
+        "best": [
+          4,
+          5,
+          6
+        ],
+        "good": [
+          3,
+          7,
+          8
+        ],
+        "difficult": [
+          9,
+          10,
+          11,
+          12,
+          1,
+          2
+        ],
         "description": "Primavera-inizio estate."
       },
       "records": {
@@ -2371,7 +3525,11 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne grassa, ricca di omega-3",
-        "cooking": ["Griglia", "Affumicato", "Sott'olio"],
+        "cooking": [
+          "Griglia",
+          "Affumicato",
+          "Sott'olio"
+        ],
         "minSize": "20 cm"
       },
       "curiosities": [
@@ -2384,14 +3542,25 @@
         "threats": "Pesca commerciale",
         "regulations": "Taglia minima 20 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "Lo sgombro è il pesce pelagico più abbondante e accessibile delle coste italiane, perfetto per i principianti e divertentissimo in light game. In Liguria è presente in grande quantità da aprile a giugno nei porti e lungo le coste: i moli di Genova, Savona e Imperia ospitano mangianze impressionanti. L'Adriatico settentrionale — da Trieste a Rimini — è il mare dello sgombro per eccellenza, con concentrazioni enormi in primavera. In Campania, il Golfo di Napoli vede arrivi massici. In Sardegna e Sicilia la presenza è costante ma meno concentrata rispetto all'Adriatico. La Toscana costiera è altrettanto produttiva in primavera. La differenza rispetto alla pesca dello sgombro in Atlantico è che nel Mediterraneo italiano i pesci sono mediamente più piccoli ma formano branchi molto più concentrati vicino alla costa. Gli spot migliori sono i moli portuali in primavera quando gli sgombri inseguono le alici, le zone con corrente dove i branchi si compattano, e le punte rocciose dove gli sgombri cacciano in superficie creando mangianze visibili.",
+      "expertTip": "Lo sgombro è puro divertimento e il modo migliore per iniziare a pescare. Il sabiki con 6 ami e piumette metalliche è imbattibile: cala a mezz'acqua nel porto in primavera e sarai sommerso di catture. Per lo spinning ultralight, prova un piccolo jig metallico da 5-10g recuperato velocemente — lo sgombro lo attacca con una furia incredibile su attrezzatura da trota la lotta è entusiasmante. Il trucco per fare il pieno: quando trovi il branco, non muoverti per niente al mondo. Lo sgombro è fedele allo spot e se continui a calare nello stesso punto puoi prenderne 50 in un'ora.",
+      "commonMistakes": [
+        "Pescare troppo in profondità: lo sgombro caccia tra la superficie e la metà della colonna d'acqua, non sul fondo",
+        "Recuperare troppo lentamente: come tutti i pelagici, lo sgombro vuole prede veloci",
+        "Non conservare il pesce in fresco: lo sgombro si deteriora rapidissimamente, portalo in ghiaccio o consumalo lo stesso giorno",
+        "Usare attrezzatura troppo pesante: lo sgombro da 200-500g su attrezzatura ultralight (2-7g) è molto più divertente che su una canna da surfcasting"
+      ]
     },
     {
       "id": "tanuta",
       "slug": "tanuta",
       "name": "Tanuta",
       "scientificName": "Spondyliosoma cantharus",
-      "otherNames": ["Tana", "Perchia di mare"],
+      "otherNames": [
+        "Tana",
+        "Perchia di mare"
+      ],
       "family": "Sparidae",
       "category": "sparide",
       "icon": "🐟",
@@ -2423,10 +3592,20 @@
         "spawning": "Costiero"
       },
       "fishing": {
-        "techniques": ["Bolentino leggero", "Bolognese", "Ledgering"],
+        "techniques": [
+          "Bolentino leggero",
+          "Bolognese",
+          "Ledgering"
+        ],
         "bestTechnique": "Bolentino leggero",
-        "bestBaits": ["Gambero", "Coreano", "Cozza"],
-        "bestArtificials": ["Micro jig"],
+        "bestBaits": [
+          "Gambero",
+          "Coreano",
+          "Cozza"
+        ],
+        "bestArtificials": [
+          "Micro jig"
+        ],
         "bestSpots": "Scogliere e cigliate",
         "difficulty": 2,
         "fightRating": 3,
@@ -2437,9 +3616,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6, 7],
-        "good": [3, 8, 9],
-        "difficult": [10, 11, 12, 1, 2],
+        "best": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "good": [
+          3,
+          8,
+          9
+        ],
+        "difficult": [
+          10,
+          11,
+          12,
+          1,
+          2
+        ],
         "description": "Primavera-estate."
       },
       "records": {
@@ -2451,7 +3645,10 @@
         "edible": true,
         "quality": 4,
         "taste": "Carne bianca, buona",
-        "cooking": ["Forno", "Griglia"],
+        "cooking": [
+          "Forno",
+          "Griglia"
+        ],
         "minSize": "18 cm"
       },
       "curiosities": [
@@ -2464,14 +3661,25 @@
         "threats": "Pesca ricreativa",
         "regulations": "Taglia minima 18 cm"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La tanuta è uno sparide che vive in branchi numerosi lungo le scogliere italiane, meno conosciuta del sarago ma altrettanto diffusa e combattiva. In Liguria, le scogliere naturali delle Cinque Terre e del Tigullio ospitano branchi importanti di tanute, catturabili con il bolentino leggero dalla barca e dalla scogliera. In Sardegna, le coste rocciose della Gallura e della costa orientale sono particolarmente ricche. In Sicilia, le scogliere delle Eolie e di Ustica vedono tanute di taglia superiore alla media. In Puglia, le scogliere del Gargano e il tratto tra Polignano e Otranto sono zone eccellenti. In Toscana, l'Argentario e le isole offrono catture regolari. La differenza rispetto ad altri sparidi è che la tanuta tende a stare più vicina al fondo e reagisce meglio a esche naturali calate direttamente sulle rocce. Gli spot ideali sono le scogliere con fondali rocciosi tra 5 e 30 metri, le cigliate costiere dove il fondale scende rapidamente, e le zone con buche e anfratti dove i branchi stazionano.",
+      "expertTip": "La tanuta è il pesce perfetto per il bolentino leggero dalla scogliera. Il mio consiglio: usa una canna bolognese da 4-5 metri con un terminale in fluorocarbon da 0.18 e ami del 8 innescati con cozza fresca o gambero. Cala vicino alla base della scogliera dove ci sono le buche e lascia lavorare l'esca vicino al fondo. La tanuta è golosa e quando il branco si attiva le catture possono essere numerose. Il segreto è la pasturazione con cozze frantumate: gettane una manciata ogni pochi minuti per tenere il branco nella tua zona. La tanuta grande (oltre i 500g) è un combattente sorprendente su attrezzatura leggera.",
+      "commonMistakes": [
+        "Pescare troppo lontano dalla scogliera: la tanuta staziona vicino alle rocce, l'esca deve essere in prossimità della parete rocciosa",
+        "Non pasturare: come tutti gli sparidi, la tanuta risponde molto bene alla pasturazione — senza pastura le catture sono scarse",
+        "Usare piombi troppo pesanti: la tanuta abbocca delicatamente, un terminale troppo rigido non trasmette l'abboccata",
+        "Confonderla con il sarago: la tanuta ha una colorazione più uniforme e argentea rispetto al sarago, e vive in branchi più fitti"
+      ]
     },
     {
       "id": "gallinella",
       "slug": "gallinella",
       "name": "Gallinella",
       "scientificName": "Chelidonichthys lucerna",
-      "otherNames": ["Cappone di mare", "Coccio"],
+      "otherNames": [
+        "Cappone di mare",
+        "Coccio"
+      ],
       "family": "Triglidae",
       "category": "fondale",
       "icon": "🐟",
@@ -2503,10 +3711,19 @@
         "spawning": "In acque costiere"
       },
       "fishing": {
-        "techniques": ["Bolentino", "Traina lenta di fondo"],
+        "techniques": [
+          "Bolentino",
+          "Traina lenta di fondo"
+        ],
         "bestTechnique": "Bolentino con esche naturali",
-        "bestBaits": ["Sarda", "Gambero", "Americano"],
-        "bestArtificials": ["Jig lenti sul fondo"],
+        "bestBaits": [
+          "Sarda",
+          "Gambero",
+          "Americano"
+        ],
+        "bestArtificials": [
+          "Jig lenti sul fondo"
+        ],
         "bestSpots": "Fondi sabbiosi 20-80 m",
         "difficulty": 2,
         "fightRating": 2,
@@ -2517,9 +3734,24 @@
         ]
       },
       "seasonality": {
-        "best": [4, 5, 6, 7, 8],
-        "good": [9, 10],
-        "difficult": [11, 12, 1, 2, 3],
+        "best": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "good": [
+          9,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3
+        ],
         "description": "Primavera-estate."
       },
       "records": {
@@ -2531,7 +3763,11 @@
         "edible": true,
         "quality": 5,
         "taste": "Carne bianca ottima per zuppe",
-        "cooking": ["Zuppa", "Brodetto", "Forno"],
+        "cooking": [
+          "Zuppa",
+          "Brodetto",
+          "Forno"
+        ],
         "minSize": "Nessuna specifica"
       },
       "curiosities": [
@@ -2544,14 +3780,24 @@
         "threats": "Pesca a strascico",
         "regulations": "Nessuna taglia minima"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La gallinella (o capone) è un pesce di fondale dall'aspetto bizzarro ma dalle carni eccezionali, fondamentale per la zuppa di pesce tradizionale italiana. In Liguria, i fondali sabbiosi e fangosi al largo di Genova e Savona tra 20 e 80 metri ospitano popolazioni stabili di gallinelle catturabili con il bolentino. L'Adriatico è il mare della gallinella per eccellenza: da Venezia a Puglia, i pescherecci la catturano in quantità e i pescatori sportivi la insidiano con il bolentino leggero su fondali tra 20 e 60 metri. In Toscana, le zone al largo di Livorno e Viareggio sono produttive. In Sardegna, i fondali sabbiosi della costa occidentale e del sud offrono gallinelle di taglia. In Sicilia, soprattutto nel Canale di Sicilia, le catture sono abbondanti. La differenza rispetto alla pesca della gallinella in Atlantico è che nel Mediterraneo il pesce è più piccolo ma molto più saporito, con carni che si prestano perfettamente alla zuppa e al brodetto. Gli spot ideali sono i fondali sabbiosi o fangosi tra 20 e 80 metri, le zone dove la sabbia confina con il detrito, e le aree al largo dove il fondo è ricco di piccoli invertebrati.",
+      "expertTip": "La gallinella è il pesce più sottovalutato del Mediterraneo italiano — in cucina è straordinaria. Per pescarla con il bolentino, usa un terminale con 2 ami del 6-8 innescati con striscioline di sardina fresca o pezzetti di gambero. Cala sul fondo sabbioso tra 30 e 60 metri e lascia l'esca ferma — la gallinella 'cammina' sul fondale usando le sue pinne pettorali modificate a dita e trova il cibo per olfatto. Il trucco: fai piccoli sollevamenti di 20-30 cm seguiti da ridiscese per creare una nuvoletta di sabbia che attira l'attenzione. La gallinella è curiosa e si avvicina alle zone disturbate sul fondo.",
+      "commonMistakes": [
+        "Pescare troppo in superficie: la gallinella è un pesce bentonico, vive sul fondo e non sale mai a mezz'acqua",
+        "Usare esche troppo grandi: la gallinella ha una bocca relativamente piccola, strisce sottili di pesce sono più efficaci",
+        "Muovere troppo l'esca: la gallinella preferisce esche ferme o che si muovono lentamente sul fondo, non artificiali veloci",
+        "Non apprezzare il pesce in cucina: la gallinella è uno dei pesci migliori per zuppe e brodetti, non buttarla perché è 'brutta'"
+      ]
     },
     {
       "id": "tracina",
       "slug": "tracina",
       "name": "Tracina Ragno",
       "scientificName": "Trachinus draco",
-      "otherNames": ["Pesce ragno"],
+      "otherNames": [
+        "Pesce ragno"
+      ],
       "family": "Trachinidae",
       "category": "fondale",
       "icon": "⚠️",
@@ -2583,10 +3829,19 @@
         "spawning": "Costiero"
       },
       "fishing": {
-        "techniques": ["Beach ledgering", "Bolentino leggero"],
+        "techniques": [
+          "Beach ledgering",
+          "Bolentino leggero"
+        ],
         "bestTechnique": "Beach ledgering",
-        "bestBaits": ["Americano", "Arenicola", "Coreano"],
-        "bestArtificials": ["Raro su artificiali"],
+        "bestBaits": [
+          "Americano",
+          "Arenicola",
+          "Coreano"
+        ],
+        "bestArtificials": [
+          "Raro su artificiali"
+        ],
         "bestSpots": "Fondali sabbiosi bassi",
         "difficulty": 1,
         "fightRating": 1,
@@ -2597,9 +3852,24 @@
         ]
       },
       "seasonality": {
-        "best": [6, 7, 8, 9],
-        "good": [5, 10],
-        "difficult": [11, 12, 1, 2, 3, 4],
+        "best": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "good": [
+          5,
+          10
+        ],
+        "difficult": [
+          11,
+          12,
+          1,
+          2,
+          3,
+          4
+        ],
         "description": "Estate, acque basse e sabbiose."
       },
       "records": {
@@ -2611,7 +3881,10 @@
         "edible": true,
         "quality": 3,
         "taste": "Carne buona, usata per zuppe",
-        "cooking": ["Zuppa", "Fritto"],
+        "cooking": [
+          "Zuppa",
+          "Fritto"
+        ],
         "minSize": "Nessuna specifica"
       },
       "curiosities": [
@@ -2624,8 +3897,15 @@
         "threats": "Nessuna particolare",
         "regulations": "Nessuna taglia minima"
       },
-      "relatedProducts": []
+      "relatedProducts": [],
+      "localNotes": "La tracina (o pesce ragno) è uno dei pesci più temuti delle spiagge italiane per le sue spine dorsali velenose, ma è anche un eccellente pesce da pesca e da tavola. Presente su tutte le coste sabbiose italiane, è particolarmente abbondante in Adriatico — da Rimini a Puglia — dove le spiagge basse e sabbiose sono il suo habitat ideale. In Liguria è meno comune per la scarsità di spiagge sabbiose, ma presente nelle zone di Albenga e nella Riviera di Ponente. In Toscana, le coste della Versilia e della Maremma ospitano popolazioni importanti. In Sardegna, le spiagge del sud e della costa occidentale vedono tracine in abbondanza. In Sicilia, specialmente le coste meridionali. La differenza rispetto alla pesca della tracina (weever fish) in Atlantico è che nel Mediterraneo italiano la specie è più piccola ma molto più comune in acque bassissime (spesso sotto il metro di profondità), il che la rende un rischio reale per i bagnanti. Gli spot tipici sono i bassi fondali sabbiosi delle spiagge, le zone dove la sabbia è compatta e poco profonda, e le aree con leggera corrente dove la tracina si insabbia per tendere agguati.",
+      "expertTip": "La tracina è l'incubo dei bagnanti ma un pesce divertente e buonissimo per chi la pesca consapevolmente. Il beach ledgering leggero è la tecnica migliore: usa un terminale con amo del 6-8 innescato con verme americano o coreano e lancia a 20-40 metri dalla riva su fondale sabbioso. La tracina attacca con decisione e il combattimento è sorprendentemente energico per le sue dimensioni. ATTENZIONE CRITICA: le spine dorsali sono velenose e il dolore è fortissimo — usa SEMPRE una pinza per slamare la tracina e non toccarla MAI a mani nude. Se vieni punto, immergi la mano in acqua molto calda (non bollente) per 30 minuti: il calore neutralizza il veleno. In cucina, fritta o in zuppa, la tracina è eccellente.",
+      "commonMistakes": [
+        "Toccare la tracina a mani nude: le spine dorsali iniettano un veleno proteico molto doloroso, usa SEMPRE pinze e guanti",
+        "Pescare dove i bagnanti camminano: è meglio pescare la tracina in zone isolate, per non creare situazioni di pericolo con i bagnanti",
+        "Non portare acqua calda: se vieni punto, l'acqua calda (45-50°C) è l'unico rimedio immediato efficace",
+        "Sottovalutare il pesce in cucina: la tracina è un pesce eccellente, la carne bianca e soda è perfetta fritta o in zuppa di pesce"
+      ]
     }
   ]
 }
-

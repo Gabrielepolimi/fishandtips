@@ -4,7 +4,9 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-  "regions": ["iad1"],
+  "regions": [
+    "iad1"
+  ],
   "redirects": [
     {
       "source": "/:path*",
@@ -28,8 +30,38 @@
       "permanent": true
     },
     {
+      "source": "/articoli/pesca-alla-seppia-tecniche-periodi-migliori-e-consigli-pratici",
+      "destination": "/articoli",
+      "permanent": true
+    },
+    {
       "source": "/articoli/montature-surfcasting-guida-completa-con-le-mie-configurazioni-vincenti",
       "destination": "/articoli",
+      "permanent": true
+    },
+    {
+      "source": "/articoli/fluorocarbon-invernale-come-non-far-fallire-lamo",
+      "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
+      "permanent": true
+    },
+    {
+      "source": "/articoli/come-scegliere-il-fluorocarbon-perfetto",
+      "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
+      "permanent": true
+    },
+    {
+      "source": "/articoli/fluorocarbon-invernale-terminali-invisibili",
+      "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
+      "permanent": true
+    },
+    {
+      "source": "/articoli/fluorocarbon-inverno-terminali-invisibili-al-top",
+      "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
+      "permanent": true
+    },
+    {
+      "source": "/articoli/come-scegliere-il-fluorocarbon-per-i-terminali-invernali",
+      "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
       "permanent": true
     }
   ],
@@ -88,5 +120,3 @@
     }
   ]
 }
-
-

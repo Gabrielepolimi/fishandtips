@@ -1,7 +1,51 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import fishData from '../../../data/fish-encyclopedia.json';
+import techniquesData from '../../../data/fishing-techniques.json';
+import { sanityClient } from '../../../sanityClient';
+
+interface RelatedArticle {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  mainImage?: string;
+}
+
+async function getRelatedArticles(fishName: string, otherNames: string[]): Promise<RelatedArticle[]> {
+  try {
+    const searchTerms = [fishName, ...otherNames].map(n => n.toLowerCase());
+
+    const fetchPromise = sanityClient.fetch(`
+      *[_type == "post" && status == "published" && publishedAt <= now()] | order(publishedAt desc) [0...100] {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        "mainImage": mainImage.asset->url,
+        "bodyText": pt::text(body)
+      }
+    `, {}, { next: { revalidate: 3600 } });
+
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('timeout')), 8000)
+    );
+
+    const articles = await Promise.race([fetchPromise, timeoutPromise]);
+
+    return (articles || [])
+      .filter((a: any) => {
+        const text = `${a.title} ${a.excerpt || ''} ${a.bodyText || ''}`.toLowerCase();
+        return searchTerms.some(term => text.includes(term));
+      })
+      .map(({ bodyText, ...rest }: any) => rest)
+      .slice(0, 3);
+  } catch {
+    return [];
+  }
+}
 
 interface FishData {
   id: string;
@@ -78,6 +122,9 @@ interface FishData {
     type: string;
     amazonUrl: string;
   }[];
+  localNotes?: string;
+  expertTip?: string;
+  commonMistakes?: string[];
 }
 
 const monthNames = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
@@ -137,6 +184,16 @@ export async function generateStaticParams() {
   }));
 }
 
+function buildMetaDescription(fish: FishData): string {
+  const bestMonths = fish.seasonality.best
+    .map((m) => ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'][m - 1])
+    .slice(0, 3)
+    .join(', ');
+  const topBait = fish.fishing.bestBaits[0] || '';
+  const topTech = fish.fishing.bestTechnique;
+  return `Come pescare ${fish.name === 'Orata' || fish.name === 'Ombrina' ? "l'" : fish.name === 'Seppia' || fish.name === 'Spigola' ? 'la ' : fish.name === 'Calamaro' || fish.name === 'Sarago' || fish.name === 'Dentice' || fish.name === 'Serra' ? 'il ' : ''}${fish.name.toLowerCase()}: tecnica migliore ${topTech.toLowerCase()}, esca top ${topBait.toLowerCase()}. Periodi migliori: ${bestMonths}. Guida completa con spot e consigli.`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const fish = fishData.fish.find((f) => f.slug === slug) as FishData | undefined;
@@ -145,19 +202,58 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: 'Pesce non trovato' };
   }
 
+  const description = buildMetaDescription(fish);
+
   return {
-    title: `${fish.name} - Come Pescare, Tecniche e Stagioni | FishandTips`,
-    description: `Guida completa alla ${fish.name.toLowerCase()} (${fish.scientificName}): caratteristiche, habitat, tecniche di pesca, esche migliori, stagioni e consigli per catturarla.`,
-    keywords: `${fish.name.toLowerCase()}, come pescare ${fish.name.toLowerCase()}, ${fish.scientificName.toLowerCase()}, pesca ${fish.name.toLowerCase()}, tecniche pesca ${fish.name.toLowerCase()}`,
+    title: `Come Pescare ${fish.name === 'Orata' || fish.name === 'Ombrina' ? "l'" : fish.name === 'Seppia' || fish.name === 'Spigola' ? 'la ' : fish.name === 'Calamaro' || fish.name === 'Sarago' || fish.name === 'Dentice' || fish.name === 'Serra' ? 'il ' : ''}${fish.name}: Tecniche, Esche e Periodi Migliori | FishandTips`,
+    description,
+    keywords: `come pescare ${fish.name.toLowerCase()}, pesca ${fish.name.toLowerCase()}, ${fish.name.toLowerCase()} tecniche, ${fish.name.toLowerCase()} esche, ${fish.fishing.bestTechnique.toLowerCase()} ${fish.name.toLowerCase()}, ${fish.scientificName.toLowerCase()}, ${fish.name.toLowerCase()} mediterraneo`,
     openGraph: {
-      title: `${fish.name} - Guida Completa alla Pesca`,
-      description: `Scopri tutto sulla ${fish.name.toLowerCase()}: tecniche, esche, stagioni e segreti per catturarla.`,
+      title: `Come Pescare ${fish.name}: Guida Completa ${new Date().getFullYear()}`,
+      description,
       type: 'article',
+      url: `https://fishandtips.it/pesci-mediterraneo/${fish.slug}`,
+      siteName: 'FishandTips',
+    },
+    twitter: {
+      card: 'summary',
+      title: `Come Pescare ${fish.name} | FishandTips`,
+      description,
     },
     alternates: {
       canonical: `https://fishandtips.it/pesci-mediterraneo/${fish.slug}`,
     },
   };
+}
+
+const TECHNIQUE_SLUG_MAP: Record<string, string> = {};
+for (const t of techniquesData.techniques) {
+  TECHNIQUE_SLUG_MAP[t.name.toLowerCase()] = t.slug;
+}
+TECHNIQUE_SLUG_MAP['beach legering'] = 'beach-ledgering';
+TECHNIQUE_SLUG_MAP['ledgering'] = 'beach-ledgering';
+TECHNIQUE_SLUG_MAP['rock fishing'] = 'light-rock-fishing';
+TECHNIQUE_SLUG_MAP['rock fishing notturno'] = 'light-rock-fishing';
+TECHNIQUE_SLUG_MAP['light game'] = 'light-rock-fishing';
+TECHNIQUE_SLUG_MAP['light spinning'] = 'spinning';
+TECHNIQUE_SLUG_MAP['spinning ultralight'] = 'spinning';
+TECHNIQUE_SLUG_MAP['shore jigging'] = 'jigging';
+TECHNIQUE_SLUG_MAP['light jigging'] = 'jigging';
+TECHNIQUE_SLUG_MAP['vertical jigging'] = 'jigging';
+TECHNIQUE_SLUG_MAP['bolentino leggero'] = 'bolentino';
+TECHNIQUE_SLUG_MAP['bolentino medio'] = 'bolentino';
+TECHNIQUE_SLUG_MAP['bolentino profondo'] = 'bolentino';
+TECHNIQUE_SLUG_MAP['bolentino con totanara'] = 'bolentino';
+TECHNIQUE_SLUG_MAP['traina col vivo'] = 'traina';
+TECHNIQUE_SLUG_MAP['traina leggera'] = 'traina';
+TECHNIQUE_SLUG_MAP['traina lenta'] = 'traina';
+TECHNIQUE_SLUG_MAP['traina lenta di fondo'] = 'traina';
+TECHNIQUE_SLUG_MAP['eging profondo'] = 'eging';
+TECHNIQUE_SLUG_MAP['popping'] = 'spinning';
+TECHNIQUE_SLUG_MAP['popping leggero'] = 'spinning';
+
+function getTechniqueSlug(techName: string): string | null {
+  return TECHNIQUE_SLUG_MAP[techName.toLowerCase()] || null;
 }
 
 export default async function FishDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -170,9 +266,48 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
 
   const currentMonth = new Date().getMonth() + 1;
   const isInSeason = fish.seasonality.best.includes(currentMonth);
+  const relatedArticles = await getRelatedArticles(fish.name, fish.otherNames);
+
+  const siteUrl = 'https://fishandtips.it';
+  const pageUrl = `${siteUrl}/pesci-mediterraneo/${fish.slug}`;
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Come pescare ${fish.name.toLowerCase()}: guida completa`,
+    description: buildMetaDescription(fish),
+    url: pageUrl,
+    author: { '@type': 'Person', name: 'FishandTips' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FishandTips',
+      url: siteUrl,
+    },
+    dateModified: new Date().toISOString().split('T')[0],
+    about: { '@type': 'Thing', name: fish.name, alternateName: fish.scientificName },
+    mainEntityOfPage: pageUrl,
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Pesci del Mediterraneo', item: `${siteUrl}/pesci-mediterraneo` },
+      { '@type': 'ListItem', position: 3, name: fish.name, item: pageUrl },
+    ],
+  };
 
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <div className="border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -220,6 +355,49 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
         <div className="mb-10">
           <p className="text-gray-700 text-lg leading-relaxed">{fish.description}</p>
         </div>
+
+        {/* Dove trovarla in Italia */}
+        {fish.localNotes && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Dove trovarla in Italia</h2>
+            <div className="p-6 rounded-xl bg-emerald-50 border border-emerald-200">
+              <p className="text-gray-700 leading-relaxed">{fish.localNotes}</p>
+            </div>
+          </section>
+        )}
+
+        {/* Consiglio dell'esperto */}
+        {fish.expertTip && (
+          <section className="mb-10">
+            <div className="p-6 rounded-xl border-l-4 border-l-amber-500 bg-amber-50 border border-amber-200">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">🎣</span>
+                <h2 className="text-xl font-semibold text-gray-900">Il consiglio dell&apos;esperto</h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed italic">{fish.expertTip}</p>
+              <p className="text-sm text-amber-700 mt-3 font-medium">— Staff FishandTips</p>
+            </div>
+          </section>
+        )}
+
+        {/* Errori comuni */}
+        {fish.commonMistakes && fish.commonMistakes.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Errori comuni da evitare</h2>
+            <div className="p-6 rounded-xl bg-rose-50 border border-rose-200">
+              <ul className="space-y-3">
+                {fish.commonMistakes.map((mistake, index) => (
+                  <li key={index} className="flex items-start gap-3 text-gray-700">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-rose-200 text-rose-700 flex items-center justify-center text-sm font-bold mt-0.5">
+                      {index + 1}
+                    </span>
+                    <span>{mistake}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         {/* Quick Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
@@ -273,21 +451,23 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
           <div className="p-6 rounded-xl bg-blue-50 border border-blue-100">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3">Tecniche</h3>
+                <h3 className="font-semibold text-gray-900 mb-3">Tecniche consigliate</h3>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {fish.fishing.techniques.map((tech) => (
-                    <span
-                      key={tech}
-                      className={`px-3 py-1.5 rounded-full text-sm ${
-                        tech === fish.fishing.bestTechnique
-                          ? 'bg-blue-600 text-white font-medium'
-                          : 'bg-white text-gray-700 border border-gray-200'
-                      }`}
-                    >
-                      {tech === fish.fishing.bestTechnique && '⭐ '}
-                      {tech}
-                    </span>
-                  ))}
+                  {fish.fishing.techniques.map((tech) => {
+                    const techSlug = getTechniqueSlug(tech);
+                    const isBest = tech === fish.fishing.bestTechnique;
+                    const className = `px-3 py-1.5 rounded-full text-sm inline-flex items-center gap-1 ${
+                      isBest
+                        ? 'bg-blue-600 text-white font-medium'
+                        : 'bg-white text-gray-700 border border-gray-200'
+                    } ${techSlug ? 'hover:ring-2 hover:ring-blue-300 transition-all' : ''}`;
+                    const content = <>{isBest && '⭐ '}{tech}{techSlug && <svg className="w-3 h-3 ml-0.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>}</>;
+                    return techSlug ? (
+                      <Link key={tech} href={`/tecniche/${techSlug}`} className={className} title={`Guida completa: ${tech}`}>{content}</Link>
+                    ) : (
+                      <span key={tech} className={className}>{content}</span>
+                    );
+                  })}
                 </div>
 
                 <h3 className="font-semibold text-gray-900 mb-3">Esche naturali</h3>
@@ -539,6 +719,42 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
             <p className="text-gray-500 text-xs mt-4">
               Link affiliati Amazon. Acquistando ci aiuti a mantenere il sito gratuito.
             </p>
+          </section>
+        )}
+
+        {/* Articoli correlati */}
+        {relatedArticles.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Articoli su {fish.name}</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedArticles.map((article) => (
+                <Link
+                  key={article._id}
+                  href={`/articoli/${article.slug}`}
+                  className="group block rounded-xl border border-gray-200 overflow-hidden hover:border-blue-300 hover:shadow-md transition"
+                >
+                  {article.mainImage && (
+                    <div className="relative h-36 bg-gray-100">
+                      <Image
+                        src={article.mainImage}
+                        alt={article.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-2 text-sm transition-colors">
+                      {article.title}
+                    </h3>
+                    {article.excerpt && (
+                      <p className="text-xs text-gray-500 mt-1 line-clamp-2">{article.excerpt}</p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
           </section>
         )}
 

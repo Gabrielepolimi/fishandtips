@@ -247,13 +247,16 @@ export default function SpotPescaItaliaPage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 mb-2">
                   {region.topSpecies.slice(0, 2).map((species) => (
                     <span key={species} className="text-xs text-gray-500">
                       {species}
                     </span>
                   ))}
                 </div>
+                <span className="text-xs text-blue-600 font-medium group-hover:underline">
+                  Scopri tutti gli spot in {region.name} →
+                </span>
               </Link>
             ))}
           </div>

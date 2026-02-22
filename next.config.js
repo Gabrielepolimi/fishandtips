@@ -10,6 +10,8 @@ const nextConfig = {
       },
     ],
   },
+  // Canonical strategy: no trailing slash, HTTPS only handled by Vercel redirects
+  trailingSlash: false,
   // Ottimizzazioni SEO e Performance
   compress: true,
   poweredByHeader: false,

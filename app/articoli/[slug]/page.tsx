@@ -8,6 +8,7 @@ import RelatedArticlesCarousel from '../../../components/articles/RelatedArticle
 import LikeButton from '../../../components/articles/LikeButton';
 import FishingRodComparison from '../../../components/articles/FishingRodComparison';
 import YouTubeEmbed from '../../../components/articles/YouTubeEmbed';
+import FishSpeciesBox from '../../../components/articles/FishSpeciesBox';
 
 interface Post {
   _id: string;
@@ -599,6 +600,9 @@ export default async function PostPage({ params }: Props) {
             }}
           />
         </div>
+
+        {/* Schede specie menzionate */}
+        {post.body && <FishSpeciesBox body={post.body} />}
 
         {/* Footer articolo */}
         <footer className="mt-16 pt-10 border-t border-gray-200">

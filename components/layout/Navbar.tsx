@@ -44,6 +44,9 @@ export default function Navbar() {
               <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Pesci
               </Link>
+              <Link href="/tecniche" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                Tecniche
+              </Link>
               <Link href="/spot-pesca-italia" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Spot
               </Link>
@@ -115,6 +118,9 @@ export default function Navbar() {
           </Link>
           <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Pesci
+          </Link>
+          <Link href="/tecniche" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+            Tecniche
           </Link>
           <Link href="/spot-pesca-italia" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Spot

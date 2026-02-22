@@ -26,3 +26,6 @@ Aggiungi **15-20 foto** di pesca di alta qualità:
 - Assicurati di avere i diritti sulle immagini
 - Evita immagini con watermark o loghi
 
+
+
+

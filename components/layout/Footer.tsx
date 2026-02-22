@@ -64,6 +64,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/pesci-mediterraneo" className="text-gray-300 hover:text-white transition-colors">
+                  Pesci del Mediterraneo
+                </Link>
+              </li>
+              <li>
                 <Link href="/chi-siamo" className="text-gray-300 hover:text-white transition-colors">
                   Chi Siamo
                 </Link>
