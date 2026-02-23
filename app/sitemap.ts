@@ -3,6 +3,7 @@ import { sanityClient } from '../sanityClient';
 import fishData from '../data/fish-encyclopedia.json';
 import spotsData from '../data/fishing-spots.json';
 import techniquesData from '../data/fishing-techniques.json';
+import regionalCalendarData from '../data/fishing-calendar-regional.json';
 
 // Cache la sitemap per 1h per evitare richieste continue a Sanity
 export const revalidate = 3600;
@@ -163,5 +164,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...categoryPages, ...articlePages, ...fishListingPage, ...fishPages, ...calendarListingPage, ...calendarPages, ...spotsListingPage, ...spotRegionPages, ...spotDetailPages, ...techniquesListingPage, ...techniquePages];
+  const calendarRegionIds = ['sardegna','sicilia','liguria','puglia','toscana','campania','lazio','calabria','veneto','emilia-romagna'];
+  const calendarRegionalHubPages: MetadataRoute.Sitemap = calendarRegionIds.map((r) => ({
+    url: `${baseUrl}/calendario-pesca/${r}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const calendarRegionalMonthPages: MetadataRoute.Sitemap = (regionalCalendarData as any).entries.map((e: any) => ({
+    url: `${baseUrl}/calendario-pesca/${e.regione}/${e.mese}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...categoryPages, ...articlePages, ...fishListingPage, ...fishPages, ...calendarListingPage, ...calendarPages, ...calendarRegionalHubPages, ...calendarRegionalMonthPages, ...spotsListingPage, ...spotRegionPages, ...spotDetailPages, ...techniquesListingPage, ...techniquePages];
 }

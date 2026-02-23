@@ -332,8 +332,11 @@ export default async function RegionPage({ params }: { params: Promise<{ region:
         <section className="mb-12 p-6 rounded-2xl bg-gray-50 border border-gray-100">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Approfondisci</h2>
           <div className="flex flex-wrap gap-3">
+            <Link href={`/calendario-pesca/${region.id}`} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
+              📅 Calendario pesca {region.name}
+            </Link>
             <Link href={`/calendario-pesca/${MONTH_SLUGS[bestMonths[0] - 1]}`} className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
-              📅 Calendario pesca {MONTH_NAMES[bestMonths[0] - 1]}
+              📅 Calendario nazionale {MONTH_NAMES[bestMonths[0] - 1]}
             </Link>
             <Link href="/pesci-mediterraneo" className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
               🐟 Enciclopedia pesci del Mediterraneo

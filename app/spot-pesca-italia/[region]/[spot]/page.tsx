@@ -516,6 +516,28 @@ export default async function SpotDetailPage({
           </div>
         </div>
 
+        {/* Regional Calendar */}
+        <section className="mt-16 pt-10 border-t border-gray-100">
+          <h2 className="text-xl font-semibold text-gray-900 mb-6">
+            Calendario pesca in {region.name}
+          </h2>
+          <p className="text-gray-600 mb-6 text-sm">Scopri cosa si pesca in {region.name} mese per mese. I mesi evidenziati sono quelli con più specie attive in questo spot.</p>
+          <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-2">
+            {['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'].map((label, i) => {
+              const monthNum = i + 1;
+              const monthSlug = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'][i];
+              const activeCount = spot.species.filter((s: any) => s.months.includes(monthNum)).length;
+              const isHot = activeCount >= Math.max(1, Math.round(spot.species.length * 0.5));
+              return (
+                <Link key={monthSlug} href={`/calendario-pesca/${region.id}/${monthSlug}`} className={`p-2 rounded-lg text-center text-sm font-medium transition-all hover:ring-2 hover:ring-blue-300 ${isHot ? 'bg-emerald-100 text-emerald-800' : activeCount > 0 ? 'bg-amber-50 text-amber-700' : 'bg-gray-100 text-gray-400'}`}>
+                  <span className="block text-xs">{label}</span>
+                  <span className="block text-[10px] mt-0.5">{activeCount} sp.</span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Related Spots */}
         {region.spots.length > 1 && (
           <section className="mt-16 pt-10 border-t border-gray-100">

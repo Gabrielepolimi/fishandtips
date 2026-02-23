@@ -409,6 +409,32 @@ export default function CalendarioPescaPage() {
         </div>
       </section>
 
+      {/* Calendario per Regione */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+          <h2 className="text-lg font-semibold text-gray-900 mb-2 text-center">Calendario per regione</h2>
+          <p className="text-sm text-gray-500 text-center mb-6">Scopri cosa si pesca nella tua regione, mese per mese</p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            {[
+              { id: 'sardegna', name: 'Sardegna' }, { id: 'sicilia', name: 'Sicilia' },
+              { id: 'liguria', name: 'Liguria' }, { id: 'puglia', name: 'Puglia' },
+              { id: 'toscana', name: 'Toscana' }, { id: 'campania', name: 'Campania' },
+              { id: 'lazio', name: 'Lazio' }, { id: 'calabria', name: 'Calabria' },
+              { id: 'veneto', name: 'Veneto' }, { id: 'emilia-romagna', name: 'Emilia-Romagna' },
+            ].map((region) => (
+              <Link
+                key={region.id}
+                href={`/calendario-pesca/${region.id}`}
+                className="p-4 rounded-xl text-center bg-white border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all"
+              >
+                <p className="font-medium text-gray-900">{region.name}</p>
+                <p className="text-xs text-blue-600 mt-1">12 mesi →</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Info Section */}
       <section className="bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
