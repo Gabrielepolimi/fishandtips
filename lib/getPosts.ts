@@ -18,8 +18,6 @@ export async function getPosts() {
         youtubeTitle,
         youtubeDescription
   }`, { now: new Date().toISOString() }, {
-    // Disabilita il caching per Vercel
-    cache: 'no-store',
-    next: { revalidate: 0 }
+    next: { revalidate: 3600 }
   });
 }

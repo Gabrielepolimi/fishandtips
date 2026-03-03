@@ -1,0 +1,409 @@
+{
+  "categories": [
+    {
+      "slug": "canne-surfcasting",
+      "title": "Migliori Canne da Surfcasting 2026",
+      "metaDescription": "Le 5 migliori canne da surfcasting testate: confronto completo tra Trabucco, Shimano e Daiwa. Guida all'acquisto per ogni budget.",
+      "intro": "Scegliere la migliore canna da surfcasting significa bilanciare lunghezza, potenza di lancio e sensibilità. Per il surf dalla spiaggia italiana servono canne da 4.0 a 4.5 metri in grado di lanciare piombi da 80 a 200 grammi, con azione fast o medium-fast per sentire le toccate e ferrare con efficacia. In questa guida confrontiamo i modelli più venduti e apprezzati dai pescatori, da entry level a premium, con prezzi che vanno da 60 a 200 euro. Troverai la canna giusta per orate, mormore e spigole.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "surfcasting",
+      "relatedSpecies": ["orata", "mormora", "spigola"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Lunghezza", "description": "Per il surfcasting servono canne da 4.0 a 4.5 m. Più lunghe = più distanza di lancio ma meno maneggevolezza. La 4.20 m è il compromesso ideale per la maggior parte degli spot." },
+          { "name": "Potenza di lancio", "description": "Espressa in grammi (es. 100-200 g), indica il peso massimo del piombo. Per mare calmo 80-120 g, per corrente e vento 150-200 g. Scegli in base alle condizioni tipiche del tuo spot." },
+          { "name": "Azione", "description": "Fast = cimino reattivo, ideale per lanci lunghi e ferrate nette. Medium = più morbida, perdona meglio gli errori. I principianti possono preferire medium-fast." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Trabucco Searcher Surf 4.20m", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "60-80€", "rating": 4.5, "pros": ["Ottima per principianti", "Azione fast bilanciata", "Prezzo accessibile"], "cons": ["Non adatta a lanci oltre 150g", "Anelli di qualità media"], "amazonQuery": "Trabucco Searcher Surf canna surfcasting", "bestFor": "Principianti e pesca occasionale" },
+        { "rank": 2, "name": "Shimano Vengeance AX Surf", "badge": "Premium", "priceRange": "120-160€", "rating": 4.8, "pros": ["Costruzione eccellente", "Sensibilità superiore", "Ottima per lanci lunghi"], "cons": ["Prezzo elevato", "Forse esagerata per il principiante"], "amazonQuery": "Shimano Vengeance AX Surf canna", "bestFor": "Pescatori esperti che cercano il massimo" },
+        { "rank": 3, "name": "Daiwa Emblem Surf 4.25m", "badge": "Budget", "priceRange": "45-60€", "rating": 4.2, "pros": ["Prezzo imbattibile", "Leggera", "Buona per iniziare"], "cons": ["Anelli inox base", "Potenza limitata 80-150g"], "amazonQuery": "Daiwa Emblem Surf canna", "bestFor": "Chi inizia e non vuole spendere tanto" },
+        { "rank": 4, "name": "Trabucco Ripple 4.50m", "badge": "Distanza", "priceRange": "95-120€", "rating": 4.6, "pros": ["Eccellente per lanci oltre 120m", "Cimino sensibile", "Ottimo rapporto qualità/prezzo"], "cons": ["4.50m poco comoda in auto"], "amazonQuery": "Trabucco Ripple Surf canna 4.50", "bestFor": "Chi pesca su spiagge ampie e vuole massima gittata" },
+        { "rank": 5, "name": "Penn Battalion II Surf", "badge": "Robustezza", "priceRange": "100-130€", "rating": 4.5, "pros": ["Costruzione da battaglia", "Guida passacavo in titanio", "Garanzia Penn"], "cons": ["Peso superiore alla media"], "amazonQuery": "Penn Battalion II Surf canna", "bestFor": "Pesca intensiva e condizioni estreme" }
+      ],
+      "faq": [
+        { "q": "Quale lunghezza scegliere per una canna da surfcasting?", "a": "Per il surf dalla spiaggia la lunghezza ideale è tra 4.0 e 4.5 m. La 4.20 m è il compromesso più versatile: ottima gittata e ancora maneggevole. La 4.50 m massimizza la distanza ma è meno comoda da trasportare." },
+        { "q": "Meglio canna in 2 pezzi o 3 pezzi?", "a": "Le canne in 2 pezzi sono più rigide e trasmettono meglio le toccate; quelle in 3 pezzi sono più comode da portare in auto o in viaggio. Per l'uso abituale in Italia spesso si scelgono i 2 pezzi." }
+      ]
+    },
+    {
+      "slug": "mulinelli-spinning",
+      "title": "Migliori Mulinelli Spinning 2026",
+      "metaDescription": "Confronto dei migliori mulinelli per spinning: Shimano, Daiwa e Penn. Guida alla scelta per spigola, serra e pesca a lancio.",
+      "intro": "Il mulinello da spinning deve essere leggero, con frizione fluida e recupero veloce per lavorare gli artificiali. Le taglie più usate sono 2500-4000: 2500-3000 per canne leggere e minnow piccoli, 4000 per canne più potenti e esche più pesanti. In questa guida trovi i modelli migliori per rapporto qualità/prezzo e per chi cerca il top di gamma, con prezzi da 40 a 180 euro. Tutti i mulinelli selezionati sono adatti alla pesca in mare dalla costa.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "spinning",
+      "relatedSpecies": ["spigola", "serra", "leccia-amia"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Taglia", "description": "2500-3000: spinning leggero, trecciato PE 0.6-1. 4000-5000: spinning medio, PE 1-1.5 e artificiali più pesanti. Scegli in base alla canna e alle prede che insegui." },
+          { "name": "Rapporto di recupero", "description": "Per lo spinning sono ideali rapporti 5.2:1 - 6.2:1. Recupero più veloce per jerk e topwater, più lento per recuperi costanti e profondità." },
+          { "name": "Frizione", "description": "La frizione anteriore è standard nello spinning. Deve essere regolabile con finezza e rispondere in modo lineare durante i combattimenti." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Stradic 3000", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "140-170€", "rating": 4.8, "pros": ["Leggero e bilanciato", "Frizione Hagane fluida", "Recupero 6.2:1"], "cons": ["Prezzo non basso"], "amazonQuery": "Shimano Stradic 3000 mulinello spinning", "bestFor": "Spinning costiero serio e spigole" },
+        { "rank": 2, "name": "Daiwa Ninja LT 4000", "badge": "Budget", "priceRange": "45-60€", "rating": 4.4, "pros": ["Ottimo prezzo", "Leggero", "Disponibile in diverse taglie"], "cons": ["Frizione meno raffinata del top"], "amazonQuery": "Daiwa Ninja LT mulinello spinning", "bestFor": "Principianti e uso saltuario" },
+        { "rank": 3, "name": "Abu Garcia Revo SX", "badge": "Premium", "priceRange": "160-200€", "rating": 4.7, "pros": ["Design robusto", "Infinity brake", "Molto capiente"], "cons": ["Peso superiore alla media"], "amazonQuery": "Abu Garcia Revo SX spinning", "bestFor": "Pescatori esperti e combattimenti lunghi" },
+        { "rank": 4, "name": "Penn Conflict II 3000", "badge": "Robustezza", "priceRange": "100-130€", "rating": 4.5, "pros": ["Costruzione marina", "Corpo in metallo", "Garanzia affidabile"], "cons": ["Non il più leggero"], "amazonQuery": "Penn Conflict II 3000 mulinello", "bestFor": "Chi vuole un mulinello indistruttibile" },
+        { "rank": 5, "name": "Shimano Nasci 2500", "badge": "Entry level qualità", "priceRange": "75-95€", "rating": 4.5, "pros": ["Buon rapporto qualità/prezzo Shimano", "Leggero", "Silenzioso"], "cons": ["Taglia 2500 limita il trecciato"], "amazonQuery": "Shimano Nasci 2500 mulinello", "bestFor": "Chi cerca Shimano senza spendere come Stradic" }
+      ],
+      "faq": [
+        { "q": "Che taglia di mulinello per spinning da riva?", "a": "Per spigola e pesca mista da scogliera: 2500-3000. Per lanci più lunghi e artificiali pesanti: 4000. La 3000 è il compromesso più versatile per la maggior parte dei pescatori." },
+        { "q": "Quanto trecciato mettere su un mulinello spinning 3000?", "a": "Con PE 0.8-1.0 puoi caricare 150-200 m, più che sufficiente per la pesca da riva. Con PE 1.2 circa 120-150 m. Priorità alla qualità del trecciato più che ai metri." }
+      ]
+    },
+    {
+      "slug": "canne-spinning",
+      "title": "Migliori Canne da Spinning 2026",
+      "metaDescription": "Le migliori canne spinning per spigola e predatori: confronto Shimano, Daiwa e Trabucco. Azione, lunghezza e potenza a confronto.",
+      "intro": "Una buona canna da spinning deve avere azione di punta (fast o extra-fast), essere leggera e bilanciata per sessioni lunghe. Le lunghezze tipiche sono 2.10-2.70 m, con potenza espressa in grammi di artificiale (7-35 g per il costiero). In questa guida confrontiamo modelli da 50 a 200 euro adatti a minnow, soft bait e metal jig per spigola, serra e barracuda. Troverai la canna giusta per il tuo stile e il tuo budget.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "spinning",
+      "relatedSpecies": ["spigola", "serra", "barracuda-mediterraneo"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Lunghezza", "description": "2.10-2.40 m: scogliere e posti stretti. 2.40-2.70 m: spiagge e lanci più lunghi. La 2.40 m è il compromesso più versatile per il Mediterraneo." },
+          { "name": "Potenza (casting weight)", "description": "5-25 g: spinning leggero, minnow e soft piccoli. 10-35 g: medio, la scelta più comune. 15-45 g: artificiali pesanti e vento." },
+          { "name": "Azione", "description": "Fast o Extra Fast: massima sensibilità e ferrate precise, ideali per artificiali. Medium-fast: più perdonante, adatta anche ai principianti." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Vengeance AX Spinning 2.40m", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "90-120€", "rating": 4.6, "pros": ["Azione fast precisa", "Leggera", "Bilanciata"], "cons": ["Fascia media di prezzo"], "amazonQuery": "Shimano Vengeance AX spinning canna", "bestFor": "Spinning costiero versatile" },
+        { "rank": 2, "name": "Daiwa Procyon 2.40m", "badge": "Budget", "priceRange": "55-75€", "rating": 4.3, "pros": ["Prezzo contenuto", "Buona sensibilità", "Costruzione dignitosa"], "cons": ["Anelli non top"], "amazonQuery": "Daiwa Procyon canna spinning", "bestFor": "Chi inizia e non vuole spendere tanto" },
+        { "rank": 3, "name": "Trabucco Ripple Spin 2.70m", "badge": "Distanza", "priceRange": "95-120€", "rating": 4.5, "pros": ["Ottima per lanci lunghi", "Cimino reattivo", "Buon feeling"], "cons": ["2.70m non comoda ovunque"], "amazonQuery": "Trabucco Ripple Spin canna", "bestFor": "Spiagge e spot dove serve lanciare lontano" },
+        { "rank": 4, "name": "Abu Garcia Veritas 2.28m", "badge": "Premium", "priceRange": "130-160€", "rating": 4.7, "pros": ["Carbonio 30T", "Leggerissima", "Precisione eccellente"], "cons": ["Prezzo elevato"], "amazonQuery": "Abu Garcia Veritas spinning", "bestFor": "Pescatori esigenti e tornei" },
+        { "rank": 5, "name": "Savage Gear SG2 Spin 2.40m", "badge": "Design", "priceRange": "70-90€", "rating": 4.4, "pros": ["Design curato", "Buon rapporto qualità/prezzo", "Imbottitura EVA"], "cons": ["Poco conosciuta in Italia"], "amazonQuery": "Savage Gear SG2 Spin canna", "bestFor": "Chi cerca un'alternativa ai big brand" }
+      ],
+      "faq": [
+        { "q": "Canna spinning 2.40 o 2.70 m?", "a": "La 2.40 m è più maneggevole su scogliere e in posti stretti; la 2.70 m offre più distanza su spiagge e moli. Per uso misto la 2.40 m è la scelta più versatile." },
+        { "q": "Quanti grammi di casting weight per la spigola?", "a": "Per minnow e soft bait da 10 a 30 g va benissimo una canna 10-35 g. Se usi anche metal jig e condizioni ventose, orientati su 15-40 g." }
+      ]
+    },
+    {
+      "slug": "totanare-eging",
+      "title": "Migliori Totanare e Canne Eging 2026",
+      "metaDescription": "Confronto totanare e canne eging: Shimano, Daiwa e Fiiish. Guida alle canne per calamari e totani dalla barca e da riva.",
+      "intro": "Le totanare e le canne eging sono progettate per il jigging verticale e il lancio di egi (esche artificiali per cefalopodi). Leggere, sensibili e con azione tipicamente parabolica, permettono di lavorare i jig con movimenti ampi e di avvertire ogni toccata. In questa guida confrontiamo i modelli più apprezzati per pesca da barca e da riva, con prezzi da 60 a 220 euro. Brand come Shimano, Daiwa e Fiiish dominano il settore con soluzioni per ogni livello.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "eging",
+      "relatedSpecies": ["calamaro", "totano", "seppia"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Lunghezza e uso", "description": "2.10-2.40 m: da riva e moli. 2.40-2.70 m: da barca per eging verticale. Le totanare da barca sono spesso più corte e potenti." },
+          { "name": "Potenza", "description": "Espressa in numero di jig (es. 2.5-3.5): indica il peso del jig in once. Per egi 2.5-3.5 è il range più usato nel Mediterraneo." },
+          { "name": "Azione", "description": "Parabolica o medium: ideale per assorbire i colpi e lavorare il jig con recuperi ampi. Evita canne troppo rigide per l'eging." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Speedmaster Eging 2.40m", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "120-150€", "rating": 4.7, "pros": ["Azione perfetta per egi", "Leggera", "Sensibilità ottima"], "cons": ["Solo per eging, non totanara pesante"], "amazonQuery": "Shimano Speedmaster Eging canna", "bestFor": "Eging da riva e da barca" },
+        { "rank": 2, "name": "Daiwa Lateo 2.30m", "badge": "Budget", "priceRange": "65-85€", "rating": 4.4, "pros": ["Prezzo accessibile", "Buona sensibilità", "Versatile"], "cons": ["Non top di gamma"], "amazonQuery": "Daiwa Lateo eging canna", "bestFor": "Principianti e uso saltuario" },
+        { "rank": 3, "name": "Fiiish Black Minnow Eging", "badge": "Premium", "priceRange": "180-220€", "rating": 4.8, "pros": ["Eccellente feeling", "Costruzione top", "Design curato"], "cons": ["Prezzo alto"], "amazonQuery": "Fiiish Black Minnow eging canna", "bestFor": "Appassionati che vogliono il meglio" },
+        { "rank": 4, "name": "Trabucco Sea Soul Eging 2.40m", "badge": "Versatilità", "priceRange": "85-110€", "rating": 4.5, "pros": ["Buon compromesso prezzo/qualità", "Adatta anche a totani", "Leggera"], "cons": ["Meno specializzata delle top"], "amazonQuery": "Trabucco Sea Soul Eging", "bestFor": "Chi fa sia calamari che totani" },
+        { "rank": 5, "name": "Yo-Zuri Eging Hybrid", "badge": "Design", "priceRange": "95-120€", "rating": 4.4, "pros": ["Design ibrido eging/spinning", "Può fare doppio uso", "Prezzo onesto"], "cons": ["Non purissima come eging"], "amazonQuery": "Yo-Zuri Eging Hybrid canna", "bestFor": "Chi vuole una canna per eging e light jigging" }
+      ],
+      "faq": [
+        { "q": "Quale canna per calamari da riva?", "a": "Una canna eging 2.10-2.40 m con potenza 2.5-3.5 e azione parabolica è ideale. Permette di lanciare jig 2.5-3.5 e di sentire bene le toccate." },
+        { "q": "Totanara e canna eging sono la stessa cosa?", "a": "Simili ma non identiche: le totanare da barca sono spesso più corte e potenti per jig più pesanti; le eging sono ottimizzate per i jig leggeri e la sensibilità. Molti modelli coprono entrambi gli usi." }
+      ]
+    },
+    {
+      "slug": "canne-bolognese",
+      "title": "Migliori Canne Bolognese 2026",
+      "metaDescription": "Le migliori canne bolognese per pesca in fiume e canale: confronto Shimano, Daiwa e Trabucco. Lunghezze e azioni a confronto.",
+      "intro": "La canna bolognese è la regina della pesca in corrente: lunga (4-7 m), telescopica o a innesti, con anelli grandi per gestire il filo in barca. Si usa con galleggiante scorrevole e pasturazione per cavedani, carpe, barbi e pesci bianchi. In questa guida confrontiamo i modelli più venduti per lunghezza, numero di pezzi e rapporto qualità/prezzo, con prezzi da 50 a 200 euro. Troverai la canna giusta per fiume, canale e lago.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "bolognese",
+      "relatedSpecies": ["cavedano", "carpa", "trota"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Lunghezza", "description": "4-5 m: canali e fiumi stretti. 5-6 m: uso versatile. 6-7 m: fiumi larghi e distanze maggiori. Le telescopiche sono più comode da trasportare." },
+          { "name": "Materiale e pezzi", "description": "Carbonio 24T-30T: leggerezza e sensibilità. Telescopiche: 4-5 sezioni, trasporto comodo. A innesti: spesso più rigide e precise." },
+          { "name": "Passacorroide", "description": "Anelli in carbonio o ceramica per ridurre l'attrito e proteggere il nylon. Fondamentali per la durata del filo e la sensibilità." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Catana BX Bolognese 5m", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "55-75€", "rating": 4.5, "pros": ["Leggera", "Ottima per iniziare", "Prezzo onesto"], "cons": ["Solo 5m fissi"], "amazonQuery": "Shimano Catana BX bolognese canna", "bestFor": "Principianti e pesca in canale" },
+        { "rank": 2, "name": "Daiwa Ninja Bolognese 6m", "badge": "Budget", "priceRange": "45-60€", "rating": 4.3, "pros": ["Prezzo basso", "6 m utili", "Disponibile in più lunghezze"], "cons": ["Materiali non top"], "amazonQuery": "Daiwa Ninja bolognese canna", "bestFor": "Budget ridotto e uso saltuario" },
+        { "rank": 3, "name": "Trabucco Rapture Bolognese 5m", "badge": "Premium", "priceRange": "120-150€", "rating": 4.7, "pros": ["Carbonio 30T", "Sensibilità eccellente", "Anelli in ceramica"], "cons": ["Prezzo elevato"], "amazonQuery": "Trabucco Rapture bolognese", "bestFor": "Pescatori esperti e gare" },
+        { "rank": 4, "name": "Shimano Alivio Bolognese 6m", "badge": "Versatilità", "priceRange": "75-95€", "rating": 4.5, "pros": ["6 m telescopica", "Buon compromesso", "Robusta"], "cons": ["Peso superiore alle top"], "amazonQuery": "Shimano Alivio bolognese 6m", "bestFor": "Uso misto fiume e canale" },
+        { "rank": 5, "name": "Daiwa Connoisseur Bolognese", "badge": "Gare", "priceRange": "180-220€", "rating": 4.8, "pros": ["Top di gamma Daiwa", "Leggerissima", "Precisione massima"], "cons": ["Solo per appassionati"], "amazonQuery": "Daiwa Connoisseur bolognese", "bestFor": "Competition e pescatori esigenti" }
+      ],
+      "faq": [
+        { "q": "Canna bolognese 5 o 6 metri?", "a": "La 5 m è comoda per canali e fiumi non larghi; la 6 m ti dà più portata e controllo in corrente. Per uso generale la 6 m telescopica è molto versatile." },
+        { "q": "Telescopica o a innesti per la bolognese?", "a": "Telescopica: trasporto comodo, montaggio veloce. A innesti: spesso più rigida e precisa, preferita da molti per la sensibilità. Dipende da quanto viaggi e da dove peschi." }
+      ]
+    },
+    {
+      "slug": "ami-pesca",
+      "title": "Migliori Ami da Pesca 2026",
+      "metaDescription": "Confronto ami da pesca: Owner, Gamakatsu e Trabucco. Ami per surfcasting, bolognese, spinning e specie. Guida alla scelta.",
+      "intro": "Scegliere gli ami giusti significa abbinare forma, dimensione e resistenza alla tecnica e alla preda. Per il surfcasting servono ami a gambo lungo per vermi e a gambo corto per granchi; per la bolognese ami sottili e leggeri; per lo spinning gli artificiali hanno già gli ami ma è utile avere ricambi di qualità. In questa guida confrontiamo i brand più affidabili come Owner e Gamakatsu, con riferimenti per ogni tecnica e fascia di prezzo.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["orata", "spigola", "sarago"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Numero e forma", "description": "Il numero indica la dimensione (es. 2, 4, 6: più il numero è alto, più l'amo è piccolo). Gambo lungo per vermi, gambo corto per esche compatte. Finesse per fili sottili." },
+          { "name": "Materiale e finitura", "description": "Acciaio alto carbonio: affilato e resistente. Inox: per acqua salata. Rivestimento bronzo o nero per ridurre riflessi. Gamakatsu e Owner sono riferimenti per qualità." },
+          { "name": "Tecnica", "description": "Surfcasting: 2-4 gambo lungo. Bolognese: 14-18 sottili. Spinning: di solito inclusi negli artificiali; per soft bait usa ami con occhiello o offset." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Owner Cutting Point 5310", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "8-12€ (confezione)", "rating": 4.8, "pros": ["Affilatissimi", "Ottimi per surfcasting", "Gambo lungo"], "cons": ["Prezzo sopra la media per ami"], "amazonQuery": "Owner Cutting Point 5310 ami surfcasting", "bestFor": "Surfcasting con verme e cannolicchio" },
+        { "rank": 2, "name": "Gamakatsu G-Light 3110", "badge": "Premium", "priceRange": "10-15€", "rating": 4.7, "pros": ["Leggeri e affilati", "Ideali per bolognese", "Qualità eccellente"], "cons": ["Fragili se maltrattati"], "amazonQuery": "Gamakatsu G-Light 3110 ami", "bestFor": "Bolognese e pesca fine" },
+        { "rank": 3, "name": "Trabucco Ami Surfcasting", "badge": "Budget", "priceRange": "5-8€", "rating": 4.3, "pros": ["Prezzo contenuto", "Buona resistenza", "Confezioni grandi"], "cons": ["Meno affilati dei top"], "amazonQuery": "Trabucco ami surfcasting", "bestFor": "Uso intensivo e principianti" },
+        { "rank": 4, "name": "Owner Circle Hook", "badge": "Catch and release", "priceRange": "9-14€", "rating": 4.6, "pros": ["Design circle per rilascio", "Meno danni al pesce", "Efficaci su molte specie"], "cons": ["Richiedono tecnica di ferrata diversa"], "amazonQuery": "Owner Circle Hook ami pesca", "bestFor": "Chi pratica catch and release" },
+        { "rank": 5, "name": "Gamakatsu Octopus 2/0", "badge": "Versatilità", "priceRange": "7-11€", "rating": 4.5, "pros": ["Forma octopus versatile", "Ottimi per esche naturali", "Disponibili in molte misure"], "cons": ["Non specifici come i dedicati"], "amazonQuery": "Gamakatsu Octopus ami", "bestFor": "Pesca a fondo e surfcasting misto" }
+      ],
+      "faq": [
+        { "q": "Che numero di amo per il surfcasting?", "a": "Per verme americano e cannolicchio: 2, 1, 1/0 a gambo lungo. Per granchio e bibi: 2-4 a gambo corto. In generale il 2 e il 1 sono i più versatili." },
+        { "q": "Owner o Gamakatsu per gli ami?", "a": "Entrambi sono eccellenti. Owner è spesso preferito per surfcasting (Cutting Point); Gamakatsu per bolognese e finesse (G-Light). La scelta può dipendere anche dalla disponibilità delle misure." }
+      ]
+    },
+    {
+      "slug": "fili-trecciato",
+      "title": "Migliori Fili e Trecciati da Pesca 2026",
+      "metaDescription": "Confronto trecciati e fili da pesca: Shimano, Daiwa e Trabucco. PE, diametri e utilizzo per spinning e surfcasting.",
+      "intro": "Il trecciato in PE (polietilene) ha rivoluzionato spinning e surfcasting: a parità di diametro è molto più resistente del nylon, non si deforma e trasmette perfettamente le toccate. Il diametro si esprime in PE (es. PE 0.6, PE 1, PE 2) o in libbre. In questa guida confrontiamo i trecciati più venduti per qualità, resistenza e prezzo, con riferimenti per spinning costiero e surfcasting. Anche il fluorocarbon per terminali e leader è incluso.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "orata", "serra"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "PE e carico", "description": "PE 0.6-0.8: spinning leggero (8-15 lb). PE 1-1.5: spinning medio (15-25 lb). PE 2-3: surfcasting e spinning pesante. Controlla sempre il carico reale in kg." },
+          { "name": "Numero di filamenti", "description": "4 fili: più economico, un po' più rumoroso in passacorroide. 8 fili: più fluido e silenzioso, migliore per casting. Per la maggior parte 4 fili va bene." },
+          { "name": "Fluorocarbon", "description": "Per leader e terminali: quasi invisibile in acqua, resistente all'abrasione. Diametri 0.20-0.35 mm per la maggior parte delle tecniche costiere." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Kairiki 8 PE 1", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "25-35€ (150m)", "rating": 4.6, "pros": ["8 fili fluido", "Ottimo per spinning", "Durata buona"], "cons": ["Prezzo non basso"], "amazonQuery": "Shimano Kairiki 8 PE trecciato", "bestFor": "Spinning costiero e spigola" },
+        { "rank": 2, "name": "Daiwa J-Braid 8x", "badge": "Budget", "priceRange": "18-25€", "rating": 4.4, "pros": ["Prezzo onesto", "8 fili", "Colori disponibili"], "cons": ["Meno raffinato dei top"], "amazonQuery": "Daiwa J-Braid trecciato", "bestFor": "Principianti e uso misto" },
+        { "rank": 3, "name": "Trabucco T-Force XPS Surf", "badge": "Surfcasting", "priceRange": "22-30€", "rating": 4.5, "pros": ["Dedicato surfcasting", "Buona resistenza", "0.18-0.25 mm"], "cons": ["Specifico per surf"], "amazonQuery": "Trabucco T-Force XPS Surf trecciato", "bestFor": "Surfcasting e lanci lunghi" },
+        { "rank": 4, "name": "Sufix 832 Advanced", "badge": "Premium", "priceRange": "35-45€", "rating": 4.7, "pros": ["8 fili + Gore", "Minimo allungamento", "Eccellente sensibilità"], "cons": ["Costo elevato"], "amazonQuery": "Sufix 832 Advanced trecciato", "bestFor": "Chi cerca il massimo delle prestazioni" },
+        { "rank": 5, "name": "Sunline FC Sniper Fluorocarbon", "badge": "Leader", "priceRange": "20-28€", "rating": 4.6, "pros": ["Fluorocarbon di qualità", "Per leader e terminali", "Invisibile in acqua"], "cons": ["Solo per terminali, non mamma"], "amazonQuery": "Sunline FC Sniper fluorocarbon", "bestFor": "Leader spinning e surfcasting" }
+      ],
+      "faq": [
+        { "q": "Che PE usare per spinning da riva?", "a": "PE 0.8-1.2 è il range più usato per spinning costiero: permette lanci lunghi, buona capacità di mulinello e resistenza adeguata per spigole e serra. PE 1.5 se prede grandi o spot con ostacoli." },
+        { "q": "Trecciato 4 o 8 fili?", "a": "L'8 fili è più fluido, silenzioso e costoso. Il 4 fili è economico e robusto. Per spinning con molti lanci l'8 fili può fare la differenza; per surfcasting il 4 fili è spesso sufficiente." }
+      ]
+    },
+    {
+      "slug": "piombi-surfcasting",
+      "title": "Migliori Piombi da Surfcasting 2026",
+      "metaDescription": "Confronto piombi per surfcasting: forme, grammature e materiali. Guida alla scelta per ogni condizione di mare e fondale.",
+      "intro": "Il piombo nel surfcasting deve ancorare la montatura in corrente, permettere lanci lunghi e non impigliarsi sul fondo. Le forme più usate sono la goccia (drop), la romboidale e la grippia; le grammature vanno da 80-100 g (mare calmo) a 150-200 g (vento e corrente). In questa guida confrontiamo i piombi più affidabili per forma, lega e prezzo, con riferimenti per acquisto in confezioni multiple. Anche le clip e i terminali sono citati dove rilevanti.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "surfcasting",
+      "relatedSpecies": ["orata", "mormora", "spigola"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Grammatura", "description": "80-100 g: mare calmo e poca corrente. 120-150 g: condizioni medie. 150-200 g: vento e corrente forte. Avere sempre 2-3 grammature in borsa." },
+          { "name": "Forma", "description": "Goccia (drop): penetra bene nel fondo, ottima tenuta. Romboidale: buon compromesso lancio/tenuta. Grippia: massima tenuta su sabbia, meno su roccia." },
+          { "name": "Materiale", "description": "Piombo lega: economico e denso. Alcuni piombi ecologici in lega senza piombo sono più leggeri a parità di volume: verifica la grammatura reale." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Trabucco Piombi Goccia 100-150g", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "12-18€ (6 pz)", "rating": 4.5, "pros": ["Forma goccia versatile", "Buona tenuta", "Confezione pratica"], "cons": ["Solo grammature medie"], "amazonQuery": "Trabucco piombi goccia surfcasting", "bestFor": "Uso generale surfcasting" },
+        { "rank": 2, "name": "Daiwa Piombi Romboidali", "badge": "Budget", "priceRange": "8-12€", "rating": 4.3, "pros": ["Prezzo basso", "Disponibili varie grammature", "Robusti"], "cons": ["Finitura base"], "amazonQuery": "Daiwa piombi romboidali surfcasting", "bestFor": "Principianti e scorta" },
+        { "rank": 3, "name": "Grippia Surf 120g", "badge": "Tenuta", "priceRange": "3-5€ (singolo)", "rating": 4.6, "pros": ["Eccellente tenuta su sabbia", "Design studiato", "Riuso lunga durata"], "cons": ["Costo singolo più alto"], "amazonQuery": "Grippia piombo surfcasting", "bestFor": "Spiagge con corrente e fondo sabbioso" },
+        { "rank": 4, "name": "Shimano Beastmaster Drop", "badge": "Premium", "priceRange": "15-22€", "rating": 4.5, "pros": ["Qualità Shimano", "Perfetta penetrazione", "Range grammature"], "cons": ["Prezzo sopra la media"], "amazonQuery": "Shimano Beastmaster piombo drop", "bestFor": "Chi vuole il massimo dalla forma goccia" },
+        { "rank": 5, "name": "Penn Surf Sinker 150g", "badge": "Robustezza", "priceRange": "10-15€", "rating": 4.4, "pros": ["Costruzione solida", "Per condizioni dure", "Brand affidabile"], "cons": ["Peso elevato per mare calmo"], "amazonQuery": "Penn surf sinker piombo", "bestFor": "Mare mosso e lanci lunghi" }
+      ],
+      "faq": [
+        { "q": "Che grammatura di piombo per il surfcasting?", "a": "Per mare calmo 80-100 g. Per condizioni medie 120-150 g. Con vento e corrente 150-200 g. È utile avere almeno 100 g, 120 g e 150 g per adattarsi alle condizioni." },
+        { "q": "Piombo goccia o grippia?", "a": "La goccia (drop) è versatile e tiene bene su sabbia e misto. La grippia è imbattibile su sabbia fine con corrente. Su fondali rocciosi la goccia può incastrarsi meno." }
+      ]
+    },
+    {
+      "slug": "esche-artificiali-spinning",
+      "title": "Migliori Esche Artificiali per Spinning 2026",
+      "metaDescription": "Confronto minnow, soft bait e jig per spinning: Rapala, Savage Gear, Yo-Zuri e Fiiish. Guida per spigola e predatori.",
+      "intro": "Le esche artificiali per spinning si dividono in minnow (pesciolini rigidi), soft bait (silicone), metal jig e topwater (popper, walker). Per la spigola i minnow 9-12 cm e le soft bait shad/grub sono le più versatili; i colori naturali in acqua limpida e chartreuse/arancio in acqua torbida. In questa guida confrontiamo i modelli più efficaci e duraturi dei brand Rapala, Savage Gear, Yo-Zuri e Fiiish, con prezzi da 8 a 25 euro per artificiale.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": "spinning",
+      "relatedSpecies": ["spigola", "serra", "barracuda-mediterraneo"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Tipo", "description": "Minnow: ricerca e recupero costante, sospending o affondanti. Soft bait: lavoro su buche e strutture, recupero a strappi. Topwater: superficie, emozione e acque calme." },
+          { "name": "Dimensione", "description": "9-12 cm: taglia standard per spigola e serra. 12-15 cm: prede più grandi e acqua fredda. 7-9 cm: finesse e acqua chiara." },
+          { "name": "Colore", "description": "Acqua limpida: argento, verde oliva, naturali. Acqua torbida: chartreuse, arancio, bianco. Notte: scuri e silhouettes." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Rapala X-Rap 10cm", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "12-16€", "rating": 4.7, "pros": ["Classico efficace", "Azione jerk ottima", "Molti colori"], "cons": ["Un po' costoso"], "amazonQuery": "Rapala X-Rap 10 spinning", "bestFor": "Spinning spigola versatile" },
+        { "rank": 2, "name": "Savage Gear Sandeel", "badge": "Soft bait", "priceRange": "8-12€", "rating": 4.5, "pros": ["Realistico", "Ottimo per recupero a strappi", "Prezzo onesto"], "cons": ["Consumabile nel tempo"], "amazonQuery": "Savage Gear Sandeel soft bait", "bestFor": "Lavoro su buche e scogli" },
+        { "rank": 3, "name": "Yo-Zuri Crystal Minnow", "badge": "Premium", "priceRange": "14-18€", "rating": 4.6, "pros": ["Eccellente nuoto", "Qualità costruttiva", "Affondante e sospending"], "cons": ["Prezzo elevato"], "amazonQuery": "Yo-Zuri Crystal Minnow", "bestFor": "Acqua limpida e pesca fine" },
+        { "rank": 4, "name": "Fiiish Black Minnow", "badge": "Cult", "priceRange": "18-24€", "rating": 4.8, "pros": ["Azione irresistibile", "Molto usato dai pro", "Diverse versioni"], "cons": ["Caro e spesso esaurito"], "amazonQuery": "Fiiish Black Minnow artificiale", "bestFor": "Chi cerca il top per la spigola" },
+        { "rank": 5, "name": "Rapala CountDown 9cm", "badge": "Budget", "priceRange": "9-12€", "rating": 4.4, "pros": ["Affondante prevedibile", "Robusto", "Ottimo per iniziare"], "cons": ["Meno versatilità del X-Rap"], "amazonQuery": "Rapala CountDown 9 cm", "bestFor": "Principianti e profondità controllate" }
+      ],
+      "faq": [
+        { "q": "Quale artificiale per la spigola?", "a": "Minnow 9-12 cm (X-Rap, Crystal Minnow, Black Minnow) per ricerca; soft bait tipo shad o sandeel per lavorare le buche. Alterna in base a condizioni e orario." },
+        { "q": "Colori artificiali per acqua torbida?", "a": "Chartreuse, arancio, bianco e rosa sono i più visibili. In acqua torbida dopo mareggiata usa colori accesi e silhouette ben definita." }
+      ]
+    },
+    {
+      "slug": "attrezzatura-pesca-principianti",
+      "title": "Migliori Attrezzature Pesca per Principianti 2026",
+      "metaDescription": "Kit e attrezzature pesca per chi inizia: canna, mulinello, filo e accessori. Guida completa per principianti sotto i 150€.",
+      "intro": "Iniziare nella pesca non significa comprare il più economico: serve un kit bilanciato che duri anni e non frustri. Una canna versatile (spinning o surfcasting a seconda di dove pescherai), un mulinello affidabile, trecciato o nylon di qualità e un set minimo di terminali e ami. In questa guida proponiamo combinazioni sotto i 150 euro per spinning e sotto i 200 per surfcasting, con brand come Shimano, Daiwa e Trabucco. Ideale per il primo anno di pesca.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "orata", "cavedano"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Tecnica da cui partire", "description": "Spinning: più dinamico, meno attrezzatura, ideale per scogliere e moli. Surfcasting: pesca di attesa dalla spiaggia, canna lunga e trecciato. Scegli in base a dove peschi più spesso." },
+          { "name": "Budget totale", "description": "100-150€: kit spinning base dignitoso (canna + mulinello + filo + qualche artificiale). 150-250€: kit surfcasting o spinning di livello superiore." },
+          { "name": "Accessori indispensabili", "description": "Cesoie, pinze, porta canne, borsa o zaino. Non risparmiare su cesoie e pinze: quelle economiche arrugginiscono e si rompono." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Catana + Nexave 2500", "badge": "Kit spinning entry", "priceRange": "75-95€", "rating": 4.5, "pros": ["Canna e mulinello Shimano", "Bilanciato", "Pronto per pescare"], "cons": ["Solo canna, mulinello a parte"], "amazonQuery": "Shimano Catana spinning Nexave 2500", "bestFor": "Primo kit spinning completo" },
+        { "rank": 2, "name": "Daiwa Ninja Combo 3.90m", "badge": "Budget", "priceRange": "50-70€", "rating": 4.3, "pros": ["Combo canna+mulinello", "Prezzo imbattibile", "Surfcasting o spinning"], "cons": ["Qualità base"], "amazonQuery": "Daiwa Ninja combo pesca", "bestFor": "Budget strettissimo" },
+        { "rank": 3, "name": "Trabucco Searcher Surf + T-Force", "badge": "Surfcasting", "priceRange": "90-120€", "rating": 4.5, "pros": ["Ottimo per surf", "Canna già in guida", "Trecciato incluso in offerte"], "cons": ["Mulinello da acquistare a parte"], "amazonQuery": "Trabucco Searcher Surf canna", "bestFor": "Chi inizia dal surfcasting" },
+        { "rank": 4, "name": "Abu Garcia Max X Combo", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "80-100€", "rating": 4.4, "pros": ["Combo completa", "Brand storico", "Borsa a times inclusa"], "cons": ["Non il più leggero"], "amazonQuery": "Abu Garcia Max X combo spinning", "bestFor": "Kit tutto incluso" },
+        { "rank": 5, "name": "Penn Fierce III 4000 + Canna", "badge": "Robustezza", "priceRange": "95-120€", "rating": 4.5, "pros": ["Mulinello indistruttibile", "Garanzia Penn", "Per mare senza pensieri"], "cons": ["Peso superiore"], "amazonQuery": "Penn Fierce III combo", "bestFor": "Chi vuole durabilità massima" }
+      ],
+      "faq": [
+        { "q": "Spinning o surfcasting per iniziare?", "a": "Lo spinning è più semplice da gestire (canna corta, meno attrezzatura) e più dinamico. Il surfcasting richiede più tecnica di lancio e attesa. Se peschi soprattutto da scogliera/moli, inizia con spinning." },
+        { "q": "Quanto spendere per la prima canna?", "a": "50-100 euro per canna + mulinello è un buon range: sotto si rischia materiale che si rompe o frustra; sopra non è necessario per imparare. Shimano e Daiwa entry level sono ottimi punti di partenza." }
+      ]
+    },
+    {
+      "slug": "migliori-ecoscandagli",
+      "title": "Migliori Ecoscandagli per Pesca 2026",
+      "metaDescription": "Confronto ecoscandagli e fish finder: Garmin, Lowrance e Deeper. Modelli da barca, da riva e portatili. Guida all'acquisto.",
+      "intro": "L'ecoscandaglio oggi è accessibile anche per chi pesca da riva: i sonar portatili (Deeper, Garmin Castable) si lanciano in acqua e si collegano allo smartphone; i modelli da barca (Garmin, Lowrance) offrono mappe e CHIRP per lettura dettagliata dei fondali. In questa guida confrontiamo le soluzioni più utili per pesca in barca e da riva, con prezzi da 100 a 500 euro. Ideale per trovare buche, strutture e capire la profondità.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "orata", "dentice"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Uso", "description": "Da riva: sonar portatile lanciabile (Deeper) o castable (Garmin). Da barca: display fisso con trasduttore a poppa. Alcuni modelli portatili funzionano anche in gommone." },
+          { "name": "Connessione", "description": "Wi-Fi o Bluetooth verso smartphone: nessun display da comprare, app dedicata. Display integrato: più costoso ma autonomo e visibile sotto il sole." },
+          { "name": "Profondità e risoluzione", "description": "Per il costiero 50-100 m di profondità sono sufficienti. CHIRP e dual beam migliorano la lettura di fondale e banchi." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Deeper START", "badge": "Da riva", "priceRange": "100-130€", "rating": 4.5, "pros": ["Lanciabile da riva", "App intuitiva", "Prezzo contenuto"], "cons": ["Dipende dallo smartphone"], "amazonQuery": "Deeper START ecoscandaglio", "bestFor": "Pescatori da riva e kayak" },
+        { "rank": 2, "name": "Garmin Striker 4", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "120-160€", "rating": 4.6, "pros": ["Display incluso", "CHIRP", "GPS waypoint"], "cons": ["Trasduttore da montare"], "amazonQuery": "Garmin Striker 4 ecoscandaglio", "bestFor": "Barche e gommoni" },
+        { "rank": 3, "name": "Deeper PRO+", "badge": "Premium da riva", "priceRange": "250-300€", "rating": 4.7, "pros": ["Doppia frequenza", "Mappe batimetriche", "Portatile"], "cons": ["Costo elevato"], "amazonQuery": "Deeper PRO+ 2", "bestFor": "Chi vuole il massimo da riva" },
+        { "rank": 4, "name": "Lowrance Hook Reveal", "badge": "Barca", "priceRange": "200-280€", "rating": 4.5, "pros": ["Display 5\"", "TripleShot trasduttore", "DownScan"], "cons": ["Solo per barca"], "amazonQuery": "Lowrance Hook Reveal 5", "bestFor": "Pesca in barca seria" },
+        { "rank": 5, "name": "Garmin Castable", "badge": "Portatile", "priceRange": "180-220€", "rating": 4.4, "pros": ["Lanciabile", "Garmin quality", "Niente cavi"], "cons": ["Batteria da ricaricare"], "amazonQuery": "Garmin Castable fish finder", "bestFor": "Riva e kayak con ecosistema Garmin" }
+      ],
+      "faq": [
+        { "q": "Ecoscandaglio da riva: conviene?", "a": "Sì, per capire profondità, buche e strutture davanti a te. I modelli lanciabili (Deeper, Garmin Castable) sono facili da usare e si vedono i dati sullo smartphone." },
+        { "q": "Deeper START o PRO+?", "a": "START è economico e sufficiente per profondità e base. PRO+ ha doppia frequenza e mappe batimetriche, utile se vuoi mappare zone e cercare strutture con più dettaglio." }
+      ]
+    },
+    {
+      "slug": "occhialini-pesca",
+      "title": "Migliori Occhialini da Pesca 2026",
+      "metaDescription": "Confronto occhialini polarizzati per pesca: Costa Del Mar, Oakley e Shimano. Protezione UV e polarizzazione. Guida alla scelta.",
+      "intro": "Gli occhialini da pesca devono essere polarizzati per tagliare il riflesso sull'acqua e permettere di vedere fondali, pesci e filo. Le lenti in policarbonato resistono a urti e schizzi; le montature in nylon galleggiano. In questa guida confrontiamo modelli da 30 a 150 euro adatti alla pesca in mare e in acque dolci, con lenti in diverse colorazioni (grigio, marrone, specchiate) per luce forte o nuvolosa.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "trota", "cavedano"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Polarizzazione", "description": "Obbligatoria per pesca: elimina i riflessi sull'acqua e permette di vedere sotto la superficie. Verifica che sia indicata 'polarized' sulla descrizione." },
+          { "name": "Colore lente", "description": "Grigio: luce forte, colori naturali. Marrone/ambra: contrasto aumentato, ottimo per acqua e verde. Specchiate: massima protezione in pieno sole." },
+          { "name": "Comfort", "description": "Montatura avvolgente per tenere fuori vento e schizzi. Nose pad e temple regolabili. Peso contenuto per ore di utilizzo." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Costa Del Mar Fantail", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "80-110€", "rating": 4.7, "pros": ["Polarizzazione eccellente", "Leggeri", "Galleggianti"], "cons": ["Prezzo medio-alto"], "amazonQuery": "Costa Del Mar Fantail occhialini pesca", "bestFor": "Pesca in mare e acqua salata" },
+        { "rank": 2, "name": "Shimano Windstorm", "badge": "Budget", "priceRange": "35-50€", "rating": 4.4, "pros": ["Prezzo accessibile", "Polarizzati", "Design pesca"], "cons": ["Lenti non premium"], "amazonQuery": "Shimano Windstorm occhialini", "bestFor": "Budget e uso saltuario" },
+        { "rank": 3, "name": "Oakley Flak 2.0 Polarized", "badge": "Premium", "priceRange": "120-150€", "rating": 4.6, "pros": ["Qualità Oakley", "Lenti Prizm", "Sportivi"], "cons": ["Costo elevato"], "amazonQuery": "Oakley Flak 2.0 polarizzati pesca", "bestFor": "Chi vuole stile e prestazioni" },
+        { "rank": 4, "name": "Daiwa Stealth", "badge": "Design", "priceRange": "45-65€", "rating": 4.3, "pros": ["Design dedicato pesca", "Polarizzati", "Buon rapporto qualità/prezzo"], "cons": ["Meno noti di Costa/Oakley"], "amazonQuery": "Daiwa Stealth occhialini polarizzati", "bestFor": "Alternativa mid-range" },
+        { "rank": 5, "name": "Flying Fisherman Polarized", "badge": "Economy", "priceRange": "25-35€", "rating": 4.2, "pros": ["Molto economici", "Polarizzati", "Galleggianti"], "cons": ["Qualità costruttiva base"], "amazonQuery": "Flying Fisherman occhialini polarizzati pesca", "bestFor": "Secondo paio o backup" }
+      ],
+      "faq": [
+        { "q": "Perché servono occhialini polarizzati per la pesca?", "a": "La polarizzazione elimina il riflesso della luce sull'acqua, permettendo di vedere fondali, ostacoli e a volte i pesci. Inoltre proteggono dai raggi UV e riducono l'abbagliamento." },
+        { "q": "Che colore di lente per il mare?", "a": "Grigio per luce forte e colori fedeli; marrone/ambra per contrasto e visione in acqua verde/torbida. Le lenti specchiate sono utili in pieno sole." }
+      ]
+    },
+    {
+      "slug": "guanti-pesca",
+      "title": "Migliori Guanti da Pesca 2026",
+      "metaDescription": "Confronto guanti per pesca: fingerless, termici e antiscivolo. Guida per surfcasting, spinning e pesca in inverno.",
+      "intro": "I guanti da pesca proteggono dal freddo, dal filo e dagli ami senza togliere sensibilità. Modelli fingerless (mezze dita) per nodi e recupero; guanti termici per surfcasting notturno e inverno; palmo antiscivolo per tenere canna e mulinello. In questa guida confrontiamo i modelli più apprezzati per materiale, taglia e rapporto qualità/prezzo, con prezzi da 15 a 45 euro. Ideali per sessioni lunghe e per chi pesca da ottobre a marzo.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "orata", "mormora"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Tipo", "description": "Mezze dita (fingerless): massima destrezza per nodi e lanci, dita libere. Full finger: massimo calore, meno sensibilità. Termici: imbottitura per freddo intenso." },
+          { "name": "Materiale", "description": "Neoprene: impermeabile e caldo, ideale per surfcasting. Tessuto tecnico: traspirante, per spinning e mezze stagioni. Palmo in gomma: presa sicura su canna e filo." },
+          { "name": "Taglia", "description": "I guanti devono aderire senza stringere: misura il palmo e confronta con la tabella del produttore. Un po' oversized è meglio che troppo stretti." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Windstorm Guanti", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "18-25€", "rating": 4.5, "pros": ["Mezze dita", "Antiscivolo", "Leggeri"], "cons": ["Non termici"], "amazonQuery": "Shimano Windstorm guanti pesca", "bestFor": "Spinning e mezze stagioni" },
+        { "rank": 2, "name": "Trabucco Neoprene Surfcasting", "badge": "Termici", "priceRange": "25-35€", "rating": 4.6, "pros": ["Neoprene caldo", "Impermeabili", "Dita libere opzione"], "cons": ["Poco traspiranti"], "amazonQuery": "Trabucco guanti neoprene surfcasting", "bestFor": "Surfcasting invernale e notturno" },
+        { "rank": 3, "name": "Daiwa Salt Guard", "badge": "Budget", "priceRange": "15-22€", "rating": 4.3, "pros": ["Prezzo basso", "Resistenza sale", "Palmo grip"], "cons": ["Non per freddo intenso"], "amazonQuery": "Daiwa Salt Guard guanti", "bestFor": "Uso generale e budget" },
+        { "rank": 4, "name": "Penn Guide Gloves", "badge": "Premium", "priceRange": "35-45€", "rating": 4.5, "pros": ["Qualità costruttiva", "Termici e robusti", "Design curato"], "cons": ["Costo elevato"], "amazonQuery": "Penn Guide Gloves pesca", "bestFor": "Pescatori esigenti e inverno" },
+        { "rank": 5, "name": "Frabill F12 Neoprene", "badge": "Freddo", "priceRange": "28-38€", "rating": 4.4, "pros": ["Neoprene 3mm", "Impermeabili", "Ottimi per notte"], "cons": ["Peso e spessore"], "amazonQuery": "Frabill guanti neoprene pesca", "bestFor": "Surfcasting notturno invernale" }
+      ],
+      "faq": [
+        { "q": "Guanti mezze dita o interi?", "a": "Mezze dita: massima libertà per nodi, lanci e recupero, ideali per spinning e quando non fa freddo estremo. Interi: più caldo, utili per surfcasting notturno in inverno." },
+        { "q": "Guanti neoprene per la pesca?", "a": "Sì, il neoprene è impermeabile e mantiene il calore anche bagnato. Ideale per surfcasting e pesca da riva quando fa freddo. Scegli modelli con dita libere se devi fare nodi spesso." }
+      ]
+    },
+    {
+      "slug": "lampade-frontali-pesca",
+      "title": "Migliori Lampade Frontali per Pesca 2026",
+      "metaDescription": "Confronto lampade frontali e torce per pesca notturna: Petzl, Led Lenser e lampade rosse. Autonomia e lumen. Guida.",
+      "intro": "La lampada frontale per pesca notturna deve illuminare le mani per inneschi e nodi senza abbagliare e senza scaricare in mezza notte. La luce rossa preserva la visione notturna e disturba meno i pesci; la luce bianca serve per camminare e per emergenze. In questa guida confrontiamo frontali e torce da 20 a 80 euro con modalità rosse, resistenza all'acqua e autonomia adeguata alle sessioni lunghe.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": ["spigola", "orata", "calamaro"],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Luce rossa", "description": "Indispensabile per pesca notturna: non abbaglia, preserva l'adattamento al buio e riduce il disturbo in acqua. Verifica che la frontale abbia almeno una modalità rossa." },
+          { "name": "Autonomia", "description": "Sessioni di 6-8 ore richiedono almeno 50-100 lumen per diverse ore o batterie di ricambio. Le frontali con batterie AA/AAA permettono di portare ricambi." },
+          { "name": "Impermeabilità", "description": "IPX4 o superiore per resistere a schizzi e pioggia. Per uso in barca o con mare mosso meglio IPX7 o IPX8." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Petzl Actik Core", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "45-60€", "rating": 4.6, "pros": ["Luce rossa", "Ricaricabile", "Comoda"], "cons": ["Batteria integrata"], "amazonQuery": "Petzl Actik Core frontale", "bestFor": "Pesca notturna versatile" },
+        { "rank": 2, "name": "Led Lenser H7R", "badge": "Premium", "priceRange": "55-70€", "rating": 4.5, "pros": ["Luminosità regolabile", "Luce rossa", "Qualità costruttiva"], "cons": ["Prezzo medio-alto"], "amazonQuery": "Led Lenser H7R frontale", "bestFor": "Chi vuole potenza e regolazione" },
+        { "rank": 3, "name": "Fenix HM50R", "badge": "Compatto", "priceRange": "40-55€", "rating": 4.5, "pros": ["Luce rossa", "Piccolo e leggero", "USB-C"], "cons": ["Batteria integrata"], "amazonQuery": "Fenix HM50R frontale rossa", "bestFor": "Minimalisti e backup" },
+        { "rank": 4, "name": "Shimano Frontale Pesca", "badge": "Budget", "priceRange": "22-32€", "rating": 4.3, "pros": ["Dedicata pesca", "Modalità rossa", "Prezzo contenuto"], "cons": ["Non top di gamma"], "amazonQuery": "Shimano lampada frontale pesca", "bestFor": "Budget e uso saltuario" },
+        { "rank": 5, "name": "Black Diamond Spot 400", "badge": "Outdoor", "priceRange": "50-65€", "rating": 4.5, "pros": ["400 lumen", "Impermeabile", "Luce rossa"], "cons": ["Design più trekking che pesca"], "amazonQuery": "Black Diamond Spot 400 frontale", "bestFor": "Chi vuole una frontale robusta multiuso" }
+      ],
+      "faq": [
+        { "q": "Perché usare la luce rossa per la pesca notturna?", "a": "La luce rossa preserva l'adattamento degli occhi al buio, così vedi meglio la canna e il filo. Inoltre molti pescatori ritengono che disturbi meno i pesci rispetto alla luce bianca." },
+        { "q": "Quanti lumen servono per pescare di notte?", "a": "Per inneschi e nodi 30-80 lumen sono sufficienti; per camminare su scogli 100-200. Meglio avere più modalità (bassa/alta/rossa) per adattarsi senza sprecare batteria." }
+      ]
+    },
+    {
+      "slug": "borse-pesca",
+      "title": "Migliori Borse e Zaini da Pesca 2026",
+      "metaDescription": "Confronto borse e zaini per pesca: Shimano, Daiwa e Trabucco. Borse canne, zaini spinning e trolley. Guida alla scelta.",
+      "intro": "Una borsa o uno zaino da pesca deve contenere mulinelli, terminali, ami, esche e accessori restando comodo da portare per ore. Le borse a tracolla sono classiche per il surf; gli zaini sono ideali per spinning e trekking lungo costa; i trolley sollevano il peso in spiaggia. In questa guida confrontiamo modelli da 30 a 120 euro con numero di tasche, resistenza all'acqua e comfort. Brand come Shimano, Daiwa e Trabucco offrono soluzioni per ogni esigenza.",
+      "lastUpdated": "2026-02-01",
+      "relatedTechnique": null,
+      "relatedSpecies": [],
+      "buyingGuide": {
+        "factors": [
+          { "name": "Tipo", "description": "Borsa a tracolla: classica per surfcasting, capiente. Zaino: per spinning e cammino, libera le mani. Trolley: per surf con tanto materiale su spiagge lunghe." },
+          { "name": "Capacità e tasche", "description": "Scomparto principale per mulinelli e scatole; tasche esterne per acqua e accessori. Tasche interne organizzate per ami e terminali. Verifica che le cuciture siano rinforzate." },
+          { "name": "Impermeabilità", "description": "Materiale idrorepellente o copertura per pioggia. Per pesca in barca o sotto acquazzoni meglio borse con zip impermeabili o copertura inclusa." }
+        ]
+      },
+      "products": [
+        { "rank": 1, "name": "Shimano Beastmaster Backpack", "badge": "Miglior rapporto qualità/prezzo", "priceRange": "55-75€", "rating": 4.6, "pros": ["Capiente", "Scomparto canna", "Resistente"], "cons": ["Peso vuoto"], "amazonQuery": "Shimano Beastmaster zaino pesca", "bestFor": "Spinning e trekking costiero" },
+        { "rank": 2, "name": "Daiwa Tournament Bag", "badge": "Surfcasting", "priceRange": "45-65€", "rating": 4.4, "pros": ["Grande capacità", "Tasche organizzate", "Prezzo onesto"], "cons": ["Solo tracolla"], "amazonQuery": "Daiwa Tournament borsa pesca", "bestFor": "Surfcasting con tanto materiale" },
+        { "rank": 3, "name": "Trabucco Surf Trolley", "badge": "Trolley", "priceRange": "70-95€", "rating": 4.5, "pros": ["Ruote per spiaggia", "Solleva il peso", "Borsa inclusa"], "cons": ["Ingombrante in auto"], "amazonQuery": "Trabucco trolley surfcasting", "bestFor": "Surfcasting su spiagge lunghe" },
+        { "rank": 4, "name": "Penn Tactical Backpack", "badge": "Premium", "priceRange": "85-110€", "rating": 4.5, "pros": ["Design tattico", "Molto resistente", "Impermeabile"], "cons": ["Prezzo elevato"], "amazonQuery": "Penn Tactical zaino pesca", "bestFor": "Chi vuole massima robustezza" },
+        { "rank": 5, "name": "Abu Garcia Explorer Bag", "badge": "Budget", "priceRange": "35-50€", "rating": 4.3, "pros": ["Prezzo contenuto", "Capiente", "Brand affidabile"], "cons": ["Materiali non premium"], "amazonQuery": "Abu Garcia Explorer borsa pesca", "bestFor": "Budget e primo acquisto" }
+      ],
+      "faq": [
+        { "q": "Borsa a tracolla o zaino per la pesca?", "a": "La tracolla è tradizionale per surfcasting e permette di aprire la borsa davanti a te. Lo zaino è più comodo per camminare e per lo spinning, con le mani sempre libere." },
+        { "q": "Trolley per il surfcasting: conviene?", "a": "Sì, se devi percorrere tratti lunghi su sabbia con canne, trecciato e attrezzatura. Il trolley riduce la fatica e permette di portare più materiale. Su scogli o moli è meno utile." }
+      ]
+    }
+  ]
+}

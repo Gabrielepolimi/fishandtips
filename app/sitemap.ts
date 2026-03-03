@@ -3,6 +3,7 @@ import { sanityClient } from '../sanityClient';
 import fishData from '../data/fish-encyclopedia.json';
 import spotsData from '../data/fishing-spots.json';
 import techniquesData from '../data/fishing-techniques.json';
+import productsData from '../data/fishing-products.json';
 import regionalCalendarData from '../data/fishing-calendar-regional.json';
 
 // Cache la sitemap per 1h per evitare richieste continue a Sanity
@@ -75,7 +76,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
-    { url: `${baseUrl}/articoli`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${baseUrl}/articoli`, lastModified: now, changeFrequency: 'daily', priority: 0.7 },
     { url: `${baseUrl}/editorial-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
   ];
 
@@ -103,18 +104,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/articoli/${post.slug}`,
     lastModified: post._updatedAt ? new Date(post._updatedAt) : post.publishedAt ? new Date(post.publishedAt) : now,
     changeFrequency: 'weekly',
-    priority: 0.8,
+    priority: 0.6,
   }));
 
   const fishListingPage: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/pesci-mediterraneo`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/pesci-mediterraneo`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
   ];
 
   const fishPages: MetadataRoute.Sitemap = (fishData as any).fish.map((fish: any) => ({
     url: `${baseUrl}/pesci-mediterraneo/${fish.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   const calendarMonths = [
@@ -123,18 +124,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const calendarListingPage: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/calendario-pesca`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/calendario-pesca`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   const calendarPages: MetadataRoute.Sitemap = calendarMonths.map((mese) => ({
     url: `${baseUrl}/calendario-pesca/${mese}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.8,
   }));
 
   const spotsListingPage: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/spot-pesca-italia`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/spot-pesca-italia`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   const spotRegionPages: MetadataRoute.Sitemap = (spotsData as any).regions.map((r: any) => ({
@@ -154,14 +155,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const techniquesListingPage: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/tecniche`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/tecniche`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   const techniquePages: MetadataRoute.Sitemap = techniquesData.techniques.map((t: any) => ({
     url: `${baseUrl}/tecniche/${t.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
-    priority: 0.75,
+    priority: 0.8,
+  }));
+
+  const miglioriHubPage: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/migliori`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+  ];
+
+  const miglioriCategoryPages: MetadataRoute.Sitemap = (productsData as { categories: { slug: string }[] }).categories.map((c) => ({
+    url: `${baseUrl}/migliori/${c.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
   }));
 
   const calendarRegionIds = ['sardegna','sicilia','liguria','puglia','toscana','campania','lazio','calabria','veneto','emilia-romagna'];
@@ -169,7 +181,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/calendario-pesca/${r}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    priority: 0.75,
   }));
 
   const calendarRegionalMonthPages: MetadataRoute.Sitemap = (regionalCalendarData as any).entries.map((e: any) => ({
@@ -179,5 +191,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...categoryPages, ...articlePages, ...fishListingPage, ...fishPages, ...calendarListingPage, ...calendarPages, ...calendarRegionalHubPages, ...calendarRegionalMonthPages, ...spotsListingPage, ...spotRegionPages, ...spotDetailPages, ...techniquesListingPage, ...techniquePages];
+  return [...staticPages, ...categoryPages, ...articlePages, ...fishListingPage, ...fishPages, ...calendarListingPage, ...calendarPages, ...calendarRegionalHubPages, ...calendarRegionalMonthPages, ...spotsListingPage, ...spotRegionPages, ...spotDetailPages, ...techniquesListingPage, ...techniquePages, ...miglioriHubPage, ...miglioriCategoryPages];
 }

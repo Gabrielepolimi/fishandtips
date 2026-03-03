@@ -9,6 +9,8 @@ import LikeButton from '../../../components/articles/LikeButton';
 import FishingRodComparison from '../../../components/articles/FishingRodComparison';
 import YouTubeEmbed from '../../../components/articles/YouTubeEmbed';
 import FishSpeciesBox from '../../../components/articles/FishSpeciesBox';
+import RelatedDatabaseLinks from '../../../components/articles/RelatedDatabaseLinks';
+import { extractRelatedLinks, portableTextToPlainText } from '../../../lib/extract-related-links';
 
 interface Post {
   _id: string;
@@ -612,6 +614,9 @@ export default async function PostPage({ params }: Props) {
             </div>
           </div>
         </footer>
+
+        {/* Link a pagine database (tecniche, specie, regioni) estratti da titolo e corpo */}
+        <RelatedDatabaseLinks links={extractRelatedLinks(post.title, portableTextToPlainText(post.body))} />
 
         {/* Approfondisci / Guide correlate */}
         {relatedArticles && relatedArticles.length > 0 && (

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import techniquesData from '../../../data/fishing-techniques.json';
 import fishData from '../../../data/fish-encyclopedia.json';
 import spotsData from '../../../data/fishing-spots.json';
+import productsData from '../../../data/fishing-products.json';
 
 interface TechniqueData {
   slug: string;
@@ -99,6 +100,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
       url: `https://fishandtips.it/tecniche/${tech.slug}`,
       siteName: 'FishandTips',
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary',
@@ -135,6 +137,10 @@ export default async function TechniqueDetailPage({ params }: { params: Promise<
   }).filter(Boolean) as { name: string; slug: string; icon: string }[];
 
   const recommendedSpots = findSpotsForTechnique(tech.name);
+
+  const relatedProductCategory = (productsData as { categories: { slug: string; relatedTechnique: string | null }[] }).categories.find(
+    (c) => c.relatedTechnique === tech.slug
+  );
 
   const relatedTechs = tech.relatedTechniques.map(slug =>
     techniquesData.techniques.find(t => t.slug === slug)
@@ -254,6 +260,17 @@ export default async function TechniqueDetailPage({ params }: { params: Promise<
               </div>
             ))}
           </div>
+
+          {relatedProductCategory && (
+            <div className="mt-4">
+              <Link
+                href={`/migliori/${relatedProductCategory.slug}`}
+                className="inline-flex items-center gap-2 text-brand-blue hover:underline font-medium"
+              >
+                Vedi i migliori prodotti per {tech.name} →
+              </Link>
+            </div>
+          )}
 
           {/* Rigs */}
           <div className="mt-6 p-6 bg-gray-50 rounded-xl">

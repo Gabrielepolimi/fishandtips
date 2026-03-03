@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ regione: 
       description: `Cosa pescare in ${regionName} mese per mese: specie, spot e tecniche per ogni stagione.`,
       type: 'website',
       url: `https://fishandtips.it/calendario-pesca/${regione}`,
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `https://fishandtips.it/calendario-pesca/${regione}`,

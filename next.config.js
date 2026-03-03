@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: '/migliori-pesca-2026', destination: '/migliori', permanent: true },
+    ];
+  },
   images: {
     remotePatterns: [
       {

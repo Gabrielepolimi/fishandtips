@@ -91,6 +91,8 @@ export async function generateMetadata({
       title: `Pesca a ${spot.name} - Guida Completa | FishandTips`,
       description: `Tutto quello che devi sapere per pescare a ${spot.name}: ${speciesList}. Coordinate GPS, tecniche e consigli.`,
       type: 'article',
+      url: `https://fishandtips.it/spot-pesca-italia/${regionSlug}/${spotSlug}`,
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `https://fishandtips.it/spot-pesca-italia/${regionSlug}/${spotSlug}`,

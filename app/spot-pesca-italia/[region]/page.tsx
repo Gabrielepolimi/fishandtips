@@ -60,6 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<{ region: s
       type: 'article',
       url,
       siteName: 'FishandTips',
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     twitter: { card: 'summary', title: `Pesca in ${region.name} | FishandTips`, description: desc },
     alternates: { canonical: url },

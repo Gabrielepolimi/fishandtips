@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import fishData from '../../../data/fish-encyclopedia.json';
 import techniquesData from '../../../data/fishing-techniques.json';
+import spotsData from '../../../data/fishing-spots.json';
 import { sanityClient } from '../../../sanityClient';
 
 interface RelatedArticle {
@@ -128,6 +129,7 @@ interface FishData {
 }
 
 const monthNames = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+const monthSlugs = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
 
 function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
   return (
@@ -148,7 +150,7 @@ function StarRating({ rating, max = 5 }: { rating: number; max?: number }) {
 
 function SeasonalityBar({ best, good }: { best: number[]; good: number[] }) {
   const currentMonth = new Date().getMonth() + 1;
-  
+
   return (
     <div className="flex gap-1">
       {Array.from({ length: 12 }).map((_, i) => {
@@ -156,9 +158,11 @@ function SeasonalityBar({ best, good }: { best: number[]; good: number[] }) {
         const isBest = best.includes(month);
         const isGood = good.includes(month);
         const isCurrent = month === currentMonth;
-        
-        return (
-          <div key={month} className="flex-1 text-center">
+        const activityOk = isBest || isGood;
+        const slug = monthSlugs[i];
+
+        const content = (
+          <>
             <div
               className={`h-8 rounded-sm ${
                 isBest
@@ -171,6 +175,18 @@ function SeasonalityBar({ best, good }: { best: number[]; good: number[] }) {
             <span className={`text-xs ${isCurrent ? 'text-blue-600 font-semibold' : 'text-gray-400'}`}>
               {monthNames[i]}
             </span>
+          </>
+        );
+
+        return (
+          <div key={month} className="flex-1 text-center">
+            {activityOk ? (
+              <Link href={`/calendario-pesca/${slug}`} className="block hover:opacity-90" title={`Calendario pesca ${monthNames[i]}`}>
+                {content}
+              </Link>
+            ) : (
+              content
+            )}
           </div>
         );
       })}
@@ -214,6 +230,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'article',
       url: `https://fishandtips.it/pesci-mediterraneo/${fish.slug}`,
       siteName: 'FishandTips',
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary',
@@ -440,8 +457,49 @@ export default async function FishDetailPage({ params }: { params: Promise<{ slu
               </span>
             </div>
             <p className="text-gray-600 mt-4">{fish.seasonality.description}</p>
+            {fish.seasonality.best.length > 0 && (
+              <p className="mt-4">
+                <Link
+                  href={`/calendario-pesca/${monthSlugs[fish.seasonality.best[0] - 1]}`}
+                  className="text-brand-blue font-semibold hover:underline"
+                >
+                  Periodo top: {monthSlugs[fish.seasonality.best[0] - 1].charAt(0).toUpperCase() + monthSlugs[fish.seasonality.best[0] - 1].slice(1)} →
+                </Link>
+              </p>
+            )}
           </div>
         </section>
+
+        {/* Dove trovarla in Italia */}
+        {(() => {
+          const regions = (spotsData as any).regions ?? [];
+          const candidates: { regionId: string; regionName: string; spot: any; rating: number }[] = [];
+          for (const r of regions) {
+            for (const spot of r.spots ?? []) {
+              const sp = spot.species?.find((s: any) => s.name === fish.name);
+              if (sp) candidates.push({ regionId: r.id, regionName: r.name, spot, rating: sp.rating ?? 0 });
+            }
+          }
+          const topSpots = candidates.sort((a, b) => b.rating - a.rating).slice(0, 3);
+          if (topSpots.length === 0) return null;
+          return (
+            <section className="mb-10">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">Dove trovarla in Italia</h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {topSpots.map(({ regionId, regionName, spot }) => (
+                  <Link
+                    key={`${regionId}-${spot.id}`}
+                    href={`/spot-pesca-italia/${regionId}/${spot.id}`}
+                    className="block p-4 rounded-xl bg-white border border-gray-200 hover:border-brand-blue/40 hover:shadow-md transition"
+                  >
+                    <p className="font-semibold text-gray-900">{spot.name}</p>
+                    <p className="text-sm text-gray-500">{regionName}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })()}
 
         {/* Fishing Section */}
         <section className="mb-10">

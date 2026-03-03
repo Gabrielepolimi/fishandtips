@@ -38,7 +38,7 @@ export default function Navbar() {
               <Link href="/categoria/tecniche-di-pesca" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Categorie
               </Link>
-              <Link href="/migliori-pesca-2026" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
+              <Link href="/migliori" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Migliori 2026
               </Link>
               <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow px-3 py-2 rounded-md text-sm font-medium transition-colors">
@@ -113,7 +113,7 @@ export default function Navbar() {
           <Link href="/categoria/tecniche-di-pesca" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Categorie
           </Link>
-          <Link href="/migliori-pesca-2026" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
+          <Link href="/migliori" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">
             Migliori 2026
           </Link>
           <Link href="/pesci-mediterraneo" className="text-white hover:text-brand-yellow block px-3 py-2 rounded-md text-base font-medium">

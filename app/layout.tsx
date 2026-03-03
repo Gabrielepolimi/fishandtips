@@ -94,7 +94,7 @@ export default function RootLayout({
           }}
         />
         
-        {/* JSON-LD Schema */}
+        {/* JSON-LD WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -103,20 +103,30 @@ export default function RootLayout({
               "@type": "WebSite",
               "name": "FishandTips",
               "url": "https://fishandtips.it",
-              "description": "Blog di pesca con consigli esperti e contenuti personalizzati",
-              "publisher": {
-                "@type": "Organization",
-                "name": "FishandTips",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://fishandtips.it/images/icononly.png"
-                }
-              },
+              "description": "La guida completa alla pesca sportiva in Italia",
+              "inLanguage": "it-IT",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://fishandtips.it/articoli?search={search_term_string}",
+                "target": "https://fishandtips.it/articoli?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
+            })
+          }}
+        />
+        {/* JSON-LD Organization (standalone) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "FishandTips",
+              "url": "https://fishandtips.it",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://fishandtips.it/images/logo.png"
+              },
+              "sameAs": []
             })
           }}
         />

@@ -57,6 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ regione: 
       type: 'article',
       url: `https://fishandtips.it/calendario-pesca/${regione}/${mese}`,
       siteName: 'FishandTips',
+      images: [{ url: 'https://fishandtips.it/images/og-default.jpg', width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `https://fishandtips.it/calendario-pesca/${regione}/${mese}`,

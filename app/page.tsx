@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import HeroSection from '../components/home/HeroSection';
+import HomeHubSections from '../components/home/HomeHubSections';
 import FeaturedArticles from '../components/home/FeaturedArticles';
 import NewsletterSection from '../components/home/NewsletterSection';
 import CategoryArticles from '../components/home/CategoryArticles';
 import { getPosts } from '../lib/getPosts';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'FishandTips - Consigli di Pesca Esperti e Personalizzati',
@@ -47,6 +46,7 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
+      <HomeHubSections />
       <FeaturedArticles articles={posts} />
       
       {/* Sezioni per categoria */}
