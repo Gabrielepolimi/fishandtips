@@ -107,7 +107,10 @@ export default function RootLayout({
               "inLanguage": "it-IT",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://fishandtips.it/articoli?q={search_term_string}",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://fishandtips.it/articoli?search={search_term_string}"
+                },
                 "query-input": "required name=search_term_string"
               }
             })

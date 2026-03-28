@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
             <div className="flex items-center mb-4">
               <Image
                 src="/images/icononly.png"
@@ -49,15 +49,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Esplora */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Navigazione</h3>
+            <h3 className="text-lg font-semibold mb-4">Esplora</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
               <li>
                 <Link href="/articoli" className="text-gray-300 hover:text-white transition-colors">
                   Articoli
@@ -69,48 +64,75 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/chi-siamo" className="text-gray-300 hover:text-white transition-colors">
-                  Chi Siamo
+                <Link href="/spot-pesca-italia" className="text-gray-300 hover:text-white transition-colors">
+                  Spot di Pesca
                 </Link>
               </li>
               <li>
-                <Link href="/contatti" className="text-gray-300 hover:text-white transition-colors">
-                  Contatti
+                <Link href="/tecniche" className="text-gray-300 hover:text-white transition-colors">
+                  Tecniche
+                </Link>
+              </li>
+              <li>
+                <Link href="/calendario-pesca" className="text-gray-300 hover:text-white transition-colors">
+                  Calendario Pesca
+                </Link>
+              </li>
+              <li>
+                <Link href="/migliori" className="text-gray-300 hover:text-white transition-colors">
+                  Migliori 2026
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legale</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/termini" className="text-gray-300 hover:text-white transition-colors">
-                  Termini di Servizio
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookie-policy" className="text-gray-300 hover:text-white transition-colors">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/editorial-policy" className="text-gray-300 hover:text-white transition-colors">
-                  Editorial Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/newsletter/unsubscribe" className="text-gray-300 hover:text-white transition-colors">
-                  Disiscriviti dalla Newsletter
-                </Link>
-              </li>
-            </ul>
+          {/* Informazioni + Legale */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/chi-siamo" className="text-gray-300 hover:text-white transition-colors">
+                    Chi Siamo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/editorial-policy" className="text-gray-300 hover:text-white transition-colors">
+                    Editorial Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contatti" className="text-gray-300 hover:text-white transition-colors">
+                    Contatti
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Legale</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/termini" className="text-gray-300 hover:text-white transition-colors">
+                    Termini di Servizio
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cookie-policy" className="text-gray-300 hover:text-white transition-colors">
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/newsletter/unsubscribe" className="text-gray-300 hover:text-white transition-colors">
+                    Disiscriviti dalla Newsletter
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

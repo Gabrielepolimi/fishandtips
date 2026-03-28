@@ -42,11 +42,11 @@ export default function HeroSection() {
                 <div className="text-sm text-gray-500">Articoli</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">30+</div>
+                <div className="text-2xl font-bold text-gray-900">249</div>
                 <div className="text-sm text-gray-500">Spot in Italia</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">20+</div>
+                <div className="text-2xl font-bold text-gray-900">31</div>
                 <div className="text-sm text-gray-500">Specie di pesci</div>
               </div>
             </div>

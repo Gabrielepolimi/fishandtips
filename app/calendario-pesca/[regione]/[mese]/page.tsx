@@ -25,6 +25,8 @@ interface RegionalEntry {
   techniques: string[];
   conditions: string;
   regionalNote: string;
+  expertAdvice?: string;
+  weatherContext?: string;
 }
 
 const MONTH_SLUGS = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
@@ -198,11 +200,38 @@ export default async function RegionalMonthPage({ params }: { params: Promise<{ 
           </section>
         )}
 
-        {/* Conditions */}
+        {/* Conditions & Weather Context */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Condizioni a {entry.meseName} in {entry.regionName}</h2>
-          <p className="text-gray-700">{entry.conditions}</p>
+          <p className="text-gray-700 leading-relaxed">{entry.conditions}</p>
+          {entry.weatherContext && (
+            <div className="mt-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <p className="text-gray-600 text-sm leading-relaxed">{entry.weatherContext}</p>
+              </div>
+            </div>
+          )}
         </section>
+
+        {/* Expert Advice */}
+        {entry.expertAdvice && (
+          <section className="mb-10">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Consigli dell&apos;esperto</h2>
+            <div className="p-6 bg-amber-50 border border-amber-200 rounded-xl">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-gray-800 leading-relaxed">{entry.expertAdvice}</p>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Species */}
         <section className="mb-10">
@@ -223,7 +252,7 @@ export default async function RegionalMonthPage({ params }: { params: Promise<{ 
                     Scheda specie →
                   </Link>
                 </div>
-                <p className="text-gray-600 text-sm mb-3">{species.localTip}</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3">{species.localTip}</p>
                 {species.techniques.length > 0 && (
                   <div className="flex flex-wrap gap-2">
                     {species.techniques.map(techSlug => {

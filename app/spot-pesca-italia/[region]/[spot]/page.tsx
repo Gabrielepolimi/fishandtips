@@ -236,11 +236,6 @@ export default async function SpotDetailPage({
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Informazioni sullo spot</h2>
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-600 leading-relaxed">{spot.description}</p>
-                <p className="text-gray-600 leading-relaxed mt-4">
-                  <strong>{spot.name}</strong> si trova a {spot.locality}, in provincia di {spot.province}, 
-                  ed è uno degli spot di pesca più apprezzati della {region.name}. 
-                  Il fondale è caratterizzato da {spot.seabed.toLowerCase()} con profondità che variano da {spot.depth}.
-                </p>
                 {spot.species[0] && (
                   <p className="text-gray-600 leading-relaxed mt-4">
                     Per la pesca {spot.species[0].name === 'Spigola' || spot.species[0].name === 'Orata' || spot.species[0].name === 'Mormora' ? 'della' : 'del'} <strong>{spot.species[0].name}</strong>, 
