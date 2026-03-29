@@ -102,9 +102,6 @@ def expand_spot_description(spot, region_name):
         best = max(spot["techniques"], key=lambda t: t.get("rating", 0))
         top_tech = best.get("name", "")
 
-    tips = spot.get("tips", [])
-    first_tip = tips[0] if tips else ""
-
     access_note = ""
     if spot.get("access", {}).get("difficulty"):
         diff = spot["access"]["difficulty"]
@@ -118,8 +115,8 @@ def expand_spot_description(spot, region_name):
             access_note = f"L'accesso è {diff.lower()}, da valutare in base alla propria esperienza."
 
     templates = [
-        f"{existing} {seabed_extra}. Il fondale, caratterizzato da {seabed.lower()}, raggiunge profondità di {depth}. Ciò che rende {name} unico è {uniqueness}. Le specie principali — {species_text} — trovano qui condizioni ideali. {seasonal}. {access_note} {f'La tecnica più efficace è il {top_tech.lower()}.' if top_tech else ''} {first_tip}",
-        f"{existing} Con un fondale di {seabed.lower()} e profondità fino a {depth}, questo spot attira {species_text} durante gran parte dell'anno. {seabed_extra}. {uniqueness.capitalize()} — ecco perché {name} è un riferimento per i pescatori della zona. {seasonal}. {access_note} {first_tip}",
+        f"{existing} {seabed_extra}. Il fondale, caratterizzato da {seabed.lower()}, raggiunge profondità di {depth}. Ciò che rende {name} unico è {uniqueness}. Le specie principali — {species_text} — trovano qui condizioni ideali. {seasonal}. {access_note} {f'La tecnica più efficace è il {top_tech.lower()}.' if top_tech else ''}",
+        f"{existing} Con un fondale di {seabed.lower()} e profondità fino a {depth}, questo spot attira {species_text} durante gran parte dell'anno. {seabed_extra}. {uniqueness.capitalize()} — ecco perché {name} è un riferimento per i pescatori della zona. {seasonal}. {access_note}",
         f"{existing} Il fondale è composto da {seabed.lower()} con profondità che arrivano a {depth}, creando un ambiente perfetto per {species_text}. {seabed_extra}. Rispetto agli altri spot della zona, {uniqueness}. {seasonal}. {access_note} {f'Chi viene qui per la prima volta dovrebbe privilegiare il {top_tech.lower()}.' if top_tech else ''}",
     ]
 
