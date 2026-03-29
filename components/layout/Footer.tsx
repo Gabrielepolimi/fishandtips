@@ -1,5 +1,7 @@
 'use client';
 
+/** Site-wide footer (root layout). Touching this file invalidates shared chunks across routes. */
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
