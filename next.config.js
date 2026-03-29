@@ -47,9 +47,10 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
           },
+          // Temporaneo: evita HTML servito da cache CDN obsoleta (ISR/layout). Ripristinare public, max-age=3600, s-maxage=3600 dopo verifica.
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=3600',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },

@@ -1,5 +1,9 @@
 import { Metadata } from 'next';
 
+/** Temporaneo: hub è `use client`; il layout forza segmento non cacheato alla CDN. Ripristinare a 3600 dopo verifica in produzione. */
+export const revalidate = 0;
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Pesci del Mediterraneo - Guida Completa alle Specie | FishandTips',
   description: 'Scopri tutti i pesci del Mediterraneo italiano: spigola, orata, sarago, dentice, calamaro, seppia e molte altre specie. Guida completa con tecniche di pesca, esche migliori, stagioni e consigli per catturarli.',

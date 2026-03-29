@@ -12,7 +12,8 @@ interface PageProps {
 
 // Pagina dinamica con revalidazione ogni ora
 export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // 1 ora
+/** Temporaneo: refresh CDN post-deploy. Ripristinare a 3600 dopo verifica. */
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

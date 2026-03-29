@@ -28,7 +28,7 @@ async function getRelatedArticles(fishName: string, otherNames: string[]): Promi
         "mainImage": mainImage.asset->url,
         "bodyText": pt::text(body)
       }
-    `, {}, { next: { revalidate: 3600 } });
+    `, {}, { next: { revalidate: 0 } }); // Temporaneo: ripristinare 3600 dopo verifica produzione
 
     const timeoutPromise = new Promise<never>((_, reject) =>
       setTimeout(() => reject(new Error('timeout')), 8000)

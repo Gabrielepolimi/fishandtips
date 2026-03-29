@@ -91,7 +91,8 @@ interface Props {
 
 // Disabilita il build statico per ora
 export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // 1 ora
+/** Temporaneo: refresh pagine articolo alla CDN. Ripristinare a 3600 dopo verifica. */
+export const revalidate = 0;
 
 // Forza il refresh dei dati
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

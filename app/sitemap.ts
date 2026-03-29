@@ -6,8 +6,8 @@ import techniquesData from '../data/fishing-techniques.json';
 import productsData from '../data/fishing-products.json';
 import regionalCalendarData from '../data/fishing-calendar-regional.json';
 
-// Cache la sitemap per 1h per evitare richieste continue a Sanity
-export const revalidate = 3600;
+// Temporaneo: revalidate 0 per allinearsi al refresh post-deploy (ripristinare 3600 dopo verifica)
+export const revalidate = 0;
 
 // Slug da escludere: pagine 404 o con redirect (non indicizzare in sitemap)
 const EXCLUDED_ARTICLE_SLUGS = new Set([

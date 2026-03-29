@@ -1,5 +1,9 @@
 import { Metadata } from 'next';
 
+/** Temporaneo: hub calendario è `use client`; evita HTML/layout serviti da cache CDN obsoleta. Ripristinare revalidate a 3600 dopo verifica in produzione. */
+export const revalidate = 0;
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Calendario Pesca 2025 - Cosa Pescare Mese per Mese | FishandTips',
   description: 'Scopri cosa pescare ogni mese nel Mediterraneo. Calendario pesca completo con specie attive, tecniche consigliate, esche migliori e condizioni ideali per spigola, orata, calamari, seppie e molto altro.',

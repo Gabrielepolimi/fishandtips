@@ -4,6 +4,8 @@ import { getPosts } from '../../lib/getPosts';
 import InfiniteArticles from '../../components/articles/InfiniteArticles';
 
 export const dynamic = 'force-dynamic';
+/** Temporaneo: forza rigenerazione a ogni richiesta (CDN/Vercel) finché navbar/footer non risultano aggiornati ovunque. Ripristinare a 3600 dopo verifica in produzione. */
+export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonical = 'https://fishandtips.it/articoli';

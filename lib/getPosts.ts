@@ -18,6 +18,7 @@ export async function getPosts() {
         youtubeTitle,
         youtubeDescription
   }`, { now: new Date().toISOString() }, {
-    next: { revalidate: 3600 }
+    // Temporaneo: 0 per bust cache dati articoli (ripristinare 3600 dopo verifica produzione)
+    next: { revalidate: 0 }
   });
 }
