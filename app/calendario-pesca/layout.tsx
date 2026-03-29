@@ -5,11 +5,11 @@ export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Calendario Pesca 2025 - Cosa Pescare Mese per Mese | FishandTips',
+  title: 'Calendario Pesca 2026 - Cosa Pescare Mese per Mese | FishandTips',
   description: 'Scopri cosa pescare ogni mese nel Mediterraneo. Calendario pesca completo con specie attive, tecniche consigliate, esche migliori e condizioni ideali per spigola, orata, calamari, seppie e molto altro.',
   keywords: 'calendario pesca, cosa pescare, pesca mediterraneo, spigola quando pescare, stagione calamari, pesca mensile, calendario pescatore, quando pescare orata, periodo migliore pesca',
   openGraph: {
-    title: 'Calendario Pesca 2025 - Cosa Pescare Mese per Mese',
+    title: 'Calendario Pesca 2026 - Cosa Pescare Mese per Mese',
     description: 'Scopri cosa pescare ogni mese nel Mediterraneo. Specie attive, tecniche e condizioni ideali.',
     type: 'website',
     url: 'https://fishandtips.it/calendario-pesca',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Calendario Pesca 2025 - Cosa Pescare Mese per Mese',
+    title: 'Calendario Pesca 2026 - Cosa Pescare Mese per Mese',
     description: 'Scopri cosa pescare ogni mese nel Mediterraneo!',
   },
   alternates: {
