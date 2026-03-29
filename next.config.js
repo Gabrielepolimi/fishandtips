@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  generateBuildId: async () => {
+    return `build-${Date.now()}`
+  },
   async redirects() {
     return [
       { source: '/migliori-pesca-2026', destination: '/migliori', permanent: true },
