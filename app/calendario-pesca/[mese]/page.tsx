@@ -45,6 +45,8 @@ interface MonthData {
   daylight: string;
   overallRating: number;
   description: string;
+  monthOverview?: string;
+  expertTip?: string;
   species: Species[];
   techniques: Technique[];
   baits: Bait[];
@@ -299,6 +301,34 @@ export default async function MeseCalendarioPage({ params }: { params: Promise<{
           </div>
         </div>
 
+        {/* Month Overview + Expert Tip */}
+        {(monthData.monthOverview || monthData.expertTip) && (
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            {monthData.monthOverview && (
+              <section className="p-6 rounded-xl bg-white border border-gray-200">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Il mese in sintesi
+                </h2>
+                <p className="text-gray-700 leading-relaxed">{monthData.monthOverview}</p>
+              </section>
+            )}
+            {monthData.expertTip && (
+              <section className="p-6 rounded-xl bg-amber-50 border border-amber-200">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1zM10 18a1 1 0 001-1v-1a1 1 0 10-2 0v1a1 1 0 001 1zM17.66 16.95a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM6.464 14.95a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM10 6a4 4 0 100 8 4 4 0 000-8z" />
+                  </svg>
+                  Consiglio del mese
+                </h2>
+                <p className="text-gray-700 leading-relaxed">{monthData.expertTip}</p>
+              </section>
+            )}
+          </div>
+        )}
+
         {/* Species Section */}
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">
@@ -330,7 +360,7 @@ export default async function MeseCalendarioPage({ params }: { params: Promise<{
                         <StarRating rating={species.rating} />
                       </div>
                     </div>
-                    <p className="text-gray-600 mb-3">{species.notes}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed mb-3">{species.notes}</p>
                     <div className="flex flex-wrap gap-4 text-sm">
                       <div>
                         <span className="text-gray-500">Tecniche: </span>

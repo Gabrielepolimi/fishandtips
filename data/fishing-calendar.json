@@ -18,8 +18,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Periodo TOP! Le spigole si avvicinano alla costa per nutrirsi.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "A gennaio la spigola è nel pieno della fase riproduttiva e si avvicina massicciamente sotto costa, specialmente nelle zone di foci, canali e risacca. La si trova a profondità di 1-5 metri, attiva soprattutto all'alba e al tramonto nelle zone dove il mare rimescola il fondale. Lo spinning con minnow da 9-12cm a recupero lento è la tecnica più efficace, ma anche il surfcasting con verme americano produce risultati eccellenti. Cerca le spiagge con accumuli di alghe e detriti dopo le mareggiate.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -27,8 +30,10 @@
           "rating": 5,
           "icon": "🦑",
           "peak": true,
-          "notes": "Stagione perfetta, calamari di buona taglia vicino costa.",
-          "techniques": ["Eging"],
+          "notes": "Gennaio è il mese d'oro per il calamaro nel Mediterraneo: gli esemplari raggiungono le taglie massime e si avvicinano alla costa per la riproduzione. Si concentrano nei porti illuminati, nelle bocche dei porti e lungo le scogliere con fondali sabbiosi tra 5 e 20 metri. L'eging notturno con totanare da 2.5-3.5 è la tecnica principale, con i migliori risultati nelle prime ore dopo il tramonto. Le notti senza luna sono le più produttive.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -36,8 +41,11 @@
           "rating": 4,
           "icon": "🐠",
           "peak": false,
-          "notes": "Attivo sulla scogliera, cerca riparo dal freddo.",
-          "techniques": ["Bolognese", "Rock fishing"],
+          "notes": "Il sarago in gennaio si rifugia nelle zone rocciose più riparate, cercando anfratti e tane dove la temperatura è leggermente più alta. Lo si trova tra 3 e 15 metri di profondità, attivo principalmente nelle ore centrali della giornata quando l'acqua si scalda leggermente. La bolognese leggera con gamberetto o il rock fishing con piccoli jig sono le tecniche più indicate. Cerca le zone dove la scogliera incontra la sabbia.",
+          "techniques": [
+            "Bolognese",
+            "Rock fishing"
+          ],
           "bestTime": "Giornata"
         },
         {
@@ -45,8 +53,10 @@
           "rating": 2,
           "icon": "🐟",
           "peak": false,
-          "notes": "Difficile, si sposta in profondità. Meglio dalla barca.",
-          "techniques": ["Surfcasting"],
+          "notes": "In gennaio l'orata si sposta verso fondali più profondi, tra 10 e 20 metri, dove l'acqua mantiene temperature leggermente più miti. È una cattura difficile dalla riva in questo periodo: il surfcasting pesante con verme americano o bibi è l'approccio migliore, puntando sulle ore centrali quando il sole scalda il fondale. Dalla barca i risultati sono decisamente migliori, pescando su fondali sabbiosi con posidonia.",
+          "techniques": [
+            "Surfcasting"
+          ],
           "bestTime": "Ore centrali"
         }
       ],
@@ -71,10 +81,26 @@
         }
       ],
       "baits": [
-        {"name": "Verme americano", "target": "Spigola, Orata", "rating": 5},
-        {"name": "Totanara 3.0-3.5", "target": "Calamaro", "rating": 5},
-        {"name": "Minnow 10-12cm", "target": "Spigola", "rating": 4},
-        {"name": "Bigattino", "target": "Sarago", "rating": 4}
+        {
+          "name": "Verme americano",
+          "target": "Spigola, Orata",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 3.0-3.5",
+          "target": "Calamaro",
+          "rating": 5
+        },
+        {
+          "name": "Minnow 10-12cm",
+          "target": "Spigola",
+          "rating": 4
+        },
+        {
+          "name": "Bigattino",
+          "target": "Sarago",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Tramontana leggera, Grecale",
@@ -86,7 +112,9 @@
         "Vestiti a strati, le sessioni possono essere lunghe",
         "Le giornate di sole dopo una mareggiata sono perfette",
         "I calamari escono dopo le 18:00 nei porti illuminati"
-      ]
+      ],
+      "monthOverview": "A gennaio il Mediterraneo raggiunge le temperature minime dell'anno, con acque tra 12 e 14°C lungo la maggior parte delle coste italiane. Questo raffreddamento spinge molte specie verso fondali più profondi, ma crea opportunità straordinarie per chi cerca la spigola, che si avvicina sotto costa per alimentarsi nelle zone di turbolenza. I calamari sono al picco della stagione riproduttiva e risalgono verso acque accessibili. Le giornate corte — appena 9-10 ore di luce — concentrano l'attività dei pesci all'alba e al tramonto. Le mareggiate invernali, alternate a pause di alta pressione, rimescolano i fondali portando nutrimento e attirando i predatori nelle zone di risacca. Per il pescatore questo significa sessioni brevi ma potenzialmente molto produttive, a patto di sfruttare le finestre meteo giuste.",
+      "expertTip": "A gennaio il segreto è pescare nelle 24-48 ore dopo una mareggiata: il mare in scaduta porta nutrimento sotto costa e le spigole si attivano furiosamente. Usa minnow da 9-12cm con recupero lento — i pesci sono meno reattivi col freddo. Per i calamari, concentrati nei porti illuminati dalle 18 in poi con totanare da 3.0 luminescenti. Non sottovalutare le spiagge con accumuli di alghe: è lì che si concentrano le prede delle spigole."
     },
     "2": {
       "name": "Febbraio",
@@ -101,8 +129,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Ancora in piena attività, cerca zone con corrente.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "La spigola a febbraio è ancora protagonista assoluta: continua la fase riproduttiva e le femmine più grandi si avvicinano alla costa. Si concentra nelle foci dei fiumi, nei canali e nelle zone di risacca con fondale misto sabbia-roccia, a profondità tra 1 e 8 metri. Lo spinning con minnow e il surfcasting con verme americano restano le tecniche regine. Le ore migliori sono l'alba e le prime ore del mattino, specialmente dopo notti fredde.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -110,8 +141,10 @@
           "rating": 4,
           "icon": "🦑",
           "peak": false,
-          "notes": "Ultimi calamari della stagione, taglie importanti.",
-          "techniques": ["Eging"],
+          "notes": "Gli ultimi calamari della stagione a febbraio sono spesso i più grandi e pesanti dell'anno. Si trovano ancora nei porti illuminati e lungo le scogliere con fondo sabbioso, a profondità tra 5 e 25 metri. L'eging notturno resta la tecnica principale, con totanare da 3.0-3.5 in colori naturali. I migliori risultati si ottengono nelle notti calme dopo giornate di sole, quando i calamari si avvicinano per alimentarsi.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -119,8 +152,10 @@
           "rating": 4,
           "icon": "🐠",
           "peak": false,
-          "notes": "Inizia ad essere più attivo con l'allungarsi delle giornate.",
-          "techniques": ["Bolognese"],
+          "notes": "Il sarago a febbraio inizia a mostrare i primi segni di ripresa dopo il letargo invernale. Si trova lungo le scogliere tra 3 e 15 metri, più attivo rispetto a gennaio nelle ore centrali della giornata. La bolognese con pane e formaggio e il light rock fishing con micro jig sono le tecniche più efficaci. Cerca le zone riparate dalle correnti fredde dove l'acqua si scalda prima.",
+          "techniques": [
+            "Bolognese"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -129,7 +164,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Inizia la migrazione verso costa, prime catture.",
-          "techniques": ["Eging"],
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Tramonto"
         }
       ],
@@ -154,10 +191,26 @@
         }
       ],
       "baits": [
-        {"name": "Verme americano", "target": "Spigola", "rating": 5},
-        {"name": "Minnow sinking", "target": "Spigola", "rating": 5},
-        {"name": "Totanara 2.5", "target": "Seppia", "rating": 4},
-        {"name": "Gambero", "target": "Sarago", "rating": 4}
+        {
+          "name": "Verme americano",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Minnow sinking",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 2.5",
+          "target": "Seppia",
+          "rating": 4
+        },
+        {
+          "name": "Gambero",
+          "target": "Sarago",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Scirocco leggero",
@@ -169,7 +222,9 @@
         "Le mareggiate di febbraio portano le spigole sotto costa",
         "Cerca le foci dei fiumi dopo le piogge",
         "Attenzione alle giornate ventose, meglio ripararsi"
-      ]
+      ],
+      "monthOverview": "Febbraio segna l'ultimo mese di inverno pieno nel Mediterraneo, con temperature dell'acqua ancora basse tra 12 e 13°C ma giornate che iniziano visibilmente ad allungarsi. Le spigole sono ancora in piena attività riproduttiva e rappresentano il target principale per i pescatori da riva. I calamari entrano nell'ultima fase della stagione, con esemplari di taglia particolarmente importante. Si iniziano a vedere i primi segnali di risveglio primaverile: le seppie cominciano a muoversi verso la costa e i saraghi diventano leggermente più attivi. Le condizioni meteo restano instabili, con alternanza di perturbazioni atlantiche e giornate di alta pressione. Chi riesce a sfruttare le pause tra le mareggiate troverà condizioni eccellenti.",
+      "expertTip": "Febbraio è il mese delle soprese: le giornate di sole tra una perturbazione e l'altra sono spesso le più produttive dell'anno per la spigola. Cerca le foci dei fiumi e i canali che sfociano in mare — l'acqua dolce attira cefali e gamberetti, e dietro di loro arrivano le spigole. Usa artificiali naturali (colori grigio-verde) e recupero lentissimo. Per gli ultimi calamari della stagione, prova i porti dopo le 22: gli esemplari più grandi escono tardi."
     },
     "3": {
       "name": "Marzo",
@@ -184,8 +239,10 @@
           "rating": 5,
           "icon": "🦑",
           "peak": true,
-          "notes": "PERIODO TOP! Migrazione verso costa per la riproduzione.",
-          "techniques": ["Eging"],
+          "notes": "Marzo segna l'inizio della stagione delle seppie nel Mediterraneo: i primi esemplari migrano verso costa per la riproduzione, cercando fondali sabbiosi con posidonia a 2-10 metri di profondità. L'eging con artificiali imitazione gamberetto e il bolentino con seppietta sono le tecniche principali. Cerca le zone dove la sabbia incontra le praterie di posidonia — le seppie depongono le uova proprio lì.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Tramonto"
         },
         {
@@ -193,8 +250,11 @@
           "rating": 4,
           "icon": "🐟",
           "peak": false,
-          "notes": "Ancora presente ma inizia a spostarsi.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "A marzo la spigola chiude la stagione riproduttiva e si nutre voracemente per recuperare energie. Si trova ancora nelle foci e lungo le scogliere, a profondità tra 1 e 10 metri. Lo spinning con minnow a recupero medio funziona meglio che nei mesi precedenti perché i pesci sono più reattivi con l'acqua in riscaldamento. Le giornate di sole dopo notti fredde sono particolarmente produttive.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -202,8 +262,11 @@
           "rating": 4,
           "icon": "🐠",
           "peak": false,
-          "notes": "Molto attivo, mangia di tutto.",
-          "techniques": ["Bolognese", "Rock fishing"],
+          "notes": "Il sarago a marzo entra nella frega primaverile e diventa molto aggressivo sulle esche. Si trova lungo le scogliere tra 3 e 18 metri, attivo durante tutta la giornata ma con picchi all'alba e nel tardo pomeriggio. Il light rock fishing con piccoli jig colorati e la bolognese con gamberetto vivo sono le tecniche più produttive. Cerca le zone dove la scogliera crea cadute di profondità vicino alla riva.",
+          "techniques": [
+            "Bolognese",
+            "Rock fishing"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -212,7 +275,9 @@
           "icon": "🐟",
           "peak": false,
           "notes": "Branchi numerosi sotto costa.",
-          "techniques": ["Bolognese"],
+          "techniques": [
+            "Bolognese"
+          ],
           "bestTime": "Giornata"
         }
       ],
@@ -237,10 +302,26 @@
         }
       ],
       "baits": [
-        {"name": "Totanara 2.0-2.5", "target": "Seppia", "rating": 5},
-        {"name": "Bigattino", "target": "Sarago, Occhiata", "rating": 5},
-        {"name": "Gambero", "target": "Sarago", "rating": 4},
-        {"name": "Verme coreano", "target": "Mormore", "rating": 4}
+        {
+          "name": "Totanara 2.0-2.5",
+          "target": "Seppia",
+          "rating": 5
+        },
+        {
+          "name": "Bigattino",
+          "target": "Sarago, Occhiata",
+          "rating": 5
+        },
+        {
+          "name": "Gambero",
+          "target": "Sarago",
+          "rating": 4
+        },
+        {
+          "name": "Verme coreano",
+          "target": "Mormore",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Ponente leggero",
@@ -252,7 +333,9 @@
         "Le seppie amano i fondali sabbiosi con posidonia",
         "Marzo pazzerello: porta sempre k-way",
         "I saraghi abboccano bene con le prime giornate calde"
-      ]
+      ],
+      "monthOverview": "Marzo segna il vero risveglio del Mediterraneo: le temperature dell'acqua iniziano a risalire verso i 13-15°C e le giornate si allungano sensibilmente, superando le 12 ore di luce. Questo è il mese in cui il mare cambia volto — le seppie iniziano la migrazione riproduttiva verso acque costiere poco profonde, i saraghi tornano aggressivi con la frega primaverile, e la spigola chiude gradualmente la stagione riproduttiva. Le condizioni meteo sono instabili, con alternanza di giornate primaverili calde e ritorni di freddo. Per il pescatore è un mese di transizione ricchissimo: le specie invernali sono ancora presenti mentre quelle primaverili iniziano a farsi vedere. La varietà di target rende marzo uno dei mesi più stimolanti dell'anno.",
+      "expertTip": "A marzo il consiglio è diversificare: porta sia l'attrezzatura da spinning che quella da eging. Le mattine fredde favoriscono ancora la spigola con minnow, ma dal primo pomeriggio le seppie si attivano sui fondali sabbiosi tra 2 e 8 metri. Usa artificiali imitazione gamberetto per le seppie e cerca le zone dove la sabbia incontra la posidonia. Per i saraghi, il light rock fishing con micro jig colorati dalla scogliera dà risultati eccellenti nelle ore centrali."
     },
     "4": {
       "name": "Aprile",
@@ -267,8 +350,10 @@
           "rating": 5,
           "icon": "🦑",
           "peak": true,
-          "notes": "Picco massimo, seppie di tutte le taglie sotto costa.",
-          "techniques": ["Eging"],
+          "notes": "Aprile è il mese clou per la seppia in tutto il Mediterraneo: la migrazione riproduttiva porta gli esemplari a ridosso della costa, su fondali sabbiosi con posidonia tra 2 e 10 metri. Si trovano praticamente ovunque lungo la costa e sono accessibili sia dalla riva che dalla barca. L'eging con artificiali imitazione gamberetto è la tecnica regina — prova colori naturali la mattina e colori vivaci con acqua torbida.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Tramonto e alba"
         },
         {
@@ -277,7 +362,10 @@
           "icon": "🐟",
           "peak": false,
           "notes": "Prime lecce della stagione, ancora sporadiche.",
-          "techniques": ["Spinning", "Shore jigging"],
+          "techniques": [
+            "Spinning",
+            "Shore jigging"
+          ],
           "bestTime": "Mattina presto"
         },
         {
@@ -285,8 +373,11 @@
           "rating": 5,
           "icon": "🐠",
           "peak": true,
-          "notes": "Super attivo, abbocca facilmente.",
-          "techniques": ["Bolognese", "Rock fishing"],
+          "notes": "Il sarago ad aprile prosegue la frega e resta molto attivo lungo le scogliere. Si trova tra 3 e 18 metri di profondità, aggressivo sulle esche durante tutto l'arco della giornata. Il light rock fishing con micro jig e la bolognese con gamberetto sono le tecniche più efficaci. È uno dei mesi migliori dell'anno per questa specie, con catture frequenti anche di esemplari di buona taglia.",
+          "techniques": [
+            "Bolognese",
+            "Rock fishing"
+          ],
           "bestTime": "Tutto il giorno"
         },
         {
@@ -294,8 +385,11 @@
           "rating": 3,
           "icon": "🐟",
           "peak": false,
-          "notes": "Inizia a tornare sotto costa.",
-          "techniques": ["Surfcasting", "Bolognese"],
+          "notes": "L'orata ad aprile inizia il ritorno sotto costa dopo lo svernamento in profondità. Si trova su fondali sabbiosi-misti tra 3 e 12 metri, attiva soprattutto all'alba e nelle ore serali. Il surfcasting con verme americano e il ledgering sono le tecniche principali. Cerca le zone di transizione tra sabbia e posidonia dove scava alla ricerca di cozze e granchi.",
+          "techniques": [
+            "Surfcasting",
+            "Bolognese"
+          ],
           "bestTime": "Alba"
         }
       ],
@@ -320,10 +414,26 @@
         }
       ],
       "baits": [
-        {"name": "Totanara 2.5-3.0", "target": "Seppia", "rating": 5},
-        {"name": "Bigattino", "target": "Sarago", "rating": 5},
-        {"name": "Cozza", "target": "Orata, Sarago", "rating": 5},
-        {"name": "Popper", "target": "Leccia", "rating": 4}
+        {
+          "name": "Totanara 2.5-3.0",
+          "target": "Seppia",
+          "rating": 5
+        },
+        {
+          "name": "Bigattino",
+          "target": "Sarago",
+          "rating": 5
+        },
+        {
+          "name": "Cozza",
+          "target": "Orata, Sarago",
+          "rating": 5
+        },
+        {
+          "name": "Popper",
+          "target": "Leccia",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Maestrale leggero",
@@ -335,7 +445,9 @@
         "Aprile è il mese migliore per chi inizia a pescare",
         "Le seppie si trovano anche in 1-2 metri d'acqua",
         "Porta la macchina fotografica, catture memorabili!"
-      ]
+      ],
+      "monthOverview": "Aprile è il mese dell'esplosione primaverile nel Mediterraneo: le acque raggiungono 15-17°C, le giornate superano le 13 ore di luce e il mare pullula di attività biologica. Le seppie sono nel pieno della migrazione riproduttiva e si trovano ovunque sui fondali costieri poco profondi. Le orate iniziano a riavvicinarsi alla costa dopo lo svernamento in profondità, e i cefali sono in piena attività nelle foci e nei porti. È un mese generoso dove praticamente ogni uscita porta risultati. Le condizioni meteo sono generalmente miti con piogge primaverili alternate a belle giornate. Il plancton è in piena fioritura, attirando pesce foraggio e con esso i predatori. Per il pescatore è il momento di ampliare il repertorio di tecniche.",
+      "expertTip": "Ad aprile le seppie sono il target più redditizio: cercale sui fondali sabbiosi tra 2 e 8 metri, vicino alle praterie di posidonia, specialmente la mattina presto con acqua calma e limpida. Gli artificiali tipo gamberetto in colori naturali (arancione-marrone) funzionano meglio dei colori vivaci. Per le orate che tornano sotto costa, il surfcasting con verme americano su fondo sabbioso-misto è la tecnica da privilegiare. Non dimenticare i cefali nelle foci: la bolognese leggera con pane in superficie è divertente e produttiva."
     },
     "5": {
       "name": "Maggio",
@@ -350,8 +462,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "PERIODO TOP! Branchi di lecce sotto costa.",
-          "techniques": ["Spinning", "Shore jigging"],
+          "notes": "A maggio la leccia inizia a comparire sotto costa, cacciando cefali e piccoli pesci nelle zone con corrente. Si trova tra 3 e 20 metri, attiva all'alba e al crepuscolo. Lo spinning con grossi stickbait e il walking the dog in superficie sono le tecniche più efficaci. Cerca le zone dove la corrente accelera tra le rocce o lungo le punte esposte.",
+          "techniques": [
+            "Spinning",
+            "Shore jigging"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -360,7 +475,9 @@
           "icon": "🦈",
           "peak": true,
           "notes": "Arrivano i serra! Combattimenti epici.",
-          "techniques": ["Spinning"],
+          "techniques": [
+            "Spinning"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -368,8 +485,11 @@
           "rating": 4,
           "icon": "🐟",
           "peak": false,
-          "notes": "Torna numerosa, cerca i fondali sabbiosi.",
-          "techniques": ["Surfcasting", "Bolognese"],
+          "notes": "A maggio l'orata è stabilmente sotto costa e in piena alimentazione. Si trova su fondali sabbiosi e misti tra 2 e 10 metri, attiva soprattutto all'alba e al tramonto. Il surfcasting con verme americano è la tecnica regina, ma anche il ledgering e la bolognese producono ottimi risultati. Cerca le zone con cozze, ricci e granchi sul fondale — è lì che l'orata si concentra per alimentarsi.",
+          "techniques": [
+            "Surfcasting",
+            "Bolognese"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -377,8 +497,10 @@
           "rating": 3,
           "icon": "🦑",
           "peak": false,
-          "notes": "Ultime seppie della stagione, si allontanano.",
-          "techniques": ["Eging"],
+          "notes": "Le seppie a maggio sono ancora presenti ma in fase calante — gli ultimi esemplari si trovano in acque leggermente più profonde rispetto ai mesi precedenti, tra 5 e 15 metri. L'eging resta efficace ma bisogna cercare le zone con posidonia densa. La mattina presto con acqua calma offre le migliori possibilità per gli ultimi esemplari della stagione.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Sera"
         },
         {
@@ -387,7 +509,10 @@
           "icon": "🐟",
           "peak": true,
           "notes": "Banchi enormi, perfetto per light tackle.",
-          "techniques": ["Bolognese", "Spinning leggero"],
+          "techniques": [
+            "Bolognese",
+            "Spinning leggero"
+          ],
           "bestTime": "Pomeriggio"
         }
       ],
@@ -412,10 +537,26 @@
         }
       ],
       "baits": [
-        {"name": "Popper", "target": "Leccia, Serra", "rating": 5},
-        {"name": "Jig metallico", "target": "Serra, Palamita", "rating": 5},
-        {"name": "Cozza", "target": "Orata", "rating": 5},
-        {"name": "Sabiki", "target": "Sugarello", "rating": 5}
+        {
+          "name": "Popper",
+          "target": "Leccia, Serra",
+          "rating": 5
+        },
+        {
+          "name": "Jig metallico",
+          "target": "Serra, Palamita",
+          "rating": 5
+        },
+        {
+          "name": "Cozza",
+          "target": "Orata",
+          "rating": 5
+        },
+        {
+          "name": "Sabiki",
+          "target": "Sugarello",
+          "rating": 5
+        }
       ],
       "conditions": {
         "idealWind": "Qualsiasi leggero",
@@ -427,7 +568,9 @@
         "Maggio è il mese per provare tecniche nuove",
         "I serra tagliano i fili: usa il cavetto d'acciaio!",
         "All'alba trovi le lecce a caccia in superficie"
-      ]
+      ],
+      "monthOverview": "Maggio è uno dei mesi più completi per la pesca nel Mediterraneo: le temperature dell'acqua raggiungono 18-20°C, le giornate sono lunghe oltre 14 ore e il mare è in piena attività biologica. Le orate sono ormai stabilmente sotto costa, i saraghi continuano la stagione eccellente, le prime ricciole e lecce si avvicinano seguendo i branchi di pesce foraggio, e i barracuda iniziano a farsi vedere. Le seppie sono ancora presenti ma in fase calante. È il mese in cui la pesca diventa davvero completa: dal fondo alla superficie, dalla riva alla barca, ogni tecnica trova il suo target. Le condizioni meteo sono generalmente stabili con rare perturbazioni. Per il pescatore è il momento di massima varietà e possibilità.",
+      "expertTip": "A maggio la chiave è pescare le prime ore del mattino: le orate si alimentano attivamente all'alba sui fondali sabbiosi tra 3 e 8 metri, e i primi pelagici cacciano in superficie quando la luce è bassa. Porta un'attrezzatura versatile — una spinning medio-leggera ti permette di passare dai minnow per le spigole residue ai jig per i primi pelagici. Per le orate, il verme americano su montatura scorrevole resta imbattibile. Le seppie si trovano ancora ma bisogna cercarle in acque leggermente più profonde rispetto ad aprile."
     },
     "6": {
       "name": "Giugno",
@@ -443,7 +586,9 @@
           "icon": "🦈",
           "peak": true,
           "notes": "Branchi numerosi, aggressività massima.",
-          "techniques": ["Spinning"],
+          "techniques": [
+            "Spinning"
+          ],
           "bestTime": "Prima luce"
         },
         {
@@ -451,8 +596,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Continua il periodo d'oro.",
-          "techniques": ["Spinning", "Shore jigging"],
+          "notes": "La leccia a giugno è al meglio: caccia aggressivamente sotto costa nelle zone con corrente. Si trova tra 3 e 25 metri, attiva all'alba e al crepuscolo. Lo spinning con stickbait e topwater in superficie produce le emozioni più forti. Cerca le zone dove la corrente accelera tra le rocce e le punte esposte alle correnti. I recuperi veloci con pause generano gli attacchi più violenti.",
+          "techniques": [
+            "Spinning",
+            "Shore jigging"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -460,8 +608,10 @@
           "rating": 4,
           "icon": "🐟",
           "peak": false,
-          "notes": "Attiva di notte per evitare il caldo.",
-          "techniques": ["Surfcasting notturno"],
+          "notes": "L'orata a giugno staziona stabilmente sui fondali poco profondi tra 2 e 8 metri, alimentandosi attivamente all'alba e nelle ore notturne. Il surfcasting con verme americano e il ledgering sono le tecniche principali, ma anche la bolognese dà buoni risultati nei porti. Le ore centrali del giorno sono meno produttive — concentrarsi sull'alba e sulla pesca notturna per i risultati migliori.",
+          "techniques": [
+            "Surfcasting notturno"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -470,7 +620,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Tornano i primi calamari estivi, piccoli.",
-          "techniques": ["Eging"],
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -478,8 +630,11 @@
           "rating": 4,
           "icon": "🐟",
           "peak": false,
-          "notes": "Prime ricciole dalla costa, taglie medie.",
-          "techniques": ["Shore jigging", "Live bait"],
+          "notes": "A giugno la ricciola è in piena attività sotto costa, cacciando in branchi veloci sugarelli, aguglie e piccoli pesci. Si trova tra 5 e 40 metri, con le mangianze in superficie visibili dal mattino presto. Lo spinning pesante con jig metallici, il popping e la traina leggera sono le tecniche più produttive. I momenti migliori sono le prime ore del mattino quando il sole è basso.",
+          "techniques": [
+            "Shore jigging",
+            "Live bait"
+          ],
           "bestTime": "Mattina"
         }
       ],
@@ -504,10 +659,26 @@
         }
       ],
       "baits": [
-        {"name": "Needle fish", "target": "Serra", "rating": 5},
-        {"name": "Popper", "target": "Leccia", "rating": 5},
-        {"name": "Granchio", "target": "Orata", "rating": 5},
-        {"name": "Vivo (sugarello)", "target": "Ricciola", "rating": 5}
+        {
+          "name": "Needle fish",
+          "target": "Serra",
+          "rating": 5
+        },
+        {
+          "name": "Popper",
+          "target": "Leccia",
+          "rating": 5
+        },
+        {
+          "name": "Granchio",
+          "target": "Orata",
+          "rating": 5
+        },
+        {
+          "name": "Vivo (sugarello)",
+          "target": "Ricciola",
+          "rating": 5
+        }
       ],
       "conditions": {
         "idealWind": "Ponente la sera",
@@ -519,7 +690,9 @@
         "Evita le ore centrali, troppo caldo per te e per i pesci",
         "Porta molta acqua e protezione solare",
         "La pesca notturna diventa protagonista"
-      ]
+      ],
+      "monthOverview": "Giugno segna l'ingresso nell'estate mediterranea: le temperature dell'acqua salgono a 20-23°C, le giornate raggiungono la massima durata con oltre 15 ore di luce, e il mare è generalmente calmo con bonacce frequenti. I pelagici — ricciole, lecce, palamite — sono in piena attività sotto costa e regalano combattimenti spettacolari. Le orate stazionano sui fondali poco profondi, i saraghi sono ancora attivi lungo le scogliere, e gli sgombri e le aguglie formano enormi branchi in superficie. È il mese in cui la pesca dalla riva dà il massimo per varietà e quantità. Le condizioni meteo stabili permettono sessioni lunghe e pianificabili. L'unico accorgimento è evitare le ore centrali più calde e concentrarsi su alba, tramonto e notte.",
+      "expertTip": "A giugno la pesca cambia registro: alba e tramonto sono i momenti imprescindibili, le ore centrali sono da evitare per il caldo e l'acqua troppo limpida. Per i pelagici, segui i gabbiani — dove si tuffano ci sono le mangianze. Jig metallici da 20-40g lanciati nelle cacce in superficie funzionano su ricciole, palamite e lecce. La notte diventa protagonista: le orate escono a pascolare sui fondali bassi e i primi totani si avvicinano dalla barca con le luci. Lo spinning serale con topwater è devastante per serra e leccia."
     },
     "7": {
       "name": "Luglio",
@@ -534,8 +707,10 @@
           "rating": 4,
           "icon": "🦈",
           "peak": false,
-          "notes": "Ancora presente ma più selettivo.",
-          "techniques": ["Spinning"],
+          "notes": "Il serra a luglio è in piena fase predatoria: caccia in branchi aggressivi sotto costa, attaccando cefali e sarde con violenza. Si trova tra 1 e 10 metri, attivo all'alba e al tramonto. Lo spinning con artificiali da topwater e minnow produce attacchi spettacolari. Attenzione: usa terminale in acciaio perché i suoi denti affilati tagliano qualsiasi filo. Il tramonto è spesso il momento più produttivo.",
+          "techniques": [
+            "Spinning"
+          ],
           "bestTime": "Prima dell'alba"
         },
         {
@@ -543,8 +718,10 @@
           "rating": 3,
           "icon": "🐟",
           "peak": false,
-          "notes": "Si sposta in profondità col caldo.",
-          "techniques": ["Shore jigging"],
+          "notes": "La leccia a luglio caccia attivamente nelle zone costiere con corrente, specialmente all'alba e al crepuscolo. Si trova tra 3 e 25 metri, lungo le punte rocciose e nelle zone dove la corrente crea turbolenza. Lo spinning con stickbait e walking the dog in superficie sono le tecniche più efficaci. Gli esemplari di taglia si trovano spesso lungo le scogliere esposte al largo.",
+          "techniques": [
+            "Shore jigging"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -553,7 +730,10 @@
           "icon": "🐟",
           "peak": false,
           "notes": "Branchi in superficie alla ricerca di alici.",
-          "techniques": ["Spinning", "Traina leggera"],
+          "techniques": [
+            "Spinning",
+            "Traina leggera"
+          ],
           "bestTime": "Mattina presto"
         },
         {
@@ -562,7 +742,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Calamari estivi nei porti di notte.",
-          "techniques": ["Eging"],
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte fonda"
         },
         {
@@ -571,7 +753,10 @@
           "icon": "🐟",
           "peak": true,
           "notes": "Banchi enormi, divertimento assicurato!",
-          "techniques": ["Spinning ultralight", "Bombarda"],
+          "techniques": [
+            "Spinning ultralight",
+            "Bombarda"
+          ],
           "bestTime": "Mattina"
         }
       ],
@@ -596,10 +781,26 @@
         }
       ],
       "baits": [
-        {"name": "Piccoli minnow", "target": "Serra", "rating": 4},
-        {"name": "Totanara 2.0", "target": "Calamaro", "rating": 4},
-        {"name": "Ago/Sabiki", "target": "Aguglia", "rating": 5},
-        {"name": "Jig 30-50g", "target": "Palamita", "rating": 4}
+        {
+          "name": "Piccoli minnow",
+          "target": "Serra",
+          "rating": 4
+        },
+        {
+          "name": "Totanara 2.0",
+          "target": "Calamaro",
+          "rating": 4
+        },
+        {
+          "name": "Ago/Sabiki",
+          "target": "Aguglia",
+          "rating": 5
+        },
+        {
+          "name": "Jig 30-50g",
+          "target": "Palamita",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Maestrale che rinfresca",
@@ -611,7 +812,9 @@
         "Sveglia alle 4:30 se vuoi pescare!",
         "Tanta acqua e cappello sempre",
         "Le aguglie sono perfette per i bambini"
-      ]
+      ],
+      "monthOverview": "Luglio porta il Mediterraneo al picco estivo: le temperature dell'acqua raggiungono 24-26°C, il cielo è quasi sempre sereno e il mare è spesso piatto come una tavola. I pelagici dominano la scena — tonnetti alletterati, lampughe, ricciole e palamite offrono azione costante per chi sa dove cercarli. Le acque calde attirano specie termofile come il barracuda mediterraneo e il serra, che cacciano aggressivamente sotto costa. I pesci stanziali di fondo si rifugiano in profondità o si attivano solo nelle ore più fresche. Per il pescatore è un mese di strategia: le ore centrali roventi impongono di pescare all'alba, nel tardo pomeriggio o di notte. Chi si adatta agli orari giusti trova abbondanza e varietà straordinarie.",
+      "expertTip": "A luglio la regola è semplice: pescare quando il sole è basso o assente. L'alba è il momento magico — le ricciole cacciano in superficie e i serra attaccano tutto ciò che si muove. Usa artificiali da topwater nei primi 30 minuti dopo il sorgere del sole. La pesca notturna diventa protagonista: orate di taglia escono a pascolare sui bassi fondali, totani e calamari si avvicinano alle luci, e il surfcasting produce sogliole e ombrine. Porta molta acqua, crema solare e un cappello — la disidratazione è il nemico numero uno del pescatore estivo."
     },
     "8": {
       "name": "Agosto",
@@ -627,7 +830,10 @@
           "icon": "🐟",
           "peak": false,
           "notes": "L'unico predatore ancora molto attivo.",
-          "techniques": ["Spinning", "Traina"],
+          "techniques": [
+            "Spinning",
+            "Traina"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -636,7 +842,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Ottimo nei porti turistici illuminati.",
-          "techniques": ["Eging"],
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -645,7 +853,9 @@
           "icon": "🐟",
           "peak": true,
           "notes": "Sempre presente, divertimento garantito.",
-          "techniques": ["Light game"],
+          "techniques": [
+            "Light game"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -653,8 +863,10 @@
           "rating": 2,
           "icon": "🐟",
           "peak": false,
-          "notes": "Molto difficile, solo di notte.",
-          "techniques": ["Surfcasting notturno"],
+          "notes": "L'orata ad agosto si rifugia nelle ore diurne in zone più profonde e ombreggiate, ma la notte diventa il momento d'oro: esce a pascolare sui bassi fondali sabbiosi tra 2 e 6 metri. Il surfcasting notturno con verme americano è la tecnica più produttiva. Cerca le spiagge lontane dai bagnanti e dalle luci artificiali — le orate preferiscono il buio. Le ore migliori sono tra le 22 e le 2.",
+          "techniques": [
+            "Surfcasting notturno"
+          ],
           "bestTime": "Notte fonda"
         },
         {
@@ -663,7 +875,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Iniziano a vedersi i primi totani.",
-          "techniques": ["Totanara dalla barca"],
+          "techniques": [
+            "Totanara dalla barca"
+          ],
           "bestTime": "Notte"
         }
       ],
@@ -688,10 +902,26 @@
         }
       ],
       "baits": [
-        {"name": "Totanara 2.0-2.5", "target": "Calamaro", "rating": 4},
-        {"name": "Micro jig", "target": "Aguglia", "rating": 5},
-        {"name": "Sabiki", "target": "Sugarello", "rating": 4},
-        {"name": "Jig 40g", "target": "Palamita", "rating": 4}
+        {
+          "name": "Totanara 2.0-2.5",
+          "target": "Calamaro",
+          "rating": 4
+        },
+        {
+          "name": "Micro jig",
+          "target": "Aguglia",
+          "rating": 5
+        },
+        {
+          "name": "Sabiki",
+          "target": "Sugarello",
+          "rating": 4
+        },
+        {
+          "name": "Jig 40g",
+          "target": "Palamita",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Maestrale rinfrescante",
@@ -703,7 +933,9 @@
         "Agosto è il mese per rilassarsi, non aspettarti grandi catture",
         "Perfetto per introdurre i bambini alla pesca",
         "Calamari nei porti turistici: facile e divertente!"
-      ]
+      ],
+      "monthOverview": "Agosto è il mese più caldo dell'anno nel Mediterraneo, con temperature dell'acqua che toccano i 25-27°C e giornate ancora molto lunghe. Le acque calde portano al massimo l'attività dei pelagici — tonnetti, lampughe, ricciole — mentre i pesci di fondo cercano refrigerio nelle zone più profonde e ombreggiate. Il turismo affolla le spiagge di giorno, ma la notte resta dominio dei pescatori: la pesca notturna è la vera protagonista di agosto, con orate, sogliole e cefalopodi attivi dopo il tramonto. Le bonacce prolungate rendono il mare cristallino e i pesci diffidenti con la luce diurna. Gli improvvisi temporali pomeridiani possono spezzare le bonacce e stimolare l'attività predatoria. Per il pescatore che sa adattarsi agli orari e alla pressione turistica, agosto resta un mese ricco di possibilità.",
+      "expertTip": "Ad agosto la pesca notturna è la chiave: dalle 21 in poi le orate escono a pascolare sui fondali bassi (2-5 metri) e il surfcasting con verme americano diventa micidiale. Per i pelagici, la prima ora dopo l'alba è l'unica finestra realistica — dopo le 8 le acque troppo limpide e calde rendono i pesci diffidenti. Le lampughe si trovano sotto oggetti galleggianti al largo — tronchi, cassette, boe. Evita le spiagge affollate: i moli e le scogliere isolate sono molto più produttivi in questo periodo."
     },
     "9": {
       "name": "Settembre",
@@ -718,8 +950,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "RITORNA LA REGINA! Spigole affamate ovunque.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "La spigola a settembre torna sotto costa dopo la pausa estiva, richiamata dall'abbassamento delle temperature e dall'abbondanza di pesce foraggio. Si trova tra 1 e 10 metri, attiva soprattutto dopo le prime mareggiate autunnali. Lo spinning con minnow naturali e il surfcasting sono di nuovo produttivi. Le foci dei fiumi e i canali sono i punti chiave dove concentrare l'azione.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -727,8 +962,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Orate grosse che mangiano tutto.",
-          "techniques": ["Surfcasting", "Bolognese"],
+          "notes": "L'orata a settembre entra nella fase di alimentazione intensa pre-invernale: mangia praticamente tutto il giorno sui fondali tra 3 e 10 metri. Il surfcasting con verme americano e il ledgering sono micidiali. Anche le ore centrali diurne sono produttive — non serve più aspettare alba e tramonto come in estate. Le zone con posidonia e fondale misto sabbia-roccia concentrano le catture maggiori.",
+          "techniques": [
+            "Surfcasting",
+            "Bolognese"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -737,7 +975,9 @@
           "icon": "🦈",
           "peak": true,
           "notes": "Ultimi serra prima della partenza, aggressivissimi.",
-          "techniques": ["Spinning"],
+          "techniques": [
+            "Spinning"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -746,7 +986,10 @@
           "icon": "🐟",
           "peak": true,
           "notes": "Tornano sotto costa per l'ultima abbuffata.",
-          "techniques": ["Spinning", "Shore jigging"],
+          "techniques": [
+            "Spinning",
+            "Shore jigging"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -755,7 +998,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Inizia la stagione dei totani.",
-          "techniques": ["Totanara"],
+          "techniques": [
+            "Totanara"
+          ],
           "bestTime": "Notte"
         }
       ],
@@ -780,10 +1025,26 @@
         }
       ],
       "baits": [
-        {"name": "Minnow 10-14cm", "target": "Spigola, Serra", "rating": 5},
-        {"name": "Granchio", "target": "Orata", "rating": 5},
-        {"name": "Popper", "target": "Leccia", "rating": 5},
-        {"name": "Totanara 3.0", "target": "Totano", "rating": 4}
+        {
+          "name": "Minnow 10-14cm",
+          "target": "Spigola, Serra",
+          "rating": 5
+        },
+        {
+          "name": "Granchio",
+          "target": "Orata",
+          "rating": 5
+        },
+        {
+          "name": "Popper",
+          "target": "Leccia",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 3.0",
+          "target": "Totano",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Grecale leggero",
@@ -795,7 +1056,9 @@
         "Se puoi pescare solo un mese all'anno, scegli settembre!",
         "Le prime mareggiate autunnali sono d'oro",
         "I pesci mangiano come se non ci fosse un domani"
-      ]
+      ],
+      "monthOverview": "Settembre è unanimemente considerato il mese d'oro della pesca nel Mediterraneo. Le temperature dell'acqua restano alte tra 22 e 24°C, le giornate si accorciano gradualmente e i pesci entrano in una fase di alimentazione frentica prima dell'autunno. Tutte le specie sono attive simultaneamente: le ricciole raggiungono il picco di taglia e aggressività, le orate sono in piena alimentazione pre-invernale, le spigole tornano sotto costa, i saraghi sono voracissimi. I pelagici continuano le cacce in superficie e le prime mareggiate autunnali portano nutrimento e stimolano l'attività predatoria. Per il pescatore è il mese in cui tutto sembra funzionare: ogni tecnica, ogni esca, ogni spot dà risultati. Le condizioni meteo variabili aggiungono dinamismo e ogni giornata è diversa dalla precedente.",
+      "expertTip": "Settembre è il mese in cui non serve essere esperti — basta essere in acqua. Ma per massimizzare le catture, concentrati sulle scadute dopo le prime mareggiate autunnali: il mare che si calma dopo una burrasca è il momento più produttivo dell'anno. Le ricciole di taglia si trovano sulle secche vicino alla costa la mattina presto. Le orate si alimentano tutto il giorno sui fondali tra 3 e 10 metri. Per la spigola che torna, cerca le foci con minnow naturali. Non dimenticare l'eging serale per le prime seppie della nuova stagione."
     },
     "10": {
       "name": "Ottobre",
@@ -810,8 +1073,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Periodo eccezionale, spigole di taglia.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "La spigola a ottobre torna prepotentemente sotto costa, richiamata dalle mareggiate che portano nutrimento nella risacca. Si trova tra 1 e 8 metri, attivissima nelle zone di turbolenza vicino a scogliere e foci. Lo spinning con minnow in acque mosse e il surfcasting con verme americano sono le tecniche principali. Le scadute dopo le mareggiate sono i momenti più produttivi — la spigola caccia nella schiuma.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -820,7 +1086,10 @@
           "icon": "🦑",
           "peak": true,
           "notes": "STAGIONE TOP! Totani rossi giganti.",
-          "techniques": ["Totanara", "Eging"],
+          "techniques": [
+            "Totanara",
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -828,8 +1097,10 @@
           "rating": 4,
           "icon": "🐟",
           "peak": false,
-          "notes": "Ancora molto attiva, cerca cibo per l'inverno.",
-          "techniques": ["Surfcasting"],
+          "notes": "L'orata a ottobre inizia a spostarsi verso i porti e le zone riparate, cercando acque più temperate. Si trova tra 3 e 12 metri, ancora attiva soprattutto all'alba e al tramonto. Il surfcasting e la bolognese nei porti sono le tecniche più efficaci. Nei porti la pasturazione con formaggio e sarde attira branchi di orate sotto le banchine — provate il bigattino come esca.",
+          "techniques": [
+            "Surfcasting"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -838,7 +1109,10 @@
           "icon": "🐠",
           "peak": true,
           "notes": "Saragoni grossi sulla scogliera.",
-          "techniques": ["Bolognese", "Rock fishing"],
+          "techniques": [
+            "Bolognese",
+            "Rock fishing"
+          ],
           "bestTime": "Giornata"
         },
         {
@@ -846,8 +1120,10 @@
           "rating": 4,
           "icon": "🦑",
           "peak": false,
-          "notes": "Inizia la stagione, taglie in crescita.",
-          "techniques": ["Eging"],
+          "notes": "A ottobre inizia la nuova stagione del calamaro nel Mediterraneo. I primi esemplari si avvicinano alla costa, concentrandosi nei porti illuminati e lungo le scogliere con fondo sabbioso. L'eging con totanare da 2.5-3.0 è la tecnica principale, con i migliori risultati dalle 18 alle 22. Le sere fresche e calme dopo giornate di sole sono le più produttive per i primi calamari della stagione.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Sera"
         }
       ],
@@ -872,10 +1148,26 @@
         }
       ],
       "baits": [
-        {"name": "Minnow suspending", "target": "Spigola", "rating": 5},
-        {"name": "Totanara 3.5-4.0", "target": "Totano", "rating": 5},
-        {"name": "Cozza", "target": "Sarago, Orata", "rating": 5},
-        {"name": "Verme americano", "target": "Spigola, Orata", "rating": 5}
+        {
+          "name": "Minnow suspending",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 3.5-4.0",
+          "target": "Totano",
+          "rating": 5
+        },
+        {
+          "name": "Cozza",
+          "target": "Sarago, Orata",
+          "rating": 5
+        },
+        {
+          "name": "Verme americano",
+          "target": "Spigola, Orata",
+          "rating": 5
+        }
       ],
       "conditions": {
         "idealWind": "Scirocco prima, Tramontana dopo",
@@ -887,7 +1179,9 @@
         "Le notti senza luna sono perfette per i totani",
         "Cerca le spigole alle foci dopo le piogge",
         "Ottobre è ideale per pescare tutto il giorno"
-      ]
+      ],
+      "monthOverview": "Ottobre è il mese in cui l'autunno prende possesso del Mediterraneo: le temperature dell'acqua scendono verso 19-21°C, le giornate si accorciano rapidamente e le prime perturbazioni portano mareggiate importanti. Le spigole tornano in grande stile sotto costa, le orate si spostano verso i porti cercando acque più riparate, e i cefalopodi — calamari e seppie — iniziano la nuova stagione. Le mareggiate rimescolano i fondali e portano nutrimento, stimolando l'attività predatoria di tutte le specie. È un mese eccellente per il surfcasting, con condizioni di mare mosso che portano mormore, ombrine e spigole nella risacca. I pelagici iniziano a diradarsi ma le ultime palamite e ricciole della stagione sono ancora accessibili. Per il pescatore è il mese del ritorno alle origini: la scogliera battuta dal vento e il surfcasting dopo la mareggiata.",
+      "expertTip": "A ottobre le scadute dopo le mareggiate sono il momento magico: il mare che si calma progressivamente porta in risacca mormore, spigole e ombrine. Il surfcasting pesante con verme americano su spiagge con fondale misto è la tecnica regina. Per i calamari, ricomincia la stagione nei porti illuminati dalle 18 in poi — le prime sere fredde sono le migliori. Non trascurare la spigola a spinning: i minnow da 9-12cm in acque mosse producono catture eccezionali. L'orata si sposta nei porti — provate la bolognese con bigattino vicino alle banchine."
     },
     "11": {
       "name": "Novembre",
@@ -902,8 +1196,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Spigole in piena attività, anche di taglia.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "A novembre la spigola è al picco della voracità: si alimenta ferocemente nella risacca e lungo le scogliere battute dalle onde. Si trova tra 1 e 8 metri, attiva soprattutto all'alba e nelle ore successive alle mareggiate. Lo spinning con minnow pesanti (12-14cm) che tengano il mare mosso e il surfcasting con verme americano sono le tecniche regine. Le foci gonfie dopo le piogge attirano esemplari di taglia eccezionale.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba"
         },
         {
@@ -911,8 +1208,10 @@
           "rating": 5,
           "icon": "🦑",
           "peak": true,
-          "notes": "Inizia la stagione TOP dei calamari!",
-          "techniques": ["Eging"],
+          "notes": "I calamari a novembre entrano nella piena stagione: branchi importanti si avvicinano alla costa per alimentarsi e riprodursi. Si trovano nei porti illuminati, lungo le scogliere e nelle zone con fondo sabbioso tra 5 e 25 metri. L'eging con totanare da 3.0-3.5 luminescenti è micidiale nelle notti senza luna. Le sere con temperature in calo rapido sono le più produttive — i calamari si avvicinano per sfruttare gli ultimi residui di calore costiero.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Sera e notte"
         },
         {
@@ -921,7 +1220,9 @@
           "icon": "🦑",
           "peak": false,
           "notes": "Ancora presente, ultimi della stagione.",
-          "techniques": ["Totanara"],
+          "techniques": [
+            "Totanara"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -929,8 +1230,10 @@
           "rating": 4,
           "icon": "🐠",
           "peak": false,
-          "notes": "Attivo sulla scogliera.",
-          "techniques": ["Bolognese"],
+          "notes": "Il sarago a novembre si avvicina alle scogliere basse e ai piedi delle pareti rocciose, cercando riparo e nutrimento tra gli anfratti. Si trova tra 3 e 15 metri, attivo nelle ore centrali quando la temperatura raggiunge il massimo. La bolognese con gamberetto e il rock fishing con micro jig funzionano bene nelle giornate di calma tra le perturbazioni. Cerca le zone dove alghe e mitili ricoprono le rocce.",
+          "techniques": [
+            "Bolognese"
+          ],
           "bestTime": "Mattina"
         },
         {
@@ -938,8 +1241,10 @@
           "rating": 3,
           "icon": "🐟",
           "peak": false,
-          "notes": "Inizia a rallentare, cerca acque più calde.",
-          "techniques": ["Surfcasting"],
+          "notes": "L'orata a novembre si concentra nei porti e nelle zone riparate, cercando le ultime acque temperate prima dell'inverno. Si trova tra 5 e 15 metri, meno attiva rispetto ai mesi precedenti ma ancora catturabile. La bolognese nei porti con bigattino e il surfcasting con verme americano sono le tecniche principali. Cerca le banchine esposte al sole nelle ore centrali dove l'acqua si scalda leggermente.",
+          "techniques": [
+            "Surfcasting"
+          ],
           "bestTime": "Ore centrali"
         }
       ],
@@ -964,10 +1269,26 @@
         }
       ],
       "baits": [
-        {"name": "Jerkbait", "target": "Spigola", "rating": 5},
-        {"name": "Totanara 3.0", "target": "Calamaro", "rating": 5},
-        {"name": "Verme americano", "target": "Spigola", "rating": 5},
-        {"name": "Bigattino", "target": "Sarago", "rating": 4}
+        {
+          "name": "Jerkbait",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 3.0",
+          "target": "Calamaro",
+          "rating": 5
+        },
+        {
+          "name": "Verme americano",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Bigattino",
+          "target": "Sarago",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Tramontana dopo libeccio",
@@ -979,7 +1300,9 @@
         "Le mareggiate di novembre sono produttive per la spigola",
         "I calamari iniziano ad avvicinarsi alla costa",
         "Vestiti pesante, fa freddo ma si pesca bene!"
-      ]
+      ],
+      "monthOverview": "Novembre è il mese delle grandi mareggiate e della pesca d'autunno avanzato nel Mediterraneo: le temperature dell'acqua scendono a 16-18°C, le perturbazioni si fanno frequenti e il mare è spesso agitato. Ma è proprio in queste condizioni che la pesca dà il meglio per chi non teme il freddo. Le spigole sono voracissime nella risacca, i calamari si avvicinano massicciamente alla costa, e le mormore si concentrano nella zona di frangente. Le giornate corte — appena 10 ore di luce — concentrano l'attività in finestre precise. Le mareggiate portano enormi quantità di nutrimento sotto costa, attirando tutte le specie in una frenesia alimentare pre-invernale. Novembre è un mese sottovalutato che regala catture memorabili a chi ha il coraggio di affrontare le condizioni avverse.",
+      "expertTip": "A novembre la parola d'ordine è resilienza: le finestre di pesca tra una perturbazione e l'altra durano poche ore ma sono esplosive. Il surfcasting dopo le mareggiate produce spigole, mormore e ombrine di taglia. Per i calamari la stagione entra nel vivo — prova l'eging nei porti dalle 17:30 con totanare luminescenti nelle notti senza luna. Per la spigola a spinning, cerca le scogliere battute con minnow pesanti che tengano il mare mosso. Vestiti adeguatamente: giacca impermeabile, stivali e sottostrato termico sono obbligatori per sessioni produttive."
     },
     "12": {
       "name": "Dicembre",
@@ -994,8 +1317,11 @@
           "rating": 5,
           "icon": "🐟",
           "peak": true,
-          "notes": "Stagione d'oro! Le spigole cacciano sotto costa.",
-          "techniques": ["Spinning", "Surfcasting"],
+          "notes": "A dicembre la spigola entra nella fase pre-riproduttiva e inizia ad avvicinarsi alla costa con un comportamento sempre più aggressivo. Si trova tra 1 e 8 metri, concentrata nelle foci dei fiumi, nei canali e nelle zone di risacca. Lo spinning con minnow sospending a recupero lento e il surfcasting con verme americano sono le tecniche principali. Le giornate di sole dopo il maltempo sono i momenti d'oro — la spigola caccia nella schiuma residua delle onde.",
+          "techniques": [
+            "Spinning",
+            "Surfcasting"
+          ],
           "bestTime": "Alba e tramonto"
         },
         {
@@ -1003,8 +1329,10 @@
           "rating": 5,
           "icon": "🦑",
           "peak": true,
-          "notes": "Calamari di taglia nei porti e dalla scogliera.",
-          "techniques": ["Eging"],
+          "notes": "I calamari a dicembre raggiungono il picco della stagione: esemplari di taglia importante si avvicinano massicciamente alla costa nelle ore notturne. Si concentrano nei porti illuminati e lungo le scogliere con fondo sabbioso tra 5 e 20 metri. L'eging con totanare da 3.0-3.5 luminescenti è la tecnica regina. Le sere senza luna, con temperature in calo e mare calmo, producono le catture migliori dell'anno.",
+          "techniques": [
+            "Eging"
+          ],
           "bestTime": "Notte"
         },
         {
@@ -1012,8 +1340,10 @@
           "rating": 4,
           "icon": "🐠",
           "peak": false,
-          "notes": "Cerca riparo, attivo nelle ore centrali.",
-          "techniques": ["Bolognese"],
+          "notes": "Il sarago a dicembre riduce significativamente l'attività e si rifugia nelle tane rocciose più profonde e riparate. Si trova tra 5 e 20 metri, attivo solo nelle ore centrali più calde della giornata. La bolognese con gamberetto e il rock fishing con micro jig nelle giornate di sole sono le uniche tecniche con qualche possibilità. Non è il mese ideale per questa specie ma le giornate miti possono riservare sorprese.",
+          "techniques": [
+            "Bolognese"
+          ],
           "bestTime": "Ore centrali"
         },
         {
@@ -1022,7 +1352,9 @@
           "icon": "🐟",
           "peak": false,
           "notes": "Difficile, si è spostata in profondità.",
-          "techniques": ["Surfcasting"],
+          "techniques": [
+            "Surfcasting"
+          ],
           "bestTime": "Mezzogiorno"
         }
       ],
@@ -1047,10 +1379,26 @@
         }
       ],
       "baits": [
-        {"name": "Minnow 12-14cm", "target": "Spigola", "rating": 5},
-        {"name": "Totanara 3.0-3.5", "target": "Calamaro", "rating": 5},
-        {"name": "Verme di rimini", "target": "Spigola", "rating": 5},
-        {"name": "Gambero", "target": "Sarago", "rating": 4}
+        {
+          "name": "Minnow 12-14cm",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Totanara 3.0-3.5",
+          "target": "Calamaro",
+          "rating": 5
+        },
+        {
+          "name": "Verme di rimini",
+          "target": "Spigola",
+          "rating": 5
+        },
+        {
+          "name": "Gambero",
+          "target": "Sarago",
+          "rating": 4
+        }
       ],
       "conditions": {
         "idealWind": "Tramontana leggera",
@@ -1062,14 +1410,9 @@
         "Dicembre è il mese della spigola per eccellenza",
         "I calamari di Natale sono un classico!",
         "Copriti bene ma esci: ne vale la pena!"
-      ]
+      ],
+      "monthOverview": "Dicembre chiude l'anno nel Mediterraneo con acque in rapido raffreddamento tra 13 e 15°C e condizioni meteo spesso proibitive — perturbazioni frequenti, vento forte e possibili nevicate sulle coste. Ma per i veri appassionati è un mese che può regalare sorprese straordinarie. Le spigole iniziano la fase pre-riproduttiva e si avvicinano alla costa, i calamari sono al picco notturno, e le sogliole si fanno trovare nella risacca durante le notti fredde. Le giornate cortissime — appena 9 ore di luce — impongono sessioni concentrate ma le rare giornate di calma invernale sono tra le più produttive dell'anno. Il mare invernale, vuoto di bagnanti e pescatori occasionali, appartiene a chi ha la costanza di affrontare il freddo.",
+      "expertTip": "A dicembre il segreto è la pazienza: le giornate di pesca produttive sono poche ma esplosive. Punta sulle pause di alta pressione tra le perturbazioni — 2-3 giorni di bel tempo dopo una settimana di maltempo creano condizioni perfette. La spigola si concentra nelle foci e nei canali: usa minnow sospending da 10cm con recupero lentissimo. Per i calamari, i porti illuminati dalle 17 (cala il buio presto) con totanare luminescenti sono il punto di partenza. La pesca notturna da spiaggia produce sogliole con verme coreano su montature sottili. Porta una thermos di caffè caldo."
     }
   }
 }
-
-
-
-
-
-
-
