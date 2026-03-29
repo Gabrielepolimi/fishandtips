@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '../ui/Button';
 
+/** Main site navigation — shared across all routes. */
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
