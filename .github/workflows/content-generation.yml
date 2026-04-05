@@ -2,15 +2,16 @@ name: AI Content Generation
 
 on:
   schedule:
-    - cron: '0 8 * * 2,4,6'
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       article_count:
-        description: 'Numero di articoli da generare'
+        description: 'Numero di articoli da generare (0 = priority schedule automatico)'
         required: false
-        default: '2'
+        default: '0'
         type: choice
         options:
+          - '0'
           - '1'
           - '2'
           - '3'
@@ -74,12 +75,16 @@ jobs:
             COUNT="${{ github.event.inputs.article_count }}"
             DRY_RUN="${{ github.event.inputs.dry_run }}"
           else
-            COUNT="2"
+            COUNT="0"
             DRY_RUN="false"
           fi
-          COUNT="${COUNT:-2}"
-          if [ "$DRY_RUN" = "true" ]; then
+          COUNT="${COUNT:-0}"
+          if [ "$DRY_RUN" = "true" ] && [ "$COUNT" = "0" ]; then
+            node scripts/generate-weekly-batch.js --dry-run
+          elif [ "$DRY_RUN" = "true" ]; then
             node scripts/generate-weekly-batch.js --count "$COUNT" --dry-run
+          elif [ "$COUNT" = "0" ]; then
+            node scripts/generate-weekly-batch.js
           else
             node scripts/generate-weekly-batch.js --count "$COUNT"
           fi

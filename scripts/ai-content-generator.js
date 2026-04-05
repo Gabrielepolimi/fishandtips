@@ -36,7 +36,7 @@ const __dirname = path.dirname(__filename);
 // ===== CONFIGURAZIONE =====
 const CONFIG = {
   geminiModel: 'gemini-2.0-flash',
-  maxTokens: 8000,
+  maxTokens: 12000,
   temperature: 0.7,
   amazonAffiliateTag: process.env.AMAZON_AFFILIATE_TAG || 'fishandtips-21',
   publishImmediately: true,
@@ -343,19 +343,21 @@ OBIETTIVO: rispondere in modo pratico a una domanda/problema di pesca. Niente br
 REQUISITI:
 1) TITOLO (max 60 caratteri): forma di domanda/problema, senza virgolette, senza brand.
 2) EXCERPT/meta description: 150-160 caratteri, informativa.
-3) LUNGHEZZA: 900-1500 parole.
+3) LUNGHEZZA: minimo 1000 parole, ideale 1200-1800 parole. Non scendere MAI sotto le 1000 parole.
 4) STRUTTURA (un solo H1 = il titolo; nel corpo usa solo H2/H3):
    - Intro breve (problema/domanda + promessa)
    - Perché conta / quando usarla
-   - Attrezzatura/setup consigliato
+   - Dettagli pratici (regole, zone, periodi, attrezzatura se pertinente)
    - Passi operativi o tecnica (step-by-step)
    - Errori comuni
    - Checklist rapida
-   - FAQ (3-5 Q&A)
+   - FAQ (esattamente 5 domande e risposte specifiche e diverse tra loro)
    - Conclusione/actionable takeaway
-5) STILE: paragrafi brevi (3-4 frasi), tono pratico, “noi pescatori”, zero fluff, esempi concreti.
-6) SEO: 5-7 keyword correlate (virgola), inserisci la keyword principale naturalmente, usa sinonimi.
-7) PRODOTTI: se non pertinenti lascia vuota la sezione PRODOTTI.
+5) FAQ: devono essere esattamente 5 domande. Ogni risposta specifica (2-4 frasi), non generica. Le domande devono essere quelle che un utente cercherebbe su Google.
+6) STILE: paragrafi brevi (3-4 frasi), tono pratico, “noi pescatori”, zero fluff, esempi concreti.
+7) SEO: 5-7 keyword correlate (virgola), inserisci la keyword principale naturalmente, usa sinonimi.
+8) SEO INTERNO: nel testo inserisci almeno un riferimento a una specie o spot di pesca rilevante. Questo verrà collegato automaticamente dal sistema.
+9) PRODOTTI: se non pertinenti lascia vuota la sezione. NON suggerire prodotti generici (canne, mulinelli, borse, waders, piombi, artificiali generici).
 
 FORMATO OUTPUT (rispetta esattamente):
 ---TITOLO---
@@ -431,10 +433,15 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
   log(`🔗 Slug generato: ${baseSlug}`);
   
   const slugExists = await articleExistsBySlug(baseSlug);
+  let finalSlug = baseSlug;
   if (slugExists) {
-    log('⚠️ Slug già esistente, aggiungo timestamp...');
+    const year = new Date().getFullYear();
+    const month = String(new Date().getMonth() + 1).padStart(2, '0');
+    const suffixedSlug = `${baseSlug}-${year}-${month}`;
+    const suffixedExists = await articleExistsBySlug(suffixedSlug);
+    finalSlug = suffixedExists ? `${baseSlug}-${year}-${month}-aggiornamento` : suffixedSlug;
+    log(`⚠️ Slug "${baseSlug}" già esistente, uso: ${finalSlug}`);
   }
-  const finalSlug = slugExists ? `${baseSlug}-${Date.now()}` : baseSlug;
 
   // 3. Recupera titoli esistenti (limit 150) e costruisci prompt; tronca se troppo lungo
   const TITLES_MAX_CHARS = 12000;
@@ -748,14 +755,27 @@ function extractImageKeywords(keyword, category) {
 }
 
 /**
- * Recupera articoli interni per linking
+ * Recupera articoli interni per linking — priorità a spot e specie, poi stessa categoria
  */
 async function getInternalLinks(categorySlug, excludeSlug, limit = 3) {
   try {
-    const posts = await sanityClient.fetch(
+    const spotAndSpeciePosts = await sanityClient.fetch(
+      `
+      *[_type == "post" && status == "published" && defined(slug.current) && slug.current != $exclude && publishedAt <= now() && (
+        "spot-di-pesca" in categories[]->slug.current || "specie" in categories[]->slug.current
+      )] | order(publishedAt desc) [0...8] {
+        title,
+        "slug": slug.current,
+        excerpt
+      }
+    `,
+      { exclude: excludeSlug }
+    );
+
+    const sameCategoryPosts = await sanityClient.fetch(
       `
       *[_type == "post" && status == "published" && defined(slug.current) && slug.current != $exclude && publishedAt <= now() && ($categorySlug in categories[]->slug.current)] 
-      | order(publishedAt desc) [0...12] {
+      | order(publishedAt desc) [0...8] {
         title,
         "slug": slug.current,
         excerpt
@@ -763,8 +783,17 @@ async function getInternalLinks(categorySlug, excludeSlug, limit = 3) {
     `,
       { exclude: excludeSlug, categorySlug }
     );
-    if (!posts || posts.length === 0) return [];
-    const shuffled = [...posts].sort(() => Math.random() - 0.5);
+
+    const seen = new Set();
+    const merged = [];
+    for (const p of [...(spotAndSpeciePosts || []), ...(sameCategoryPosts || [])]) {
+      if (!seen.has(p.slug)) {
+        seen.add(p.slug);
+        merged.push(p);
+      }
+    }
+    if (merged.length === 0) return [];
+    const shuffled = merged.sort(() => Math.random() - 0.5);
     return shuffled.slice(0, limit);
   } catch (error) {
     console.error('❌ Errore fetch internal links:', error.message);

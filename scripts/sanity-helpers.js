@@ -230,7 +230,7 @@ export async function getExistingArticleTitlesForPrompt(limit = 150) {
 /**
  * Recupera topic approvati non ancora usati (per piano editoriale / topic queue)
  * @param {number} limit - Numero massimo di topic da restituire
- * @returns {Promise<Array<{_id, title, categorySlug, used, usedAt}>>}
+ * @returns {Promise<Array<{_id, title, categorySlug, used, usedAt, priority}>>}
  */
 export async function getUnusedApprovedTopics(limit = 10) {
   try {
@@ -242,12 +242,41 @@ export async function getUnusedApprovedTopics(limit = 10) {
         used,
         usedAt,
         createdAt,
-        seasonHint
+        seasonHint,
+        priority
       }
     `, { limit });
     return topics || [];
   } catch (error) {
     console.error('❌ Errore nel recupero topic approvati:', error.message);
+    return [];
+  }
+}
+
+/**
+ * Recupera topic approvati non usati filtrati per priorità.
+ * P1=normative/licenze, P2=specie+regione, P3=domande alto intent.
+ * @param {number} priority - Livello di priorità (1, 2 o 3)
+ * @param {number} limit - Numero massimo di topic da restituire
+ * @returns {Promise<Array>}
+ */
+export async function getUnusedTopicsByPriority(priority, limit = 5) {
+  try {
+    const topics = await sanityClient.fetch(`
+      *[_type == "approvedTopic" && used != true && priority == $priority] | order(createdAt asc) [0...$limit] {
+        _id,
+        title,
+        categorySlug,
+        used,
+        usedAt,
+        createdAt,
+        seasonHint,
+        priority
+      }
+    `, { priority, limit });
+    return topics || [];
+  } catch (error) {
+    console.error(`❌ Errore nel recupero topic P${priority}:`, error.message);
     return [];
   }
 }
@@ -569,6 +598,7 @@ export default {
   getAllArticlesForDuplicateCheck,
   getExistingArticleTitlesForPrompt,
   getUnusedApprovedTopics,
+  getUnusedTopicsByPriority,
   markTopicAsUsed,
   createDocument,
   validatePostDocument,

@@ -28,7 +28,7 @@ const client = createClient({
   token: process.env.SANITY_API_TOKEN
 });
 
-const defaultPath = path.join(__dirname, '..', 'data', 'topic-queue-50.json');
+const defaultPath = path.join(__dirname, '..', 'data', 'topic-queue-100.json');
 
 /** Restituisce il valore di una chiave con possibili varianti (header xlsx con spazi/varianti) */
 function getCell(row, ...keys) {
@@ -78,7 +78,9 @@ async function readTopicsFromXlsx(filePath) {
       ? categoryRaw.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
       : 'consigli';
     const seasonHint = getCell(row, 'Stagione Pubblicazione', 'Stagione', 'seasonHint', 'season', 'stagione');
-    out.push({ title, categorySlug, seasonHint });
+    const priorityRaw = getCell(row, 'Priorità', 'Priority', 'priority', 'Priorita');
+    const priority = priorityRaw ? Number(priorityRaw) : 3;
+    out.push({ title, categorySlug, seasonHint, priority });
   }
   return out;
 }
@@ -137,6 +139,7 @@ async function importTopicQueue() {
     const title = (t.title || t.keyword || '').trim();
     const categorySlug = t.categorySlug || t.category || 'consigli';
     const seasonHint = t.seasonHint || '';
+    const priority = t.priority ? Number(t.priority) : 3;
 
     if (!title) {
       console.warn(`   ⚠️ [${i + 1}] Topic senza title, skip`);
@@ -155,6 +158,7 @@ async function importTopicQueue() {
         _type: 'approvedTopic',
         title,
         categorySlug,
+        priority,
         used: false,
         ...(seasonHint && { seasonHint }),
         createdAt: new Date().toISOString()

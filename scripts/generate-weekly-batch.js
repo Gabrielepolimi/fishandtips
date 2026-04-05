@@ -19,7 +19,7 @@ import { generateArticle } from './ai-content-generator.js';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
 import { checkSemanticDuplicate } from './semantic-duplicate-checker.js';
-import { getUnusedApprovedTopics, markTopicAsUsed } from './sanity-helpers.js';
+import { getUnusedApprovedTopics, getUnusedTopicsByPriority, markTopicAsUsed } from './sanity-helpers.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,44 +36,35 @@ const CONFIG = {
 
 const execFileAsync = promisify(execFile);
 
-// ===== KEYWORD POOL ESTESO PER STAGIONE =====
+// ===== KEYWORD POOL ESTESO PER STAGIONE (no attrezzatura generica) =====
 function getSeasonalKeywords() {
   const month = new Date().getMonth();
   
-  // Pool ESTESO di keyword stagionali
   const seasonalKeywords = {
-    // Inverno (Dic, Gen, Feb)
     winter: [
       { keyword: "pesca alla spigola in inverno tecniche e consigli", category: "tecniche-di-pesca" },
-      { keyword: "migliori esche per pesca invernale mare", category: "attrezzature" },
-      { keyword: "surfcasting invernale come pescare col freddo", category: "consigli" },
       { keyword: "pesca al calamaro di notte consigli esperti", category: "tecniche-di-pesca" },
-      { keyword: "abbigliamento pesca invernale cosa indossare", category: "attrezzature" },
       { keyword: "pesca alla seppia da riva in inverno", category: "tecniche-di-pesca" },
-      { keyword: "migliori totanare per calamaro inverno", category: "attrezzature" },
       { keyword: "come pescare le mormore in inverno", category: "tecniche-di-pesca" },
       { keyword: "pesca al sarago in inverno dalla scogliera", category: "tecniche-di-pesca" },
       { keyword: "eging invernale seppie tecniche avanzate", category: "tecniche-di-pesca" },
       { keyword: "pesca notturna invernale cosa sapere", category: "consigli" },
-      { keyword: "montature invernali surfcasting", category: "attrezzature" },
       { keyword: "come trovare le orate in inverno", category: "consigli" },
       { keyword: "bolognese invernale in porto", category: "tecniche-di-pesca" },
       { keyword: "pesca alle occhiate inverno mediterraneo", category: "tecniche-di-pesca" },
-      { keyword: "guanti pesca invernale quali scegliere", category: "attrezzature" },
-      { keyword: "esche vive inverno come conservarle", category: "consigli" },
       { keyword: "spinning invernale dalla scogliera", category: "tecniche-di-pesca" },
       { keyword: "pesca ai polpi in inverno", category: "tecniche-di-pesca" },
       { keyword: "condizioni meteo ideali pesca invernale", category: "consigli" },
       { keyword: "rock fishing invernale tecniche", category: "tecniche-di-pesca" },
-      { keyword: "terminali fluorocarbon pesca invernale", category: "attrezzature" },
       { keyword: "pesca al cefalo inverno tecniche", category: "tecniche-di-pesca" },
-      { keyword: "lampade frontali pesca notturna", category: "attrezzature" },
-      { keyword: "orari migliori pesca invernale mare", category: "consigli" }
+      { keyword: "orari migliori pesca invernale mare", category: "consigli" },
+      { keyword: "licenza pesca rinnovo invernale consigli", category: "consigli" },
+      { keyword: "limiti cattura spigola inverno regole", category: "consigli" },
+      { keyword: "esche vive inverno come conservarle", category: "consigli" },
+      { keyword: "surfcasting invernale come pescare col freddo", category: "consigli" }
     ],
-    // Primavera (Mar, Apr, Mag)
     spring: [
       { keyword: "pesca primaverile tecniche e specie target", category: "tecniche-di-pesca" },
-      { keyword: "migliori artificiali per spigola primavera", category: "attrezzature" },
       { keyword: "surfcasting primaverile orata e mormore", category: "tecniche-di-pesca" },
       { keyword: "spinning dalla scogliera in primavera", category: "tecniche-di-pesca" },
       { keyword: "esche naturali primavera quali usare", category: "consigli" },
@@ -85,27 +76,21 @@ function getSeasonalKeywords() {
       { keyword: "eging seppie grandi primavera", category: "tecniche-di-pesca" },
       { keyword: "pesca a fondo primavera dalla spiaggia", category: "tecniche-di-pesca" },
       { keyword: "migliori spot pesca primaverile", category: "consigli" },
-      { keyword: "attrezzatura light spinning primavera", category: "attrezzature" },
       { keyword: "pesca al barracuda mediterraneo primavera", category: "tecniche-di-pesca" },
       { keyword: "pastura per orate primavera ricetta", category: "consigli" },
       { keyword: "pesca alle aguglie primavera", category: "tecniche-di-pesca" },
-      { keyword: "montatura scorrevole primavera orate", category: "attrezzature" },
       { keyword: "come pescare i saraghi a primavera", category: "tecniche-di-pesca" },
       { keyword: "pesca al sugarello primavera", category: "tecniche-di-pesca" },
-      { keyword: "artificiali top water primavera", category: "attrezzature" },
       { keyword: "pesca alla trota lago primavera", category: "tecniche-di-pesca" },
-      { keyword: "terminali light rock fishing", category: "attrezzature" },
-      { keyword: "innesco americano primavera surfcasting", category: "consigli" },
-      { keyword: "pesca notturna primavera spigola", category: "tecniche-di-pesca" }
+      { keyword: "pesca notturna primavera spigola", category: "tecniche-di-pesca" },
+      { keyword: "regole pesca in fiume primavera Italia", category: "consigli" }
     ],
-    // Estate (Giu, Lug, Ago)
     summer: [
       { keyword: "pesca estiva orari migliori e tecniche", category: "consigli" },
       { keyword: "spinning alla lampuga in estate tecniche", category: "tecniche-di-pesca" },
-      { keyword: "pesca al serra tecniche e artificiali", category: "tecniche-di-pesca" },
+      { keyword: "pesca al serra tecniche dalla scogliera", category: "tecniche-di-pesca" },
       { keyword: "traina alla ricciola estate mediterraneo", category: "tecniche-di-pesca" },
       { keyword: "pesca notturna estate consigli sicurezza", category: "consigli" },
-      { keyword: "migliori popper per spinning estate", category: "attrezzature" },
       { keyword: "vertical jigging estate ricciola e dentice", category: "tecniche-di-pesca" },
       { keyword: "pesca al tonno alletterato estate", category: "tecniche-di-pesca" },
       { keyword: "come pescare la palamita in estate", category: "tecniche-di-pesca" },
@@ -113,50 +98,39 @@ function getSeasonalKeywords() {
       { keyword: "shore jigging estate tecniche", category: "tecniche-di-pesca" },
       { keyword: "pesca dalla barca estate consigli", category: "consigli" },
       { keyword: "migliori ore pesca estiva mare", category: "consigli" },
-      { keyword: "pesca al pesce pappagallo estate", category: "tecniche-di-pesca" },
-      { keyword: "artificiali metallici estate quali usare", category: "attrezzature" },
       { keyword: "pesca al tombarello tecniche", category: "tecniche-di-pesca" },
-      { keyword: "come affrontare il caldo in pesca", category: "consigli" },
       { keyword: "pesca al calamaro estate notte", category: "tecniche-di-pesca" },
       { keyword: "traina col vivo estate ricciole", category: "tecniche-di-pesca" },
-      { keyword: "pesca al bonito tecniche e attrezzatura", category: "tecniche-di-pesca" },
-      { keyword: "snorkeling fishing estate", category: "tecniche-di-pesca" },
       { keyword: "pesca alle occhiate estate bolognese", category: "tecniche-di-pesca" },
-      { keyword: "artificiali per serra estate", category: "attrezzature" },
       { keyword: "pesca alba estate migliori spot", category: "consigli" },
-      { keyword: "attrezzatura pesca estate cosa portare", category: "attrezzature" }
+      { keyword: "fermo pesca estate regole pescatori sportivi", category: "consigli" },
+      { keyword: "pesca in spiaggia estate è vietata", category: "consigli" },
+      { keyword: "limiti cattura tonno rosso estate Italia", category: "consigli" }
     ],
-    // Autunno (Set, Ott, Nov)
     autumn: [
       { keyword: "pesca autunnale specie e tecniche migliori", category: "tecniche-di-pesca" },
       { keyword: "surfcasting autunno spigola e orata", category: "tecniche-di-pesca" },
       { keyword: "eging autunnale seppie e calamari", category: "tecniche-di-pesca" },
-      { keyword: "migliori esche autunno surfcasting", category: "attrezzature" },
-      { keyword: "pesca alla spigola autunno artificiali", category: "tecniche-di-pesca" },
+      { keyword: "pesca alla spigola autunno dalla scogliera", category: "tecniche-di-pesca" },
       { keyword: "spinning autunnale dalla scogliera", category: "tecniche-di-pesca" },
       { keyword: "pesca al dentice autunno bolentino", category: "tecniche-di-pesca" },
       { keyword: "come pescare le orate in autunno", category: "tecniche-di-pesca" },
       { keyword: "pesca al calamaro autunno tecniche", category: "tecniche-di-pesca" },
-      { keyword: "migliori artificiali autunno spinning", category: "attrezzature" },
       { keyword: "pesca al sarago autunno scogliera", category: "tecniche-di-pesca" },
       { keyword: "esche arenicola autunno surfcasting", category: "consigli" },
       { keyword: "pesca alla seppia autunno da riva", category: "tecniche-di-pesca" },
       { keyword: "bolognese autunnale porto e scogliera", category: "tecniche-di-pesca" },
-      { keyword: "montature autunno pesca fondo", category: "attrezzature" },
       { keyword: "pesca al luccio autunno lago", category: "tecniche-di-pesca" },
       { keyword: "condizioni meteo pesca autunnale", category: "consigli" },
       { keyword: "pesca notturna autunno calamari", category: "tecniche-di-pesca" },
       { keyword: "come pescare con vento forte", category: "consigli" },
       { keyword: "pesca alla trota torrente autunno", category: "tecniche-di-pesca" },
-      { keyword: "artificiali sinking autunno", category: "attrezzature" },
       { keyword: "pesca al cefalo autunno tecniche", category: "tecniche-di-pesca" },
-      { keyword: "totanare fosforescenti autunno", category: "attrezzature" },
       { keyword: "pesca al black bass autunno", category: "tecniche-di-pesca" },
       { keyword: "orari migliori pesca autunnale mare", category: "consigli" }
     ]
   };
   
-  // Determina la stagione
   let season;
   if (month >= 2 && month <= 4) season = 'spring';
   else if (month >= 5 && month <= 7) season = 'summer';
@@ -168,39 +142,42 @@ function getSeasonalKeywords() {
   return { keywords: seasonalKeywords[season], season };
 }
 
-// ===== KEYWORD EVERGREEN ESTESE =====
+// ===== KEYWORD EVERGREEN (normative, regole, domande — no attrezzatura generica) =====
 const EVERGREEN_KEYWORDS = [
-  { keyword: "come scegliere la canna da pesca guida completa", category: "attrezzature" },
-  { keyword: "migliori mulinelli da spinning guida acquisto", category: "attrezzature" },
+  { keyword: "licenza pesca in mare come ottenerla Italia 2026", category: "consigli" },
+  { keyword: "quanto pesce si può pescare al giorno in mare Italia", category: "consigli" },
+  { keyword: "taglia minima pesci Italia tabella aggiornata", category: "consigli" },
+  { keyword: "pesca notturna dal porto è legale in Italia", category: "consigli" },
+  { keyword: "pesca subacquea regole e licenze Italia", category: "consigli" },
+  { keyword: "serve patentino per pescare in fiume Italia", category: "consigli" },
+  { keyword: "pesca in area marina protetta regole e permessi", category: "consigli" },
   { keyword: "nodi da pesca essenziali tutorial illustrato", category: "consigli" },
-  { keyword: "licenza pesca in mare come ottenerla Italia", category: "consigli" },
   { keyword: "montatura surfcasting classica come fare", category: "tecniche-di-pesca" },
   { keyword: "montatura bolognese scorrevole tutorial", category: "tecniche-di-pesca" },
   { keyword: "come conservare le esche vive correttamente", category: "consigli" },
   { keyword: "pesca dalla scogliera tecniche base principianti", category: "tecniche-di-pesca" },
   { keyword: "come leggere il mare per pescare meglio", category: "consigli" },
-  { keyword: "attrezzatura pesca per principianti cosa comprare", category: "attrezzature" },
-  { keyword: "differenza trecciato e nylon quando usarli", category: "consigli" },
-  { keyword: "come regolare la frizione del mulinello", category: "consigli" },
-  { keyword: "manutenzione canna da pesca consigli", category: "consigli" },
   { keyword: "errori comuni pesca principianti evitare", category: "consigli" },
-  { keyword: "come scegliere gli ami da pesca", category: "attrezzature" },
-  { keyword: "pesca catch and release come fare", category: "consigli" },
-  { keyword: "come fotografare le catture pesca", category: "consigli" },
+  { keyword: "pesca catch and release come fare Italia", category: "consigli" },
   { keyword: "sicurezza pesca dalla scogliera", category: "consigli" },
-  { keyword: "come pulire e sfilettare il pesce", category: "consigli" },
-  { keyword: "regolamento pesca sportiva Italia 2024", category: "consigli" },
-  { keyword: "migliori app per pescatori smartphone", category: "consigli" },
-  { keyword: "come scegliere il fluorocarbon giusto", category: "attrezzature" },
-  { keyword: "guida girelle e moschettoni pesca", category: "attrezzature" },
+  { keyword: "regolamento pesca sportiva Italia 2026", category: "consigli" },
   { keyword: "pasturazione mare tecniche e ricette", category: "consigli" },
   { keyword: "come interpretare le fasi lunari pesca", category: "consigli" },
-  { keyword: "migliori marche attrezzatura pesca", category: "attrezzature" },
-  { keyword: "pesca in kayak guida completa", category: "tecniche-di-pesca" },
-  { keyword: "come scegliere la barca per pesca", category: "consigli" },
-  { keyword: "elettronica pesca ecoscandaglio guida", category: "attrezzature" },
-  { keyword: "abbigliamento tecnico pesca cosa scegliere", category: "attrezzature" }
+  { keyword: "pesca in kayak serve patente nautica", category: "consigli" }
 ];
+
+// ===== SCHEDULING PRIORITÀ =====
+// P1 = 1 articolo ogni 3 giorni, P2 = 1 ogni 2 giorni, P3 = 1 al giorno
+function getPrioritySchedule() {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  const schedule = { 3: 1 }; // P3 sempre 1 al giorno
+  if (dayOfYear % 2 === 0) schedule[2] = 1;
+  if (dayOfYear % 3 === 0) schedule[1] = 1;
+  const total = Object.values(schedule).reduce((a, b) => a + b, 0);
+  console.log(`📅 Giorno dell'anno: ${dayOfYear}`);
+  console.log(`📋 Schedule priorità: P1=${schedule[1] || 0}, P2=${schedule[2] || 0}, P3=${schedule[3] || 0} (totale: ${total})`);
+  return schedule;
+}
 
 // ===== FUNZIONE PRINCIPALE =====
 async function generateWeeklyBatch(options = {}) {
@@ -212,7 +189,7 @@ async function generateWeeklyBatch(options = {}) {
   } = options;
   
   console.log('\n' + '🗓️'.repeat(30));
-  console.log('GENERAZIONE BATCH SETTIMANALE');
+  console.log('GENERAZIONE BATCH GIORNALIERA');
   console.log('🗓️'.repeat(30) + '\n');
   
   const startTime = Date.now();
@@ -223,8 +200,8 @@ async function generateWeeklyBatch(options = {}) {
     results: []
   };
   
-  // 1. Determina le keyword: --file ha priorità, poi default = topic queue, --use-pool = pool stagionale
   const useTopicQueue = options.useTopicQueue !== false;
+  const usePrioritySchedule = options.usePrioritySchedule !== false;
   let allKeywords;
   let safeKeywords = [];
   let checkedCount = 0;
@@ -244,22 +221,50 @@ async function generateWeeklyBatch(options = {}) {
     allKeywords = shuffleArray(allKeywords);
   } else if (useTopicQueue) {
     sourceIsTopicQueue = true;
-    console.log('📋 Modalità TOPIC QUEUE (default): uso solo topic approvati da Sanity\n');
-    const topics = await getUnusedApprovedTopics(count);
-    safeKeywords = topics
-      .slice(0, count)
-      .filter((t) => t.title && !String(t.title).trim().startsWith('-'))
-      .map((t) => ({
-        keyword: t.title.trim(),
-        category: t.categorySlug || 'consigli',
-        topicId: t._id
-      }));
-    if (safeKeywords.length === 0) {
-      console.log('🛑 Topic queue vuota. Aggiungi nuovi topic approvati in Sanity (tipo approvedTopic).');
-      console.log('   Nessun articolo verrà generato fino a quando la queue non viene rifornita.');
-      return log;
+
+    if (usePrioritySchedule) {
+      console.log('📋 Modalità PRIORITY SCHEDULE: topic approvati per priorità da Sanity\n');
+      const schedule = getPrioritySchedule();
+
+      for (const [priority, needed] of Object.entries(schedule)) {
+        const pTopics = await getUnusedTopicsByPriority(Number(priority), needed);
+        const mapped = pTopics
+          .filter((t) => t.title && !String(t.title).trim().startsWith('-'))
+          .slice(0, needed)
+          .map((t) => ({
+            keyword: t.title.trim(),
+            category: t.categorySlug || 'consigli',
+            topicId: t._id,
+            priority: Number(priority)
+          }));
+        safeKeywords.push(...mapped);
+        console.log(`   P${priority}: ${mapped.length}/${needed} topic trovati`);
+      }
+
+      if (safeKeywords.length === 0) {
+        console.log('\n🛑 Topic queue vuota per tutte le priorità.');
+        console.log('   Aggiungi nuovi topic approvati in Sanity (tipo approvedTopic).');
+        return log;
+      }
+      console.log(`\n   Totale topic selezionati: ${safeKeywords.length}`);
     } else {
-      console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
+      console.log('📋 Modalità TOPIC QUEUE (FIFO): uso solo topic approvati da Sanity\n');
+      const topics = await getUnusedApprovedTopics(count);
+      safeKeywords = topics
+        .slice(0, count)
+        .filter((t) => t.title && !String(t.title).trim().startsWith('-'))
+        .map((t) => ({
+          keyword: t.title.trim(),
+          category: t.categorySlug || 'consigli',
+          topicId: t._id,
+          priority: t.priority || 3
+        }));
+      if (safeKeywords.length === 0) {
+        console.log('🛑 Topic queue vuota. Aggiungi nuovi topic approvati in Sanity (tipo approvedTopic).');
+        return log;
+      } else {
+        console.log(`   Topic disponibili: ${topics.length}, ne uso ${safeKeywords.length}`);
+      }
     }
   } else {
     const { keywords: seasonal } = getSeasonalKeywords();
@@ -546,12 +551,14 @@ async function main() {
     keywordsFile: null,
     dryRun: false,
     skipDuplicateCheck: false,
-    useTopicQueue: true
+    useTopicQueue: true,
+    usePrioritySchedule: true
   };
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--count' && args[i + 1]) {
       options.count = parseInt(args[i + 1]);
+      options.usePrioritySchedule = false;
       i++;
     } else if (args[i] === '--file' && args[i + 1]) {
       options.keywordsFile = args[i + 1];
@@ -562,39 +569,41 @@ async function main() {
       options.skipDuplicateCheck = true;
     } else if (args[i] === '--use-pool') {
       options.useTopicQueue = false;
+      options.usePrioritySchedule = false;
     } else if (args[i] === '--use-topic-queue') {
       options.useTopicQueue = true;
+    } else if (args[i] === '--no-priority-schedule') {
+      options.usePrioritySchedule = false;
     } else if (args[i] === '--help') {
       console.log(`
-🗓️ FishandTips Weekly Batch Generator
+🗓️ FishandTips Daily Batch Generator
 ======================================
 
-Genera automaticamente un batch di articoli per la settimana.
+Genera automaticamente articoli con sistema di PRIORITÀ:
+  P1 — Normative/licenze: 1 articolo ogni 3 giorni
+  P2 — Specie+mese+regione: 1 articolo ogni 2 giorni
+  P3 — Domande ad alto intent: 1 articolo al giorno
+
 Include sistema ANTI-DUPLICATI con retry automatico.
 
 Uso:
   node scripts/generate-weekly-batch.js [opzioni]
 
 Opzioni:
-  --count <n>        Numero di articoli da generare (default: 3)
-  --file <nome.json> Usa file keyword personalizzato dalla cartella data/
-  --use-topic-queue  Usa topic approvati da Sanity (DEFAULT)
-  --use-pool         Usa pool stagionale + evergreen (fallback)
-  --dry-run          Mostra keyword senza generare articoli
-  --skip-check       Salta il check duplicati (solo con --use-pool/--file)
-  --help             Mostra questo messaggio
+  --count <n>              Genera N articoli (disattiva priority schedule)
+  --file <nome.json>       Usa file keyword personalizzato dalla cartella data/
+  --use-topic-queue        Usa topic approvati da Sanity (DEFAULT)
+  --use-pool               Usa pool stagionale + evergreen (fallback)
+  --no-priority-schedule   Disattiva scheduling per priorità, usa FIFO
+  --dry-run                Mostra keyword senza generare articoli
+  --skip-check             Salta il check duplicati (solo con --use-pool/--file)
+  --help                   Mostra questo messaggio
 
 Esempi:
-  node scripts/generate-weekly-batch.js
-  node scripts/generate-weekly-batch.js --count 5
-  node scripts/generate-weekly-batch.js --use-pool --count 2
-  node scripts/generate-weekly-batch.js --file keywords-custom.json
-  node scripts/generate-weekly-batch.js --count 10 --dry-run
-
-Sistema Anti-Duplicati:
-  Di default usa la topic queue (topic approvati in Sanity).
-  Con --use-pool rispetta le raccomandazioni del checker: skip/modify_angle/error.
-  Nessun riempimento dal pool senza check.
+  node scripts/generate-weekly-batch.js                  # Priority schedule (default)
+  node scripts/generate-weekly-batch.js --count 5        # 5 articoli FIFO
+  node scripts/generate-weekly-batch.js --use-pool       # Pool stagionale
+  node scripts/generate-weekly-batch.js --dry-run        # Solo simulazione
 `);
       return;
     }
