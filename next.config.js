@@ -5,6 +5,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+        destination: 'https://fishandtips.it/:path*',
+        permanent: true,
+      },
       { source: '/migliori-pesca-2026', destination: '/migliori', permanent: true },
     ];
   },
@@ -18,7 +24,7 @@ const nextConfig = {
       },
     ],
   },
-  // Canonical strategy: no trailing slash, HTTPS only handled by Vercel redirects
+  // Canonical strategy: no trailing slash, HTTP→HTTPS redirect via x-forwarded-proto header
   trailingSlash: false,
   // Ottimizzazioni SEO e Performance
   compress: true,
