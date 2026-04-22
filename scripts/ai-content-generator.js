@@ -42,8 +42,6 @@ const CONFIG = {
   publishImmediately: true,
   readingTimeMin: 5,
   readingTimeMax: 12,
-  initialLikesMin: 0,
-  initialLikesMax: 0,
   authorProfile: "L'autore pesca principalmente in Liguria, pratica surfcasting e spinning, ha 15 anni di esperienza. I consigli devono essere coerenti con questo profilo.",
   // Cartella immagini fallback
   fallbackImagesDir: path.join(__dirname, '..', 'public', 'images', 'fallback-fishing'),
@@ -558,11 +556,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     CONFIG.readingTimeMin,
     Math.min(CONFIG.readingTimeMax, Math.ceil(wordCount / 200))
   );
-  const initialLikes = Math.floor(
-    Math.random() * (CONFIG.initialLikesMax - CONFIG.initialLikesMin + 1)
-  ) + CONFIG.initialLikesMin;
-
-  // Documento completo (initialLikes omesso se 0, così il frontend non mostra il contatore)
   const sanityDocument = {
     _type: 'post',
     title: parsed.title,
@@ -572,7 +565,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     categories: categoryId ? [{ _type: 'reference', _ref: categoryId }] : [],
     body: bodyBlocks,
     readingTime,
-    ...(initialLikes > 0 && { initialLikes }),
     seoTitle: parsed.title,
     seoDescription: parsed.excerpt,
     seoKeywords: parsed.keywords || [],
@@ -622,7 +614,6 @@ export async function generateArticle(keyword, categorySlug = 'consigli', option
     log(`   🔗 Slug: ${finalSlug}`);
     log(`   📊 Parole: ~${wordCount}`);
     log(`   ⏱️ Lettura: ${readingTime} min`);
-    log(`   ❤️ Likes: ${initialLikes > 0 ? initialLikes : '(campo omesso, contatore nascosto)'}`);
     log(`   🛒 Prodotti linkati: ${parsed.products?.length || 0}`);
     if (mainImageAsset) {
       log(`   📸 Immagine: ✅ (${imageSource === 'unsplash' ? 'Unsplash' : 'Fallback locale'})`);

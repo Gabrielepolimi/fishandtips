@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { sanityClient, urlFor } from '../../../sanityClient';
 import RelatedArticlesCarousel from '../../../components/articles/RelatedArticlesCarousel';
-import LikeButton from '../../../components/articles/LikeButton';
 import FishingRodComparison from '../../../components/articles/FishingRodComparison';
 import YouTubeEmbed from '../../../components/articles/YouTubeEmbed';
 import FishSpeciesBox from '../../../components/articles/FishSpeciesBox';
@@ -35,7 +34,6 @@ interface Post {
   seoImage?: string;
   readingTime?: number;
   status: string;
-  initialLikes?: number;
   showFishingRodComparison?: boolean;
   fishingRodComparisonTitle?: string;
   selectedProducts?: Array<{
@@ -169,7 +167,6 @@ async function getPost(slug: string): Promise<Post | null> {
         "seoImage": seoImage.asset->url,
         readingTime,
         status,
-        initialLikes,
         showFishingRodComparison,
         fishingRodComparisonTitle,
         selectedProducts,
@@ -369,12 +366,6 @@ export default async function PostPage({ params }: Props) {
                   <span>{post.readingTime} min di lettura</span>
                 </>
               )}
-            </div>
-            <div className="flex items-center space-x-4">
-              <LikeButton 
-                articleId={post._id} 
-                initialLikes={post.initialLikes || 0} 
-              />
             </div>
           </div>
 

@@ -13,17 +13,17 @@
 name: 📱 Instagram Daily Post
 
 on:
-  schedule:
-    # Orari UTC (aggiungi +1 per Italia inverno, +2 per estate)
-    - cron: '0 6 * * 1'   # Lunedì 07:00 IT (06:00 UTC)
-    - cron: '30 11 * * 2' # Martedì 12:30 IT
-    - cron: '0 18 * * 3'  # Mercoledì 19:00 IT
-    - cron: '30 11 * * 4' # Giovedì 12:30 IT
-    - cron: '0 6 * * 5'   # Venerdì 07:00 IT
-    - cron: '0 9 * * 6'   # Sabato 10:00 IT
-    - cron: '0 17 * * 0'  # Domenica 18:00 IT
+  # Schedule disabilitato - post automatici disattivati
+  # schedule:
+  #   - cron: '0 6 * * 1'   # Lunedì 07:00 IT (06:00 UTC)
+  #   - cron: '30 11 * * 2' # Martedì 12:30 IT
+  #   - cron: '0 18 * * 3'  # Mercoledì 19:00 IT
+  #   - cron: '30 11 * * 4' # Giovedì 12:30 IT
+  #   - cron: '0 6 * * 5'   # Venerdì 07:00 IT
+  #   - cron: '0 9 * * 6'   # Sabato 10:00 IT
+  #   - cron: '0 17 * * 0'  # Domenica 18:00 IT
   
-  # Permetti anche esecuzione manuale
+  # Esecuzione solo manuale
   workflow_dispatch:
     inputs:
       content_type:
