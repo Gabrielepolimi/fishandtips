@@ -244,7 +244,8 @@ async function generateWeeklyBatch(options = {}) {
       if (safeKeywords.length === 0) {
         console.log('\n🛑 Topic queue vuota per tutte le priorità.');
         console.log('   Aggiungi nuovi topic approvati in Sanity (tipo approvedTopic).');
-        return log;
+        // Failure esplicito: meglio una Action rossa che un finto verde silenzioso.
+        process.exit(1);
       }
       console.log(`\n   Totale topic selezionati: ${safeKeywords.length}`);
     } else {
