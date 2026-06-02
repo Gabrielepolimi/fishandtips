@@ -23,7 +23,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Applica a tutte le pagine; la condizione sopra decide quando intervenire.
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|download/).*)'],
 }
 
 

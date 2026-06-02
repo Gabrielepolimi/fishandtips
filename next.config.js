@@ -14,6 +14,15 @@ const nextConfig = {
       { source: '/migliori-pesca-2026', destination: '/migliori', permanent: true },
     ];
   },
+  // Serve PDF da route dinamica: evita 404 CDN in cache su /download/* (Vercel cache HIT su 404 pre-deploy)
+  async rewrites() {
+    return [
+      {
+        source: '/download/:filename',
+        destination: '/api/download/:filename',
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
