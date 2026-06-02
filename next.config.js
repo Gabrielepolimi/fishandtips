@@ -12,6 +12,12 @@ const nextConfig = {
         permanent: true,
       },
       { source: '/migliori-pesca-2026', destination: '/migliori', permanent: true },
+      {
+        source: '/download/Guida-Taglie-Minime-Pesci-2026-FishandTips.pdf',
+        destination:
+          'https://cdn.sanity.io/files/3nnnl6gi/production/14eea4062fd3fd872f52cfb8d20e169c29633321.pdf',
+        permanent: false,
+      },
     ];
   },
   // Serve PDF da route dinamica: evita 404 CDN in cache su /download/* (Vercel cache HIT su 404 pre-deploy)

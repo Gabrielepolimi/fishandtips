@@ -63,6 +63,11 @@
       "source": "/articoli/come-scegliere-il-fluorocarbon-per-i-terminali-invernali",
       "destination": "/articoli/fluorocarbon-guida-definitiva-alla-scelta-perfetta",
       "permanent": true
+    },
+    {
+      "source": "/download/Guida-Taglie-Minime-Pesci-2026-FishandTips.pdf",
+      "destination": "https://cdn.sanity.io/files/3nnnl6gi/production/14eea4062fd3fd872f52cfb8d20e169c29633321.pdf",
+      "permanent": false
     }
   ],
   "headers": [
