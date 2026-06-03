@@ -1,4 +1,4 @@
-/** Configurazione content gate per articolo (PDF + copy + localStorage) */
+/** Configurazione content gate per articolo (PDF + copy + localStorage). */
 
 export type ArticleGateCopy = {
   title: string;
