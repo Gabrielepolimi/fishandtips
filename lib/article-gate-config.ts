@@ -14,6 +14,8 @@ export type ArticleGateConfig = {
   storageKey: string;
   pdfBackupUrl: string;
   copy: ArticleGateCopy;
+  /** Test/conversione: nessun testo visibile prima dell'iscrizione (corpo in sr-only per SEO) */
+  hideArticleUntilUnlock?: boolean;
 };
 
 const PDF_TAGLIE_URL =
@@ -24,8 +26,9 @@ export const GATED_ARTICLES: Record<string, ArticleGateConfig> = {
     slug: 'taglia-minima-dei-pesci-in-italia-2026-tabella-completa',
     storageKey: 'ft-gate-taglie-2026',
     pdfBackupUrl: PDF_TAGLIE_URL,
+    hideArticleUntilUnlock: true,
     copy: {
-      title: 'Scarica la tabella completa con 30+ specie in PDF',
+      title: 'Scarica la tabella ufficiale 2026 con 30+ specie',
       bullets: [
         'Taglie minime aggiornate 2026 per mare e acqua dolce',
         'Oltre 30 specie in un\'unica tabella chiara e stampabile',
@@ -42,7 +45,7 @@ export const GATED_ARTICLES: Record<string, ArticleGateConfig> = {
     storageKey: 'ft-gate-recfishing-2026',
     pdfBackupUrl: PDF_TAGLIE_URL,
     copy: {
-      title: 'Scarica gratis la tabella taglie minime 2026',
+      title: 'Scarica la tabella ufficiale 2026 con 30+ specie',
       bullets: [
         'Taglie minime aggiornate per mare e acqua dolce — da tenere a portata di mano',
         'Oltre 30 specie in PDF: utile insieme al diario RecFishing e alle nuove regole 2026',

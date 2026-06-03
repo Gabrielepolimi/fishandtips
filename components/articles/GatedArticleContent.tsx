@@ -39,11 +39,15 @@ export default function GatedArticleContent({
 
   const hasGatedContent = gatedBlocks.length > 0;
 
+  const showPreview = previewBlocks.length > 0;
+
   return (
     <>
-      <div className={articleProseClassName}>
-        <PortableText value={previewBlocks} components={articlePortableTextComponents} />
-      </div>
+      {showPreview && (
+        <div className={articleProseClassName}>
+          <PortableText value={previewBlocks} components={articlePortableTextComponents} />
+        </div>
+      )}
 
       {hasGatedContent && !unlocked && (
         <ContentGate gateConfig={gateConfig} onSuccess={handleUnlock} />
