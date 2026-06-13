@@ -14,8 +14,8 @@ export type ArticleGateConfig = {
   storageKey: string;
   pdfBackupUrl: string;
   copy: ArticleGateCopy;
-  /** Test/conversione: nessun testo visibile prima dell'iscrizione (corpo in sr-only per SEO) */
-  hideArticleUntilUnlock?: boolean;
+  /** Box inline senza nascondere contenuto: il box appare ma l'articolo resta tutto visibile */
+  inlineCta?: boolean;
 };
 
 const PDF_TAGLIE_URL =
@@ -26,7 +26,7 @@ export const GATED_ARTICLES: Record<string, ArticleGateConfig> = {
     slug: 'taglia-minima-dei-pesci-in-italia-2026-tabella-completa',
     storageKey: 'ft-gate-taglie-2026',
     pdfBackupUrl: PDF_TAGLIE_URL,
-    hideArticleUntilUnlock: true,
+    inlineCta: true,
     copy: {
       title: 'Scarica la tabella ufficiale 2026 con 30+ specie',
       bullets: [

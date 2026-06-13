@@ -38,8 +38,8 @@ export default function GatedArticleContent({
   }, []);
 
   const hasGatedContent = gatedBlocks.length > 0;
-
   const showPreview = previewBlocks.length > 0;
+  const isInline = gateConfig.inlineCta;
 
   return (
     <>
@@ -49,26 +49,28 @@ export default function GatedArticleContent({
         </div>
       )}
 
-      {hasGatedContent && !unlocked && (
+      {!unlocked && (
         <ContentGate gateConfig={gateConfig} onSuccess={handleUnlock} />
       )}
 
       {hasGatedContent && (
         <div
-          className={unlocked ? articleProseClassName : 'sr-only'}
-          aria-hidden={!unlocked}
+          className={isInline || unlocked ? articleProseClassName : 'sr-only'}
+          aria-hidden={!isInline && !unlocked}
         >
           <PortableText value={gatedBlocks} components={articlePortableTextComponents} />
         </div>
       )}
 
-      <noscript>
-        {hasGatedContent && (
-          <div className={articleProseClassName}>
-            <PortableText value={gatedBlocks} components={articlePortableTextComponents} />
-          </div>
-        )}
-      </noscript>
+      {!isInline && (
+        <noscript>
+          {hasGatedContent && (
+            <div className={articleProseClassName}>
+              <PortableText value={gatedBlocks} components={articlePortableTextComponents} />
+            </div>
+          )}
+        </noscript>
+      )}
     </>
   );
 }

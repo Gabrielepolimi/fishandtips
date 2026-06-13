@@ -238,9 +238,7 @@ export default async function PostPage({ params }: Props) {
   const gateConfig = getArticleGateConfig(slug);
   const isGatedArticle = gateConfig !== null;
   const { preview: previewBlocks, gated: gatedBlocks } = isGatedArticle
-    ? gateConfig?.hideArticleUntilUnlock
-      ? { preview: [], gated: (post.body ?? []) as typeof post.body }
-      : splitBodyForGate(post.body, { introParagraphCount: 3 })
+    ? splitBodyForGate(post.body, { introParagraphCount: 3 })
     : { preview: [], gated: [] };
 
   // Controlli di sicurezza per i dati
@@ -405,7 +403,7 @@ export default async function PostPage({ params }: Props) {
         </header>
 
         {/* Immagine principale */}
-        {post.mainImage && !gateConfig?.hideArticleUntilUnlock && (
+        {post.mainImage && (
           <div className="mb-8 sm:mb-12">
             <Image
               src={post.mainImage}
@@ -525,9 +523,7 @@ export default async function PostPage({ params }: Props) {
         )}
 
         {/* Schede specie menzionate */}
-        {post.body && !gateConfig?.hideArticleUntilUnlock && (
-          <FishSpeciesBox body={post.body} />
-        )}
+        {post.body && <FishSpeciesBox body={post.body} />}
 
         {/* Footer articolo */}
         <footer className="mt-16 pt-10 border-t border-gray-200">
