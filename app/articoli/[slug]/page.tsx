@@ -403,7 +403,7 @@ export default async function PostPage({ params }: Props) {
         </header>
 
         {/* Immagine principale */}
-        {post.mainImage && !gateConfig?.inlineCta && (
+        {post.mainImage && !gateConfig && (
           <div className="mb-8 sm:mb-12">
             <Image
               src={post.mainImage}
