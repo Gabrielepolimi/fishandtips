@@ -62,15 +62,6 @@ export default function GatedArticleContent({
         </div>
       )}
 
-      {!isInline && (
-        <noscript>
-          {hasGatedContent && (
-            <div className={articleProseClassName}>
-              <PortableText value={gatedBlocks} components={articlePortableTextComponents} />
-            </div>
-          )}
-        </noscript>
-      )}
     </>
   );
 }
